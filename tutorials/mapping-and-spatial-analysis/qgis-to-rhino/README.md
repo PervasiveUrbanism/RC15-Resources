@@ -25,7 +25,6 @@ Download this folder with its subfolders intact. Keep project files and their as
 - [FLDB.sqlite](FLDB.sqlite)
 - [FlickrDownload.qgz](FlickrDownload.qgz)
 - [Landscape.3dm](Landscape.3dm)
-- [Landscape.3dmbak](Landscape.3dmbak)
 - [Landscape.gh](Landscape.gh)
 - [Photos.csv](Photos.csv)
 - [Photos.qmd](Photos.qmd)
