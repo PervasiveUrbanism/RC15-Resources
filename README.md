@@ -32,6 +32,10 @@ Use GitHub's **Code > Download ZIP**, or clone this repository, to obtain exampl
 
 Some series span multiple topics and tools; related topic pages link to them without duplicating files.
 
+## Maintaining the library
+
+See the [editorial backlog and tutorial wishlist](EDITORIAL_BACKLOG.md) for the review checklist, provisional effort assessments and planned improvements. This is a working document for developing the library one tutorial at a time.
+
 ## Adding a resource
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the folder convention and tutorial checklist.
