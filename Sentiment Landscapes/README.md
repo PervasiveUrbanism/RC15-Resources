@@ -1,6 +1,10 @@
 # Sentiment Landscapes
 
-Initial transfer from the [source Google Drive folder](https://drive.google.com/drive/folders/1Vne2oIm3IZLKmHETGs8oMA8x86V2IqWA). Original filenames and internal structure are preserved. Tutorial review and polishing are a separate step.
+Initial transfer from the [source Google Drive folder](https://drive.google.com/drive/folders/1Vne2oIm3IZLKmHETGs8oMA8x86V2IqWA). Original filenames and internal structure are preserved.
+
+**Start here:** [Tutorial draft](TUTORIAL.md) — from photo locations to a landscape illustration.
+
+**Looking for a missing file?** [Files not transferred — locations and Drive download links](FILES-NOT-TRANSFERRED.md).
 
 ## Contents
 
@@ -10,7 +14,7 @@ Initial transfer from the [source Google Drive folder](https://drive.google.com/
 - `Images/`: illustrations, screenshots and image working files.
 - `assets/`, `Background.png` and `london_photos.csv`: supporting data, maps and imagery.
 
-This example collection explores photo locations, spatial aggregation and landscape visualisation with QGIS, Rhino/Grasshopper and Illustrator. Familiarity with these applications is assumed. A step-by-step guide, difficulty assessment, required packages and tested versions remain to be reviewed. Author and teaching year are unconfirmed; source files date from 2025. Transfer integrity checked on 25 October 2026; application compatibility has not been tested.
+This example collection explores photo locations, spatial aggregation and landscape visualisation with QGIS, Rhino/Grasshopper and Illustrator. Familiarity with these applications is assumed. A first step-by-step tutorial draft now records intermediate-level exercises and the package versions found in the source definition. Application testing and tutorial polishing remain to be completed. Author and teaching year are unconfirmed; source files date from 2025. Transfer integrity checked on 25 October 2026; application compatibility has not been tested.
 
 ## Existing Rhino output image
 
@@ -22,7 +26,7 @@ QGIS screenshots are also retained in `Images/`.
 
 ## Omitted dependencies
 
-These seven files remain in Drive and were not changed or deleted. Paths are relative to this folder. Restore a required dependency to its exact path from the linked Drive original.
+For a quick lookup, open [Files not transferred — locations and Drive links](FILES-NOT-TRANSFERRED.md). These seven files remain in Drive and were not changed or deleted. Paths are relative to this folder. Restore a required dependency to its exact path from the linked Drive original.
 
 | Original path | Bytes | Reason | Drive original |
 | --- | ---: | --- | --- |
@@ -43,4 +47,3 @@ QGIS and Grasshopper may require manual relinking of source paths. The QGIS proj
 Repeated assets in separate source folders are retained to preserve references. Git does not store the empty `Illustrator/1x/` directory; the empty `assets/greater-london-latest.osm/` directory is recreated when restoring its omitted file.
 
 Third-party data and imagery licences and credits remain to be established. Filenames indicate OpenStreetMap and Flickr inputs; review actual attribution and reuse terms. This README grants no additional licence.
-
