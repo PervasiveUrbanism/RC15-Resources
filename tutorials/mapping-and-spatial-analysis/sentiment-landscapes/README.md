@@ -4,7 +4,7 @@
 
 Initial transfer from the [source Google Drive folder](https://drive.google.com/drive/folders/1Vne2oIm3IZLKmHETGs8oMA8x86V2IqWA). Original filenames and internal structure are preserved.
 
-**Start here:** [Tutorial draft](TUTORIAL.md) — from photo locations to a landscape illustration.
+**Start here:** [Chapter 1 — From Points to Landscapes](01-introduction.md). The [earlier technical draft](TUTORIAL.md) remains available as reference while the practical chapters are developed.
 
 **Looking for a missing file?** [Files not transferred — locations and Drive download links](FILES-NOT-TRANSFERRED.md).
 
