@@ -1,5 +1,7 @@
 # Sentiment Landscapes
 
+[Browse this topic](../README.md) | [Library home](../../../README.md)
+
 Initial transfer from the [source Google Drive folder](https://drive.google.com/drive/folders/1Vne2oIm3IZLKmHETGs8oMA8x86V2IqWA). Original filenames and internal structure are preserved.
 
 **Start here:** [Tutorial draft](TUTORIAL.md) — from photo locations to a landscape illustration.

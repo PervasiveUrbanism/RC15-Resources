@@ -7,6 +7,7 @@ Resources are organised by topic. Software indexes offer another way to find the
 ## Browse by topic
 
 - [Mapping and spatial analysis](tutorials/mapping-and-spatial-analysis/README.md)
+- [Programming and data access](tutorials/programming-and-data-access/README.md)
 - [Data analysis and machine learning](tutorials/data-analysis-and-machine-learning/README.md)
 - [AI and research methods](tutorials/ai-and-research-methods/README.md)
 - [Geometry and modelling](tutorials/geometry-and-modelling/README.md)

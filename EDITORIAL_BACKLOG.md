@@ -21,7 +21,7 @@ For each tutorial, aim for: a clear purpose and learning outcome; prerequisites 
 
 These are comparatively small tasks (except any credential incident) and do not need to wait for a complete tutorial revision.
 
-- [ ] **Check for exposed credentials** in the legacy modularisation example (`Xtra 01 - Modularise the code/`, including `Passwords.py` and `passwords.csv`). Determine whether values are dummy examples or real secrets. If real, **revoke/rotate them immediately** and plan remediation of Git history; deleting the current files alone would not remove prior exposure. Do not copy credential values into documentation.
+- [ ] **Check for exposed credentials** in the legacy modularisation example (`tutorials/programming-and-data-access/modularise-the-code/`, including `Passwords.py` and `passwords.csv`). Determine whether values are dummy examples or real secrets. If real, **revoke/rotate them immediately** and plan remediation of Git history; deleting the current files alone would not remove prior exposure. Do not copy credential values into documentation.
 - [ ] **Fix navigation to LED Control**: the topic/software indexes refer to `led-control/README.md` but the actual file is `Readme.md`. Standardise the filename and links, checking case sensitivity.
 - [ ] **Fix image paths in Agentic Search**, where some Markdown image references use Windows backslashes instead of portable forward slashes; verify they render in GitHub.
 - [ ] **Check technical statements** flagged during review: raster cell size/coordinate units in the Heatmaps tutorial, and UV mapping, geometric closure and fabrication claims in Flow Along Surface.
@@ -85,9 +85,9 @@ The groupings below follow the **current repository structure**, not a proposed 
 
 These three collections exist at the repository root and are **not yet fully integrated** into the topic indexes.
 
-- [ ] **B · [File Access in Google Colab](Xtra%2000%20-%20File%20access%20in%20google%20colab/)** — Review the existing instructional notebook; clarify environments, Drive access, example data and a permanent place in the library.
-- [ ] **B · [Modularise the Code](Xtra%2001%20-%20Modularise%20the%20code/)** — Preserve the useful introduction to modules/functions; revise the handling of secrets, hard-coded local paths and working examples. **Complete the credential check above first.**
-- [ ] **C · [Google API](Xtra%2002%20-%20Google%20API/)** — Currently mostly example assets and JSON; determine the intended teaching outcome and whether a new, fully written tutorial is warranted.
+- [ ] **B · [File Access in Google Colab](tutorials/programming-and-data-access/file-access-in-google-colab/)** — Review the existing instructional notebook; clarify environments, Drive access, example data and a permanent place in the library.
+- [ ] **B · [Modularise the Code](tutorials/programming-and-data-access/modularise-the-code/)** — Preserve the useful introduction to modules/functions; revise the handling of secrets, hard-coded local paths and working examples. **Complete the credential check above first.**
+- [ ] **C · [Google API](tutorials/programming-and-data-access/google-api/)** — Currently mostly example assets and JSON; determine the intended teaching outcome and whether a new, fully written tutorial is warranted.
 
 ## Wishlist — potential new resources
 

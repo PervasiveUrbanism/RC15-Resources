@@ -2,7 +2,7 @@
 
 All seven files below remain in the [original Sentiment Landscapes folder on Google Drive](https://drive.google.com/drive/folders/1Vne2oIm3IZLKmHETGs8oMA8x86V2IqWA). They were excluded because each exceeds 100 MB. Nothing was deleted from Drive.
 
-Paths are relative to `Sentiment Landscapes/`. Open a file's Drive link to download it, then place it at the listed path if needed.
+Restore paths are relative to this project folder, now `tutorials/mapping-and-spatial-analysis/sentiment-landscapes/`. The original Drive folder is still named `Sentiment Landscapes`. Open a file's Drive link to download it, then place it at the listed path if needed.
 
 | File / restore path | Approximate size | Where to look | When needed |
 | --- | ---: | --- | --- |

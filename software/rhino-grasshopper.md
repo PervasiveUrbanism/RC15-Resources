@@ -10,4 +10,4 @@
 - [vvvv Extended Examples](../tutorials/visualisation-and-rendering/vvvv-extended-examples/README.md)
 - [Baking SDFs with Particles](../tutorials/simulation-and-agents/baking-sdfs-with-particles/README.md)
 - [Rhino and vvvv: Geometry, Particles and Moving People](../tutorials/simulation-and-agents/rhino-vvvv-series/README.md)
-- [Sentiment Landscapes](../Sentiment%20Landscapes/README.md) - source example collection
+- [Sentiment Landscapes](../tutorials/mapping-and-spatial-analysis/sentiment-landscapes/README.md) - tutorial draft and example collection
