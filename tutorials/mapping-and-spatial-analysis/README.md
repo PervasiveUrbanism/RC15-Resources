@@ -7,3 +7,4 @@
 - [Heatmaps in QGIS](heatmaps/README.md) - QGIS
 - [Network Mapping in QGIS](network-mapping/README.md) - QGIS
 - [Visibility and Viewshed Analysis](viewshed-analysis/README.md) - QGIS
+- [Sentiment Landscapes](../../Sentiment%20Landscapes/README.md) - source example collection; QGIS, Rhino/Grasshopper, Illustrator

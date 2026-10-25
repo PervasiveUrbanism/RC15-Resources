@@ -1,0 +1,6 @@
+# Preserve the original bytes of transferred working files.
+* -text
+README.md text eol=lf
+TRANSFER.md text eol=lf
+TRANSFER-MANIFEST.csv text eol=lf
+.gitattributes text eol=lf
