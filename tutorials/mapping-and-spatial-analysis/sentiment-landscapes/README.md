@@ -8,6 +8,8 @@ Initial transfer from the [source Google Drive folder](https://drive.google.com/
 
 **Continue:** [Chapter 2 — Collecting Flickr Data in QGIS](02-collecting-flickr-data.md) — install the plugin, obtain an API key and collect geolocated photographs.
 
+**Next:** [Chapter 3 — Analysing Spatial Density in QGIS](03-spatial-density-qgis.md) — create a grid, count photographs and export centroids for Grasshopper.
+
 **Looking for a missing file?** [Files not transferred — locations and Drive download links](FILES-NOT-TRANSFERRED.md).
 
 ## Contents
