@@ -6,6 +6,8 @@ Initial transfer from the [source Google Drive folder](https://drive.google.com/
 
 **Start here:** [Chapter 1 — From Points to Landscapes](01-introduction.md). The [earlier technical draft](TUTORIAL.md) remains available as reference while the practical chapters are developed.
 
+**Continue:** [Chapter 2 — Collecting Flickr Data in QGIS](02-collecting-flickr-data.md) — install the plugin, obtain an API key and collect geolocated photographs.
+
 **Looking for a missing file?** [Files not transferred — locations and Drive download links](FILES-NOT-TRANSFERRED.md).
 
 ## Contents
