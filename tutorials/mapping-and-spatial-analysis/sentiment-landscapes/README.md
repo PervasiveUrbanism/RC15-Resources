@@ -12,6 +12,8 @@ Initial transfer from the [source Google Drive folder](https://drive.google.com/
 
 **Chapter 4:** [Building a 3D Landscape in Grasshopper](04-grasshopper-landscape.md) — import centroids with Heron, map counts to height and construct a surface.
 
+**Chapter 5:** [Representing the Landscape — From Rhino to Illustrator](05-representing-the-landscape.md) — geographical backgrounds, contours, baking, Make2D and final illustration.
+
 **Looking for a missing file?** [Files not transferred — locations and Drive download links](FILES-NOT-TRANSFERRED.md).
 
 ## Contents
