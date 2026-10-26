@@ -1,10 +1,10 @@
 # Flow Along Surface in Rhino
 
-Part of **RC15 Extended Knowledge**, a collection of tutorials and examples beyond the current curriculum.
+Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanism.
 
 **Software:** Rhino  
 **Format:** Written tutorial  
-**Software versions:** To be confirmed  
+**Software versions:** Rhino 8 documentation used for this review; original example version and live application testing unconfirmed.  
 **Original collection:** Extra 11 - Rhino Flow along surface
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
@@ -16,27 +16,29 @@ Part of **RC15 Extended Knowledge**, a collection of tutorials and examples beyo
 
 
 
-## Overview
+## Introduction — Modelling Complex Geometry with Flow
 
-One of the most powerful yet underused commands in Rhino is **FlowAlongSrf**. It allows you to take geometry drawn on a flat, rectilinear plane and morph it seamlessly onto any freeform 3D surface — preserving the precision of your 2D drafting while adapting it to complex curvature.
+Some geometries are considerably easier to construct along a straight line or on a flat surface than directly in their final, curved configuration. Rhino provides a powerful family of transformation commands that allow us to take advantage of this.
 
-This approach bridges the gap between the simplicity of 2D drawing and the complexity of 3D surface geometry. Rather than struggling to model intricate patterns directly in 3D, you can work flat, think precisely, and let Rhino handle the transformation.
+The simpler command is **Flow**, also known as *Flow Along Curve*. It takes geometry arranged along a reference curve and transforms it along another curve. This is particularly useful when developing curved staircases, repeating façade elements and architectural details. Instead of constructing every element individually around a bend, we can develop the geometry in a straightforward arrangement and then transform it. See the [official Flow documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/flow.htm).
 
-This tutorial walks through a practical workflow using **FlowAlongSrf** together with **CreateUVCrv** to create textile-like surface geometry with full control over scaling and proportion.
+Its more sophisticated counterpart, **FlowAlongSrf**, extends the principle from curves to surfaces. Geometry developed on a flat reference surface can be transferred onto a curved three-dimensional surface. This opens up possibilities for façade patterns, textile-like structures, ornamentation and other geometries that are difficult to construct directly.
 
+Both commands let us separate **the construction of geometry from its final spatial configuration**. We can work in a simpler setting, then use Rhino to transform the result. Unlike workflows that require conversion to a mesh, these commands can deform NURBS geometry directly, retaining smooth curves and surfaces. The mapping can be very precise, although dimensional changes depend on the source and target geometry, parameterisation and command options.
 
+Grasshopper can also create and manipulate precise NURBS geometry; it is not inherently less smooth. Its advantage is parametric control, while the native Flow commands offer a remarkably direct way to perform a sophisticated transformation without building and maintaining a definition. For many everyday architectural modelling problems, that immediacy can save substantial work.
+
+This tutorial focuses on **FlowAlongSrf**, using a repeating pattern to investigate how flat geometry can be transferred onto a freeform surface, how to control that mapping and how to recognise unwanted distortion.
 
 ## The Core Idea
 
-Think of it like wrapping a printed sheet of paper around an object. You design your pattern flat, then the surface acts as the mould. The key insight is that Rhino maintains the *relationships* between your source geometry and the target surface — so what you draw in 2D maps accurately onto the 3D form.
-
-
+Think of designing a pattern on a flat sheet before wrapping it around a curved form. The source surface provides the coordinate reference and the target surface defines the final shape. Rhino maps points and geometry between the two using their surface parameterisation. The result follows the target, but it **does not necessarily preserve distances, areas or proportions**, particularly on surfaces with uneven parameterisation.
 
 ## Step 1 — Setting Up the Source Geometry
 
 Start by drawing your source geometry on a flat plane in a straightforward, rectilinear arrangement. In this example, the source geometry is an interlocking array of circles, arranged as a simple repeating textile-like pattern.
 
-> **Tip:** At this stage, don't worry about exact sizing relative to your target surface. We'll address scaling precisely in the next section.
+> **Tip:** Begin with a simple, evenly distributed pattern so distortion is easy to spot. You can refine its proportions once you understand how the source and target surfaces correspond.
 
 ![Source geometry and target surface](01.png)
 
@@ -64,45 +66,48 @@ There are additional options worth noting. Setting **Rigid = No** allows the geo
 
 *The circles have been morphed onto the target surface, following its curvature.*
 
-This initial result is already compelling — but you may notice the geometry looks stretched or incorrectly scaled. This is because Rhino is mapping your flat geometry to the full extent of the target surface. To gain precise control, we need to use **CreateUVCrv**.
+The geometry may appear stretched or unevenly distributed. This can happen when the base and target surfaces have different or uneven UV parameterisation. **CreateUVCrv** helps us inspect that mapping, but it does not remove the distortion automatically.
 
 
 
-## Step 3 — Precise Control with CreateUVCrv
+## Step 3 — Understanding the Mapping with CreateUVCrv
 
-The command **CreateUVCrv** is the key to unlocking precise, predictable results with **FlowAlongSrf**.
+The command **CreateUVCrv** lets us see the target surface's **UV parameter space** in two dimensions. This is useful because `FlowAlongSrf` uses the relationship between the parameter directions of the base and target surfaces to transform the geometry.
 
-```
+```text
 CreateUVCrv
 ```
 
-This command takes your 3D target surface and "unfolds" it — generating a flat 2D rectangle that represents the surface's UV space. Crucially, this establishes a direct geometric relationship between the flat 2D domain and the 3D surface. Every point in the flat rectangle corresponds to an exact point on the 3D surface.
+Select your target surface. Rhino creates flattened representations of the surface's parameter boundary and relevant trim curves on the World XY plane. The resulting curves are **not a distortion-free physical unrolling** of a curved surface. Their proportions reflect the surface's UV parameterisation, which may be uneven.
 
-Once you have this UV curve, you can:
+To use this as a reference for `FlowAlongSrf`:
 
-- Draw your source geometry **at exactly the right size** within the UV rectangle
-- Use the UV rectangle's boundary as the **base surface** in **FlowAlongSrf**, instead of a generic plane
-- Guarantee that your pattern scales and positions correctly onto the 3D target
+1. Inspect the resulting UV boundary and identify the corresponding edges or corners on the target surface.
+2. Create a **planar base surface** from the appropriate rectangular boundary if you want to use it as the base for `FlowAlongSrf`. A curve by itself is **not** a base surface.
+3. Arrange your pattern on or near that planar base surface.
+4. Run `FlowAlongSrf`, select the base surface near one corner, then select the target surface near the matching corner. Compare the result with the source and adjust surface directions, base setup or target parameterisation if necessary.
 
 ![CreateUVCrv workflow](04.png)
 
-*The UV curve (flat rectangle) gives you an accurate 2D canvas scaled to match the 3D surface. Draw your pattern to fit this rectangle and it will morph onto the surface with correct proportions.*
+*The UV curves help explain how a flat reference relates to the target surface. They do not guarantee uniform physical scale.*
 
-This eliminates the guesswork entirely. Instead of stretching and hoping, you know exactly how your 2D geometry will land on the surface.
+If the geometry is excessively stretched, inspect the target's parameterisation; rebuilding the target surface may sometimes improve the distribution, but can also alter its shape. Even a correctly matched mapping can distort lengths on a doubly curved surface.
 
+For another use of these UV curves, Rhino's [ApplyCrv documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/applycrv.htm) describes transferring curves and points onto the target surface.
 
+## Step 4 — Checking Geometry for Fabrication
 
-## Step 4 — Closed Geometry and 3D Printing
+A useful application of `FlowAlongSrf` is transferring intricate three-dimensional objects and repeating components onto curved surfaces. Because the command works with NURBS geometry, the result may remain suitable for further modelling and fabrication.
 
-One of the elegant properties of this workflow is that **closed geometry stays closed** through the transformation. If you start with closed curves or closed polysurfaces in your source geometry, the morphed result will also be closed.
+However, **a closed source object is not a guarantee of a valid closed result**. Strong deformation, surface seams, tolerances and the quality of the source geometry can cause problems that need to be checked.
 
 ![Complex closed geometry example](05.png)
 
-*More complex interlocking geometry, morphed onto the surface. Because the source was closed, the result is also closed — ready for 3D printing or fabrication.*
+*More complex interlocking geometry after the transformation. Inspect the resulting objects rather than assuming they are ready for fabrication.*
 
-This makes the workflow directly applicable to digital fabrication. You can design intricate, surface-adapted geometries in 2D and output them as 3D-printable geometry with minimal extra steps.
+For solid objects, check the results using Rhino's **ShowEdges** (look for naked edges) and **Check** commands. If you plan to 3D print the geometry, verify that it is closed, valid and appropriately thick, then inspect the exported mesh for fabrication issues. Closed **curves** are not the same as closed **solids**.
 
-
+This makes `FlowAlongSrf` valuable for developing fabrication geometry, while leaving the necessary checking and preparation as deliberate final steps.
 
 ## Related Commands
 
@@ -111,42 +116,49 @@ These commands form a powerful family that work well together:
 | Command | Purpose |
 |---|---|
 | `FlowAlongSrf` | Morph objects from a flat plane onto a target surface |
-| `CreateUVCrv` | Unfold a 3D surface into a flat 2D rectangle for use as a reference plane |
+| `CreateUVCrv` | Create flat UV boundary and trim curves to inspect a surface's parameter space |
 | `Flow` | Morph objects along a curve (1D version of FlowAlongSrf) |
-| `ApplyCrv` | Map linework directly onto a surface using UV coordinates |
+| `ApplyCrv` | Map planar curves or points to a surface using its UV parameter space |
 
 
 
 ## Why This Workflow Matters
 
-The combination of **FlowAlongSrf** and **CreateUVCrv** is particularly valuable because it gives you both **freeform flexibility and dimensional precision** — two things that are hard to achieve simultaneously in 3D modelling.
+The combination of **FlowAlongSrf** and **CreateUVCrv** is valuable because it joins freeform deformation with a visible, inspectable mapping reference. It allows controlled modelling, but it does **not** automatically preserve exact distances or proportions.
 
 Some practical applications:
 
 - **Textile and surface patterns** — as shown in this tutorial
 - **Curved staircases** — use `Flow` to wrap a stair profile along a curved path
 - **Facade mullion layouts** — design a regular grid in 2D and morph it onto a doubly-curved facade
-- **Panelisation** — create panel patterns that adapt to surface curvature while maintaining consistent dimensions
+- **Panelisation** — explore how repeated panel patterns adapt to curvature, then check the resulting dimensions and joints
 
-These workflows are especially appealing compared to the alternative: setting up a Grasshopper definition. Grasshopper gives you more parametric control, but the setup cost is high. For many tasks — particularly early design exploration — **FlowAlongSrf** and **CreateUVCrv** give you 80% of the result in a fraction of the time.
+For a one-off or exploratory transformation, these Rhino commands can be substantially quicker than setting up a custom Grasshopper definition. Grasshopper remains useful when you need many linked parameters, automated variation or repeated updates.
 
 
 
 ## History and Live Adjustments
 
-An often-overlooked advantage of these commands is that they are **history-enabled** in Rhino. This means that after running **FlowAlongSrf**, if you modify your source geometry, the morphed result updates automatically.
+Both `Flow` and `FlowAlongSrf` can participate in **Rhino's History** system. History is a recorded relationship between input and output geometry, not a permanently live parametric model.
 
-This enables a workflow where you:
+To test it:
 
-1. Set up the FlowAlongSrf relationship once
-2. Continue refining your source 2D geometry
-3. See the 3D result update in real time
+1. Enable **Record History** in Rhino **before** running the command.
+2. Select the source geometry and perform the flow operation.
+3. Modify the original geometry in a way that Rhino can track, such as adjusting control points.
+4. If History is enabled and the parent–child relationship remains valid, Rhino can update the morphed result.
 
-It's not quite Grasshopper-level parametric control, but it's remarkably effective — and far quicker to set up.
+Do not assume that every edit will update automatically: some object replacements, unsupported changes or operations that break History will require running the command again. Rhino's documentation also notes a limitation when flowing object grips with History recorded. Verify the result after each update.
+
+This is particularly useful for refining a pattern over a few iterations without setting up a Grasshopper definition.
 
 ---
 
 ## Further Reading
 
-- [FlowAlongSrf — Official Rhino Documentation](https://docs.mcneel.com/rhino/mac/help/en-us/commands/flowalongsrf.htm)
-- Also search the Rhino documentation for `CreateUVCrv`, `Flow`, and `ApplyCrv` for the full picture of this command family.
+- [FlowAlongSrf — Rhino 8 documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/flowalongsrf.htm)
+- [Flow — Rhino 8 documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/flow.htm)
+- [CreateUVCrv — Rhino 8 documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/createuvcrv.htm)
+- [ApplyCrv — Rhino 8 documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/applycrv.htm)
+
+**Editorial status (26 October 2026):** Introduction and technical descriptions reviewed against Rhino 8 documentation. The supplied model and deformation workflow have not been rerun in Rhino during this review.
