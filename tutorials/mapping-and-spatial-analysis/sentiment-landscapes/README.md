@@ -10,6 +10,8 @@ Initial transfer from the [source Google Drive folder](https://drive.google.com/
 
 **Next:** [Chapter 3 — Analysing Spatial Density in QGIS](03-spatial-density-qgis.md) — create a grid, count photographs and export centroids for Grasshopper.
 
+**Chapter 4:** [Building a 3D Landscape in Grasshopper](04-grasshopper-landscape.md) — import centroids with Heron, map counts to height and construct a surface.
+
 **Looking for a missing file?** [Files not transferred — locations and Drive download links](FILES-NOT-TRANSFERRED.md).
 
 ## Contents
