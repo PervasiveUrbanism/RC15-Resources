@@ -57,7 +57,7 @@ The groupings below follow the **current repository structure**, not a proposed 
 
 ### Geometry and modelling
 
-- [ ] **B · [Flow Along Surface in Rhino](tutorials/geometry-and-modelling/flow-along-surface/README.md)** — Preserve the illustrated walkthrough; verify the `FlowAlongSrf`/`CreateUVCrv` steps, surface parameterisation, history behaviour and claims about closed geometry.
+- [x] **B · [Flow Along Surface in Rhino](tutorials/geometry-and-modelling/flow-along-surface/README.md)** — **DONE — FINISHED. No further action necessary.** Approved by the user on 26 October 2026. Expanded the introduction to `Flow` and `FlowAlongSrf`, clarified NURBS and Grasshopper, and corrected UV mapping, fabrication and History explanations. Closed; only reopen if a specific new issue arises.
 - [ ] **C · [Reading Point Clouds](tutorials/geometry-and-modelling/reading-point-clouds/README.md)** — Explain formats, loading the sample point cloud, spatial scale, performance and visual output.
 - [ ] **C · [Rhino and Grasshopper Import into vvvv](tutorials/geometry-and-modelling/rhino-grasshopper-import/README.md)** — Organise the Rhino, Grasshopper and vvvv samples into a progressive interoperability tutorial; inspect the animation frames and dependencies.
 - [ ] **C · [Signed Distance Fields](tutorials/geometry-and-modelling/signed-distance-fields/README.md)** — Explain the mathematical idea and the five numbered vvvv examples, using clear diagrams of the resulting shapes and transformations.
