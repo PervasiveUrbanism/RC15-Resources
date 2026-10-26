@@ -108,6 +108,7 @@ These are ideas from previous teaching discussions, **not yet approved as indivi
   - [Berlin walking isochrones — capan/isochrone](https://github.com/capan/isochrone) — maps reachable pedestrian network for walking, stroller and wheelchair profiles, including stairs and surfaces.
   - [CAT: Comfort-based Accessibility Tool (TUM / InclusiveSpaces)](https://inclusive-spaces.vercel.app/) — user-adjustable walking time, speed and environmental comfort factors.
   - **When developing:** assess local sidewalk-data coverage and modelling assumptions; differentiate empirically supported restrictions from illustrative persona settings, and do not imply age or gender alone dictates individual ability.
+- [ ] **Evaluate YouTube video as a source for a new written tutorial** — [Video supplied for review](https://youtu.be/J7ea0ZQaEDI). Parked at the user's request (26 October 2026). Obtain a usable transcript and inspect any essential on-screen steps, then assess whether the subject adds value to RC15 Resources or duplicates an existing resource. If worthwhile, propose a beginner-friendly, independently explained tutorial with verified technical steps and appropriate attribution. **Do not draft or publish yet.**
 - [ ] **GitHub and managing computational design projects** — Version control, folders, documentation, reproducibility and collaboration.
 - [ ] **Real-time graphics and interactive systems** — Extend selected vvvv workflows into a coherent learning pathway.
 
