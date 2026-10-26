@@ -47,7 +47,7 @@ The groupings below follow the **current repository structure**, not a proposed 
 
 ### Data analysis and machine learning
 
-- [ ] **A · [Introduction to UMAP](tutorials/data-analysis-and-machine-learning/umap/README.md)** — Review the substantial notebook (conceptual explanations and worked examples), environment setup, dependencies, figures and output interpretation.
+- [x] **A · [Introduction to UMAP](tutorials/data-analysis-and-machine-learning/umap/README.md)** — **DONE — FINISHED. No further action necessary.** Approved by the user on 26 October 2026. The README now explains the purpose, learning outcomes, setup, exercises and outputs; the existing notebook was preserved unchanged. Closed; reopen only for a specific new issue.
 - [ ] **B · [GSR to UMAP](tutorials/data-analysis-and-machine-learning/gsr-to-umap/README.md)** — Connect the two notebooks into a clear sequence from sensor signal to features and embedding; examine assumptions, file paths and reproducibility.
 - [ ] **C · [Sound Analysis in vvvv](tutorials/data-analysis-and-machine-learning/sound-analysis/README.md)** — Develop a written guide explaining the supplied patch, expected input and analysis/visual output.
 
