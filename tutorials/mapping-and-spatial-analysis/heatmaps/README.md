@@ -62,7 +62,7 @@ Before generating the heatmap, understand these two critical settings:
 3. Configure the settings:
    - **Input layer:** Select your point layer (e.g., pharmacies)
    - **Radius:** Set an appropriate search radius (e.g., 1000 m)
-   - **Pixel size X/Y:** Set the resolution (e.g., 10 × 10 px for testing)
+   - **Pixel size X/Y:** Set the raster cell dimensions in the layer's map units (e.g. 10 × 10 metres when using a projected CRS measured in metres), **not screen pixels**
    - **Output raster:** Choose a filename and location
 4. Click **Run**
 
