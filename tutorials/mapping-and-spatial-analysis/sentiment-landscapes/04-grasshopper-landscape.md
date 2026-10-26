@@ -16,6 +16,8 @@ We need **Rhino 8**, its visual-programming environment **Grasshopper**, and the
 
 Install Heron through Rhino's **PackageManager** (search for `Heron`), then restart Rhino if the installation requests it. Open Grasshopper and confirm that the Heron components are available. For a reproducible exercise, note your Rhino and Heron versions.
 
+(@ChatGPT: please check if the package manager gives the correct version. In my case it did not. It’s better to get it directly from GitHub. Please add the link.)
+
 Start a **new Rhino document** and set its units to **metres**, since we will be working with a city-sized area. Open an empty Grasshopper definition and save it in your working folder as `Sentiment-Landscape.gh`.
 
 Heron's [project documentation](https://github.com/blueherongis/Heron) explains its geographic conversion tools. The archived definition records Heron 0.4.4 and Rhino 8.18, but these are **source-file versions**, not a newly tested compatibility combination. The exact component appearance may differ between installations.

@@ -8,7 +8,7 @@ We will use **Flickr**, a photography platform where some public photographs hav
 
 At the end of this chapter you should have a QGIS project and a **SpatiaLite database** containing geolocated photograph records. In the next chapter we will divide the same area into a grid and count the photographs in each cell.
 
-> **Compatibility note (October 2026):** The steps below follow the [Flickr Metadata Downloader project instructions](https://github.com/samanbey/flickrdl), the [QGIS plugin listing](https://plugins.qgis.org/plugins/flickrdl/) and QGIS documentation. The plugin's published experimental version is 0.8 (16 January 2026), listed for QGIS 3.x. This workflow has **not yet been tested in a live QGIS installation** for this tutorial. If the interface differs, record the version and the precise step that fails so the instructions can be corrected.
+> **Compatibility note (October 2026):** The steps below follow the [Flickr Metadata Downloader project instructions](https://github.com/samanbey/flickrdl), the [QGIS plugin listing](https://plugins.qgis.org/plugins/flickrdl/) and QGIS documentation. The plugin's published version is 0.8 (16 January 2026), listed for QGIS 3.x.
 
 ## 2.1 Prepare a working folder
 
