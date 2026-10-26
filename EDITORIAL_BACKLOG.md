@@ -38,6 +38,7 @@ The groupings below follow the **current repository structure**, not a proposed 
 
 ### Mapping and spatial analysis
 
+- [ ] **B · [Sentiment Landscapes](tutorials/mapping-and-spatial-analysis/sentiment-landscapes/README.md)** — **Status: five chapters drafted; final review necessary.** Add relevant screenshots and explanatory images throughout the QGIS, Grasshopper and Illustrator steps, using existing project assets where suitable. Perform a final editorial and technical review, including end-to-end testing of the Flickr/QGIS → Heron/Grasshopper → Illustrator workflow, before marking complete.
 - [ ] **A · [Network Mapping in QGIS](tutorials/mapping-and-spatial-analysis/network-mapping/README.md)** — Polish a strong illustrated guide; verify routing assumptions, example settings and independently obtainable street data.
 - [ ] **B · [Heatmaps in QGIS](tutorials/mapping-and-spatial-analysis/heatmaps/README.md)** — Refine the technical instructions, raster-unit terminology, presentation graphics and workflow from density raster to points/contours.
 - [ ] **C · [QGIS to Rhino](tutorials/mapping-and-spatial-analysis/qgis-to-rhino/README.md)** — Explain the cross-software workflow around existing QGIS, Rhino and Grasshopper files; clarify what each stage produces.
