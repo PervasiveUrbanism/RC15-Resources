@@ -1,10 +1,10 @@
 # Network Mapping in QGIS
 
-Part of **RC15 Extended Knowledge**, a collection of tutorials and examples beyond the current curriculum.
+Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanism.
 
 **Software:** QGIS  
 **Format:** Written tutorial  
-**Software versions:** To be confirmed  
+**Software versions:** QGIS 3.x; exact release used for the original screenshots unconfirmed.  
 **Original collection:** Extra 08 - Network Qgis
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
@@ -38,9 +38,9 @@ You will need:
 - An optional light background map for geographical context.
 - A folder for your QGIS project and saved data.
 
-The screenshot’s network is named `gis_osm_roads_free_1`. For London, a suitable starting source is the [Geofabrik Greater London download page](https://download.geofabrik.de/europe/united-kingdom/england/greater-london.html). Download and extract the shapefile package, then load `gis_osm_roads_free_1.shp` into QGIS. Keep its accompanying files together.
+The screenshot’s network is named `gis_osm_roads_free_1`. For London, a suitable starting source is the [Geofabrik Greater London download page](https://download.geofabrik.de/europe/united-kingdom/england/greater-london.html). Choose the **ESRI Shapefile** download (the `-free.shp.zip` package), not the `.osm.pbf` download. Extract the ZIP before opening the data in QGIS, then load the extracted road layer, commonly named `gis_osm_roads_free_1.shp`. Keep its companion `.dbf`, `.shx`, `.prj` and other shapefile files together; a `.shp` file on its own is incomplete. The download is relatively large, so allow space for the extracted dataset.
 
-This tutorial starts from a usable network; the folder containing these screenshots does not include the original road data or QGIS project. An unfiltered road extract is suitable for exploring this graphic technique, but a walking or driving study requires appropriate access and direction rules.
+This tutorial starts from a usable network; the folder containing these screenshots does not include the original road data or QGIS project. An unfiltered road extract is suitable for exploring this graphic technique, **provided the relevant streets form a connected routing network**. It is not a validated walking or driving network: access restrictions, one-way streets, crossing facilities and grade-separated junctions require further analysis.
 
 ### Set up your project
 
@@ -110,7 +110,7 @@ Turn on the street layer. You should now see the network beneath the pink endpoi
 
 Before calculating routes, inspect the network at a few important junctions and river crossings. Streets that appear to cross are not necessarily connected in the data, and a bridge must not connect to every road beneath it.
 
-For this introductory map, treat the network as bidirectional. This is a deliberate simplification. For a transport analysis, first select streets appropriate to the mode of travel and configure the relevant restrictions.
+**This is a graphic experiment using shortest distance, not a pedestrian or traffic simulation.** We deliberately treat routes as bidirectional and do not model walking restrictions, travel times or demand. For a transport or accessibility analysis, select a mode-appropriate connected network and configure direction, access and other restrictions. A visual street crossing does not prove two lines share a routable junction.
 
 Avoid trimming the network exactly to the grid boundary. This can remove useful connections and cause artificial detours or missing routes.
 
@@ -164,7 +164,13 @@ The screenshots include `Shortest path` and `Shortest path copy`. A duplicate is
 
 ## 6. Reveal shared routes with transparency
 
-The final screenshot uses pale blue branches and stronger blue corridors. The styling dialog is not shown; the following approach produces a similar effect by drawing overlapping routes with transparent symbols.
+The final screenshot uses pale blue branches and stronger blue corridors. Compare the unstyled route output with the finished map below: the *routes themselves* have not changed, but transparent rendering makes repeatedly traversed sections more prominent.
+
+| Before — individual shortest routes | After — overlapping transparent routes |
+| --- | --- |
+| ![Unstyled shortest routes](assets/04%20Shortest%20Paths%20Result.png) | ![Final transparent route composition](assets/05%20Shortest%20Paths%20Styling.png) |
+
+The styling dialog is not shown; the following approach produces a similar effect by drawing overlapping routes with transparent symbols.
 
 1. Open **Shortest paths → Properties → Symbology**.
 2. Choose **Single symbol** and a **Simple line**.
@@ -221,5 +227,7 @@ Try moving the focal point across the river or to a nearby station, while keepin
 | Layers disappear after reopening | Save temporary layers and keep referenced data in a stable location. |
 
 
+
+**Editorial review:** 26 October 2026. The written tutorial, images, source-data link and routing caveats were reviewed; the workflow has **not** been rerun in QGIS in this review. The supplied parameters are suggested starting values, not measured values from the source screenshots.
 
 Further reference: [QGIS Create grid documentation](https://doc.qgis.org/3.44/en/docs/user_manual/processing_algs/qgis/vectorcreation.html#create-grid).
