@@ -49,7 +49,6 @@ Choose a topic below, then open a tutorial or example collection. Click a thumbn
 
 | Preview | Tutorial / collection | What you will find |
 | --- | --- | --- |
-| <a href="tutorials/ai-and-research-methods/agentic-search/README.md"><img src=".github/previews/agentic-search.svg" width="120" alt="Agentic Search — workflow overview diagram"></a> | [Agentic Search](tutorials/ai-and-research-methods/agentic-search/README.md) | Use AI agents for iterative research, source gathering and synthesis. Written guide. |
 
 ### Geometry and modelling
 
