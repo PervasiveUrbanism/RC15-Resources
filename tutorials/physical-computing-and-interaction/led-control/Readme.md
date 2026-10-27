@@ -89,11 +89,11 @@ void loop() {
   while (Serial.available() > 0) {
     char c = (char)Serial.read();
 
-    if (c == '\\r') {
+    if (c == '\r') {
       continue;  // Accept CRLF as well as LF.
     }
 
-    if (c == '\\n') {
+    if (c == '\n') {
       if (!invalid && count == 8) {
         for (byte i = 0; i < 8; i++) {
           digitalWrite(ledPins[i], command[i] == '1' ? HIGH : LOW);
@@ -219,7 +219,7 @@ The combining logic can then be encapsulated into a process node. This allows yo
 
 The serial protocol is deliberately independent of vvvv. The accompanying [`led_serial.py`](led_serial.py) file offers two reusable functions:
 
-- `encode_states(states)` takes eight values (for example `[1, 0, 0, 0, 0, 0, 0, 1]`) and returns the nine bytes `b"10000001\\n"`. It checks that the input is valid.
+- `encode_states(states)` takes eight values (for example `[1, 0, 0, 0, 0, 0, 0, 1]`) and returns the nine bytes `b"10000001\n"`. It checks that the input is valid.
 - `send_states(port, states)` writes that message to an **already open** serial port. The function does not open a new connection each time, which makes it suitable for animation loops.
 
 ### Run it as a standalone program
@@ -264,7 +264,7 @@ This is an optional starting point, not a tested Grasshopper definition. The Pyt
 | Symptom | What to check |
 | --- | --- |
 | No LEDs respond | Check USB/COM port, 9600 baud, common GND, LED polarity and individual resistors |
-| Nothing changes after a command | Ensure every message ends in `\\n`; the Arduino waits for a complete line |
+| Nothing changes after a command | Ensure every message ends in `\n`; the Arduino waits for a complete line |
 | Some patterns are ignored | Commands must contain **exactly eight** binary characters before the newline |
 | Python or vvvv cannot open the port | Close Serial Monitor or other software that may already be connected |
 | Python stops with `ModuleNotFoundError: serial` | Install `pyserial` in the same Python interpreter running the script |
