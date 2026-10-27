@@ -80,7 +80,7 @@ The groupings below follow the **current repository structure**, not a proposed 
 ### Physical computing and interaction
 
 - [ ] **C · [Arduino Sensor Input into vvvv](tutorials/physical-computing-and-interaction/arduino-sensor-input/README.md)** — Add hardware setup, code/patch explanation, serial communication, testing and troubleshooting.
-- [ ] **B · [LED Control with vvvv and Arduino](tutorials/physical-computing-and-interaction/led-control/Readme.md)** — Polish the already illustrated tutorial; verify hardware, code, serial protocol, example patterns and failure cases.
+- [x] **B · [LED Control with vvvv and Arduino](tutorials/physical-computing-and-interaction/led-control/Readme.md)** — **DONE — FINISHED. No further action necessary for the tutorial.** Approved 27 October 2026. Wiring resistors, serial newline framing, Arduino input validation, and language corrected; reusable `led_serial.py` added. **Optional separate follow-up: review/test the Python controller on a desktop**, including Grasshopper compatibility, when convenient. This does not reopen the completed tutorial.
 
 ## Legacy material outside the tutorial structure
 
