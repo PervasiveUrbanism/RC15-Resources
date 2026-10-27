@@ -1,21 +1,20 @@
-# Combining 2D and 3D
+# Combining 2D and 3D in vvvv
 
-Part of **RC15 Extended Knowledge**, a collection of tutorials and examples beyond the current curriculum.
+Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanism.
 
-**Software:** vvvv  
-**Format:** Example collection - written guide to be added  
-**Software versions:** To be confirmed  
+**Software:** vvvv gamma  
+**Format:** Commented example patch  
+**Software version:** The patch references vvvv 2024.6; compatibility with newer versions has not been checked.  
 **Original collection:** 240309_Combining 2d and 3d
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
-## Getting started
+## About this example
 
-This resource currently contains example projects. A step-by-step written guide and verified software requirements are still to be added.
+Combining two-dimensional graphics with three-dimensional content can be useful for architectural diagrams, interactive visualisations and presentations in which geometry and graphic information appear together.
 
-Download this folder with its subfolders intact. Keep project files and their assets together; numbered examples indicate the original exercise order.
+Open **[Mixing2Dand3D.vl](Mixing2Dand3D.vl)** in vvvv. The patch contains comments explaining its different parts, so it is intended to be explored directly rather than followed through a separate step-by-step guide.
 
-## Files
+Work through the patch and try changing the graphic elements and their transformations to understand how the 2D and 3D components interact. Keep the supplied **[MatCapSample02.png](MatCapSample02.png)** alongside the patch when downloading the example.
 
-- [MatCapSample02.png](MatCapSample02.png)
-- [Mixing2Dand3D.vl](Mixing2Dand3D.vl)
+**Note:** The patch has not yet been checked in a current vvvv installation. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md) for the outstanding compatibility review.
