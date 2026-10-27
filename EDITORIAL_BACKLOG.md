@@ -23,7 +23,6 @@ These are comparatively small tasks (except any credential incident) and do not 
 
 - [ ] **Check for exposed credentials** in the legacy modularisation example (`tutorials/programming-and-data-access/modularise-the-code/`, including `Passwords.py` and `passwords.csv`). Determine whether values are dummy examples or real secrets. If real, **revoke/rotate them immediately** and plan remediation of Git history; deleting the current files alone would not remove prior exposure. Do not copy credential values into documentation.
 - [ ] **Fix navigation to LED Control**: the topic/software indexes refer to `led-control/README.md` but the actual file is `Readme.md`. Standardise the filename and links, checking case sensitivity.
-- [ ] **Fix image paths in Agentic Search**, where some Markdown image references use Windows backslashes instead of portable forward slashes; verify they render in GitHub.
 - [ ] **Check technical statements** flagged during review: raster cell size/coordinate units in the Heatmaps tutorial, and UV mapping, geometric closure and fabrication claims in Flow Along Surface.
 - [ ] Review committed `__pycache__` bytecode, `wip/` files, rendered frame sequences and backups. Decide deliberately which assets must be kept; do not delete reference files without inspection.
 - [ ] Add reproducibility notes where needed: software/package versions, external data sources, hardware assumptions and file paths.
@@ -53,7 +52,7 @@ The groupings below follow the **current repository structure**, not a proposed 
 
 ### AI and research methods
 
-- [ ] **B · [Agentic Search](tutorials/ai-and-research-methods/agentic-search/README.md)** — Retain the strong conceptual narrative, but verify product-specific instructions, avoid outdated subscription claims, fix images and strengthen source checking, feedback and output validation.
+- [x] **Agentic Search — retired from RC15 Resources (27 October 2026).** Old tutorial and assets removed at the user's request; no further editorial work. The single maintained exercise is [Agentic Coding in the main RC15 Skills repository](https://github.com/PervasiveUrbanism/PervasiveUrbanism_26-27/blob/main/Module-1-Cartographies-of-Affect/Skills%201%20-%20Day%202%20Data%20Gathering%20and%20Analysis/Excercise%2006%20-%20Agentic%20Coding/README.md). The former `agentic-search/` directory is reserved with only `.gitkeep`; do not restore the old exercise.
 
 ### Geometry and modelling
 
@@ -91,6 +90,8 @@ These three collections exist at the repository root and are **not yet fully int
 - [ ] **C · [Google API](tutorials/programming-and-data-access/google-api/)** — Currently mostly example assets and JSON; determine the intended teaching outcome and whether a new, fully written tutorial is warranted.
 
 ## Wishlist — potential new resources
+
+- [ ] **Colour Chooser — new tutorial to be written by the user.** Planned for AI and research methods. The previous Agentic Search exercise has been retired; leave its reserved folder empty for now. Agree scope and source material before adding the new tutorial.
 
 These are ideas from previous teaching discussions, **not yet approved as individual tutorials**. Before starting, check whether source materials already exist in annual RC15 repositories, and decide the learning outcome and appropriate topic.
 
