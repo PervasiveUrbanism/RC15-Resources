@@ -48,7 +48,7 @@ The groupings below follow the **current repository structure**, not a proposed 
 ### Data analysis and machine learning
 
 - [x] **A · [Introduction to UMAP](tutorials/data-analysis-and-machine-learning/umap/README.md)** — **DONE — FINISHED. No further action necessary.** Approved by the user on 26 October 2026. The README now explains the purpose, learning outcomes, setup, exercises and outputs; the existing notebook was preserved unchanged. Closed; reopen only for a specific new issue.
-- [ ] **B · [GSR to UMAP](tutorials/data-analysis-and-machine-learning/gsr-to-umap/README.md)** — Connect the two notebooks into a clear sequence from sensor signal to features and embedding; examine assumptions, file paths and reproducibility.
+- [x] **B · [GSR to UMAP](tutorials/data-analysis-and-machine-learning/gsr-to-umap/README.md)** — **DONE — FINISHED. No further action necessary.** Approved on 27 October 2026. README revised to explain the GSR signal, two-notebook analysis-to-UMAP sequence, limitations and Grasshopper/vvvv applications; original notebooks and data preserved. **Optional future enhancement (not a condition of completion):** add a representative image from RC15 UMAP work to illustrate the output. Do not schedule further review unless a specific new issue arises.
 - [ ] **C · [Sound Analysis in vvvv](tutorials/data-analysis-and-machine-learning/sound-analysis/README.md)** — Develop a written guide explaining the supplied patch, expected input and analysis/visual output.
 
 ### AI and research methods
