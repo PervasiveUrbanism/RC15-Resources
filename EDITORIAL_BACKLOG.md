@@ -21,7 +21,7 @@ For each tutorial, aim for: a clear purpose and learning outcome; prerequisites 
 
 These are comparatively small tasks (except any credential incident) and do not need to wait for a complete tutorial revision.
 
-- [ ] **Check for exposed credentials** in the legacy modularisation example (`tutorials/programming-and-data-access/modularise-the-code/`, including `Passwords.py` and `passwords.csv`). Determine whether values are dummy examples or real secrets. If real, **revoke/rotate them immediately** and plan remediation of Git history; deleting the current files alone would not remove prior exposure. Do not copy credential values into documentation.
+- [x] **Credential check in Python Functions and Modules** — User confirmed on 28 October 2026 that the values in `Passwords.py` and `passwords.csv` are placeholders, not real credentials. No credential incident. The notebook's demonstration of printing passwords and storing them in code or CSV still needs pedagogical revision before it is recommended to students.
 - [ ] **Fix navigation to LED Control**: the topic/software indexes refer to `led-control/README.md` but the actual file is `Readme.md`. Standardise the filename and links, checking case sensitivity.
 - [ ] **Check technical statements** flagged during review: raster cell size/coordinate units in the Heatmaps tutorial, and UV mapping, geometric closure and fabrication claims in Flow Along Surface.
 - [ ] Review committed `__pycache__` bytecode, `wip/` files, rendered frame sequences and backups. Decide deliberately which assets must be kept; do not delete reference files without inspection.
