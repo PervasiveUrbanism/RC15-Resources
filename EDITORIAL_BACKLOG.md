@@ -87,7 +87,7 @@ The groupings below follow the **current repository structure**, not a proposed 
 These three collections exist at the repository root and are **not yet fully integrated** into the topic indexes.
 
 - [x] **B · [File Access in Google Colab](tutorials/programming-and-data-access/file-access-in-google-colab/)** — **DONE — FINISHED. No further action necessary.** Approved on 27 October 2026. Expanded the README to clarify the three file-access methods and temporary versus persistent storage; streamlined repetitive notebook sections while preserving the Python exercises. Closed; reopen only for a specific new issue.
-- [ ] **B · [Modularise the Code](tutorials/programming-and-data-access/modularise-the-code/)** — Preserve the useful introduction to modules/functions; revise the handling of secrets, hard-coded local paths and working examples. **Complete the credential check above first.**
+- [ ] **B · [Python Functions and Modules](tutorials/programming-and-data-access/modularise-the-code/)** — Display title corrected (28 October 2026); original folder and notebook filename retained. User confirmed credential values are placeholders. Review the obsolete password-handling and hard-coded path demonstrations, preserving the central introduction to reusable functions and imports. Proposed modest extension awaiting approval: students create one small helper module and import two functions into their notebook; do not expand into an extensive Python course.
 - [ ] **C · [Google API](tutorials/programming-and-data-access/google-api/)** — Currently mostly example assets and JSON; determine the intended teaching outcome and whether a new, fully written tutorial is warranted.
 
 ## Wishlist — potential new resources
