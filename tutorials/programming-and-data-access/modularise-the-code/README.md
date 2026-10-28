@@ -1,4 +1,4 @@
-# Modularise the Code
+# Python Functions and Modules
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
