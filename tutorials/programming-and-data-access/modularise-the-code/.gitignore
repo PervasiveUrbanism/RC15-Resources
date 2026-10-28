@@ -1,0 +1,9 @@
+# Never commit real credentials or local environments.
+.env
+.env.*
+!.env.example
+private_passwords.py
+private_passwords.csv
+*.local.py
+__pycache__/
+.ipynb_checkpoints/
