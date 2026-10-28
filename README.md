@@ -67,7 +67,6 @@ Choose a topic below, then open a tutorial or example collection. Click a thumbn
 
 | Preview | Tutorial / collection | What you will find |
 | --- | --- | --- |
-| <a href="tutorials/visualisation-and-rendering/d5-render/README.md"><img src=".github/previews/d5-render.svg" width="120" alt="D5 Render — workflow overview diagram"></a> | [D5 Render](tutorials/visualisation-and-rendering/d5-render/README.md) | Get started with D5 Render using the supplied presentation guide. PDF guide. |
 | <a href="tutorials/visualisation-and-rendering/circular-graphs/README.md"><img src="tutorials/visualisation-and-rendering/circular-graphs/Image.png" width="120" alt="Circular Graphs and 2D Export — existing project image"></a> | [Circular Graphs and 2D Export](tutorials/visualisation-and-rendering/circular-graphs/README.md) | Draw circular data graphics in vvvv and export a 2D composition. PDF guide and example. |
 | <a href="tutorials/visualisation-and-rendering/combining-2d-and-3d/README.md"><img src=".github/previews/combining-2d-and-3d.svg" width="120" alt="Combining 2D and 3D — workflow overview diagram"></a> | [Combining 2D and 3D](tutorials/visualisation-and-rendering/combining-2d-and-3d/README.md) | Combine 2D graphics and a 3D scene in vvvv. Example patch; written guide pending. |
 | <a href="tutorials/visualisation-and-rendering/fog/README.md"><img src=".github/previews/fog.svg" width="120" alt="Drawing Fog — workflow overview diagram"></a> | [Drawing Fog](tutorials/visualisation-and-rendering/fog/README.md) | Build fog effects through a sequence of vvvv Texture FX patches. Example sequence. |
@@ -100,7 +99,6 @@ Choose a topic below, then open a tutorial or example collection. Click a thumbn
 - [Rhino and Grasshopper](software/rhino-grasshopper.md)
 - [Python](software/python.md)
 - [Arduino](software/arduino.md)
-- [D5 Render](software/d5-render.md)
 - [Illustrator](software/illustrator.md)
 
 ## Using the library
