@@ -9,6 +9,14 @@ Part of **RC15 Resources**, the permanent teaching library for Pervasive Urbanis
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
+## New teaching notebook — Places API (New)
+
+**[Open Google_Places_API_New.ipynb](Google_Places_API_New.ipynb)** — a new self-contained exercise following the original idea: understand JSON, search for urban places, inspect an individual place and optionally display one attributed photo. The notebook begins with a no-key, offline example; live requests use modern endpoints and are **disabled by default**. It uses standard Python libraries for requests, plus IPython's image display in the final optional cell.
+
+Start by reading the [Google Places API (New) setup guide](API_SETUP.md) for Cloud project creation, key restrictions and billing. The notebook was written against Google's current API documentation, but **has not been live-tested with a billed project**.
+
+The original notebook below remains unchanged as a historical reference.
+
 ## Start here
 
 Open **[Xtra - Google Maps Services.ipynb](Xtra%20-%20Google%20Maps%20Services.ipynb)**, copied from the [original 2025–26 RC15 Skills exercise](https://github.com/PervasiveUrbanism/PervasiveUrbanism_25-26/blob/main/Skills%20Module%201%20Cartographies%20of%20Affect/Skills%201%20-%20Day%202%20Datamining%20Python/Xtra%2002%20-%20Google%20API/Xtra%20-%20Google%20Maps%20Services.ipynb). It is retained unchanged so we can review and refine the existing tutorial rather than write a duplicate from scratch.
