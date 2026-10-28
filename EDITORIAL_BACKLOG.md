@@ -72,7 +72,7 @@ The groupings below follow the **current repository structure**, not a proposed 
 
 ### Simulation and agents
 
-- [ ] **C · [Baking SDFs with Particles](tutorials/simulation-and-agents/baking-sdfs-with-particles/README.md)** — Explain the method, supplied geometry/data and expected result.
+- [ ] **C · [Baking SDFs with Particles](tutorials/simulation-and-agents/baking-sdfs-with-particles/README.md)** — **README updated (28 October 2026).** Short explanation of baking SDF-related particle positions from vvvv for further work in Rhino; links to the patch, buffer image and saved TXT/OBJ/3DM outputs. Original files preserved. **Outstanding desktop check:** open `01 Particles - BakeSDF.vl` in vvvv, verify VL.Fuse dependencies and compatibility (patch references 2024.6), particle/SDF behaviour, buffer readback, file-writing paths and exported data; compare supplied outputs with the Rhino model. Close after technical verification.
 - [ ] **C · [VL.Fuse: SDFs and Fluid Simulation](tutorials/simulation-and-agents/fuse-simulation-series/README.md)** — Develop a conceptual introduction and reproduce the progression from signed distance fields to a fluid experiment.
 - [ ] **C · [Rhino and vvvv: Geometry, Particles and Moving People](tutorials/simulation-and-agents/rhino-vvvv-series/README.md)** — Document the four-part series, cross-software prerequisites and movement/agent concepts; consider breaking it into linked stages.
 
