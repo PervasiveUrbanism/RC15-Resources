@@ -10,6 +10,9 @@ Part of **RC15 Resources**, the permanent teaching resource library for Pervasiv
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
+**Related exercise:** [Terrain Analysis in QGIS — Slope, Aspect and Solar Orientation](../terrain-slope-aspect/README.md) uses a separate copy of the same sample terrain to investigate buildable gradients and solar orientation.
+
+
 ## Introduction: What can we see from here?
 
 Consider standing on a hill or at an observation point and looking across a landscape. Some parts of the terrain are visible; others are concealed by intervening slopes. A **viewshed** is a map of the locations that could theoretically be seen from a particular observer position.
