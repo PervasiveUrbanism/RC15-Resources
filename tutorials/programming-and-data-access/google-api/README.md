@@ -15,6 +15,14 @@ Open **[Xtra - Google Maps Services.ipynb](Xtra%20-%20Google%20Maps%20Services.i
 
 The [assets folder](assets/) contains a sample Google Places JSON response and example photographs from the original exercise. These files were already present in RC15 Resources, so they have not been duplicated.
 
+## Set up Google Places API (New)
+
+Start with **[How to obtain and restrict a Google API key](API_SETUP.md)**. The new guide covers Google Cloud project creation, billing, enabling Places API (New), key restrictions, environment variables, a small modern Python Text Search request, and the differences from the archived API response.
+
+**Important compatibility finding (October 2026):** Google no longer enables Places API (Legacy) for newly created projects. The supplied `assets/sample.json` uses the legacy response format. Therefore, the historic example cannot be assumed to run unchanged for a student with a new Google Cloud project. The current API requires different endpoints, requests and field masks.
+
+**Review status:** Google's current API documentation has been checked, but the original 10.8 MB notebook could not be retrieved as complete readable cell text through the connected GitHub interface. Individual code cells and their saved outputs are **not yet audited or executed**, so no claim is made that the notebook has been fully validated.
+
 ## Before running the notebook
 
 This is an **unverified historical example**, not yet a current installation guide. Google's Places APIs, authentication, billing, data-retention policies and photo licensing may have changed since the original exercise. In particular, the archived JSON uses an older response format; do not assume every endpoint, field or API call in the notebook is still supported.
