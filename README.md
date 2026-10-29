@@ -14,6 +14,8 @@ Choose a topic below, then open a tutorial or example collection. Click a thumbn
 
 [Open topic folder](tutorials/mapping-and-spatial-analysis/README.md)
 
+[Mapbox Basemaps in QGIS](tutorials/mapping-and-spatial-analysis/mapbox-basemaps/README.md) — Connect a Mapbox style through WMTS and edit its colours and zoom rules through ChatGPT's Mapbox DevKit MCP. Beginner guide; application testing pending.
+
 | Preview | Tutorial / collection | What you will find |
 | --- | --- | --- |
 | <a href="tutorials/mapping-and-spatial-analysis/flickr-mapping/README.md"><img src="tutorials/mapping-and-spatial-analysis/flickr-mapping/map/aerial_0.jpg" width="120" alt="Flickr Mapping in Rhino and Illustrator — existing project image"></a> | [Flickr Mapping in Rhino and Illustrator](tutorials/mapping-and-spatial-analysis/flickr-mapping/README.md) | Map Flickr photo locations, add a background map and prepare Illustrator output. Example projects. |
