@@ -2,7 +2,11 @@
 
 [Library home](../../../README.md) · [Mapping and spatial analysis](../README.md) · [QGIS index](../../../software/qgis.md)
 
-Create a quiet background map for your own spatial data, then adjust its appearance through ChatGPT.
+You need a background for your map. The default OpenStreetMap design does not quite fit: the colours compete with your data, there are too many labels, or you want a different visual character. You could download OpenStreetMap data and style the roads, buildings and land-use layers yourself in QGIS, but you do not have time to build a basemap from scratch.
+
+Mapbox gives you a starting point: a ready-made map design that you can customise and use as a background in QGIS. You can make it quieter, change its colours and decide which details appear as you zoom in. The aim is a background that suits your map and helps people read your own data.
+
+This tutorial has two parts. First, you will bring a Mapbox background into QGIS. Then you will connect Mapbox to ChatGPT and describe the changes you want in plain language, such as “make the water pale blue, reduce the road contrast and hide minor-road labels until I zoom in.”
 
 **Level:** beginner. **You will learn:** connect a Mapbox style using WMTS, edit colours and zoom rules, and check the result in QGIS.
 
