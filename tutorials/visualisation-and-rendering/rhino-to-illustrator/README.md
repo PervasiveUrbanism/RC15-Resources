@@ -1,6 +1,6 @@
 # From Rhino to Illustrator: working with vector drawings
 
-[RC15 Resources](../../README.md) · [Visualisation and rendering](../visualisation-and-rendering/README.md)
+[RC15 Resources](../../../README.md) · [Visualisation and rendering](../README.md)
 
 Rhino and Adobe Illustrator are both excellent tools for working with vector geometry, but they have different strengths. Rhino offers precise control over drawing and manipulating curves, including the ability to generate two-dimensional drawings from 3D models using Make2D. Surprisingly, if you come from a CAD background, even relatively simple operations with lines and curves can feel cumbersome in Illustrator. However, Illustrator offers much greater flexibility when it comes to graphic appearance, colours, line weights and visual composition.
 
