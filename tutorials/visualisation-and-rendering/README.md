@@ -7,3 +7,5 @@
 - [Drawing Fog](fog/README.md) - vvvv
 - [vvvv Graphics Fundamentals](vvvv-graphics-fundamentals/README.md) - vvvv, Rhino
 - [vvvv Extended Examples](vvvv-extended-examples/README.md) - vvvv, Rhino, Arduino
+
+- [Rhino to Illustrator: Working with Vector Drawings](rhino-to-illustrator/README.md) - Rhino, Illustrator
