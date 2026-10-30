@@ -1,93 +1,86 @@
-# From Rhino to Illustrator: drawing with vectors
+# From Rhino to Illustrator: working with vector drawings
 
 [RC15 Resources](../../README.md) · [Visualisation and rendering](../visualisation-and-rendering/README.md)
 
-A Rhino model is useful for exploring space, but the drawing you want to present may need more control than a viewport screenshot can offer. You might want a particular line-weight hierarchy, selective colour, a carefully composed axonometric or a diagram in which some elements recede while others stand out.
+Rhino and Adobe Illustrator are both excellent tools for working with vector geometry, but they have different strengths. Rhino offers precise control over drawing and manipulating curves, including the ability to generate two-dimensional drawings from 3D models using Make2D. Surprisingly, if you come from a CAD background, even relatively simple operations with lines and curves can feel cumbersome in Illustrator. However, Illustrator offers much greater flexibility when it comes to graphic appearance, colours, line weights and visual composition.
 
-One way to achieve this is to prepare the geometry in Rhino and finish the drawing in Adobe Illustrator. Rhino determines **what is drawn and from which view**; Illustrator lets you decide **how the drawing reads**. Unlike a screenshot, the exported lines remain vectors: they can be selected, recoloured and edited without losing sharpness.
+Combining the two allows us to take advantage of both applications. Moving geometry from Rhino to Illustrator is straightforward: select the objects and export them as an Adobe Illustrator (`.ai`) file. The challenge begins when we want to continue working on the drawing.
 
-In this exercise, we will work with an existing Rhino model, create a two-dimensional projection with `Make2D`, export the result to Illustrator and develop a simple graphic hierarchy.
+As a project develops, we may need to add geometry in Rhino, remove unwanted lines, update an existing drawing or bring elements back from Illustrator. If each exchange requires manually repositioning, rotating or scaling the artwork, the process quickly becomes frustrating and introduces inaccuracies.
 
-**You need:** Rhino and Adobe Illustrator. Download the four example files in this folder. Start with [Example File Illustrator.3dm](Example%20File%20Illustrator.3dm); the three `.ai` files are references for comparing exported and edited linework.
+This tutorial introduces a simple workflow for transferring vector drawings between Rhino and Illustrator while **preserving their position, orientation and scale**. By organising the geometry and establishing a consistent reference, we can move between the two applications without having to realign the drawing each time.
 
-## 1. Start with the drawing, not the export
+**You need:** Rhino and Adobe Illustrator. Start with [Example File Illustrator.3dm](Example%20File%20Illustrator.3dm); the three supplied Illustrator files are references. You can also use the separate [2D Rhino Template (Concept Design)](https://github.com/PervasiveUrbanism/2D-Rhino-Template-Concept-Design), which includes A3 frames, scale factors, layers and drawing styles.
 
-Open `Example File Illustrator.3dm` in Rhino and inspect the geometry. Switch between Perspective, Top and an axonometric view. Think about what each view communicates: a plan explains spatial arrangement, while an axonometric can reveal relationships between elements at different heights.
+## 1. Establish an A3 reference frame
 
-Choose a view that makes the model understandable. If you use a parallel projection, the lines do not converge towards vanishing points, which often makes architectural diagrams easier to measure and compare. In Rhino, you can change the active viewport's projection from Perspective to Parallel and then adjust the view.
+Before exporting, draw a rectangle in Rhino representing the physical sheet at your chosen drawing scale. This **reference frame** is the basis for every exchange between the two applications: it defines the sheet extent, provides a consistent registration reference and lets you check that the exported geometry is correctly scaled.
 
-Before continuing, check which objects and layers are visible. Hide geometry that does not belong in the final drawing. You can always return to the model and generate another projection, so avoid spending time manually deleting unwanted lines after export.
+An A3 sheet measures **420 × 297 mm**. When the Rhino model is drawn in **metres**, an A3 drawing at 1:1000 covers 420 × 297 metres in model space. At a larger drawing scale, the frame covers a smaller area of the model.
 
-## 2. Make a two-dimensional drawing
+| Intended A3 scale | Frame in Rhino (model units: metres) |
+| --- | --- |
+| 1:1000 | 420 × 297 m |
+| 1:500 | 210 × 148.5 m |
+| 1:200 | 84 × 59.4 m |
+| 1:100 | 42 × 29.7 m |
 
-Select the geometry you want to project and run:
+You can start with the 420 × 297 m rectangle at 1:1000 and use Rhino's `Scale` command with a factor of **0.5** for 1:500 or **0.2** for 1:200. Equivalently, divide the original dimensions by two or five. The sheet in Illustrator remains A3; only the area of the model represented by that sheet changes.
 
-```text
-Make2D
-```
+Use `Rectangle` to create the frame in Rhino's **Top** construction plane and place it on a dedicated layer, such as `REFERENCE FRAME`. Decide on its orientation and position, and keep them fixed. For the first exercise, use a landscape A3 frame and keep all exported geometry in the same Top-plane coordinate system. This is especially important if your starting point is a 3D model: generate the projected curves with `Make2D`, then arrange the resulting 2D geometry within the frame.
 
-Use the **Current View** option if you want to preserve the projection you have just composed. Rhino creates flat curves representing the visible edges of the model, rather than exporting the shaded surfaces themselves. Depending on the options you choose, the result can also contain hidden lines and other curve types.
+The [2D Rhino Template](https://github.com/PervasiveUrbanism/2D-Rhino-Template-Concept-Design) already provides A3 frames and a scale-factor table, alongside a simple layer system. You can use it instead of constructing the setup from scratch.
 
-Keep the resulting curves on identifiable layers. If you include hidden lines, separate them from visible outlines so you can give them a lighter or dashed appearance later. Inspect the result in Top view: the new drawing should be flat, and its geometry should match the chosen projection.
+## 2. Export the drawing at the correct scale
 
-**Why use Make2D?** Exporting the 3D model directly does not give Illustrator the same controlled set of projected curves. Make2D turns the view into linework that can be edited as a conventional vector drawing.
+Select **both the geometry and the reference frame** in Rhino, then choose **File → Export Selected** and the **Adobe Illustrator (`.ai`)** format. Including the complete frame in every export is essential: if you export only the changed lines, the bounding box of the file can change and Illustrator may place the new artwork differently.
 
-### Add a frame
+In Rhino's Illustrator export options, set the model-to-Illustrator scale to match your drawing. The important relationship is between the units on each side, not simply the ratio written on the drawing. For example, for a model in metres at **1:1000**, **1 metre in Rhino must become 1 millimetre in Illustrator**. At 1:500, 1 metre in Rhino becomes 2 mm in Illustrator; at 1:200, it becomes 5 mm.
 
-Draw a rectangle around the projected geometry in Rhino. The original workshop calls this **Make 2D with Frame**: the frame gives the drawing a known boundary that can help with positioning and consistent composition when transferring it between applications.
+| Intended scale | Illustrator size of 1 m in Rhino |
+| --- | --- |
+| 1:1000 | 1 mm |
+| 1:500 | 2 mm |
+| 1:200 | 5 mm |
+| 1:100 | 10 mm |
 
-Place the frame on its own layer. Make it large enough to enclose the entire drawing, but not so large that the geometry appears tiny on the Illustrator artboard. If you prepare several views, use frames of the same dimensions to make them easier to align.
+Rhino's export dialogue may express this relationship using its own unit labels and scale fields. Check the labels rather than entering `1:1000` without considering the model units. The definitive test is the frame: when opened in Illustrator, it must measure **420 × 297 mm**.
 
-## 3. Export the linework
+Open the exported `.ai` file in Illustrator, select the frame and check its width and height in the **Transform** panel. If they are not 420 and 297 mm, correct the export settings in Rhino and export again. Do not fix the drawing by dragging a corner until it looks approximately right. Once the scale is correct, keep the reference frame in the Illustrator document on a clearly named layer.
 
-Select the Make2D curves **and the frame**, then use **File → Export Selected**. Choose **Adobe Illustrator (`.ai`)** as the file type. In the export options, pay attention to the drawing scale and units: the relationship between Rhino model units and Illustrator document units determines the physical size of the exported artwork.
+## 3. Update the drawing without realigning it
 
-For a diagram, you may choose to adjust the size later in Illustrator. For a scaled architectural drawing, establish the intended scale before export and verify a known dimension after import. Do not assume that an Illustrator artboard automatically represents a particular architectural scale.
+Now make a small change in Rhino: add a few lines, or remove an element from the 2D drawing. Keep the reference frame exactly where it was. Export the updated geometry **together with the same frame**, using the same Illustrator scale settings.
 
-Save the export under a new name, leaving the supplied reference files untouched.
+Open the new export in Illustrator. Copy the updated artwork **including its frame** into the original Illustrator document. Align the two frames exactly using Illustrator's alignment controls, with the original frame as the fixed reference. Once the frames coincide, the drawing geometry will also coincide; you do not need to rotate, rescale or visually nudge individual lines. Remove or hide the duplicate frame afterwards.
 
-## 4. Open the drawing in Illustrator
+**Important:** the frame makes exact alignment *possible*, but it does not by itself force Illustrator to paste separate exports at the same coordinates. Do not rely on ordinary paste placement. Use the matching frame as a registration object, and verify the two frames coincide before deleting or replacing old linework. If your Illustrator version and workflow support pasting in place between documents, you can test that as a shortcut, but the frame remains the reliable check.
 
-Open your exported `.ai` file in Illustrator. You should find editable paths rather than a single raster image. Zoom in and select a few lines to confirm that they are individual vector objects.
+The same principle applies in reverse when bringing vector geometry from Illustrator back into Rhino: preserve the reference frame, import the Illustrator artwork with consistent units, and check the frame against the existing Rhino rectangle before incorporating the lines. Some Illustrator objects, such as complex appearances or effects, may need to be expanded or simplified before they can be used as Rhino curves.
 
-Compare your export with the supplied files:
+## 4. Develop the graphic in Illustrator
 
-- [LINEWORK.AI](LINEWORK.AI) and [LINEWORK2.AI](LINEWORK2.AI) are examples of Illustrator-format linework exported by Rhinoceros.
-- [Example 01.ai](Example%2001.ai) is another reference Illustrator document from the original exercise.
+Once the geometry is correctly positioned, Illustrator is where you can refine the graphic hierarchy. Make the principal outlines stronger, keep secondary lines lighter, and introduce colour or fills where they improve the drawing's clarity. The drawing remains vector-based, so the paths can be edited without the loss of quality associated with raster screenshots.
 
-The supplied files are useful for comparison, but their exact layer organisation and intended sequence have not yet been verified in Illustrator.
+Keep the frame and the drawing geometry separate from annotations, colours and other graphic elements. This makes it easier to replace one set of Rhino lines without rebuilding the entire Illustrator composition.
 
-Find the frame and check that the drawing fits inside it. Keep it temporarily while you organise the artwork, then hide or remove it from the final composition if it is not meant to be visible.
+## 5. Try it with the supplied files
 
-## 5. Give the drawing a graphic hierarchy
+Open [Example File Illustrator.3dm](Example%20File%20Illustrator.3dm) in Rhino and prepare a 2D projection or drawing within an A3 reference frame. Export it and verify the frame dimensions in Illustrator. Then change the Rhino geometry and repeat the export, using the unchanged frame to register the updated linework.
 
-A Make2D export is a geometric description, not yet a finished drawing. Start by making the main outlines legible. Use a stronger stroke for the elements that define the principal form, a thinner stroke for secondary edges and a lighter treatment for hidden or background information.
-
-Avoid making every line equally dark. In an architectural drawing, line weight can help communicate which surfaces are in front, which elements belong together and what the viewer should notice first.
-
-If your Rhino layers were carried through to Illustrator, use them to organise the changes. Otherwise, select related paths and group them. You can add a restrained colour palette, filled shapes or annotations once the linework reads clearly in black and white.
-
-Work at the size at which the drawing will be presented. A line that looks delicate at 400% zoom may disappear when printed or placed on a presentation board.
-
-## 6. Test the workflow
-
-Return to Rhino and change the view or hide one element. Run Make2D again and export a second drawing. Open it in Illustrator alongside the first.
-
-Compare the two. Which decisions were easier to make in Rhino, and which were easier in Illustrator? Could you have avoided some Illustrator editing by organising the Rhino layers and visibility more carefully?
-
-The aim is to develop a repeatable workflow: **model and projection in Rhino; visual hierarchy and composition in Illustrator**.
+The folder also contains [Example 01.ai](Example%2001.ai), [LINEWORK.AI](LINEWORK.AI) and [LINEWORK2.AI](LINEWORK2.AI). These are reference files from the original exercise. Their precise graphic content and layer structure have not yet been checked visually, so compare them with your own export rather than assuming they represent consecutive stages.
 
 ## If something does not work
 
-| Problem | What to check |
+| Problem | First thing to check |
 | --- | --- |
-| The export is empty or incomplete | Check that you selected the Make2D curves, not only the original 3D geometry or the frame. |
-| The drawing is unexpectedly small or large | Review Rhino model units, Illustrator export scale and the dimensions of the frame. |
-| Lines overlap or look too heavy | Inspect duplicate curves and overlapping visible/hidden linework before adjusting strokes. |
-| The drawing is difficult to edit | Check whether the imported objects are grouped or nested, and whether paths can be selected individually. |
-| Hidden lines appear as solid outlines | Keep hidden curves separate and apply their dash or colour treatment explicitly. |
-| A different view is exported | Confirm the active viewport and the Make2D projection option before generating the drawing. |
+| The frame is not 420 × 297 mm in Illustrator | Check the Rhino model units and the model-to-Illustrator export scale. |
+| Updated geometry appears in a different position | Include the unchanged frame in both exports and align the two frames, not the individual lines. |
+| The drawing has rotated | Keep the 2D geometry and frame in the same Top-plane orientation for every export. |
+| Some lines are missing | Confirm that the intended Make2D curves are visible and included in Export Selected. |
+| The exported drawing contains overlapping lines | Check for duplicate curves or overlapping Make2D results in Rhino. |
+| Illustrator graphics do not import cleanly into Rhino | Simplify or expand complex Illustrator appearances and check imported units and frame dimensions. |
 
 ---
 
-**Editorial status:** First draft, based on the original workshop outline and the supplied files. The Rhino file is confirmed as a Rhino 7 model, and the `LINEWORK` Illustrator files identify Rhinoceros as their creator. The exact geometry, layer structure, Illustrator appearance and application-specific export settings still need visual verification. Screenshots and a final illustrated result should be added after reviewing the exercise in Rhino and Illustrator.
+**Editorial status:** Revised tutorial draft. The A3 frame and scale calculations follow the existing RC15 2D Rhino Template. The precise export dialogue settings, repeated-import behaviour and Illustrator-to-Rhino round trip still require desktop verification and screenshots.
