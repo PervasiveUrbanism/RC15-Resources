@@ -90,6 +90,8 @@ The folder also contains [Example 01.ai](Example%2001.ai), [LINEWORK.AI](LINEWOR
 
 **Use a floating viewport for a repeatable view.** Rhino also lets you work with a floating viewport whose window dimensions can be specified in the **Properties** panel. Setting the viewport dimensions deliberately helps you maintain a consistent aspect ratio and view boundary when generating `Make2D` drawings on different occasions. Keep the view direction and projection settings unchanged as well: matching viewport dimensions alone does not guarantee identical projected geometry.
 
+**Align rendered images and screenshots with the linework.** A floating viewport's dimensions can be set precisely in Rhino's **Properties** panel. This is useful beyond `Make2D`: by keeping the same viewport, camera and projection, you can also capture screenshots or render images with a repeatable framing. For example, export clean vector linework with `Make2D` and place an image with **ambient shadows** beneath it in Illustrator, or combine several renders into a **shadow study** showing different times of day. Use consistent image dimensions and a common registration boundary so the raster image and vector drawing align. Note that setting the viewport's width and height alone does not guarantee an exact match: the view and export/capture settings must also remain consistent.
+
 These are alternatives for controlling the **Make2D projection and its reference boundary**. They complement rather than replace the A3 frame and the Illustrator export-scale settings described above.
 
 ## If something does not work
