@@ -75,6 +75,8 @@ Choose a topic below, then open a tutorial or example collection. Click a thumbn
 | <a href="tutorials/visualisation-and-rendering/vvvv-graphics-fundamentals/README.md"><img src="tutorials/visualisation-and-rendering/vvvv-graphics-fundamentals/Assets/Screenshot%202025-07-06%20212637.png" width="120" alt="vvvv Graphics Fundamentals — existing project image"></a> | [vvvv Graphics Fundamentals](tutorials/visualisation-and-rendering/vvvv-graphics-fundamentals/README.md) | Learn scene setup, image export, animation, OBJ import, textures and fog. Eight example patches. |
 | <a href="tutorials/visualisation-and-rendering/vvvv-extended-examples/README.md"><img src="tutorials/visualisation-and-rendering/vvvv-extended-examples/Frames/40%20Animation.png" width="120" alt="vvvv Extended Examples — existing project image"></a> | [vvvv Extended Examples](tutorials/visualisation-and-rendering/vvvv-extended-examples/README.md) | Explore graphs, cameras, materials, SDFs, particles, Rhino import and Arduino input. Twenty example patches. |
 
+| — | [Rhino to Illustrator: Working with Vector Drawings](tutorials/visualisation-and-rendering/rhino-to-illustrator/README.md) | Use A3 reference frames and consistent export scales to exchange editable linework between Rhino and Illustrator. Tutorial draft. |
+
 ### Simulation and agents
 
 [Open topic folder](tutorials/simulation-and-agents/README.md)
