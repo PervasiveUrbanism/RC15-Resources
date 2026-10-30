@@ -2,19 +2,27 @@
 
 [RC15 Resources](../../../README.md) · [Mapping and spatial analysis](../README.md)
 
-A map background can do two very different things. It can help us locate our data, or it can compete with it. When we bring an analysis into QGIS, the default streets, labels and land-use colours are not always what we need. A quiet background might be more useful for showing pedestrian routes; a stronger distinction between land and water might help explain an urban edge.
+When preparing a map in QGIS, you often need a good-looking background quickly. OpenStreetMap is very useful while working, but its default colours, labels and level of detail are not always suitable for a presentation. Online mapping services offer an alternative: ready-made maps that you can customise without styling every street, building and park yourself.
 
-<!-- @ChatGPT: this intro is a bit off. in most cases you just need a nice looking background fairy quickly. open stree maps works well in workmode but hardly presentations. online backgrounds that you can customise offer an alternative. mapbox offer custom webmaps for example and they are free for the low usage we use-->
+[Mapbox](https://www.mapbox.com/) is one such service. Its map styles can be customised and brought into QGIS as backgrounds for your own drawings. Mapbox has a free usage allowance that may be sufficient for small teaching exercises, although limits, billing requirements and charges should be checked against the [current pricing](https://www.mapbox.com/pricing/).
 
-In this exercise we will bring a Mapbox basemap into QGIS, then change its appearance using ChatGPT. The aim is not to make a finished cartographic design, but to learn how to choose and control the background against which our own information is presented.
+We'll first bring a Mapbox map into QGIS. Once it is working, we'll use ChatGPT and Mapbox DevKit to adjust the style's appearance and compare the result with the original.
 
 **You need:** QGIS, a [Mapbox account](https://www.mapbox.com/), and an internet connection. The second part uses ChatGPT with access to the **Mapbox DevKit** plugin. Mapbox services have usage limits and may incur charges.
 
 ## 1. Bring a Mapbox map into QGIS
-<!-- add an images -->
+
+![Mapbox website](LandingpageMapbox.png)
+
 Start in [Mapbox Studio](https://console.mapbox.com/studio/), where you can explore ready-made map styles. A *style* defines the appearance of a map: the colours of roads and water, which labels are visible and how much detail appears at different scales. Choose a style that would make a useful background for one of your QGIS projects.
 
-You can use an existing style or duplicate one to make your own version. For the moment, don't spend time adjusting individual colours. We want to see it working in QGIS first.
+From your Mapbox account, open **Styles** and create a new style or duplicate one you like. Give it a recognisable name so you can find it later. Mapbox Studio lets you adjust the design manually, but for now we only need a working style to bring into QGIS.
+
+![Mapbox account page](Mapbox%20-%20Personal%20Page.png)
+
+![Creating a new Mapbox style](Mapbox%20-%20Create%20New%20Style.png)
+
+![Customising a style in Mapbox Studio](Mapbox%20-%20Customise%20New%20Style.png)
 
 ### Find your style and access token
 
@@ -25,6 +33,10 @@ mapbox://styles/YOUR_USERNAME/YOUR_STYLE_ID
 ```
 
 We need the username and style ID from this address. We also need a **public access token** from the [Mapbox Access Tokens page](https://console.mapbox.com/account/access-tokens/). Tokens allow applications such as QGIS to request maps from your Mapbox account. Use a token with suitable read permissions; do not use a secret write token.
+
+![Locating the Mapbox style ID and access token](Mapbox%20-%20Style%20ID%20%26%20Token.png)
+
+Use your **own** style ID and token, even if the screenshot shows a particular account. Access tokens should not be copied from someone else's image or committed to the repository.
 
 QGIS cannot use the `mapbox://` address directly as a WMTS connection. Instead, substitute your username, style ID and token into this address:
 
@@ -38,27 +50,29 @@ This URL gives QGIS access to the map through **WMTS** (Web Map Tile Service). I
 
 In QGIS, open **Layer → Add Layer → Add WMS/WMTS Layer**. Select **New**, name the connection `Mapbox background`, and paste the URL above. Save the connection, click **Connect**, select the available layer and choose **Add**.
 
-<!-- add an images -->
+![Creating a Mapbox WMS/WMTS connection in QGIS](Qgis%20-%20New%20Connection.png)
+
+![Editing the Mapbox connection in QGIS](Qgis%20-%20Edit%20Connection.png)
 
 Move the new layer to the bottom of the **Layers** panel, beneath your own data. Navigate to an area you know and zoom in and out. Notice how roads, labels and buildings change as you move between scales.
 
 **You now have a Mapbox basemap inside QGIS.** The background is being supplied by Mapbox; your analytical layers remain in QGIS. Save your QGIS project.
 
-*Suggested illustration:* QGIS screenshot showing the WMS/WMTS connection dialog, followed by the same map with a custom Mapbox background beneath a simple analysis layer.
+![Mapbox basemap displayed in QGIS](Qgis%20-%20Basemap%2001.png)
 
 ## 2. What if the background is too dominant?
 
 Look at the map with your own data switched on. Are major roads drawing too much attention? Do place labels obscure your information? Are the land and water colours suitable for the graphic you want to make?
 
-You could go back to Mapbox Studio and change the style manually. 
+You could return to Mapbox Studio and adjust the style manually. Its interface is intuitive, and it has been a useful way to customise maps for years. But getting the colours, line weights and detail levels right can still take considerable time, particularly when you need to check the result at different zoom levels.
 
-<!-- add an images  @chatgpt:say that i have been doing that for the last ten years. eventouh it is a vey intuition interfaces, it taka time. so the new lid in the block is ChatGPT or claude mcp to get the colors and settings ringt and to play more with colours -->
-
-Here we'll try another route: asking ChatGPT to work with the style through **Mapbox DevKit MCP**.
+A newer possibility is to work on the Mapbox style through an AI assistant such as ChatGPT or Claude. Rather than hunting through settings, you can describe the changes you want, inspect the result and experiment with alternatives. Here we'll use **ChatGPT with Mapbox DevKit MCP**.
 
 **MCP**, or *Model Context Protocol*, lets an AI assistant use tools provided by another application. Mapbox DevKit exposes tools for inspecting, creating and editing styles. It does **not** edit your QGIS layers or control QGIS itself. We change the map's appearance in Mapbox, then inspect that change in QGIS.
 
 ### Connect Mapbox DevKit
+
+![Mapbox DevKit in ChatGPT](ChatGPT%20-%20MCP.png)
 
 Mapbox provides a [hosted DevKit MCP server](https://docs.mapbox.com/location-ai/mcp-servers/devkit-mcp-server/), so there is no separate software to install on your computer.
 
@@ -86,7 +100,7 @@ The assistant can inspect the style's layers and use DevKit to propose or apply 
 
 Compare the result at three scales: a broad neighbourhood view, a street-level view and a close detail. If the background becomes darker or busier as you zoom, ask the assistant to inspect the relevant layers and zoom-dependent colour or visibility rules. Be specific about what you want to preserve, and check which style was actually changed.
 
-*Suggested illustration:* Three views of the same location: original style, lighter edited style, and the edited style beneath a QGIS analysis layer.
+Compare your edited map with the original at the same location and zoom level. A future screenshot can illustrate this comparison once the revised style has been checked in QGIS.
 
 ## 3. Return to QGIS
 
