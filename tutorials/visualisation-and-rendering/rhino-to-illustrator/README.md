@@ -84,6 +84,14 @@ Open [Example File Illustrator.3dm](Example%20File%20Illustrator.3dm) in Rhino a
 
 The folder also contains [Example 01.ai](Example%2001.ai), [LINEWORK.AI](LINEWORK.AI) and [LINEWORK2.AI](LINEWORK2.AI). These are reference files from the original exercise. Their precise graphic content and layer structure have not yet been checked visually, so compare them with your own export rather than assuming they represent consecutive stages.
 
+## Pro tips: keeping Make2D drawings consistent
+
+**Include the viewport boundary in Make2D.** When generating a drawing with Rhino's `Make2D` command, enable the option to create a rectangle representing the viewport boundary. The resulting rectangle travels with the projected curves and gives you an additional reference for positioning successive drawings. Unlike the A3 frame, this boundary reflects the view used to generate the projection, so it is important to keep the viewport consistent.
+
+**Use a floating viewport for a repeatable view.** Rhino also lets you work with a floating viewport whose window dimensions can be specified in the **Properties** panel. Setting the viewport dimensions deliberately helps you maintain a consistent aspect ratio and view boundary when generating `Make2D` drawings on different occasions. Keep the view direction and projection settings unchanged as well: matching viewport dimensions alone does not guarantee identical projected geometry.
+
+These are alternatives for controlling the **Make2D projection and its reference boundary**. They complement rather than replace the A3 frame and the Illustrator export-scale settings described above.
+
 ## If something does not work
 
 | Problem | First thing to check |
