@@ -46,27 +46,41 @@ In Rhino's Illustrator export options, set the model-to-Illustrator scale to mat
 
 Rhino's export dialogue may express this relationship using its own unit labels and scale fields. Check the labels rather than entering `1:1000` without considering the model units. The definitive test is the frame: when opened in Illustrator, it must measure **420 × 297 mm**.
 
-Open the exported `.ai` file in Illustrator, select the frame and check its width and height in the **Transform** panel. If they are not 420 and 297 mm, correct the export settings in Rhino and export again. Do not fix the drawing by dragging a corner until it looks approximately right. Once the scale is correct, keep the reference frame in the Illustrator document on a clearly named layer.
+## 3. Set up the A3 artboard and a precise origin in Illustrator
 
-## 3. Update the drawing without realigning it
+Open the exported `.ai` file in Illustrator. First check that the **artboard** is A3 landscape (420 × 297 mm). The artboard is the printable page, whereas the frame is an actual vector rectangle exported from Rhino; they are not necessarily the same size or position when the file first opens.
 
-Now make a small change in Rhino: add a few lines, or remove an element from the 2D drawing. Keep the reference frame exactly where it was. Export the updated geometry **together with the same frame**, using the same Illustrator scale settings.
+Select the **Artboard Tool** (`Shift + O`), then choose the A3 preset or enter **W = 420 mm** and **H = 297 mm** in the artboard properties. Make sure the orientation is landscape. Press `Esc` to leave the Artboard Tool. You can check the dimensions in **Window → Artboards** or the Properties panel when an artboard is selected.
 
-Open the new export in Illustrator. Copy the updated artwork **including its frame** into the original Illustrator document. Align the two frames exactly using Illustrator's alignment controls, with the original frame as the fixed reference. Once the frames coincide, the drawing geometry will also coincide; you do not need to rotate, rescale or visually nudge individual lines. Remove or hide the duplicate frame afterwards.
+Next, select the reference frame and check its dimensions in **Window → Transform**. It should measure exactly **420 × 297 mm**. If not, return to Rhino and correct the export scale; do not resize the drawing manually in Illustrator.
 
-**Important:** the frame makes exact alignment *possible*, but it does not by itself force Illustrator to paste separate exports at the same coordinates. Do not rely on ordinary paste placement. Use the matching frame as a registration object, and verify the two frames coincide before deleting or replacing old linework. If your Illustrator version and workflow support pasting in place between documents, you can test that as a shortcut, but the frame remains the reliable check.
+We now need a repeatable position for the geometry. Select **all the exported artwork, including the frame**, and open **Window → Transform**. In the panel's nine-point reference-point selector, choose the **upper-right point**. Set **X = 0 mm** and **Y = 0 mm**. This moves the entire selection together so that the upper-right corner of its bounding box sits at the chosen origin.
 
-The same principle applies in reverse when bringing vector geometry from Illustrator back into Rhino: preserve the reference frame, import the Illustrator artwork with consistent units, and check the frame against the existing Rhino rectangle before incorporating the lines. Some Illustrator objects, such as complex appearances or effects, may need to be expanded or simplified before they can be used as Rhino curves.
+For this to work as intended, the frame must define the outer bounds of the selection: keep all exported geometry inside it, and ensure there are no stray objects outside the frame. Also use the **same ruler origin and artboard-coordinate settings** in every Illustrator document. The coordinate origin and the artboard's top-right corner are not necessarily the same thing; setting X and Y to zero is a registration convention, not an instruction to place the drawing at the artboard's top-right corner.
 
-## 4. Develop the graphic in Illustrator
+With the artboard set to A3, the frame verified at A3 size, and the geometry positioned at a fixed coordinate, we have a precise reference for every subsequent exchange.
+
+## 4. Add geometry without losing alignment
+
+Return to Rhino and add or change some of the 2D linework. Keep the **original reference frame unchanged**. Select the new or revised geometry **together with the frame**, then use **Export Selected → Adobe Illustrator (`.ai`)** with exactly the same scale settings as before.
+
+Open this second `.ai` file in Illustrator. As in the first export, select all the artwork including the frame, choose the **upper-right reference point** in **Window → Transform**, and set **X = 0 mm** and **Y = 0 mm**. Both exports now share the same registration coordinates.
+
+Before copying, enable **Paste Remembers Layers** in Illustrator's Layers panel menu. This helps preserve the layer structure when transferring objects between documents. Copy the selected artwork, switch to your original Illustrator document, and choose **Edit → Paste in Place** (`Ctrl + Shift + V` on Windows; `Cmd + Shift + V` on macOS). Because both documents use the same coordinate system and the exported drawings have been registered in the same way, the geometry should land in the correct position without manual scaling, rotation or nudging.
+
+Check that the frames coincide. Then hide or delete the duplicate frame and remove or replace any obsolete geometry as needed. Keeping Rhino linework on identifiable layers makes these updates easier to manage without disturbing Illustrator annotations and graphic treatments.
+
+**The essential routine is simple:** export with the frame at the same scale; set the upper-right reference point to X = 0, Y = 0; copy; then **Paste in Place** with **Paste Remembers Layers** enabled. Repeat whenever the drawing changes.
+
+## 5. Develop the graphic in Illustrator
 
 Once the geometry is correctly positioned, Illustrator is where you can refine the graphic hierarchy. Make the principal outlines stronger, keep secondary lines lighter, and introduce colour or fills where they improve the drawing's clarity. The drawing remains vector-based, so the paths can be edited without the loss of quality associated with raster screenshots.
 
 Keep the frame and the drawing geometry separate from annotations, colours and other graphic elements. This makes it easier to replace one set of Rhino lines without rebuilding the entire Illustrator composition.
 
-## 5. Try it with the supplied files
+## 6. Try it with the supplied files
 
-Open [Example File Illustrator.3dm](Example%20File%20Illustrator.3dm) in Rhino and prepare a 2D projection or drawing within an A3 reference frame. Export it and verify the frame dimensions in Illustrator. Then change the Rhino geometry and repeat the export, using the unchanged frame to register the updated linework.
+Open [Example File Illustrator.3dm](Example%20File%20Illustrator.3dm) in Rhino and prepare a 2D projection or drawing within an A3 reference frame. Export it and verify the frame dimensions in Illustrator. Then change the Rhino geometry and repeat the export. Position both exports at X = 0, Y = 0 using the upper-right reference point, and transfer the new linework with Paste in Place and Paste Remembers Layers.
 
 The folder also contains [Example 01.ai](Example%2001.ai), [LINEWORK.AI](LINEWORK.AI) and [LINEWORK2.AI](LINEWORK2.AI). These are reference files from the original exercise. Their precise graphic content and layer structure have not yet been checked visually, so compare them with your own export rather than assuming they represent consecutive stages.
 
@@ -75,7 +89,7 @@ The folder also contains [Example 01.ai](Example%2001.ai), [LINEWORK.AI](LINEWOR
 | Problem | First thing to check |
 | --- | --- |
 | The frame is not 420 × 297 mm in Illustrator | Check the Rhino model units and the model-to-Illustrator export scale. |
-| Updated geometry appears in a different position | Include the unchanged frame in both exports and align the two frames, not the individual lines. |
+| Updated geometry appears in a different position | Include the unchanged frame, set the same upper-right Transform reference point to X = 0 and Y = 0 in both documents, and use Paste in Place. |
 | The drawing has rotated | Keep the 2D geometry and frame in the same Top-plane orientation for every export. |
 | Some lines are missing | Confirm that the intended Make2D curves are visible and included in Export Selected. |
 | The exported drawing contains overlapping lines | Check for duplicate curves or overlapping Make2D results in Rhino. |
@@ -83,4 +97,4 @@ The folder also contains [Example 01.ai](Example%2001.ai), [LINEWORK.AI](LINEWOR
 
 ---
 
-**Editorial status:** Revised tutorial draft. The A3 frame and scale calculations follow the existing RC15 2D Rhino Template. The precise export dialogue settings, repeated-import behaviour and Illustrator-to-Rhino round trip still require desktop verification and screenshots.
+**Editorial status:** Revised tutorial draft. The A3 frame and scale calculations follow the existing RC15 2D Rhino Template. The precise Rhino export dialogue settings, Illustrator coordinate conventions, repeated-import behaviour and Illustrator-to-Rhino round trip still require desktop verification and screenshots.
