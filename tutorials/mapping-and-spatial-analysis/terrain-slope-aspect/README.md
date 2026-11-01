@@ -91,6 +91,9 @@ Use QGIS's **Identify Features** tool to inspect a few pixels. Gentle ground sho
 
 You can temporarily display the result using **Singleband pseudocolour** in the layer's Symbology settings. This helps reveal the topography, but the coloured raster also covers much of the underlying map. Instead of using the raster as our final representation, we will sample it at regular points.
 
+<!-- @ChatGPT: Please discuss the results using the images: 03 Slope Results.png and 3.1 and 3.2. It's jus the range. and there is also the fact that the new slope map covers the map below. one can not see ot and that is not good. therefore we do a different approach: the grid where wher sample a slope value very 25 meters -->
+
+
 ## 5. Create a 25 m point grid
 
 Open the **Processing Toolbox** and search for **Create grid**.
@@ -127,6 +130,8 @@ You should find a new field called `Slope_1` containing the slope percentage at 
 We now have a point layer that combines geographical locations with numerical information about the terrain.
 
 ## 7. Translate slope into terrain categories
+
+<!-- I have a very strong opiinion as to which audince the map asdreeses. so in thi case, the solpes as they are do not mean anytun to who is not an eningeer and is familar with the slopes. This it makes rnse to introiiduce catergoiies the quickly identlyi what is what. Imporant: tis makes a big difference: we started with an map that only engineers can undertasnt and we do a map that is actuuly useful for everybody. this is the diffice that is very, very impotnat,-->
 
 Raw percentages are useful for measurement, but a design map becomes more informative when we relate them to questions about access and movement.
 
@@ -179,6 +184,8 @@ Compare the point patterns with the roads, buildings and open spaces shown on th
 Try sketching two possible connections across the same site: one taking a direct route uphill, and another following a gentler alignment. Use the map to develop and question your ideas, rather than treating the four categories as definitive answers.
 
 The analysis is only as reliable as the source elevation model. A coarse DEM can miss small changes in level, while a surface model containing buildings or trees may introduce slopes that do not represent the ground. For detailed accessibility or construction decisions, you would need more precise terrain data and the relevant design standards.
+
+<!-- Please show the last image, 10 - discuss that this is the beginnings of styling the map. it's not done, but the direction is clear. we have been using the height map to extract contour lines, Ihave switced off the flat and the not accessible parts, depending on the scale of the map. the desinty of the points/cross has to be adjusted.-->
 
 ## Troubleshooting
 
