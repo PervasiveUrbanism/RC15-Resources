@@ -1,163 +1,151 @@
-# Terrain Analysis in QGIS: Slope
+# Terrain Analysis in QGIS: Slope and Accessibility
 
-Part of **RC15 Resources**, the permanent teaching library for Pervasive Urbanism.
+Understanding the slope of a terrain helps us identify where we might build, which areas are usable, and where roads, paths or other forms of access could be introduced. A slope analysis turns elevation data into a map of gradients. We can then interpret those gradients in relation to architectural and urban design questions.
 
-**Software:** QGIS, using GDAL Slope  
-**Level:** Introductory  
-**Status:** Teaching draft; check the source DEM's elevation units and verify the results in QGIS.
+In this tutorial, we will calculate slope from a digital elevation model (DEM) in QGIS, sample the result on a regular grid of points, and distinguish four terrain conditions: gentle ground, potential ramps, steep ground that may require stairs, and very steep areas. The final map will show these conditions over an OpenStreetMap background, so that the terrain remains legible in its geographical context.
 
-[Mapping tutorials](../README.md) | [Library home](../../../README.md) | [Related: Viewshed Analysis](../viewshed-analysis/README.md)
+**Software:** QGIS, including the GDAL processing tools  
+**Starting point:** A georeferenced elevation raster (GeoTIFF)
 
-## Why calculate slope?
+[Mapping tutorials](../README.md) | [RC15 Resources](../../../README.md)
 
-An elevation map shows how high the ground is. A **slope map** shows how steep it is. This is useful when investigating possible paths, ramps, stairs and places where changes in level may affect a design.
+## 1. Getting elevation data
 
-In this exercise, we will calculate the gradient of a terrain model with **GDAL Slope** and then visualise that result directly in QGIS. We will then sample the slope on a 25 m point grid to keep the basemap visible. No Raster Calculator or second, classified raster is required. Although the folder retains its original name, this tutorial currently covers slope only.
+A **digital elevation model (DEM)** is a raster in which each pixel stores an elevation value. Elevation data is often distributed as a **GeoTIFF**: an image file that also contains information about its geographical position and coordinate reference system.
 
-A slope value is a measurement, not a design decision. We will use the map to ask where different ways of moving across the terrain might be possible.
+You can obtain elevation data from sources such as [USGS EarthExplorer](https://earthexplorer.usgs.gov/) or, for eligible UK institutions, [Digimap](https://digimap.edina.ac.uk/). Check the resolution before downloading. A raster with 30 m pixels describes terrain at a very different level of detail from one with 1 m pixels. Also check whether the dataset represents bare ground (often called a DTM) or a surface that includes buildings and vegetation (a DSM).
 
-## Files supplied
+For this exercise, you can use the [supplied elevation raster](links/output_hh.tif) and [QGIS project](terrain-slope-aspect.qgz). The project includes intermediate results for comparison, but try to reproduce the steps yourself.
 
-Keep the [QGIS project](terrain-slope-aspect.qgz) beside its `links/` folder. The folder contains the [original elevation raster](links/output_hh.tif), [projected raster](links/DEM_projected.tif), [percentage slope raster](links/Slope.tif), [point grid](links/Point%20Grid.gpkg) and [sampled slope grid](links/Slope%20Grid.gpkg). These are reference stages; save your own results separately.
+Add the elevation GeoTIFF to QGIS by dragging it into the map or using **Layer → Add Layer → Add Raster Layer**.
 
-The saved project refers to `links/slope.tif`, while the uploaded file is `links/Slope.tif`. On a case-sensitive system, repair that layer source by selecting the supplied `Slope.tif`. Online basemaps require an internet connection; configure your own connection if one is unavailable.
+![Original elevation raster displayed in QGIS](images/01%20Qgis%20DSM%20Map.png)
 
-## 1. Open the elevation model
+*The elevation raster is our starting point. Its pixel values represent height, not slope.*
 
-Start a new QGIS project and add your digital elevation model (DEM). You can use the elevation raster supplied with this tutorial or your own terrain data. Save your project before processing.
+## 2. Check the coordinate reference system
 
-![Elevation raster displayed over a basemap in QGIS](images/01%20Qgis%20DSM%20Map.png)
+Before calculating gradients, we need to check how the raster measures horizontal distances.
 
-*The original elevation raster provides the starting surface.*
+QGIS distinguishes between the **project coordinate reference system (CRS)** and the CRS of each individual layer. The project CRS controls how layers appear together in the map window. You can see it in the bottom-right corner of QGIS. In this example, the project uses **EPSG:3857**, commonly used for web maps.
 
-### Check the coordinate reference system (CRS)
+The raster has its own CRS. Right-click the original elevation layer, select **Properties → Information**, and look for its coordinate reference system and pixel size.
 
-Before calculating slope, we need to understand how QGIS positions and measures our terrain. There are **two coordinate reference systems** to consider.
+![Elevation raster properties showing its CRS and pixel dimensions](images/01.2%20Qgis%20DSM%20Properties.png)
 
-**The QGIS project CRS** determines how different layers are displayed together on the map. You can find it in the bottom-right corner of the QGIS window. In our example, the project uses **EPSG:3857**, a coordinate system commonly used for online maps such as OpenStreetMap.
+Our original GeoTIFF uses **EPSG:4326 (WGS 84)**. Its horizontal coordinates are longitude and latitude, measured in **degrees**, while its elevation values are assumed to be in **metres**. That difference matters: slope is calculated by comparing a vertical change with a horizontal distance. Using degrees for one and metres for the other would produce incorrect results if we left the scale factor at 1.
 
-**The elevation raster CRS** belongs to the GeoTIFF itself. It describes how the pixels are geographically positioned. To check it, right-click the elevation layer and select **Properties → Information**.
+QGIS can display a raster in EPSG:4326 over a basemap in EPSG:3857 without difficulty. However, displaying a layer in another CRS does **not** change the coordinates stored in the raster. For slope analysis, we will create a new GeoTIFF in a projected CRS that uses metres.
 
-In our example, the elevation raster uses **EPSG:4326 (WGS 84)**.
+## 3. Reproject the elevation raster
 
-![Raster information showing EPSG:4326 and pixel size in degrees](images/01.2%20Qgis%20DSM%20Properties.png)
+Open **Raster → Projections → Warp (Reproject)**.
 
-*Check the raster CRS, rather than relying on the project CRS.*
-
-EPSG:4326 uses latitude and longitude, measured in degrees. Although QGIS can display this raster correctly alongside an OpenStreetMap background, its horizontal coordinates are not measured in metres.
-
-This becomes a problem when calculating slope. The GDAL Slope tool compares changes in elevation with horizontal distances. If our elevation values are in metres but the horizontal coordinates are in degrees, a scale factor of 1 will not give a reliable gradient. Reprojecting into a suitable local metric CRS avoids this unit mismatch.
-
-## 2. Reproject the elevation raster
-
-We therefore need to create a **new GeoTIFF** with a coordinate system that uses metres.
-
-Open **Raster → Projections → Warp (Reproject)** and select the original elevation raster as the input.
+Use the original elevation raster as the input, and set the following options:
 
 | Parameter | Setting |
 | --- | --- |
-| Input layer | `output_hh` (EPSG:4326) |
+| Input layer | `output_hh` |
 | Source CRS | EPSG:4326 — WGS 84 |
 | Target CRS | EPSG:32636 — WGS 84 / UTM zone 36N |
 | Resampling method | Bilinear |
 | Output | `DEM_projected.tif` |
 
-![Warp dialog with bilinear resampling and EPSG:32636 target](images/01.3%20Wrap%201.png)
+![Warp (Reproject) settings](images/01.3%20Wrap%201.png)
 
-*Reproject the raster; changing the project CRS alone does not change the raster coordinates.*
+![Selecting the projected coordinate reference system](images/01.4%20Wrap%202.png)
 
-![CRS selector showing WGS 84 UTM zone 36N](images/01.4%20Wrap%202.png)
+**EPSG:32636** is suitable for this study area in Cyprus. It uses metres, but it is not the correct CRS for every location. For another site, choose an appropriate local projected coordinate system. Keep the output resolution consistent with the detail of the source data; reprojection cannot create new terrain information.
 
-*Select the local projected CRS for this example.*
+Click **Run**, then open **Properties → Information** for the new `DEM_projected` layer. Its CRS should be EPSG:32636, and its pixel dimensions should now be expressed in metres.
 
-The target CRS is selected according to the geographical location of the study area. **EPSG:32636** is appropriate for our example near 33° E in the Limassol area of Cyprus, but other locations require different coordinate systems.
+We therefore have three different CRS values in this project: the **project** uses EPSG:3857 for display, the **original raster** uses EPSG:4326 in degrees, and the **reprojected raster** uses EPSG:32636 in metres. We do not need to change the project CRS. The important step is to use the *reprojected raster* for the analysis.
 
-Choose an output pixel size appropriate to the source DEM's resolution. Reprojection does not create additional terrain detail.
+## 4. Calculate the slope
 
-Run the tool. QGIS creates a new raster with its horizontal coordinates expressed in metres. To check that the reprojection worked, right-click `DEM_projected` and open **Properties → Information**. The CRS should now be EPSG:32636, with pixel dimensions expressed in metres.
+Open the **Processing Toolbox** and search for **Slope**. Select **GDAL → Raster analysis → Slope**, rather than the similarly named tool from another provider.
 
-We now have three CRS settings to distinguish:
+Set the parameters as follows:
 
-- **QGIS project:** EPSG:3857 — controls how the map is displayed.
-- **Original GeoTIFF:** EPSG:4326 — geographical coordinates in degrees.
-- **Reprojected GeoTIFF:** EPSG:32636 — projected coordinates in metres, suitable for our slope calculation.
-
-There is **no need to change the QGIS project CRS**. QGIS can display layers with different coordinate systems together. What matters is that we use the **reprojected GeoTIFF** as the input for GDAL Slope.
-
-## 3. Calculate slope with GDAL
-
-Open the **Processing Toolbox** and search for **Slope**. Choose **GDAL → Raster analysis → Slope** (`gdal:slope`).
-
-Use these settings:
-
-| Setting | Value |
+| Parameter | Setting |
 | --- | --- |
 | Input layer | `DEM_projected` |
-| Band number | Band 1 |
-| Ratio of vertical units to horizontal | **1**, provided elevation and horizontal distances are both in metres |
-| Slope expressed as percent instead of degrees | **Ticked** |
-| Compute edges | Leave unticked for this exercise |
-| Zevenbergen–Thorne formula | Leave unticked; use the default Horn method |
+| Band number | 1 |
+| Ratio of vertical units to horizontal | 1, assuming both are metres |
+| Slope expressed as percent instead of degrees | **Tick** |
+| Compute edges | Leave unticked |
+| Zevenbergen–Thorne formula | Leave unticked (default Horn method) |
 | Output | `slope_percent.tif` |
 
-Click **Run** and add the resulting raster to the project. The supplied result is named `Slope.tif`; the screenshots show it as `slope`.
+![GDAL Slope tool configured to calculate percentages](images/02%20Slope%20Calculator.png)
 
-![GDAL Slope dialog using the projected DEM and percentage output](images/02%20Slope%20Calculator.png)
+Click **Run**. The new raster contains a slope percentage at each valid pixel. Unlike the original DEM, which stores elevation, this raster stores the steepness of the terrain.
 
-*Use the projected DEM, a scale ratio of 1 for metre units, and percentage output.*
+A percentage gradient describes the vertical rise relative to the horizontal distance:
 
-The output expresses the steepest local terrain gradient as a **percentage**:
+**Slope (%) = 100 × vertical rise ÷ horizontal distance**
 
-**Gradient (%) = 100 × vertical rise ÷ horizontal run**
+For example, a rise of 5 cm over a horizontal distance of 1 m is a **5% slope**. A 100% slope corresponds to **45°**. Percentages can exceed 100%: a 200% slope corresponds to approximately 63°. Do not confuse percentage gradient with degrees or assume that 100% is the maximum.
 
-For example, a 5% slope rises 5 cm over 1 m horizontally. A 100% gradient corresponds to 45°, not a vertical wall.
+Use QGIS's **Identify Features** tool to inspect a few pixels. Gentle ground should have values near zero; steeper areas should have higher values. If values seem implausible across the entire raster, check the input CRS and elevation units before continuing. Individual very high values may be real or may require checking against the original elevation data.
 
-**Checkpoint:** Use the **Identify Features** tool to inspect some cells in `slope_percent`. Nearly flat areas should have values close to zero, while steeper hillsides should have larger values. If the whole raster shows unexpectedly enormous values, check the DEM's CRS and units before continuing.
+You can temporarily display the result using **Singleband pseudocolour** in the layer's Symbology settings. This helps reveal the topography, but the coloured raster also covers much of the underlying map. Instead of using the raster as our final representation, we will sample it at regular points.
 
-## 4. Visualise the slope raster
+## 5. Create a 25 m point grid
 
-Right-click `slope_percent` and choose **Properties → Symbology** (or open the Layer Styling panel).
+Open the **Processing Toolbox** and search for **Create grid**.
 
-Select **Singleband pseudocolour**, not **Paletted / Unique values**. The GDAL result contains continuous percentage values, not pre-assigned category numbers.
-
-Choose **Discrete** interpolation and create four colour intervals using the following boundaries. Adjust the upper limit to cover the actual maximum in your raster:
-
-| Slope (%) | Suggested map label |
+| Parameter | Setting |
 | --- | --- |
-| **0–4** | Flat or gentle — investigate possible paths |
-| **4–8.33** | Ramp-sensitive — investigate gradients and landings |
-| **8.33–84** | Steep — investigate steps or alternative routes |
-| **Above 84** | Very steep — investigate structures or a different alignment |
+| Grid type | **Point** |
+| Grid extent | Calculate from layer → `DEM_projected` |
+| Horizontal spacing | 25 |
+| Vertical spacing | 25 |
+| Grid CRS | EPSG:32636 |
+| Output | `Point Grid.gpkg` |
 
-In the colour-ramp editor, use a clear progression from green through yellow and orange to red. Set the class boundaries manually rather than using equal intervals or quantiles. **Apply** the symbology and check the legend.
+![Creating a regular point grid in QGIS](images/04%20Point%20Grid.png)
 
-This is a **visual classification of the original GDAL slope raster**. It does not change the underlying pixel values and requires no Raster Calculator expression.
+Click **Run**. QGIS creates a regular pattern of points spaced **25 metres** apart in both directions. Because the grid uses a projected CRS in metres, the spacing has a meaningful real-world dimension.
 
-The thresholds are deliberately illustrative, not construction standards. In particular, 84% is approximately 40°, but 40° is not an absolute upper limit for stairs. A steep hillside may also be crossed by a more gradual route following the contours.
+At this stage, the points only describe locations. They do not yet contain slope values. Also remember that a 25 m point spacing does not mean the underlying elevation data has a 25 m resolution. Sampling more frequently than the original DEM's pixel size does not reveal additional terrain detail.
 
-## 5. Sample slope on a 25 m point grid
+## 6. Sample the slope raster
 
-A point display lets the geographical context remain visible between samples. Open **Create grid** in the Processing Toolbox. Choose **Point**, set the grid CRS to **EPSG:32636**, and use the extent of `DEM_projected`, transformed into that CRS. Set both horizontal and vertical spacing to **25 metres**, with zero overlay. Save as `Point Grid.gpkg`.
+In the **Processing Toolbox**, search for **Sample raster values**.
 
-![Create Grid dialog configured for points at 25 metre spacing](images/04%20Point%20Grid.png)
+Select the new point grid as the input point layer and the **percentage slope raster** as the raster layer. Use `Slope_` as the output column prefix and save the result as `Slope Grid.gpkg`.
 
-*Use a metre-based grid CRS; 25 in a geographic CRS would mean degrees.*
+![Sampling raster values at the grid points](images/06%20Sample%20Raster%20Values.png)
 
-Run **Sample raster values** with `Point Grid` as the point layer and your percentage slope raster as the raster layer. Set the output column prefix to `Slope_` and save as `Slope Grid.gpkg`. Open its attribute table and check the resulting `Slope_1` field. This samples the raster at each point; it does **not** average slope across a 25 m square or increase the DEM resolution.
+Click **Run**, then right-click the resulting layer and select **Open Attribute Table**.
 
-![Sample Raster Values dialog with point grid and slope raster inputs](images/06%20Sample%20Raster%20Values.png)
+![Attribute table showing sampled slope values](images/07%20Grod%20with%20Slopes.png)
 
-*Sample slope, not the original elevation raster.*
+You should find a new field called `Slope_1` containing the slope percentage at each point. The tool reads the raster value at the point location; it does **not** calculate an average across a 25 × 25 m area. Points outside the valid raster coverage may have an empty (`NULL`) value.
 
-![Sampled grid attribute table showing the Slope_1 field](images/07%20Grod%20with%20Slopes.png)
+We now have a point layer that combines geographical locations with numerical information about the terrain.
 
-*Check that the sampled field contains percentage gradient values.*
+## 7. Translate slope into terrain categories
 
-Open **Slope Grid → Properties → Symbology**, choose **Categorised**, and use the expression button beside **Value**:
+Raw percentages are useful for measurement, but a design map becomes more informative when we relate them to questions about access and movement.
+
+We will distinguish four conditions:
+
+| Slope | Category | Design interpretation |
+| --- | --- | --- |
+| 0–4% | **Flat / gentle** | Relatively gentle ground for investigating paths and usable outdoor space |
+| 4–8.33% | **Ramps** | Ground where ramp gradients, route length and landings deserve attention |
+| 8.33–84% | **Stairs** | Steeper ground where steps or a different route may be considered |
+| 84% and above | **Very steep** | Ground likely to require a substantial change in route or design strategy |
+
+These are **exploratory categories, not accessibility or construction standards**. In particular, a terrain slope does not determine the gradient of a path that crosses it: a route following the contours may be considerably gentler than a direct uphill route. The broad “Stairs” category also contains many different terrain conditions; its label is a prompt for design investigation, not a claim that every such slope can accommodate stairs.
+
+Right-click **Slope Grid → Properties → Symbology** and choose **Categorised**. Click the expression button beside **Value**, and paste:
 
 ```sql
 CASE
-  WHEN "Slope_1" IS NULL OR "Slope_1" < 0 THEN NULL
+  WHEN "Slope_1" IS NULL THEN NULL
   WHEN "Slope_1" < 4 THEN '1 - Flat / gentle'
   WHEN "Slope_1" < 8.33 THEN '2 - Ramps'
   WHEN "Slope_1" < 84 THEN '3 - Stairs'
@@ -165,39 +153,47 @@ CASE
 END
 ```
 
-Use the actual field name if your prefix differs. Click **Classify**. These expression labels match the screenshots; treat “Ramps” and “Stairs” as prompts for investigation, with the qualifications in section 4. The exact intervals are **0 ≤ slope < 4**, **4 ≤ slope < 8.33**, **8.33 ≤ slope < 84**, and **slope ≥ 84** percent.
+![Expression defining the four terrain categories](images/08.1%20Expression.png)
 
-![Expression builder showing four slope categories and a NULL check](images/08.1%20Expression.png)
+If you used a different column prefix, replace `Slope_1` with the name shown in your attribute table. Click **Classify** and assign one colour to each category.
 
-*Handle missing values before testing slope thresholds.*
+For a bright, readable map, try:
 
-Use equal-sized circular markers, starting around **2–2.5 mm**, at full opacity with no outline. Choose saturated green, yellow, orange and red, and check legibility at your intended map scale. Disable the NULL / “all other values” category so missing samples do not appear as terrain. Enable all four valid categories: the supplied project has the first category disabled. Hide the continuous slope raster and the original unclassified point grid to reveal the basemap beneath the sampled points.
+| Category | Colour |
+| --- | --- |
+| Flat / gentle | Green — `#40C463` |
+| Ramps | Yellow — `#FFD23F` |
+| Stairs | Orange — `#FF8438` |
+| Very steep | Red — `#E63946` |
 
-![Four slope point categories over an OpenStreetMap basemap](images/09.%20Finished.png)
+Use circular markers of approximately **2–2.5 mm**, without outlines. Keep their size consistent so that colour, rather than symbol size, communicates the classification. Hide the original point grid and the slope raster, and remove or disable any unwanted category for `NULL` values.
 
-*Example point-grid result. Adjust marker size and basemap contrast for the final output; retain basemap attribution.*
+![Completed slope analysis with classified points over OpenStreetMap](images/09.%20Finished.png)
 
-## 6. Read the map as a designer
+*The final map shows four terrain conditions while allowing streets, buildings and landscape features to remain visible underneath.*
 
-The point of this exercise is not simply to colour a raster. We have chosen four categories because they help us think about **how people might move across the terrain**.
+## 8. Interpret the result
 
-Sketch two possible routes between the same points. One could climb directly uphill; the other might follow a gentler path across the contours. Compare the terrain they cross.
+Compare the point patterns with the roads, buildings and open spaces shown on the basemap. Where does gentle terrain coincide with existing routes? Where do steep areas interrupt potential connections? Could a longer route following the contours avoid the need for stairs?
 
-Remember that the slope raster measures the **steepest gradient of the terrain at each cell**, not the gradient of a proposed path. The map is a starting point for design investigation, not an accessibility assessment.
+Try sketching two possible connections across the same site: one taking a direct route uphill, and another following a gentler alignment. Use the map to develop and question your ideas, rather than treating the four categories as definitive answers.
+
+The analysis is only as reliable as the source elevation model. A coarse DEM can miss small changes in level, while a surface model containing buildings or trees may introduce slopes that do not represent the ground. For detailed accessibility or construction decisions, you would need more precise terrain data and the relevant design standards.
 
 ## Troubleshooting
 
 | Problem | What to check |
 | --- | --- |
-| Almost everything appears in the steepest category | You may have classified elevation instead of slope, or calculated slope on a DEM in degrees rather than metres. |
-| The GDAL output shows extreme percentages | Check the input DEM's CRS and whether horizontal and vertical units match. |
-| Only two colours appear | Inspect actual slope values and confirm you used **Singleband pseudocolour** with manually set intervals. |
-| The raster appears in the wrong place | Check the source and target CRS in Warp (Reproject); assigning a CRS is not the same as transforming coordinates. |
-| Empty pixels appear around the edges | Check the input NoData and the GDAL Slope edge-processing setting. |
+| Slope values are extremely high across most of the raster | Check that GDAL Slope uses the **reprojected** DEM and that horizontal and vertical units match. |
+| The slope output appears to stop at 90 | You may have calculated slope in **degrees**, rather than ticking the percentage option. |
+| Grid spacing looks wrong | Confirm that the **grid CRS** is EPSG:32636 and both spacing values are 25. |
+| The sampled field is empty | Check that you sampled the slope raster and that the points overlap valid raster pixels. |
+| The categories do not appear | Check the sampled field name, click **Classify**, and ensure all four symbols are enabled. |
+| The map is difficult to read | Hide the slope raster and unclassified grid, then adjust point size or use a quieter basemap. |
 
-## Reference
+## Further references
 
-- [QGIS documentation — Sample raster values](https://docs.qgis.org/3.44/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html#sample-raster-values)
-- [QGIS documentation — GDAL Raster Analysis (Slope)](https://docs.qgis.org/3.44/en/docs/user_manual/processing_algs/gdal/rasteranalysis.html)
-
-**Verification still required:** confirm the source elevation model’s provenance, vertical units and whether it represents bare ground (DTM) or includes buildings and vegetation (DSM). The screenshots document the workflow, but do not establish those properties. A DSM may show steep changes at buildings or trees rather than ground slopes. Check the grid field, missing values and all four category visibility settings before exporting.
+- [QGIS documentation](https://docs.qgis.org/) — Processing tools, raster analysis and layer symbology
+- [GDAL documentation: gdaldem slope](https://gdal.org/en/stable/programs/gdaldem.html)
+- [USGS EarthExplorer](https://earthexplorer.usgs.gov/)
+- [Digimap](https://digimap.edina.ac.uk/)
