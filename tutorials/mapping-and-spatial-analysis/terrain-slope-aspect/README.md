@@ -1,6 +1,6 @@
 # Terrain Analysis in QGIS: Slope and Accessibility
 
-<img src="images/Icon.png" width="240" alt="Terrain slope analysis — tutorial illustration">
+<img src="images/Icon.png" width="800" alt="Terrain slope analysis — tutorial illustration">
 
 Understanding the slope of a terrain helps us identify where we might build, which areas are usable, and where roads, paths or other forms of access could be introduced. A slope analysis turns elevation data into a map of gradients. We can then interpret those gradients in relation to architectural and urban design questions.
 
