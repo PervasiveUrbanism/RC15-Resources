@@ -59,26 +59,22 @@ Do not confuse this with the QGIS native Slope tool (`native:slope`), which outp
 
 **Checkpoint:** Inspect several raster cells. Almost-level areas should be near 0%; visibly steeper terrain should have larger values. Check edge and NoData areas.
 
-### 2. Translate slope into accessible categories
+### 2. Translate slope into meaningful categories
 
-For this introductory exercise, use four broad **architectural interpretation bands** rather than a detailed accessibility classification:
+A slope map tells us how steep the terrain is, but what does that mean for an architectural project? Rather than dividing the values into arbitrary intervals, we can classify the terrain according to how people might move across it.
 
-<!-- @chatGPT: i do not like the explanation in the table and below. Please do that for students. it reads like a justification for a planning application. All i want are these categories
-1. flat and gentle slope without landings
-2. Slope with ramps 
-3. these slopes can be covered with stairs 
-4. these slopes can not be covered with ramps and stairs.
+For this exercise, we will use four categories:
 
-There is an important message here: it is pivotal to subdiviude it into illustrative categores here. if on does categoes without a meaning, i8t's bad. I want to make the point of a useful map. and make the students do the same. I do not want to do arbitrary slope analysis just because it's the math that give me a range. I absulutly do not want that. -->
+| Gradient | Category |
+| --- | --- |
+| **0–4%** | Flat or gentle slope — paths without landings |
+| **4–8.33%** | Ramps — steeper paths that may require landings |
+| **8.33–84%** | Stairs — terrain too steep for a direct ramp |
+| **Above 84%** | Very steep terrain — neither conventional ramps nor stairs are straightforward |
 
-| Gradient | Map label | Design interpretation |
-| --- | --- | --- |
-| **0–4%** | Level to gentle | Level uses and gentle paths may be feasible, subject to drainage and detailed design. |
-| **4–8.33%** | Ramp territory | Ramps may be possible, but gradient, rise, flight length and landings require careful design. |
-| **8.33–84%** | Steep terrain | A direct accessible ramp is generally unsuitable; investigate routes across contours, steps, terracing or other interventions. |
-| **Above 84%** | Very steep terrain | Approximately steeper than 40°; substantial intervention or an alternative route may be needed. |
+These categories turn a numerical map into a design tool. Instead of simply seeing where the terrain is steep, we can begin to identify where different forms of pedestrian access might be appropriate.
 
-The **84% breakpoint corresponds approximately to 40°** because gradient (%) = 100 × tan(slope angle). A 50% gradient is only about 26.6°, and 15% is about 8.5°. The 40° boundary is a useful *illustrative terrain classification*, **not** a universal maximum slope for stairs, nor a rule that construction is impossible above it. The 4% and 8.33% boundaries are similarly interpretive rather than blanket accessibility permissions. In England, Approved Document M, Volume 2 links ramp gradient to flight length and rise (including 1:20, 1:15 and 1:12 examples). Check the relevant standards and detailed geometry before making any accessibility claim.
+The thresholds are approximate and intended for this exercise, not as construction standards. In particular, 40° (approximately 84% gradient) is not an absolute upper limit for stairs. The important lesson is the method: **before classifying data, ask what question your map should answer.** Different design questions may require entirely different categories.
 
 In *Raster → Raster Calculator*, use the following expression, replacing `slope_percent@1` with the name of your slope layer and its band:
 
