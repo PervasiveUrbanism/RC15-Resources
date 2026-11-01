@@ -63,6 +63,14 @@ Do not confuse this with the QGIS native Slope tool (`native:slope`), which outp
 
 For this introductory exercise, use four broad **architectural interpretation bands** rather than a detailed accessibility classification:
 
+<!-- @chatGPT: i do not like the explanation in the table and below. Please do that for students. it reads like a justification for a planning application. All i want are these categories
+1. flat and gentle slope without landings
+2. Slope with ramps 
+3. these slopes can be covered with stairs 
+4. these slopes can not be covered with ramps and stairs.
+
+There is an important message here: it is pivotal to subdiviude it into illustrative categores here. if on does categoes without a meaning, i8t's bad. I want to make the point of a useful map. and make the students do the same. I do not want to do arbitrary slope analysis just because it's the math that give me a range. I absulutly do not want that. -->
+
 | Gradient | Map label | Design interpretation |
 | --- | --- | --- |
 | **0–4%** | Level to gentle | Level uses and gentle paths may be feasible, subject to drainage and detailed design. |
