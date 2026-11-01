@@ -220,9 +220,10 @@ In QGIS, right-click the sampled point layer and open **Properties → Symbology
 
 The SVG's **100 × 100 coordinate system does not mean 100 metres on the map**. QGIS determines the displayed marker dimensions. For graphic symbols, millimetres or pixels are often convenient. If the symbol represents an actual distance, choose **Metres at Scale** and verify the result in the map's coordinate reference system.
 
-In particular, a project using **EPSG:3857** may give different results when measured in Cartesian map coordinates versus ellipsoidal ground distance. When checking the marker's width, distinguish between these measurement methods. Also remember that a stroke extends around its path and may slightly affect the visible extent.
+![Truchet tile pattern](assets/05%20Truchet%20Tiles.png)
 
-### 4. Choose different SVG symbols from point data
+
+### 4. Variation: Choose different SVG symbols from point data
 
 The example point layer contains a numeric field called `p_id_count`. We can use this field to assign one of four custom SVG symbols, rather than showing all points identically.
 
@@ -240,6 +241,8 @@ END
 
 Click **Classify**, then double-click each category's symbol and choose a different **SVG Marker**. You can use the supplied [OneQuarter.svg](assets/OneQuarter.svg), [TwoQuarter.svg](assets/TwoQuarter.svg), [ThreeQuarter.svg](assets/ThreeQuarter.svg) and [FourQuarter.svg](assets/FourQuarter.svg), or export your own variations.
 
+![Quarter-circle modules applied to the point map](assets/06%20Truchet%20Tiles%20Variation%2002.png)
+
 | `p_id_count` | Category | Suggested symbol |
 | --- | --- | --- |
 | 0–6 | Low | One-quarter |
@@ -249,19 +252,13 @@ Click **Classify**, then double-click each category's symbol and choose a differ
 
 These thresholds are **specific to this example**, not universal density thresholds. Check the distribution of values in your own data before choosing breaks. `NULL` is treated separately from a genuine count of zero.
 
-For more control, you can alternatively use a **data-defined SVG file path** driven by a `CASE` expression. Categorised symbology is easier to understand at first because each symbol and its legend entry remain visible in the layer settings.
-
-![Quarter-circle modules applied to the point map](assets/06%20Truchet%20Tiles%20Variation%2002.png)
-
 Here the relationship between the small set of modules and the larger mapped pattern becomes visible. Each point receives a symbol according to its count category, and the repeated geometry begins to create a continuous graphic field.
+
+![Additional tile variation](assets/07%20Truchet%20Tiles%20Variation.png)
 
 ### 5. Develop the pattern
 
-![Truchet tile pattern](assets/05%20Truchet%20Tiles.png)
-
 Once the data selects the symbol, experiment with **rotation, line thickness, spacing and repetition**.
-
-![Additional tile variation](assets/07%20Truchet%20Tiles%20Variation.png)
 
  A small set of simple SVGs can generate a complex visual field. Compare the outcome with the original heatmap: where does the tile pattern reveal structure, and where does it make the data harder to interpret?
 
