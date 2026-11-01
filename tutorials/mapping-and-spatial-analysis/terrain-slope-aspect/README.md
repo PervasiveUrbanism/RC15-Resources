@@ -1,190 +1,113 @@
-# Terrain Analysis in QGIS: Slope, Aspect and Solar Orientation
+# Terrain Analysis in QGIS: Slope
 
 Part of **RC15 Resources**, the permanent teaching library for Pervasive Urbanism.
 
-**Software:** QGIS (GDAL Processing tools), with Andrew Marsh’s Sun-Path on Map as a solar reference  
-**Level:** Introductory–intermediate  
-**Format:** Two linked practical exercises using the same digital elevation model (DEM)  
-**Status:** Teaching draft based on the supplied raster; QGIS processing and graphics require desktop verification.
+**Software:** QGIS, using GDAL Slope  
+**Level:** Introductory  
+**Status:** Teaching draft; check the source DEM's elevation units and verify the results in QGIS.
 
 [Mapping tutorials](../README.md) | [Library home](../../../README.md) | [Related: Viewshed Analysis](../viewshed-analysis/README.md)
 
-## Why analyse a landscape?
+## Why calculate slope?
 
-An elevation map tells us how high the land is, but height alone does not explain how we might use a site. Two additional measurements help translate topography into design questions. **Slope** describes how steep the terrain is; **aspect** describes the compass direction a slope faces.
+An elevation map shows how high the ground is. A **slope map** shows how steep it is. This is useful when investigating possible paths, ramps, stairs and places where changes in level may affect a design.
 
-In the first exercise, we classify terrain by gradient so that a map communicates potential uses and access constraints rather than merely displaying numerical values. In the second, we reinterpret aspect in terms of possible **morning, midday and afternoon solar exposure**, and compare the result with a sun-path diagram. Both maps are *analytical starting points*, not ready-made design decisions.
+In this exercise, we will calculate the gradient of a terrain model with **GDAL Slope** and then visualise that result directly in QGIS. We will not use the Raster Calculator or create a second, classified raster.
 
-The exercise reuses the elevation data from [Visibility and Viewshed Analysis](../viewshed-analysis/README.md), but is designed to work independently.
+A slope value is a measurement, not a design decision. We will use the map to ask where different ways of moving across the terrain might be possible.
 
-## Learning outcomes
+## 1. Open the elevation model
 
-You should be able to calculate slope and aspect from a DEM, distinguish degrees from percentage gradient, classify raster values into meaningful categories, handle NoData and nearly flat terrain, and compare terrain orientation with the sun’s changing position. You should also be able to explain why slope and aspect cannot, by themselves, establish accessibility or actual hours of sunlight.
+Start a new QGIS project and add your digital elevation model (DEM). You can use the elevation raster supplied with this tutorial or your own terrain data. Save your project before processing.
 
-## Files and preparation
+Right-click the DEM and open **Properties → Information**. Check the **Coordinate Reference System (CRS)**, pixel size, NoData value and, if known, the elevation units.
 
-The copied files in this folder are a self-contained **starting dataset**, not an already completed QGIS project:
+A DEM often stores elevations in **metres**, but its horizontal coordinates may be in **degrees**. This distinction is important: slope compares vertical height with horizontal distance, so the two must use compatible units.
 
-| File | Purpose |
+## 2. Reproject the DEM if necessary
+
+In the example discussed in class, the elevation raster `output_hh` uses **EPSG:4326**. Its horizontal coordinates are longitude and latitude in degrees. We should reproject it before running GDAL Slope with a unit ratio of 1.
+
+Open **Raster → Projections → Warp (Reproject)** (or find **GDAL → Raster projections → Warp (reproject)** in the Processing Toolbox).
+
+- **Input layer:** your elevation raster, such as `output_hh`.
+- **Target CRS:** an appropriate *local projected CRS* with metre units. For the example location near 33° E, 34–35° N, **EPSG:32636 (WGS 84 / UTM zone 36N)** is a suitable candidate; confirm the location before choosing it.
+- **Resampling method:** **Bilinear**, appropriate for a continuous elevation surface.
+- **Output:** save as `DEM_projected.tif`.
+
+Choose an appropriate output pixel size in metres, consistent with the source DEM's resolution. Do not invent finer terrain detail by choosing extremely small pixels.
+
+Click **Run**. The new raster should appear in the same geographic location. Check **Properties → Information** again: the new raster should have a projected CRS and horizontal pixel dimensions expressed in metres.
+
+**Important:** Changing the QGIS *project* CRS does not reproject the raster data. Use **Warp (Reproject)** to create a new raster.
+
+## 3. Calculate slope with GDAL
+
+Open the **Processing Toolbox** and search for **Slope**. Choose **GDAL → Raster analysis → Slope** (`gdal:slope`).
+
+Use these settings:
+
+| Setting | Value |
 | --- | --- |
-| [SmallHeightMap.tif](SmallHeightMap.tif) | Sample elevation raster, copied unchanged from Viewshed Analysis |
-| [SmallHeightMap.tif.aux.xml](SmallHeightMap.tif.aux.xml) | Existing GDAL metadata for the raster |
-| [Bbox.shp](Bbox.shp) | Study boundary; keep accompanying shapefile components together |
-| [Viewpoints.shp](Viewpoints.shp) | Existing observation point for cross-comparison with the Viewshed tutorial |
-| [Viewanalysis.qgz](Viewanalysis.qgz) | **Optional reference QGIS project** copied from the original viewshed exercise; it may include paths to other files and should not be treated as a finished project for this tutorial |
+| Input layer | `DEM_projected` |
+| Band number | Band 1 |
+| Ratio of vertical units to horizontal | **1**, provided elevation and horizontal distances are both in metres |
+| Slope expressed as percent instead of degrees | **Ticked** |
+| Compute edges | Leave unticked for this exercise |
+| Zevenbergen–Thorne formula | Leave unticked; use the default Horn method |
+| Output | `slope_percent.tif` |
 
-The accompanying `.dbf`, `.shx`, `.prj`, `.cpg` and `.qix` files belong to the shapefiles. Keep them together.
+Click **Run** and add the resulting raster to the project.
 
-Open QGIS and create a **new project**. Add `SmallHeightMap.tif`, `Bbox.shp` and, if useful, `Viewpoints.shp`. Save your new project as `TerrainAnalysis.qgz` in your own working copy; do not overwrite the supplied original. Organise derived results in a new `outputs/` directory on your computer.
+The output expresses the steepest local terrain gradient as a **percentage**:
 
-Before proceeding, open the DEM’s *Layer Properties → Information* and check its **CRS, horizontal cell size, elevation units and NoData value**. The existing raster metadata suggests elevations around 26–80, but this is not enough to prove the elevation units or source. Slope calculations require consistent horizontal and vertical units.
+**Gradient (%) = 100 × vertical rise ÷ horizontal run**
 
-The supplied shapefiles refer to Web Mercator, which is not locally distance-preserving. For a reliable design-scale study, establish the DEM’s actual CRS and consider reprojecting the raster into an appropriate local projected CRS with metre units. Do **not** merely assign a new CRS to existing coordinates. Any reprojection should use a clearly chosen cell size and resampling method.
+For example, a 5% slope rises 5 cm over 1 m horizontally. A 100% gradient corresponds to 45°, not a vertical wall.
 
-**Checkpoint:** The DEM and boundary align correctly, and you know what horizontal and vertical units you are using.
+**Checkpoint:** Use the **Identify Features** tool to inspect some cells in `slope_percent`. Nearly flat areas should have values close to zero, while steeper hillsides should have larger values. If the whole raster shows unexpectedly enormous values, check the DEM's CRS and units before continuing.
 
-## Exercise 1 — Slope as a design question
+## 4. Visualise the slope raster
 
-### 1. Calculate percentage gradient
+Right-click `slope_percent` and choose **Properties → Symbology** (or open the Layer Styling panel).
 
-Slope is the steepest local inclination of the terrain, computed from neighbouring elevation cells. It is often reported as an angle (degrees), but percentage gradient is more useful when discussing paths and ramps:
+Select **Singleband pseudocolour**, not **Paletted / Unique values**. The GDAL result contains continuous percentage values, not pre-assigned category numbers.
 
-**Gradient (%) = 100 × vertical rise ÷ horizontal run.**
+Choose **Discrete** interpolation and create four colour intervals using the following boundaries. Adjust the upper limit to cover the actual maximum in your raster:
 
-A 5% gradient rises 5 cm over 1 m horizontally. A 100% gradient is an angle of 45°, **not** a vertical surface.
-
-Open the *Processing Toolbox* and find **GDAL → Raster analysis → Slope** (algorithm `gdal:slope`). Select your DEM, set the ratio of vertical to horizontal units correctly (normally 1 when both are metres), and enable **Express slope as percent (instead of degrees)**. Save the result as `outputs/slope_percent.tif`.
-
-Do not confuse this with the QGIS native Slope tool (`native:slope`), which outputs **degrees**. If you choose the native tool instead, you must convert the result before using the percentage categories below.
-
-**Checkpoint:** Inspect several raster cells. Almost-level areas should be near 0%; visibly steeper terrain should have larger values. Check edge and NoData areas.
-
-### 2. Translate slope into meaningful categories
-
-A slope map tells us how steep the terrain is, but what does that mean for an architectural project? Rather than dividing the values into arbitrary intervals, we can classify the terrain according to how people might move across it.
-
-For this exercise, we will use four categories:
-
-| Gradient | Category |
+| Slope (%) | Suggested map label |
 | --- | --- |
-| **0–4%** | Flat or gentle slope — paths without landings |
-| **4–8.33%** | Ramps — steeper paths that may require landings |
-| **8.33–84%** | Stairs — terrain too steep for a direct ramp |
-| **Above 84%** | Very steep terrain — neither conventional ramps nor stairs are straightforward |
+| **0–4** | Flat or gentle slope — paths without landings |
+| **4–8.33** | Ramps — steeper paths that may require landings |
+| **8.33–84** | Stairs — terrain too steep for a direct ramp |
+| **Above 84** | Very steep terrain — neither conventional ramps nor stairs are straightforward |
 
-These categories turn a numerical map into a design tool. Instead of simply seeing where the terrain is steep, we can begin to identify where different forms of pedestrian access might be appropriate.
+In the colour-ramp editor, use a restrained progression from light green through yellow and orange to dark red. Set the class boundaries manually rather than using equal intervals or quantiles. **Apply** the symbology and check the legend.
 
-The thresholds are approximate and intended for this exercise, not as construction standards. In particular, 40° (approximately 84% gradient) is not an absolute upper limit for stairs. The important lesson is the method: **before classifying data, ask what question your map should answer.** Different design questions may require entirely different categories.
+This is a **visual classification of the original GDAL slope raster**. It does not change the underlying pixel values and requires no Raster Calculator expression.
 
-In *Raster → Raster Calculator*, use the following expression, replacing `slope_percent@1` with the name of your slope layer and its band:
+The thresholds are deliberately illustrative, not construction standards. In particular, 84% is approximately 40°, but 40° is not an absolute upper limit for stairs. A steep hillside may also be crossed by a more gradual route following the contours.
 
-~~~text
-if("slope_percent@1" < 4, 1,
-  if("slope_percent@1" < 8.33, 2,
-    if("slope_percent@1" < 84, 3, 4)
-  )
-)
-~~~
+## 5. Read the map as a designer
 
-**How the expression works:** `"slope_percent@1"` refers to band 1 of the raster named `slope_percent`. The `if(condition, value_if_true, value_if_false)` function tests a condition and returns one of two values. Here, the first test assigns **1** to slopes below 4%. Values that fail that test are checked against 8.33%, assigning **2**; the next test assigns **3** to slopes below 84%; all remaining valid values become **4**. The tests are nested so each pixel receives exactly one class. The `<` symbol means *less than*, so a value exactly on a boundary belongs to the higher band. Commas separate the three arguments of each `if` function, while parentheses group the nested tests.
+The point of this exercise is not simply to colour a raster. We have chosen four categories because they help us think about **how people might move across the terrain**.
 
-Choose the slope raster as the reference for **extent, resolution and CRS**. Save as `outputs/slope_classes.tif`. The expression assigns class numbers 1–4; invalid / NoData cells should remain NoData rather than being described as a terrain category. Check the output values before styling.
+Sketch two possible routes between the same points. One could climb directly uphill; the other might follow a gentler path across the contours. Compare the terrain they cross.
 
-Set the layer’s symbology to a **Paletted / Unique values** renderer with four distinct, ordered colours and meaningful labels. A restrained progression from pale to dark is more legible than a rainbow. Keep the DEM hillshade or contours faintly visible underneath to show landform.
+Remember that the slope raster measures the **steepest gradient of the terrain at each cell**, not the gradient of a proposed path. The map is a starting point for design investigation, not an accessibility assessment.
 
-**Checkpoint:** A reader should be able to identify nearly level ground and steep terrain from the legend without knowing how raster slope is calculated.
+## Troubleshooting
 
-### 3. Test the architectural interpretation
+| Problem | What to check |
+| --- | --- |
+| Almost everything appears in the steepest category | You may have classified elevation instead of slope, or calculated slope on a DEM in degrees rather than metres. |
+| The GDAL output shows extreme percentages | Check the input DEM's CRS and whether horizontal and vertical units match. |
+| Only two colours appear | Inspect actual slope values and confirm you used **Singleband pseudocolour** with manually set intervals. |
+| The raster appears in the wrong place | Check the source and target CRS in Warp (Reproject); assigning a CRS is not the same as transforming coordinates. |
+| Empty pixels appear around the edges | Check the input NoData and the GDAL Slope edge-processing setting. |
 
-Choose two possible routes between the same points. One may take the shortest line up a steep slope; another might traverse the contour more gradually. Compare the classified terrain under each route.
+## Reference
 
-The raster reports the **maximum local terrain slope**, not necessarily the slope *along a designed path*. A diagonal route can be gentler than the hillside it crosses. In addition, accessible design depends on continuity, crossfall, landing geometry, surface, drainage and users’ needs. Treat the map as a screening tool, not a pass/fail accessibility assessment.
+- [QGIS documentation — GDAL Raster Analysis (Slope)](https://docs.qgis.org/3.44/en/docs/user_manual/processing_algs/gdal/rasteranalysis.html)
 
-## Exercise 2 — Aspect as a solar question
-
-### 4. Calculate aspect
-
-**Aspect** is the compass direction a slope faces. For a conventional north-referenced aspect raster, **0°/360° is north, 90° east, 180° south and 270° west**.
-
-Find **GDAL → Raster analysis → Aspect** (`gdal:aspect`), using the same DEM as for slope. Keep its default **azimuth** convention: do **not** activate the option to return a trigonometric angle, which would change the directional reference. Save the result as `outputs/aspect_degrees.tif`.
-
-Aspect is unreliable on completely flat terrain, because a horizontal surface has no meaningful downslope direction. It is also prone to noisy changes where very small height differences dominate. We will mask nearly level areas using the slope raster.
-
-**Checkpoint:** Inspect the aspect values and confirm they follow compass directions clockwise from north.
-
-### 5. Reclassify aspect into daily solar orientations
-
-For a **northern-hemisphere** site, we can use four broad orientations to start a conversation about sunlight:
-
-| Aspect azimuth | Category | Approximate interpretation |
-| --- | --- | --- |
-| 45°–135° | East | More favourable orientation towards morning sun |
-| 135°–225° | South | More favourable orientation towards midday sun |
-| 225°–315° | West | More favourable orientation towards afternoon / evening sun |
-| 315°–360° **or** 0°–45° | North | Generally lower direct solar exposure in many seasons |
-
-These are **orientations**, not clock-time bands and not measured sunlight durations. At different times of year the sun rises and sets in different directions; during summer even some northern orientations can receive low-angle direct sunlight.
-
-Use a Raster Calculator expression to assign values **0 = nearly flat**, **1 = east**, **2 = south**, **3 = west**, **4 = north**. It uses both layers, which must share the **same grid alignment, pixel size and extent**:
-
-~~~text
-if("slope_percent@1" < 2, 0,
-  if("aspect_degrees@1" < 45, 4,
-    if("aspect_degrees@1" < 135, 1,
-      if("aspect_degrees@1" < 225, 2,
-        if("aspect_degrees@1" < 315, 3, 4)
-      )
-    )
-  )
-)
-~~~
-
-Save as `outputs/aspect_solar_classes.tif` and use a **categorical colour legend**. Display class 0 in a neutral grey rather than implying it has a north-facing orientation. Preserve any NoData areas and check that the output doesn’t classify cells beyond the original raster coverage.
-
-**Checkpoint:** You can explain which parts of the terrain face east, south and west, while recognising that the map does not calculate actual sunlight received.
-
-## Exercise 3 — Read aspect against the sun’s path
-
-### 6. Use Andrew Marsh’s Sun-Path on Map
-
-Open **[Andrew Marsh — Sun-Path on Map](https://andrewmarsh.com/software/sunpath-on-map-web/)**. Set the location of your study area and examine the sun’s **azimuth** (compass direction) and **altitude** (angle above the horizon) on different dates.
-
-Compare at least three times on the same day: morning, solar noon and afternoon. Repeat the comparison for a winter and a summer date. Note that **solar noon is not always 12:00 on the clock**, particularly where daylight-saving time is used.
-
-For a comparative presentation, you can place a **clearly labelled screenshot or redrawn sun-path diagram beside your aspect map**, or overlay it on the map after aligning **true north**, location and scale. A circular sun-path diagram conveys directions and solar altitude, not an automatic ground-level illumination map. If exporting a screenshot from Andrew Marsh’s tool, retain appropriate attribution and check permission for reuse or publication.
-
-Suggested figure composition: the classified aspect map on the left, a matching north-oriented sun-path diagram on the right, and three arrows indicating the sun direction at selected times. If overlaid, keep the aspect map legible and show the sun-path diagram as a separate explanatory layer.
-
-### 7. Consider shadow and season
-
-Compare an east-facing and west-facing slope. Which might experience morning or late-afternoon sun? How could that affect where people gather, or where one might favour outdoor activity?
-
-Then ask a harder question: **Would the slope actually be illuminated at that time?** Aspect alone cannot answer, because other hills, trees or buildings may block the sun. A future extension could use a **digital surface model (DSM)** and sun-angle-based shading analysis to estimate shadows and solar exposure. This exercise deliberately stops at directional interpretation.
-
-## Suggested submission and interpretation
-
-Produce **two maps** of the same study area and a small annotated solar diagram:
-
-1. A classified **slope map** with four meaningful gradient bands and a brief note identifying possible routes, level uses and steep constraints.
-2. A classified **aspect map** showing east, south, west, north and nearly flat areas, with a north arrow and the same map extent.
-3. An **Andrew Marsh sun-path comparison** for one winter and one summer date, with morning, solar-noon and afternoon directions labelled.
-
-Include your DEM source, CRS, resolution, vertical units, classification thresholds and the dates/times used for the solar diagram. Write a short paragraph distinguishing what your maps **measure** from what you **infer** about architectural possibilities.
-
-## Troubleshooting and limitations
-
-- **Unexpected slope values:** Confirm horizontal versus elevation units, CRS, whether you requested degrees or percentage, and how the DEM was resampled.
-- **Aspect appears rotated:** Verify the tool used azimuth measured clockwise from north, not its optional trigonometric convention.
-- **Speckled aspect on flat land:** Mask nearly level cells or consider DEM smoothing, documenting any change in scale or resolution.
-- **Class raster shows a continuous gradient:** Render it as **Paletted / Unique values**, not Singleband pseudocolour.
-- **Output doesn't line up:** Match raster extent, pixel dimensions and CRS; merely assigning another CRS does not transform coordinates.
-- **Design categories seem misleading:** Revisit the thresholds, the chosen route alignment and applicable local accessibility/parking guidance. Neither slope nor aspect automatically defines buildability or regulatory compliance.
-
-## References and verification
-
-- [QGIS GDAL Raster Analysis — Slope and Aspect](https://docs.qgis.org/3.44/en/docs/user_manual/processing_algs/gdal/rasteranalysis.html)
-- [QGIS Raster Calculator](https://docs.qgis.org/3.44/en/docs/user_manual/working_with_raster/raster_analysis.html)
-- [Andrew Marsh — Sun-Path on Map](https://andrewmarsh.com/software/sunpath-on-map-web/)
-- [Approved Document M, Volume 2 (England) — ramped access](https://www.gov.uk/government/publications/access-to-and-use-of-buildings-approved-document-m)
-
-**Desktop checklist:** Confirm the raster’s real CRS, units, extent and suitability; test both GDAL algorithms and expressions; check raster alignment, class symbology and NoData; try the exercise with the supplied data; add genuine QGIS screenshots and a properly attributed sun-path illustration; review whether the illustrative 40° upper boundary is useful for the teaching exercise. The files are a starting point, not verified outputs.
+**To verify on desktop:** confirm the actual source DEM and elevation units, test the reprojection and GDAL Slope settings, and add screenshots of Warp (Reproject), GDAL Slope and the final discrete colour legend.
