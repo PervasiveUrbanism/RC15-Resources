@@ -44,6 +44,8 @@ There are two main ways to generate heatmaps in QGIS:
 
 In this example, we visualise the density of pharmacies in South East London using a point layer of pharmacy locations.
 
+You can also open the accompanying [QGIS project file](Heatmap.qgz) to explore the map, layers and styling alongside the tutorial. Depending on where the project is saved, you may need to reconnect any missing data sources.
+
 ![Pharmacies in London](assets/Pharmacies%20in%20London.png)
 
 ### Key Parameters
