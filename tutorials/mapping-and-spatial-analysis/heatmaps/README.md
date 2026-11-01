@@ -279,11 +279,9 @@ The challenge is not simply to produce an attractive image. Each graphic decisio
 
 ## Beyond Standard Cartography
 
-At this point, you can see where this is heading. The next steps would involve exploring different geometries, possibly overlapping different symbols so that they form new patterns. QGIS extends this further by offering the use of .svg symbols—custom graphics that you can create in Illustrator and bring into QGIS. From here, there is quite a lot of ground to explore.
+The custom SVG exercise demonstrates how a map can move beyond conventional colour ramps and proportional dots. Repetition, rotation and overlapping geometry can create unexpected visual relationships, but they also raise questions about legibility and interpretation. Compare your own results with the graphic references below. Which approaches could help communicate a spatial pattern, and which might obscure it?
 
-By leaving off-the-shelf visualisation behind, we move beyond conventional map representation into more sophisticated territory, exploring different, more artistic types of graphics.
-
-Here are a few examples:
+Here are a few references for further experimentation:
 
 ![Example 1](assets/04c66e51ec2c733b6e975e6b7a764cf4.jpg)
 
