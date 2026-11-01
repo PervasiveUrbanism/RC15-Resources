@@ -61,19 +61,23 @@ Do not confuse this with the QGIS native Slope tool (`native:slope`), which outp
 
 ### 2. Translate slope into accessible categories
 
+<<<<<<< Updated upstream
 <!-- @ChatGPT: Please revise the categories below. there are too many. So let's say that it's 0% to 4% horizontal and gente ramps then 4% to 8.33% ramps still possible. 8.33% to max slope stairs 40 degree (please check), and 40 degree upwards would be very steep--> 
 
 
+=======
+<!--@ChatGPT - please review the slope gradients. five babds are too much.   go 0 to 5 witt a gentle slope and ramps being feasible then from 5 to 8.33 percent that i undestand is still ok and then everthing  8.33% top 50% that would requite stairs, terracessing and steops. then above 50% not possible. please check the 50% mark, i think it should be 15%-->
+>>>>>>> Stashed changes
 
 Instead of displaying a continuous rainbow, classify the raster into five **architectural interpretation bands**:
 
-| Gradient | Map label | Design interpretation |
-| --- | --- | --- |
-| **0–2%** | Nearly level | Potentially suitable for level uses such as gathering or parking, subject to drainage, surface and detailed design |
-| **2–5%** | Gentle slope | Shallow approaches and pedestrian routes may be feasible |
-| **5–8.33%** | Ramp-sensitive | More demanding gradients; accessible ramps require strict limits on rise, length and landings |
-| **8.33–50%** | Steep terrain | A direct accessible ramp is unlikely; consider alignment across the slope, switchbacks, steps, terracing or lifts |
-| **Over 50%** | Very steep | Likely to need significant earthworks, structures or a different route; investigate conditions carefully |
+| Gradient     | Map label      | Design interpretation                                                                                              |
+| ------------ | -------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **0–2%**     | Nearly level   | Potentially suitable for level uses such as gathering or parking, subject to drainage, surface and detailed design |
+| **2–5%**     | Gentle slope   | Shallow approaches and pedestrian routes may be feasible                                                           |
+| **5–8.33%**  | Ramp-sensitive | More demanding gradients; accessible ramps require strict limits on rise, length and landings                      |
+| **8.33–50%** | Steep terrain  | A direct accessible ramp is unlikely; consider alignment across the slope, switchbacks, steps, terracing or lifts  |
+| **Over 50%** | Very steep     | Likely to need significant earthworks, structures or a different route; investigate conditions carefully           |
 
 These are **interpretive teaching categories**, not statutory thresholds for the terrain itself. The 5% and 8.33% breakpoints are useful references to ramp design, but compliance cannot be established by colouring DEM pixels. UK Approved Document M, Volume 2, relates maximum ramp gradient to flight length and rise (for example 1:20 over 10 m, 1:15 over 5 m and 1:12 over 2 m). Parking and vehicle routes require their own criteria. The **50% threshold is deliberately provisional**, for discussing substantial intervention; it is *not* a universal limit beyond which stairs become impossible.
 
@@ -88,6 +92,8 @@ if("slope_percent@1" < 2, 1,
   )
 )
 ~~~
+
+<!--- @ChatGPT: please explain the syntax of the scripot-->
 
 Choose the slope raster as the reference for **extent, resolution and CRS**. Save as `outputs/slope_classes.tif`. The expression assigns class numbers 1–5; invalid / NoData cells should remain NoData rather than being described as a terrain category. Check the output values before styling.
 
