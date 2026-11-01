@@ -61,6 +61,10 @@ Do not confuse this with the QGIS native Slope tool (`native:slope`), which outp
 
 ### 2. Translate slope into accessible categories
 
+<!-- @ChatGPT: Please revise the categories below. there are too many. So let's say that it's 0% to 4% horizontal and gente ramps then 4% to 8.33% ramps still possible. 8.33% to max slope stairs 40 degree (please check), and 40 degree upwards would be very steep--> 
+
+
+
 Instead of displaying a continuous rainbow, classify the raster into five **architectural interpretation bands**:
 
 | Gradient | Map label | Design interpretation |
@@ -86,6 +90,8 @@ if("slope_percent@1" < 2, 1,
 ~~~
 
 Choose the slope raster as the reference for **extent, resolution and CRS**. Save as `outputs/slope_classes.tif`. The expression assigns class numbers 1–5; invalid / NoData cells should remain NoData rather than being described as a terrain category. Check the output values before styling.
+
+<!-- @CHatGPT: please explain syntax-->
 
 Set the layer’s symbology to a **Paletted / Unique values** renderer with five distinct, ordered colours and meaningful labels. A restrained progression from pale to dark is more legible than a rainbow. Keep the DEM hillshade or contours faintly visible underneath to show landform.
 
