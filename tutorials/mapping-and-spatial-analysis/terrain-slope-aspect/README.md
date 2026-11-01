@@ -1,5 +1,7 @@
 # Terrain Analysis in QGIS: Slope and Accessibility
 
+<img src="images/Icon.png" width="240" alt="Terrain slope analysis — tutorial illustration">
+
 Understanding the slope of a terrain helps us identify where we might build, which areas are usable, and where roads, paths or other forms of access could be introduced. A slope analysis turns elevation data into a map of gradients. We can then interpret those gradients in relation to architectural and urban design questions.
 
 In this tutorial, we will calculate slope from a digital elevation model (DEM) in QGIS, sample the result on a regular grid of points, and distinguish four terrain conditions: gentle ground, potential ramps, steep ground that may require stairs, and very steep areas. The final map will show these conditions over an OpenStreetMap background, so that the terrain remains legible in its geographical context.
@@ -91,7 +93,19 @@ Use QGIS's **Identify Features** tool to inspect a few pixels. Gentle ground sho
 
 You can temporarily display the result using **Singleband pseudocolour** in the layer's Symbology settings. This helps reveal the topography, but the coloured raster also covers much of the underlying map. Instead of using the raster as our final representation, we will sample it at regular points.
 
-<!-- @ChatGPT: Please discuss the results using the images: 03 Slope Results.png and 3.1 and 3.2. It's jus the range. and there is also the fact that the new slope map covers the map below. one can not see ot and that is not good. therefore we do a different approach: the grid where wher sample a slope value very 25 meters -->
+The initial slope map reveals the range of gradients across the site, but it presents two problems. First, percentages such as 6%, 28% or 110% do not immediately explain what the terrain might mean for someone designing or using a route. A colour ramp makes the differences visible without necessarily making them understandable.
+
+![Initial slope raster](images/03%20Slope%20Results.png)
+
+*The calculated slope raster shows a continuous range of values.*
+
+![Slope values shown through a colour ramp](images/03.1%20Slope%20Results.png)
+
+![Slope raster covering the underlying map](images/03.2%20Slope%20Results.png)
+
+Second, the coloured raster covers the map beneath it. We lose the roads, buildings and landscape features that would help us interpret the results. Lowering the raster's opacity can reveal some of that context, but it also weakens the colours.
+
+We will therefore take a different approach: **sample one slope value every 25 metres**, display those samples as points so that the basemap remains visible, and translate the values into categories that communicate their possible design implications.
 
 
 ## 5. Create a 25 m point grid
@@ -131,7 +145,9 @@ We now have a point layer that combines geographical locations with numerical in
 
 ## 7. Translate slope into terrain categories
 
-<!-- I have a very strong opiinion as to which audince the map asdreeses. so in thi case, the solpes as they are do not mean anytun to who is not an eningeer and is familar with the slopes. This it makes rnse to introiiduce catergoiies the quickly identlyi what is what. Imporant: tis makes a big difference: we started with an map that only engineers can undertasnt and we do a map that is actuuly useful for everybody. this is the diffice that is very, very impotnat,-->
+This step is not simply about choosing colours. A map of raw slope percentages may be understandable to engineers and other specialists, but for many readers the numbers alone do not explain what the terrain means. By translating them into recognisable categories, we make the same analysis accessible to a much wider audience.
+
+The underlying measurements do not change. What changes is the **language of the map**: readers can quickly recognise gentle ground, potential ramp conditions, steeper terrain and areas that may require another approach.
 
 Raw percentages are useful for measurement, but a design map becomes more informative when we relate them to questions about access and movement.
 
@@ -185,7 +201,15 @@ Try sketching two possible connections across the same site: one taking a direct
 
 The analysis is only as reliable as the source elevation model. A coarse DEM can miss small changes in level, while a surface model containing buildings or trees may introduce slopes that do not represent the ground. For detailed accessibility or construction decisions, you would need more precise terrain data and the relevant design standards.
 
-<!-- Please show the last image, 10 - discuss that this is the beginnings of styling the map. it's not done, but the direction is clear. we have been using the height map to extract contour lines, Ihave switced off the flat and the not accessible parts, depending on the scale of the map. the desinty of the points/cross has to be adjusted.-->
+### Developing the map further
+
+![Further cartographic styling with contours and selected slope categories](images/10.%20Finished.png)
+
+*An exploration of the next stage of map styling, rather than a finished cartographic result.*
+
+The map can now be developed as a more selective drawing. In this example, contour lines have been extracted from the elevation model to give the terrain a clearer structure. The **flat** and **very steep** categories have been switched off, leaving the intermediate conditions more prominent. Which categories are useful to show depends on the purpose and scale of the map.
+
+The density and size of the point or cross symbols also need adjusting. At one scale they may read as individual measurements; at another, they can merge into a distracting texture. The aim is not to show every available value, but to choose a representation that makes the terrain legible and supports a design discussion.
 
 ## Troubleshooting
 
