@@ -180,6 +180,103 @@ For rule-based styling with multiple conditions:
 
 ---
 
+
+## Custom SVG symbols from Rhino and Grasshopper
+
+<img src="assets/Icon.jpg" width="800" alt="Custom SVG map symbols and Truchet tile patterns">
+
+The sampled point grid gives us more freedom than a conventional heatmap. Instead of displaying each value as a coloured dot, we can use **custom vector symbols** to create a spatial pattern. This exercise develops that idea using Rhino, Grasshopper and QGIS. The example draws on *Truchet tiles*: simple geometric elements that form more complex patterns when repeated, rotated or combined.
+
+![Truchet tile pattern](assets/05%20Truchet%20Tiles.png)
+
+The aim is to understand the connection between **data, geometry and representation**. QGIS decides *which* symbol appears at each point; Rhino and Grasshopper determine *what that symbol looks like*.
+
+### 1. Prepare the drawing in Rhino
+
+Open the supplied [Rhino template](assets/SVG%20Template.3dm) and [Grasshopper definition](assets/SVG%20Export%20from%20rhino.gh) in Rhino 8. The definition contains a Python 3 component for exporting curves as SVG.
+
+Work in the **World XY plane**, inside a fixed **100 × 100 drawing area centred on the origin**: X and Y each run from −50 to +50. This square is a construction guide, **not a curve that needs to be exported**. Unlike an exporter that fits every drawing to its bounding box, the fixed canvas preserves the relative size and position of your geometry.
+
+The exporter uses the following conventions:
+
+| Rhino geometry | SVG interpretation |
+| --- | --- |
+| Open line or curve | Stroke, without fill |
+| Closed planar curve | Filled shape with outline |
+| Nested closed curves | Transparent opening within a filled shape, using even-odd filling |
+| Curved geometry | Polyline approximation in the SVG |
+
+These are **export rules**, not Rhino object types: a closed polyline does not become a hatch in Rhino. It becomes filled because the generated SVG path has a fill property. Polylines should retain their original vertices so corners remain sharp. Smooth curves are approximated, so inspect their appearance at the intended symbol size.
+
+![Grasshopper SVG export definition](assets/01%20Heatmap%20Grasshopper%20SVG%20export.png)
+
+### 2. Export the SVG from Grasshopper
+
+The Python component takes curves, an output file path and an export trigger. Connect the curves you want to export to its **C** input, set that input to **List Access**, and flatten the data if you want all curves in one symbol. Supply a full `.svg` file path and press the button to write the file.
+
+The SVG uses a fixed `viewBox="0 0 100 100"`. Rhino's centre (0, 0) becomes SVG coordinate (50, 50), and the vertical axis is reversed because SVG coordinates increase downwards. **There is no automatic scaling or centring.** A shape occupying 50 units in Rhino occupies half the SVG canvas width.
+
+The export is intended to support QGIS-controlled styling through SVG parameters:
+
+```xml
+fill="param(fill) #B7DFF2"
+stroke="param(outline) #334155"
+stroke-width="param(outline-width) 0.5"
+```
+
+The parameter names allow QGIS to control the fill, outline colour and outline width, provided they are present in the exported file. If the stroke-width control is disabled in QGIS, inspect the SVG for a fixed `stroke-width` instead of `param(outline-width)`. The supplied Grasshopper definition is the working starting point; check its exported SVG before assuming all three parameters are available.
+
+### 3. Load the SVG as a QGIS point marker
+
+In QGIS, right-click the sampled point layer and open **Properties → Symbology**. Select a **SVG Marker** symbol layer, browse to your exported file, and adjust its size and colours.
+
+The SVG's **100 × 100 coordinate system does not mean 100 metres on the map**. QGIS determines the displayed marker dimensions. For graphic symbols, millimetres or pixels are often convenient. If the symbol represents an actual distance, choose **Metres at Scale** and verify the result in the map's coordinate reference system.
+
+In particular, a project using **EPSG:3857** may give different results when measured in Cartesian map coordinates versus ellipsoidal ground distance. When checking the marker's width, distinguish between these measurement methods. Also remember that a stroke extends around its path and may slightly affect the visible extent.
+
+### 4. Choose different SVG symbols from point data
+
+The example point layer contains a numeric field called `p_id_count`. We can use this field to assign one of four custom SVG symbols, rather than showing all points identically.
+
+In **Layer Properties → Symbology**, choose **Categorised**. Open the expression editor beside **Value** and enter:
+
+```sql
+CASE
+  WHEN "p_id_count" IS NULL THEN 'No data'
+  WHEN "p_id_count" <= 6 THEN '1 - Low'
+  WHEN "p_id_count" <= 31 THEN '2 - Medium'
+  WHEN "p_id_count" <= 118 THEN '3 - High'
+  ELSE '4 - Very high'
+END
+```
+
+Click **Classify**, then double-click each category's symbol and choose a different **SVG Marker**. You can use the supplied [OneQuarter.svg](assets/OneQuarter.svg), [TwoQuarter.svg](assets/TwoQuarter.svg), [ThreeQuarter.svg](assets/ThreeQuarter.svg) and [FourQuarter.svg](assets/FourQuarter.svg), or export your own variations.
+
+| `p_id_count` | Category | Suggested symbol |
+| --- | --- | --- |
+| 0–6 | Low | One-quarter |
+| 7–31 | Medium | Two-quarter |
+| 32–118 | High | Three-quarter |
+| 119 and above | Very high | Four-quarter |
+
+These thresholds are **specific to this example**, not universal density thresholds. Check the distribution of values in your own data before choosing breaks. `NULL` is treated separately from a genuine count of zero.
+
+For more control, you can alternatively use a **data-defined SVG file path** driven by a `CASE` expression. Categorised symbology is easier to understand at first because each symbol and its legend entry remain visible in the layer settings.
+
+### 5. Develop the pattern
+
+![Truchet tile variation](assets/04%20Truchet%20Tiles%20Variation%2001.png)
+
+![Truchet tile variation](assets/06%20Truchet%20Tiles%20Variation%2002.png)
+
+![Additional tile variation](assets/07%20Truchet%20Tiles%20Variation.png)
+
+Once the data selects the symbol, experiment with **rotation, line thickness, spacing and repetition**. A small set of simple SVGs can generate a complex visual field. Compare the outcome with the original heatmap: where does the tile pattern reveal structure, and where does it make the data harder to interpret?
+
+The challenge is not simply to produce an attractive image. Each graphic decision should have a legible relationship to the underlying data. If neighbouring symbols merge into continuous lines or shapes, consider whether that visual continuity communicates something meaningful or merely creates an accidental effect.
+
+**Exercise:** Export four related symbols from Rhino, assign them to the four `p_id_count` classes, and produce two map versions: one emphasising data legibility, the other exploring a more experimental pattern. Include a legend and a short explanation of what the symbols represent.
+
 ## Beyond Standard Cartography
 
 At this point, you can see where this is heading. The next steps would involve exploring different geometries, possibly overlapping different symbols so that they form new patterns. QGIS extends this further by offering the use of .svg symbols—custom graphics that you can create in Illustrator and bring into QGIS. From here, there is quite a lot of ground to explore.
