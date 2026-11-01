@@ -11,19 +11,17 @@ Part of **RC15 Extended Knowledge**, a collection of tutorials and examples beyo
 
 ---
 
-# Heatmaps in QGIS
-
 ## Creating Density Maps from Point Data
 
-This tutorial explains how to create and refine heatmaps in QGIS. Heatmaps are useful for visualising spatial density, but the default output is not always suitable for presentation graphics. The techniques below show how to improve clarity and visual quality.
+A map of individual points can tell us where things are, but it may be difficult to see how those locations relate to one another. Where do activities cluster? Which parts of a neighbourhood have a concentration of services, and which are comparatively underserved? A **heatmap** offers one way of exploring these spatial patterns.
 
-
+In this tutorial, we begin with a conventional density map in QGIS and progressively rethink how its information is represented. We will adjust the colour gradient, extract contour lines and sample values onto a regular point grid. Finally, we will use custom SVG symbols to explore how the same spatial data can produce very different graphic interpretations.
 
 ## What is a Heatmap?
 
-In QGIS, heatmaps visualise the density or intensity of spatial data by creating a continuous surface from individual point locations. Each point contributes influence to the surrounding area, represented as a gradient that fades with distance.
+A heatmap transforms a collection of point locations into a continuous surface. Each point contributes to the surrounding area, with its influence gradually decreasing over distance. Where many points are close together, their contributions overlap and the resulting values become higher.
 
-
+This can make concentrations easier to recognise, but it is important to remember that the surface is **calculated**, not directly observed. Its appearance depends on choices such as the search radius, raster resolution and colour ramp. A convincing graphic therefore needs both an appropriate analytical method and careful visual communication.
 
 ### Two Methods for Creating Heatmaps
 
@@ -50,7 +48,7 @@ In this example, we visualise the density of pharmacies in South East London usi
 
 ### Key Parameters
 
-Before generating the heatmap, understand these two critical settings:
+Two settings have a particularly strong influence on the result:
 
 - **Radius** – Defines how far the influence of each point spreads. A larger radius produces smoother, more generalised results; a smaller radius highlights local clusters.
 - **Resolution** – Determines the size of the raster cells. Higher resolution creates more detail but increases processing time and file size.
@@ -78,11 +76,11 @@ The result is a raster layer showing density values across the study area:
 
 ## Improving the Graphics
 
-Once the heatmap is created, there are several ways to improve its visual quality for presentation.
+The initial raster is useful for analysis, but its default appearance is not necessarily the clearest way to communicate a spatial pattern. The following approaches change how we read the same underlying values, moving from a continuous colour field towards a more selective graphic language.
 
 ### 1. Editing the Colour Gradient
 
-The simplest improvement is to adjust the colour gradient.
+Start by adjusting the colour gradient. A restrained palette can make the underlying geography easier to read and help the most significant concentrations stand out.
 
 **Steps:**
 
@@ -98,9 +96,9 @@ The simplest improvement is to adjust the colour gradient.
 
 **Styling tips:**
 
-- Often you see a sequential colour ramp (e.g., white → yellow → red) for density. And often it looks too much. 
-- Set the minimum value slightly above zero to create transparency in low-density areas
-- Experiment with blending modes. 
+- A conventional white–yellow–red gradient can become visually dominant. Try a more restrained sequential palette.
+- Make the lowest density values transparent where appropriate, allowing the base map to remain visible.
+- Experiment with blending modes, but check that the resulting colours still communicate the density values clearly.
 
 ### 2. Adding Contours
 
@@ -124,13 +122,13 @@ The resulting vector layer can be styled independently:
 
 > **Tip:** The Processing Toolbox (`Ctrl+Alt+T`) provides access to all analytical tools including raster extraction, interpolation, and contour generation.
 
-> **Tip:** You can reach the same effect as layer style
+> **Tip:** For some presentation purposes, contour-like effects can also be explored through raster symbology without generating a separate contour layer.
 
 ![Heatmap Colour Ramp](assets/Contours.png)
 
 ### 3. Discrete Sample Points
 
-Instead of relying on the continuous raster surface, sampling values at regular grid points allows more flexible styling and cleaner graphics for publications.
+A continuous surface is not always the most effective way to show density. We can instead place points on a regular grid and attach the heatmap value at each location. This gives us a set of discrete measurements that can be represented through colour, size or custom symbols, while retaining a connection to the original raster.
 
 #### Step 1 – Create a Grid
 
@@ -187,9 +185,9 @@ For rule-based styling with multiple conditions:
 
 The sampled point grid gives us more freedom than a conventional heatmap. Instead of displaying each value as a coloured dot, we can use **custom vector symbols** to create a spatial pattern. This exercise develops that idea using Rhino, Grasshopper and QGIS. The example draws on *Truchet tiles*: simple geometric elements that form more complex patterns when repeated, rotated or combined.
 
-![Truchet tile pattern](assets/05%20Truchet%20Tiles.png)
+![Quarter-circle modules and rotations](assets/04%20Truchet%20Tiles%20Variation%2001.png)
 
-The aim is to understand the connection between **data, geometry and representation**. QGIS decides *which* symbol appears at each point; Rhino and Grasshopper determine *what that symbol looks like*.
+By changing the orientation or combination of a few quarter-circle modules, we can build much richer patterns. The aim is to understand the connection between **data, geometry and representation**. QGIS decides *which* symbol appears at each point; Rhino and Grasshopper determine *what that symbol looks like*.
 
 ### 1. Prepare the drawing in Rhino
 
@@ -214,17 +212,7 @@ These are **export rules**, not Rhino object types: a closed polyline does not b
 
 The Python component takes curves, an output file path and an export trigger. Connect the curves you want to export to its **C** input, set that input to **List Access**, and flatten the data if you want all curves in one symbol. Supply a full `.svg` file path and press the button to write the file.
 
-The SVG uses a fixed `viewBox="0 0 100 100"`. Rhino's centre (0, 0) becomes SVG coordinate (50, 50), and the vertical axis is reversed because SVG coordinates increase downwards. **There is no automatic scaling or centring.** A shape occupying 50 units in Rhino occupies half the SVG canvas width.
-
-The export is intended to support QGIS-controlled styling through SVG parameters:
-
-```xml
-fill="param(fill) #B7DFF2"
-stroke="param(outline) #334155"
-stroke-width="param(outline-width) 0.5"
-```
-
-The parameter names allow QGIS to control the fill, outline colour and outline width, provided they are present in the exported file. If the stroke-width control is disabled in QGIS, inspect the SVG for a fixed `stroke-width` instead of `param(outline-width)`. The supplied Grasshopper definition is the working starting point; check its exported SVG before assuming all three parameters are available.
+The exporter preserves the position and relative size of everything drawn inside the 100 × 100 canvas. Once imported into QGIS, you can adjust the symbol's appearance using the available fill, outline and size settings. Keep the original Grasshopper definition so you can return to Rhino and refine the geometry whenever needed.
 
 ### 3. Load the SVG as a QGIS point marker
 
@@ -263,15 +251,19 @@ These thresholds are **specific to this example**, not universal density thresho
 
 For more control, you can alternatively use a **data-defined SVG file path** driven by a `CASE` expression. Categorised symbology is easier to understand at first because each symbol and its legend entry remain visible in the layer settings.
 
+![Quarter-circle modules applied to the point map](assets/06%20Truchet%20Tiles%20Variation%2002.png)
+
+Here the relationship between the small set of modules and the larger mapped pattern becomes visible. Each point receives a symbol according to its count category, and the repeated geometry begins to create a continuous graphic field.
+
 ### 5. Develop the pattern
 
-![Truchet tile variation](assets/04%20Truchet%20Tiles%20Variation%2001.png)
+![Truchet tile pattern](assets/05%20Truchet%20Tiles.png)
 
-![Truchet tile variation](assets/06%20Truchet%20Tiles%20Variation%2002.png)
+Once the data selects the symbol, experiment with **rotation, line thickness, spacing and repetition**.
 
 ![Additional tile variation](assets/07%20Truchet%20Tiles%20Variation.png)
 
-Once the data selects the symbol, experiment with **rotation, line thickness, spacing and repetition**. A small set of simple SVGs can generate a complex visual field. Compare the outcome with the original heatmap: where does the tile pattern reveal structure, and where does it make the data harder to interpret?
+ A small set of simple SVGs can generate a complex visual field. Compare the outcome with the original heatmap: where does the tile pattern reveal structure, and where does it make the data harder to interpret?
 
 The challenge is not simply to produce an attractive image. Each graphic decision should have a legible relationship to the underlying data. If neighbouring symbols merge into continuous lines or shapes, consider whether that visual continuity communicates something meaningful or merely creates an accidental effect.
 
