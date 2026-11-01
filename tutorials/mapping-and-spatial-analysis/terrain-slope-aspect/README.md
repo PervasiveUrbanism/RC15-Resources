@@ -61,45 +61,32 @@ Do not confuse this with the QGIS native Slope tool (`native:slope`), which outp
 
 ### 2. Translate slope into accessible categories
 
-<<<<<<< Updated upstream
-<!-- @ChatGPT: Please revise the categories below. there are too many. So let's say that it's 0% to 4% horizontal and gente ramps then 4% to 8.33% ramps still possible. 8.33% to max slope stairs 40 degree (please check), and 40 degree upwards would be very steep--> 
+For this introductory exercise, use four broad **architectural interpretation bands** rather than a detailed accessibility classification:
 
+| Gradient | Map label | Design interpretation |
+| --- | --- | --- |
+| **0–4%** | Level to gentle | Level uses and gentle paths may be feasible, subject to drainage and detailed design. |
+| **4–8.33%** | Ramp territory | Ramps may be possible, but gradient, rise, flight length and landings require careful design. |
+| **8.33–84%** | Steep terrain | A direct accessible ramp is generally unsuitable; investigate routes across contours, steps, terracing or other interventions. |
+| **Above 84%** | Very steep terrain | Approximately steeper than 40°; substantial intervention or an alternative route may be needed. |
 
-=======
-<!--@ChatGPT - please review the slope gradients. five babds are too much.   go 0 to 5 witt a gentle slope and ramps being feasible then from 5 to 8.33 percent that i undestand is still ok and then everthing  8.33% top 50% that would requite stairs, terracessing and steops. then above 50% not possible. please check the 50% mark, i think it should be 15%-->
->>>>>>> Stashed changes
+The **84% breakpoint corresponds approximately to 40°** because gradient (%) = 100 × tan(slope angle). A 50% gradient is only about 26.6°, and 15% is about 8.5°. The 40° boundary is a useful *illustrative terrain classification*, **not** a universal maximum slope for stairs, nor a rule that construction is impossible above it. The 4% and 8.33% boundaries are similarly interpretive rather than blanket accessibility permissions. In England, Approved Document M, Volume 2 links ramp gradient to flight length and rise (including 1:20, 1:15 and 1:12 examples). Check the relevant standards and detailed geometry before making any accessibility claim.
 
-Instead of displaying a continuous rainbow, classify the raster into five **architectural interpretation bands**:
-
-| Gradient     | Map label      | Design interpretation                                                                                              |
-| ------------ | -------------- | ------------------------------------------------------------------------------------------------------------------ |
-| **0–2%**     | Nearly level   | Potentially suitable for level uses such as gathering or parking, subject to drainage, surface and detailed design |
-| **2–5%**     | Gentle slope   | Shallow approaches and pedestrian routes may be feasible                                                           |
-| **5–8.33%**  | Ramp-sensitive | More demanding gradients; accessible ramps require strict limits on rise, length and landings                      |
-| **8.33–50%** | Steep terrain  | A direct accessible ramp is unlikely; consider alignment across the slope, switchbacks, steps, terracing or lifts  |
-| **Over 50%** | Very steep     | Likely to need significant earthworks, structures or a different route; investigate conditions carefully           |
-
-These are **interpretive teaching categories**, not statutory thresholds for the terrain itself. The 5% and 8.33% breakpoints are useful references to ramp design, but compliance cannot be established by colouring DEM pixels. UK Approved Document M, Volume 2, relates maximum ramp gradient to flight length and rise (for example 1:20 over 10 m, 1:15 over 5 m and 1:12 over 2 m). Parking and vehicle routes require their own criteria. The **50% threshold is deliberately provisional**, for discussing substantial intervention; it is *not* a universal limit beyond which stairs become impossible.
-
-In *Raster → Raster Calculator* (or the corresponding QGIS raster calculator), use the following nested expression, replacing `slope_percent@1` with your actual raster layer/band name:
+In *Raster → Raster Calculator*, use the following expression, replacing `slope_percent@1` with the name of your slope layer and its band:
 
 ~~~text
-if("slope_percent@1" < 2, 1,
-  if("slope_percent@1" < 5, 2,
-    if("slope_percent@1" < 8.33, 3,
-      if("slope_percent@1" <= 50, 4, 5)
-    )
+if("slope_percent@1" < 4, 1,
+  if("slope_percent@1" < 8.33, 2,
+    if("slope_percent@1" < 84, 3, 4)
   )
 )
 ~~~
 
-<!--- @ChatGPT: please explain the syntax of the scripot-->
+**How the expression works:** `"slope_percent@1"` refers to band 1 of the raster named `slope_percent`. The `if(condition, value_if_true, value_if_false)` function tests a condition and returns one of two values. Here, the first test assigns **1** to slopes below 4%. Values that fail that test are checked against 8.33%, assigning **2**; the next test assigns **3** to slopes below 84%; all remaining valid values become **4**. The tests are nested so each pixel receives exactly one class. The `<` symbol means *less than*, so a value exactly on a boundary belongs to the higher band. Commas separate the three arguments of each `if` function, while parentheses group the nested tests.
 
-Choose the slope raster as the reference for **extent, resolution and CRS**. Save as `outputs/slope_classes.tif`. The expression assigns class numbers 1–5; invalid / NoData cells should remain NoData rather than being described as a terrain category. Check the output values before styling.
+Choose the slope raster as the reference for **extent, resolution and CRS**. Save as `outputs/slope_classes.tif`. The expression assigns class numbers 1–4; invalid / NoData cells should remain NoData rather than being described as a terrain category. Check the output values before styling.
 
-<!-- @CHatGPT: please explain syntax-->
-
-Set the layer’s symbology to a **Paletted / Unique values** renderer with five distinct, ordered colours and meaningful labels. A restrained progression from pale to dark is more legible than a rainbow. Keep the DEM hillshade or contours faintly visible underneath to show landform.
+Set the layer’s symbology to a **Paletted / Unique values** renderer with four distinct, ordered colours and meaningful labels. A restrained progression from pale to dark is more legible than a rainbow. Keep the DEM hillshade or contours faintly visible underneath to show landform.
 
 **Checkpoint:** A reader should be able to identify nearly level ground and steep terrain from the legend without knowing how raster slope is calculated.
 
@@ -174,7 +161,7 @@ Then ask a harder question: **Would the slope actually be illuminated at that ti
 
 Produce **two maps** of the same study area and a small annotated solar diagram:
 
-1. A classified **slope map** with five meaningful gradient bands and a brief note identifying possible routes, level uses and steep constraints.
+1. A classified **slope map** with four meaningful gradient bands and a brief note identifying possible routes, level uses and steep constraints.
 2. A classified **aspect map** showing east, south, west, north and nearly flat areas, with a north arrow and the same map extent.
 3. An **Andrew Marsh sun-path comparison** for one winter and one summer date, with morning, solar-noon and afternoon directions labelled.
 
@@ -196,4 +183,4 @@ Include your DEM source, CRS, resolution, vertical units, classification thresho
 - [Andrew Marsh — Sun-Path on Map](https://andrewmarsh.com/software/sunpath-on-map-web/)
 - [Approved Document M, Volume 2 (England) — ramped access](https://www.gov.uk/government/publications/access-to-and-use-of-buildings-approved-document-m)
 
-**Desktop checklist:** Confirm the raster’s real CRS, units, extent and suitability; test both GDAL algorithms and expressions; check raster alignment, class symbology and NoData; try the exercise with the supplied data; add genuine QGIS screenshots and a properly attributed sun-path illustration; decide whether the provisional slope classes need refinement. The files are a starting point, not verified outputs.
+**Desktop checklist:** Confirm the raster’s real CRS, units, extent and suitability; test both GDAL algorithms and expressions; check raster alignment, class symbology and NoData; try the exercise with the supplied data; add genuine QGIS screenshots and a properly attributed sun-path illustration; review whether the illustrative 40° upper boundary is useful for the teaching exercise. The files are a starting point, not verified outputs.
