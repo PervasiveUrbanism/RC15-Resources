@@ -20,26 +20,51 @@ A slope value is a measurement, not a design decision. We will use the map to as
 
 Start a new QGIS project and add your digital elevation model (DEM). You can use the elevation raster supplied with this tutorial or your own terrain data. Save your project before processing.
 
-Right-click the DEM and open **Properties → Information**. Check the **Coordinate Reference System (CRS)**, pixel size, NoData value and, if known, the elevation units.
+### Check the coordinate reference system (CRS)
 
-A DEM often stores elevations in **metres**, but its horizontal coordinates may be in **degrees**. This distinction is important: slope compares vertical height with horizontal distance, so the two must use compatible units.
+Before calculating slope, we need to understand how QGIS positions and measures our terrain. There are **two coordinate reference systems** to consider.
 
-## 2. Reproject the DEM if necessary
+**The QGIS project CRS** determines how different layers are displayed together on the map. You can find it in the bottom-right corner of the QGIS window. In our example, the project uses **EPSG:3857**, a coordinate system commonly used for online maps such as OpenStreetMap.
 
-In the example discussed in class, the elevation raster `output_hh` uses **EPSG:4326**. Its horizontal coordinates are longitude and latitude in degrees. We should reproject it before running GDAL Slope with a unit ratio of 1.
+**The elevation raster CRS** belongs to the GeoTIFF itself. It describes how the pixels are geographically positioned. To check it, right-click the elevation layer and select **Properties → Information**.
 
-Open **Raster → Projections → Warp (Reproject)** (or find **GDAL → Raster projections → Warp (reproject)** in the Processing Toolbox).
+In our example, the elevation raster uses **EPSG:4326 (WGS 84)**.
 
-- **Input layer:** your elevation raster, such as `output_hh`.
-- **Target CRS:** an appropriate *local projected CRS* with metre units. For the example location near 33° E, 34–35° N, **EPSG:32636 (WGS 84 / UTM zone 36N)** is a suitable candidate; confirm the location before choosing it.
-- **Resampling method:** **Bilinear**, appropriate for a continuous elevation surface.
-- **Output:** save as `DEM_projected.tif`.
+*Insert screenshot: `01.2 Qgis DSM Properties.png` — the elevation raster's CRS in Layer Properties → Information.*
 
-Choose an appropriate output pixel size in metres, consistent with the source DEM's resolution. Do not invent finer terrain detail by choosing extremely small pixels.
+EPSG:4326 uses latitude and longitude, measured in degrees. Although QGIS can display this raster correctly alongside an OpenStreetMap background, its horizontal coordinates are not measured in metres.
 
-Click **Run**. The new raster should appear in the same geographic location. Check **Properties → Information** again: the new raster should have a projected CRS and horizontal pixel dimensions expressed in metres.
+This becomes a problem when calculating slope. The GDAL Slope tool compares changes in elevation with horizontal distances. If our elevation values are in metres but the horizontal coordinates are in degrees, the resulting gradient will be incorrect.
 
-**Important:** Changing the QGIS *project* CRS does not reproject the raster data. Use **Warp (Reproject)** to create a new raster.
+## 2. Reproject the elevation raster
+
+We therefore need to create a **new GeoTIFF** with a coordinate system that uses metres.
+
+Open **Raster → Projections → Warp (Reproject)** and select the original elevation raster as the input.
+
+| Parameter | Setting |
+| --- | --- |
+| Input layer | `output_hh` (EPSG:4326) |
+| Source CRS | EPSG:4326 — WGS 84 |
+| Target CRS | EPSG:32636 — WGS 84 / UTM zone 36N |
+| Resampling method | Bilinear |
+| Output | `DEM_projected.tif` |
+
+*Insert screenshot: Warp (Reproject) dialogue showing source and target CRS.*
+
+The target CRS is selected according to the geographical location of the study area. **EPSG:32636** is appropriate for our example near 33° E in Greece, but other locations require different coordinate systems.
+
+Choose an output pixel size appropriate to the source DEM's resolution. Reprojection does not create additional terrain detail.
+
+Run the tool. QGIS creates a new raster with its horizontal coordinates expressed in metres. To check that the reprojection worked, right-click `DEM_projected` and open **Properties → Information**. The CRS should now be EPSG:32636, with pixel dimensions expressed in metres.
+
+We now have three CRS settings to distinguish:
+
+- **QGIS project:** EPSG:3857 — controls how the map is displayed.
+- **Original GeoTIFF:** EPSG:4326 — geographical coordinates in degrees.
+- **Reprojected GeoTIFF:** EPSG:32636 — projected coordinates in metres, suitable for our slope calculation.
+
+There is **no need to change the QGIS project CRS**. QGIS can display layers with different coordinate systems together. What matters is that we use the **reprojected GeoTIFF** as the input for GDAL Slope.
 
 ## 3. Calculate slope with GDAL
 
