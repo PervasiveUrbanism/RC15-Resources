@@ -43,7 +43,7 @@ Choose a topic below, then open a tutorial or example collection. Click a thumbn
 
 | Preview | Tutorial / collection | What you will find |
 | --- | --- | --- |
-| <a href="tutorials/data-analysis-and-machine-learning/umap/README.md"><img src=".github/previews/umap.png" width="120" alt="Introduction to UMAP — original notebook plot"></a> | [Introduction to UMAP](tutorials/data-analysis-and-machine-learning/umap/README.md) | Explore dimensionality reduction and export UMAP coordinates and connectivity. Notebook tutorial. |
+| <a href="tutorials/data-analysis-and-machine-learning/umap/README.md"><img src="tutorials/data-analysis-and-machine-learning/umap/IconRoundUMAP.png" width="120" alt="Introduction to UMAP tutorial icon"></a> | [Introduction to UMAP](tutorials/data-analysis-and-machine-learning/umap/README.md) | Explore dimensionality reduction and export UMAP coordinates and connectivity. Notebook tutorial. |
 | <a href="tutorials/data-analysis-and-machine-learning/gsr-to-umap/README.md"><img src=".github/previews/gsr-to-umap.png" width="120" alt="GSR to UMAP — original notebook plot"></a> | [GSR to UMAP](tutorials/data-analysis-and-machine-learning/gsr-to-umap/README.md) | Transform a galvanic skin response signal into audio features and spatial UMAP representations. Written guide and notebooks. |
 | <a href="tutorials/data-analysis-and-machine-learning/sound-analysis/README.md"><img src=".github/previews/sound-analysis.svg" width="120" alt="Sound Analysis in vvvv — workflow overview diagram"></a> | [Sound Analysis in vvvv](tutorials/data-analysis-and-machine-learning/sound-analysis/README.md) | Explore sound-analysis techniques in a vvvv patch. Example project; written guide pending. |
 
