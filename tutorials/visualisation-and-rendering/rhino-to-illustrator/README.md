@@ -116,15 +116,15 @@ Open [Example File Illustrator.3dm](Example%20File%20Illustrator.3dm) in Rhino a
 
 **Include the viewport boundary in Make2D.** When generating a drawing with Rhino's `Make2D` command, enable the option to create a rectangle representing the viewport boundary. The resulting rectangle travels with the projected curves and gives you an additional reference for positioning successive drawings. Unlike the A3 frame, this boundary reflects the view used to generate the projection, so it is important to keep the viewport consistent.
 
-**Use a floating viewport for a repeatable view.** Rhino also lets you work with a floating viewport whose window dimensions can be specified in the **Properties** panel. Setting the viewport dimensions deliberately helps you maintain a consistent aspect ratio and view boundary when generating `Make2D` drawings on different occasions. Keep the view direction and projection settings unchanged as well: matching viewport dimensions alone does not guarantee identical projected geometry.
+**Match Make2D linework with a ViewCapture screenshot.** If you want to combine a vector drawing with a rendered or shaded image in Illustrator, the two need to share the same framing. Rhino's floating viewport is particularly useful here because you can set its dimensions precisely and match the proportions of the `Make2D` viewport boundary to the screenshot you capture with `ViewCaptureToFile`.
 
-To work with a floating view, activate the viewport you want to use and run `_ToggleFloatingViewport` in Rhino's command line. This detaches the viewport into its own window; run the command again to return it to the main Rhino window. You can then adjust its dimensions in the viewport properties, as shown below. Keeping the view and window proportions consistent is particularly useful when producing matching `Make2D` linework and rendered images.
+Activate the intended viewport and run `_ToggleFloatingViewport` to open it in a separate window. Set the floating viewport's dimensions in **Properties** to the proportions you want for your image. From this view, generate the linework with `Make2D`, including the viewport boundary, and capture the image using `ViewCaptureToFile`. Set the capture width and height to the **same aspect ratio** as the viewport boundary, and keep the camera, projection and framing unchanged between the two operations.
 
-![Floating Viewport with precise size](08_FloatViewportSize.png)
+![Floating viewport dimensions for matching Make2D and ViewCapture](08_FloatViewportSize.png)
 
-**Align rendered images and screenshots with the linework.** A floating viewport's dimensions can be set precisely in Rhino's **Properties** panel. This is useful beyond `Make2D`: by keeping the same viewport, camera and projection, you can also capture screenshots or render images with a repeatable framing. For example, export clean vector linework with `Make2D` and place an image with **ambient shadows** beneath it in Illustrator, or combine several renders into a **shadow study** showing different times of day. Use consistent image dimensions and a common registration boundary so the raster image and vector drawing align. Note that setting the viewport's width and height alone does not guarantee an exact match: the view and export/capture settings must also remain consistent.
+In Illustrator, use the `Make2D` boundary as a registration reference when placing the screenshot beneath the vector lines. This is especially useful for adding ambient shadows or producing a shadow study while retaining crisp outlines. Matching proportions avoids distortion, although you may still need to align and scale the image precisely against the boundary.
 
-These are alternatives for controlling the **Make2D projection and its reference boundary**. They complement rather than replace the A3 frame and the Illustrator export-scale settings described above.
+The floating viewport and `Make2D` boundary help align vector linework with a `ViewCaptureToFile` image. They complement rather than replace the A3 reference frame used for positioning artwork in Illustrator.
 
 ## If something does not work
 
