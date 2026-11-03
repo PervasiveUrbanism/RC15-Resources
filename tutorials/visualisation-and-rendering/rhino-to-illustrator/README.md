@@ -10,6 +10,8 @@ As a project develops, we may need to add geometry in Rhino, remove unwanted lin
 
 This tutorial introduces a simple workflow for transferring vector drawings between Rhino and Illustrator while **preserving their position, orientation and scale**. By organising the geometry and establishing a consistent reference, we can move between the two applications without having to realign the drawing each time.
 
+![Rhino drawing prepared for export](01_rhinofile.png)
+
 **You need:** Rhino and Adobe Illustrator. Start with [Example File Illustrator.3dm](Example%20File%20Illustrator.3dm); the three supplied Illustrator files are references. You can also use the separate [2D Rhino Template (Concept Design)](https://github.com/PervasiveUrbanism/2D-Rhino-Template-Concept-Design), which includes A3 frames, scale factors, layers and drawing styles.
 
 ## 1. Establish an A3 reference frame
@@ -29,11 +31,15 @@ You can start with the 420 × 297 m rectangle at 1:1000 and use Rhino's `Scale` 
 
 Use `Rectangle` to create the frame in Rhino's **Top** construction plane and place it on a dedicated layer, such as `REFERENCE FRAME`. Decide on its orientation and position, and keep them fixed. For the first exercise, use a landscape A3 frame and keep all exported geometry in the same Top-plane coordinate system. This is especially important if your starting point is a 3D model: generate the projected curves with `Make2D`, then arrange the resulting 2D geometry within the frame.
 
+![A3 reference frame in Rhino](04_A3frame.png)
+
 The [2D Rhino Template](https://github.com/PervasiveUrbanism/2D-Rhino-Template-Concept-Design) already provides A3 frames and a scale-factor table, alongside a simple layer system. You can use it instead of constructing the setup from scratch.
 
 ## 2. Export the drawing at the correct scale
 
 Select **both the geometry and the reference frame** in Rhino, then choose **File → Export Selected** and the **Adobe Illustrator (`.ai`)** format. Including the complete frame in every export is essential: if you export only the changed lines, the bounding box of the file can change and Illustrator may place the new artwork differently.
+
+![Rhino Illustrator export options](05_AIexportOptions.png)
 
 In Rhino's Illustrator export options, set the model-to-Illustrator scale to match your drawing. The important relationship is between the units on each side, not simply the ratio written on the drawing. For example, for a model in metres at **1:1000**, **1 metre in Rhino must become 1 millimetre in Illustrator**. At 1:500, 1 metre in Rhino becomes 2 mm in Illustrator; at 1:200, it becomes 5 mm.
 
@@ -43,6 +49,8 @@ In Rhino's Illustrator export options, set the model-to-Illustrator scale to mat
 | 1:500 | 2 mm |
 | 1:200 | 5 mm |
 | 1:100 | 10 mm |
+
+![Additional Illustrator export settings](06_AIexportOptions.png)
 
 Rhino's export dialogue may express this relationship using its own unit labels and scale fields. Check the labels rather than entering `1:1000` without considering the model units. The definitive test is the frame: when opened in Illustrator, it must measure **420 × 297 mm**.
 
@@ -57,6 +65,8 @@ Next, select the reference frame and check its dimensions in **Window → Transf
 We now need a repeatable position for the geometry. Select **all the exported artwork, including the frame**, and open **Window → Transform**. In the panel's nine-point reference-point selector, choose the **upper-right point**. Set **X = 0 mm** and **Y = 0 mm**. This moves the entire selection together so that the upper-right corner of its bounding box sits at the chosen origin.
 
 For this to work as intended, the frame must define the outer bounds of the selection: keep all exported geometry inside it, and ensure there are no stray objects outside the frame. Also use the **same ruler origin and artboard-coordinate settings** in every Illustrator document. The coordinate origin and the artboard's top-right corner are not necessarily the same thing; setting X and Y to zero is a registration convention, not an instruction to place the drawing at the artboard's top-right corner.
+
+![Aligning the drawing precisely in Illustrator](07_CorrectAligment.png)
 
 With the artboard set to A3, the frame verified at A3 size, and the geometry positioned at a fixed coordinate, we have a precise reference for every subsequent exchange.
 
@@ -73,6 +83,10 @@ Check that the frames coincide. Then hide or delete the duplicate frame and remo
 **The essential routine is simple:** export with the frame at the same scale; set the upper-right reference point to X = 0, Y = 0; copy; then **Paste in Place** with **Paste Remembers Layers** enabled. Repeat whenever the drawing changes.
 
 ## 5. Develop the graphic in Illustrator
+
+![Generating 2D geometry with Make2D](01_make2D.png)
+
+![Refining silhouettes using CurveBoolean](03_siluettewithcuveboolean.png)
 
 Once the geometry is correctly positioned, Illustrator is where you can refine the graphic hierarchy. Make the principal outlines stronger, keep secondary lines lighter, and introduce colour or fills where they improve the drawing's clarity. The drawing remains vector-based, so the paths can be edited without the loss of quality associated with raster screenshots.
 
