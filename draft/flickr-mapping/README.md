@@ -7,7 +7,7 @@ Part of **RC15 Extended Knowledge**, a collection of tutorials and examples beyo
 **Software versions:** To be confirmed  
 **Original collection:** Extra 1 - Flickr to Rhino and Illustrator
 
-[Browse this topic](../README.md) | [Library home](../../../README.md)
+[Browse this topic](../../tutorials/mapping-and-spatial-analysis/README.md) | [Library home](../../README.md)
 
 ## Getting started
 

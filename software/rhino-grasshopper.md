@@ -2,7 +2,6 @@
 
 [Library home](../README.md)
 
-- [Flickr Mapping in Rhino and Illustrator](../tutorials/mapping-and-spatial-analysis/flickr-mapping/README.md)
 - [Flow Along Surface in Rhino](../tutorials/geometry-and-modelling/flow-along-surface/README.md)
 - [Rhino and Grasshopper Import into vvvv](../tutorials/geometry-and-modelling/rhino-grasshopper-import/README.md)
 - [vvvv Graphics Fundamentals](../tutorials/visualisation-and-rendering/vvvv-graphics-fundamentals/README.md)
