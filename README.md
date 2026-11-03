@@ -95,7 +95,7 @@ Choose a topic below, then open a tutorial or example collection. Click a thumbn
 | Preview | Tutorial / collection | What you will find |
 | --- | --- | --- |
 | <a href="tutorials/physical-computing-and-interaction/arduino-sensor-input/README.md"><img src=".github/previews/arduino-sensor-input.svg" width="120" alt="Arduino Sensor Input into vvvv — workflow overview diagram"></a> | [Arduino Sensor Input into vvvv](tutorials/physical-computing-and-interaction/arduino-sensor-input/README.md) | Read a light sensor with Arduino, then save and graph values in vvvv. Example sketch and patch. |
-| <a href="tutorials/physical-computing-and-interaction/led-control/Readme.md"><img src="tutorials/physical-computing-and-interaction/led-control/assets/IMG_8086.jpeg" width="120" alt="LED Control with vvvv and Arduino — existing project image"></a> | [LED Control with vvvv and Arduino](tutorials/physical-computing-and-interaction/led-control/Readme.md) | Send serial commands from vvvv to control eight LEDs and build lighting patterns. Written guide. |
+| <a href="tutorials/physical-computing-and-interaction/led-control/Readme.md"><img src="tutorials/physical-computing-and-interaction/led-control/assets/IconRound.png" width="120" alt="LED Control with vvvv and Arduino tutorial icon"></a> | [LED Control with vvvv and Arduino](tutorials/physical-computing-and-interaction/led-control/Readme.md) | Send serial commands from vvvv to control eight LEDs and build lighting patterns. Written guide. |
 
 ## Browse by software
 
