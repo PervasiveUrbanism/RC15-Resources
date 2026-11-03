@@ -33,13 +33,15 @@ An A3 sheet measures **420 × 297 mm**. When a Rhino model is drawn in **metres*
 
 You can start with the 420 × 297 m rectangle at 1:1000 and use Rhino's `Scale` command with a factor of **0.5** for 1:500 or **0.2** for 1:200. Equivalently, divide the original dimensions by two or five. The sheet in Illustrator remains A3; only the area of the model represented by that sheet changes.
 
+![Generating a 2D drawing from the Rhino model with Make2D](01_make2D.png)
+
 Create the frame with `Rectangle` and place it on a dedicated layer, such as `REFERENCE FRAME`. For a **perspective**, first generate the 2D linework with `Make2D` from the intended view, then position the frame around that drawing. Keep the resulting curves and frame together in a common 2D plane for export. For a **scaled plan**, use the appropriate frame dimensions from the table and keep the drawing in a consistent orthographic orientation.
 
 ![A3 reference frame in Rhino](04_A3frame.png)
 
 The [2D Rhino Template](https://github.com/PervasiveUrbanism/2D-Rhino-Template-Concept-Design) already provides A3 frames and a scale-factor table, alongside a simple layer system. You can use it instead of constructing the setup from scratch.
 
-## 2. Export the drawing at the correct scale
+## 2. Export the drawing with consistent settings
 
 Select **both the geometry and the reference frame** in Rhino, then choose **File → Export Selected** and the **Adobe Illustrator (`.ai`)** format. Include the same complete frame in every export: it provides a reliable reference for aligning different versions of the drawing.
 
@@ -89,8 +91,6 @@ Check that the frames coincide. Then hide or delete the duplicate frame and remo
 **The essential routine is simple:** export with the same frame and settings; set the upper-right reference point to X = 0, Y = 0; copy; then **Paste in Place** with **Paste Remembers Layers** enabled. Repeat whenever the drawing changes.
 
 ## 5. Develop the graphic in Illustrator
-
-![Generating 2D geometry with Make2D](01_make2D.png)
 
 ![Refining silhouettes using CurveBoolean](03_siluettewithcuveboolean.png)
 
