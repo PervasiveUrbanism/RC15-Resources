@@ -8,7 +8,7 @@ Combining the two allows us to take advantage of both applications. Moving geome
 
 As a project develops, we may need to add geometry in Rhino, remove unwanted lines, update an existing drawing or bring elements back from Illustrator. If each exchange requires manually repositioning, rotating or scaling the artwork, the process quickly becomes frustrating and introduces inaccuracies.
 
-This tutorial introduces a simple workflow for transferring vector drawings between Rhino and Illustrator while **preserving their position, orientation and scale**. By organising the geometry and establishing a consistent reference, we can move between the two applications without having to realign the drawing each time.
+This tutorial introduces a simple workflow for transferring vector drawings between Rhino and Illustrator while **preserving their position and orientation**. The illustrated example uses a perspective view, where the A3 frame helps maintain a consistent composition and alignment between exports. For plans, sections and elevations that must be drawn to scale, we will also need to control the exact dimensions of the frame and the export scale.
 
 ![Rhino drawing prepared for export](01_rhinofile.png)
 
@@ -16,9 +16,13 @@ This tutorial introduces a simple workflow for transferring vector drawings betw
 
 ## 1. Establish an A3 reference frame
 
-Before exporting, draw a rectangle in Rhino representing the physical sheet at your chosen drawing scale. This **reference frame** is the basis for every exchange between the two applications: it defines the sheet extent, provides a consistent registration reference and lets you check that the exported geometry is correctly scaled.
+Before exporting, create a rectangular **reference frame** in Rhino with the proportions of an A3 sheet (420:297 for landscape orientation). The frame gives successive exports a common boundary, making it easier to position and combine them in Illustrator.
 
-An A3 sheet measures **420 × 297 mm**. When the Rhino model is drawn in **metres**, an A3 drawing at 1:1000 covers 420 × 297 metres in model space. At a larger drawing scale, the frame covers a smaller area of the model.
+**For the perspective drawing shown in the screenshots, the exact size of the frame in Rhino is not important.** What matters is its proportion, position and consistency between exports. A perspective has no single measurable drawing scale. By contrast, if you are preparing a plan, section or elevation at a specified scale, the frame must have precise dimensions in model space.
+
+### For drawings that need to be to scale
+
+An A3 sheet measures **420 × 297 mm**. When a Rhino model is drawn in **metres**, an A3 plan at 1:1000 covers 420 × 297 metres in model space. At a larger drawing scale, the frame covers a smaller area of the model. The table below applies to **scaled orthographic drawings**, not to the perspective example.
 
 | Intended A3 scale | Frame in Rhino (model units: metres) |
 | --- | --- |
@@ -29,7 +33,7 @@ An A3 sheet measures **420 × 297 mm**. When the Rhino model is drawn in **metre
 
 You can start with the 420 × 297 m rectangle at 1:1000 and use Rhino's `Scale` command with a factor of **0.5** for 1:500 or **0.2** for 1:200. Equivalently, divide the original dimensions by two or five. The sheet in Illustrator remains A3; only the area of the model represented by that sheet changes.
 
-Use `Rectangle` to create the frame in Rhino's **Top** construction plane and place it on a dedicated layer, such as `REFERENCE FRAME`. Decide on its orientation and position, and keep them fixed. For the first exercise, use a landscape A3 frame and keep all exported geometry in the same Top-plane coordinate system. This is especially important if your starting point is a 3D model: generate the projected curves with `Make2D`, then arrange the resulting 2D geometry within the frame.
+Create the frame with `Rectangle` and place it on a dedicated layer, such as `REFERENCE FRAME`. For a **perspective**, first generate the 2D linework with `Make2D` from the intended view, then position the frame around that drawing. Keep the resulting curves and frame together in a common 2D plane for export. For a **scaled plan**, use the appropriate frame dimensions from the table and keep the drawing in a consistent orthographic orientation.
 
 ![A3 reference frame in Rhino](04_A3frame.png)
 
@@ -37,11 +41,13 @@ The [2D Rhino Template](https://github.com/PervasiveUrbanism/2D-Rhino-Template-C
 
 ## 2. Export the drawing at the correct scale
 
-Select **both the geometry and the reference frame** in Rhino, then choose **File → Export Selected** and the **Adobe Illustrator (`.ai`)** format. Including the complete frame in every export is essential: if you export only the changed lines, the bounding box of the file can change and Illustrator may place the new artwork differently.
+Select **both the geometry and the reference frame** in Rhino, then choose **File → Export Selected** and the **Adobe Illustrator (`.ai`)** format. Include the same complete frame in every export: it provides a reliable reference for aligning different versions of the drawing.
 
 ![Rhino Illustrator export options](05_AIexportOptions.png)
 
-In Rhino's Illustrator export options, set the model-to-Illustrator scale to match your drawing. The important relationship is between the units on each side, not simply the ratio written on the drawing. For example, for a model in metres at **1:1000**, **1 metre in Rhino must become 1 millimetre in Illustrator**. At 1:500, 1 metre in Rhino becomes 2 mm in Illustrator; at 1:200, it becomes 5 mm.
+For the **perspective example**, choose an export scale that makes the reference frame fit the A3 artboard. This is a graphic sizing decision, not an architectural drawing scale. Use the **same export settings** for each subsequent version.
+
+For a **scaled orthographic drawing**, set the model-to-Illustrator scale precisely. The important relationship is between the units on each side, not simply the ratio written on the drawing. For example, for a model in metres at **1:1000**, **1 metre in Rhino must become 1 millimetre in Illustrator**. At 1:500, 1 metre in Rhino becomes 2 mm in Illustrator; at 1:200, it becomes 5 mm.
 
 | Intended scale | Illustrator size of 1 m in Rhino |
 | --- | --- |
@@ -52,7 +58,7 @@ In Rhino's Illustrator export options, set the model-to-Illustrator scale to mat
 
 ![Additional Illustrator export settings](06_AIexportOptions.png)
 
-Rhino's export dialogue may express this relationship using its own unit labels and scale fields. Check the labels rather than entering `1:1000` without considering the model units. The definitive test is the frame: when opened in Illustrator, it must measure **420 × 297 mm**.
+Rhino's export dialogue may express this relationship using its own unit labels and scale fields. Check the labels rather than entering `1:1000` without considering the model units. For a scaled drawing, the definitive test is the frame: when opened in Illustrator, it must measure **420 × 297 mm**. For the perspective example, you can size the artwork to the page, provided all subsequent exports use the same settings.
 
 ## 3. Set up the A3 artboard and a precise origin in Illustrator
 
@@ -60,7 +66,7 @@ Open the exported `.ai` file in Illustrator. First check that the **artboard** i
 
 Select the **Artboard Tool** (`Shift + O`), then choose the A3 preset or enter **W = 420 mm** and **H = 297 mm** in the artboard properties. Make sure the orientation is landscape. Press `Esc` to leave the Artboard Tool. You can check the dimensions in **Window → Artboards** or the Properties panel when an artboard is selected.
 
-Next, select the reference frame and check its dimensions in **Window → Transform**. It should measure exactly **420 × 297 mm**. If not, return to Rhino and correct the export scale; do not resize the drawing manually in Illustrator.
+Next, select the reference frame and check its dimensions in **Window → Transform**. For a **scaled drawing**, it should measure exactly **420 × 297 mm**. If not, return to Rhino and correct the export scale; do not resize the drawing manually in Illustrator. For the **perspective example**, the frame only needs to match the A3 proportions and be fitted consistently to the artboard.
 
 We now need a repeatable position for the geometry. Select **all the exported artwork, including the frame**, and open **Window → Transform**. In the panel's nine-point reference-point selector, choose the **upper-right point**. Set **X = 0 mm** and **Y = 0 mm**. This moves the entire selection together so that the upper-right corner of its bounding box sits at the chosen origin.
 
@@ -68,7 +74,7 @@ For this to work as intended, the frame must define the outer bounds of the sele
 
 ![Aligning the drawing precisely in Illustrator](07_CorrectAligment.png)
 
-With the artboard set to A3, the frame verified at A3 size, and the geometry positioned at a fixed coordinate, we have a precise reference for every subsequent exchange.
+With the frame aligned to the A3 artboard and the geometry positioned at a fixed coordinate, we have a repeatable reference for subsequent exchanges. Exact frame dimensions are essential only when the drawing must remain at a specified scale.
 
 ## 4. Add geometry without losing alignment
 
@@ -80,7 +86,7 @@ Before copying, enable **Paste Remembers Layers** in Illustrator's Layers panel 
 
 Check that the frames coincide. Then hide or delete the duplicate frame and remove or replace any obsolete geometry as needed. Keeping Rhino linework on identifiable layers makes these updates easier to manage without disturbing Illustrator annotations and graphic treatments.
 
-**The essential routine is simple:** export with the frame at the same scale; set the upper-right reference point to X = 0, Y = 0; copy; then **Paste in Place** with **Paste Remembers Layers** enabled. Repeat whenever the drawing changes.
+**The essential routine is simple:** export with the same frame and settings; set the upper-right reference point to X = 0, Y = 0; copy; then **Paste in Place** with **Paste Remembers Layers** enabled. Repeat whenever the drawing changes.
 
 ## 5. Develop the graphic in Illustrator
 
@@ -94,7 +100,7 @@ Keep the frame and the drawing geometry separate from annotations, colours and o
 
 ## 6. Try it with the supplied files
 
-Open [Example File Illustrator.3dm](Example%20File%20Illustrator.3dm) in Rhino and prepare a 2D projection or drawing within an A3 reference frame. Export it and verify the frame dimensions in Illustrator. Then change the Rhino geometry and repeat the export. Position both exports at X = 0, Y = 0 using the upper-right reference point, and transfer the new linework with Paste in Place and Paste Remembers Layers.
+Open [Example File Illustrator.3dm](Example%20File%20Illustrator.3dm) in Rhino and prepare a 2D projection of the perspective view within an A3-proportioned reference frame. Export it and fit the composition to the Illustrator artboard. If you instead work with a plan at a specified scale, use the precise frame dimensions and export settings described earlier. Then change the Rhino geometry and repeat the export. Position both exports at X = 0, Y = 0 using the upper-right reference point, and transfer the new linework with Paste in Place and Paste Remembers Layers.
 
 The folder also contains [Example 01.ai](Example%2001.ai), [LINEWORK.AI](LINEWORK.AI) and [LINEWORK2.AI](LINEWORK2.AI). These are reference files from the original exercise. Their precise graphic content and layer structure have not yet been checked visually, so compare them with your own export rather than assuming they represent consecutive stages.
 
@@ -121,4 +127,4 @@ These are alternatives for controlling the **Make2D projection and its reference
 
 ---
 
-**Editorial status:** Revised tutorial draft. The A3 frame and scale calculations follow the existing RC15 2D Rhino Template. The precise Rhino export dialogue settings, Illustrator coordinate conventions, repeated-import behaviour and Illustrator-to-Rhino round trip still require desktop verification and screenshots.
+**Editorial status:** Revised tutorial draft. The A3 frame and scale calculations for orthographic drawings follow the existing RC15 2D Rhino Template. The precise Rhino export dialogue settings, Illustrator coordinate conventions, repeated-import behaviour and Illustrator-to-Rhino round trip still require desktop verification.
