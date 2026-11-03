@@ -35,14 +35,19 @@ You can start with the 420 × 297 m rectangle at 1:1000 and use Rhino's `Scale` 
 
 Create the frame with `Rectangle` and place it on a dedicated layer, such as `REFERENCE FRAME`. For a **perspective**, first generate the 2D linework with `Make2D` from the intended view, then position the frame around that drawing.
 
-![Generating a 2D drawing from the Rhino model with Make2D](01_make2D.png) Keep the resulting curves and frame together in a common 2D plane for export. For a **scaled plan**, use the appropriate frame dimensions from the table and keep the drawing in a consistent orthographic orientation.
+![Generating a 2D drawing from the Rhino model with Make2D](01_make2D.png)
+
+Keep the resulting curves and frame together in a common 2D plane for export. For a **scaled plan**, use the appropriate frame dimensions from the table and keep the drawing in a consistent orthographic orientation.
 
 ![A3 reference frame in Rhino](04_A3frame.png)
 
 The [2D Rhino Template](https://github.com/PervasiveUrbanism/2D-Rhino-Template-Concept-Design) already provides A3 frames and a scale-factor table, alongside a simple layer system. You can use it instead of constructing the setup from scratch.
 
-<!-- @ChatGPT: explain that often i se the thicker line to have a siluteet artound the gromentry. this makes if look better readable. the command is cuveboolean
--->
+### Create a clearer silhouette
+
+A `Make2D` drawing often contains many lines of similar weight, making it difficult to distinguish the overall form from smaller details. One way to improve legibility is to add a **heavier outline around the silhouette** while keeping the internal linework finer.
+
+In Rhino, use `CurveBoolean` on the projected 2D curves to create closed boundary curves around the areas you want to emphasise. Click inside the relevant enclosed regions to select them, then confirm the result. Depending on how the curves intersect, you may need to join or clean up the linework first. Place the new outline on a separate layer so you can give it a stronger stroke in Illustrator without changing the original `Make2D` drawing.
 
 ![Refining silhouettes using CurveBoolean](03_siluettewithcuveboolean.png)
 
@@ -113,8 +118,7 @@ Open [Example File Illustrator.3dm](Example%20File%20Illustrator.3dm) in Rhino a
 
 **Use a floating viewport for a repeatable view.** Rhino also lets you work with a floating viewport whose window dimensions can be specified in the **Properties** panel. Setting the viewport dimensions deliberately helps you maintain a consistent aspect ratio and view boundary when generating `Make2D` drawings on different occasions. Keep the view direction and projection settings unchanged as well: matching viewport dimensions alone does not guarantee identical projected geometry.
 
-<!-- @ChatGPT: explain the command _ToggleFloatingViewport
--->
+To work with a floating view, activate the viewport you want to use and run `_ToggleFloatingViewport` in Rhino's command line. This detaches the viewport into its own window; run the command again to return it to the main Rhino window. You can then adjust its dimensions in the viewport properties, as shown below. Keeping the view and window proportions consistent is particularly useful when producing matching `Make2D` linework and rendered images.
 
 ![Floating Viewport with precise size](08_FloatViewportSize.png)
 
