@@ -3,5 +3,6 @@ Thumbs.db
 .DS_Store
 .ipynb_checkpoints/
 .obsidian/
-/draft/
+/draft/*
+!/draft/flickr-mapping/
 Xtra - Google Maps Services.ipynb
