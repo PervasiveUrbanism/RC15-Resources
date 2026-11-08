@@ -2,6 +2,7 @@
 
 [Library home](../README.md)
 
+- [Investigating Cities from Space](../tutorials/mapping-and-spatial-analysis/investigating-cities-from-space/README.md) - Earth Engine and optional Python/Colab continuation
 - [Introduction to UMAP](../tutorials/data-analysis-and-machine-learning/umap/README.md)
 - [GSR to UMAP](../tutorials/data-analysis-and-machine-learning/gsr-to-umap/README.md)
 
