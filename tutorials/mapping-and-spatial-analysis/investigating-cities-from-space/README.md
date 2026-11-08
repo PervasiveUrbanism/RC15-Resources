@@ -7,7 +7,7 @@
 **Study area:** Berlin, with a closer look at Tempelhofer Feld  
 **Starting point:** No previous knowledge of the Earth Engine API or JavaScript required
 
-> **Screenshot to add:** Finished vegetation-change map of Berlin.
+> **Screenshot to add:** Finished vegetation-change map of Berlin. Save as `images/01-berlin-vegetation-change.png`.
 
 Satellite imagery allows us to investigate a city beyond what we can see in an ordinary aerial photograph. We can explore vegetation, surface temperature, water and urban growth, and compare observations from different years. [Google Earth Engine](https://earthengine.google.com/) provides access to extensive collections of satellite data and processes them on Google's servers.
 
@@ -23,7 +23,7 @@ Visit [code.earthengine.google.com](https://code.earthengine.google.com/). Sign 
 
 The Code Editor runs JavaScript. That is fine even if you have never written JavaScript: ChatGPT can help us generate and explain each small piece of code.
 
-> **Screenshot to add:** Code Editor, identifying script panel, Run button, map, Layers control, Console and Tasks.
+> **Screenshot to add:** Code Editor overview, showing the script panel, Run button, map, Layers control, Console and Tasks. Save as `images/02-earth-engine-code-editor.png`.
 
 ### Our first map
 
@@ -47,7 +47,7 @@ The map moves to Berlin. This is Google's prepared satellite **basemap**: useful
 
 *Real Sentinel-2B image of Berlin (6 June 2018), natural colour from bands B4/B3/B2, 10 m resolution. Copernicus Sentinel data (2018)/ESA, [CC BY-SA 3.0 IGO](https://creativecommons.org/licenses/by-sa/3.0/igo/), [source](https://commons.wikimedia.org/wiki/File:Berlin_by_Senitnel-2.jpg). This is reference imagery, not the 2026 image generated in the exercise.*
 
-> **Screenshot to add later:** Your own Code Editor showing the satellite basemap centred on Berlin.
+> **Screenshot to add later:** Your Code Editor showing the satellite basemap centred on Berlin. Save as `images/03-berlin-satellite-basemap.png`.
 
 ### What is Sentinel-2, and where does satellite data come from?
 
@@ -159,7 +159,7 @@ The imagery is processed remotely. We do not need to download every original sat
 
 *Berlin in a real Sentinel-2A false-colour image acquired 9 July 2015. Copernicus Sentinel data (2015)/ESA, [CC BY-SA 3.0 IGO](https://creativecommons.org/licenses/by-sa/3.0/igo/), [source](https://commons.wikimedia.org/wiki/File:Berlin,_Germany_ESA348055.jpg). This example is **false colour**, not the natural-colour composite produced by the script above.*
 
-> **Screenshot to add later:** Your own 2026 Sentinel-2 natural-colour composite from the Code Editor.
+> **Screenshot to add later:** Your 2026 Sentinel-2 natural-colour composite in the Code Editor. Save as `images/04-berlin-sentinel2-natural-colour.png`.
 
 ## 2. Investigating vegetation change in Berlin
 
@@ -191,7 +191,7 @@ Map.addLayer(ndvi, {
 
 Use the **Layers** control to compare NDVI with the satellite image beneath it. Look for Tiergarten, Tempelhofer Feld and the smaller green spaces scattered across the city.
 
-> **Screenshot to add:** NDVI map of Berlin, ideally with the Layers control visible.
+> **Screenshot to add:** NDVI map of Berlin, ideally with the Layers control visible. Save as `images/05-berlin-ndvi.png`.
 
 ### Compare two summers
 
@@ -251,7 +251,7 @@ A **function** lets us apply the same calculation to more than one year, rather 
 
 Switch the two layers on and off. Do you see differences in Tempelhofer Feld, around Tiergarten, or in residential streets?
 
-> **Screenshot to add:** Comparison of 2018 and 2025 using the same legend.
+> **Screenshot to add:** Comparison of 2018 and 2025 using the same legend. Save as `images/06-berlin-ndvi-2018-2025.png`.
 
 ### Map the difference directly
 
@@ -273,7 +273,7 @@ Map.addLayer(change, {
 
 A pixel changing from NDVI 0.3 to 0.6 produces **+0.3** (green); one changing from 0.6 to 0.3 produces **−0.3** (red). The colour range is a display choice, not a threshold that defines vegetation loss.
 
-> **Screenshot to add:** Red–white–green NDVI difference map, focused on Tempelhofer Feld.
+> **Screenshot to add:** Red–white–green NDVI difference map, focused on Tempelhofer Feld. Save as `images/07-tempelhofer-feld-ndvi-change.png`.
 
 **Stop and interpret.** A difference map shows a change in the satellite-derived vegetation signal. It does not automatically prove that trees were planted, buildings replaced a park, or green space disappeared. Rainfall, irrigation, mowing, crop or grass cycles, atmospheric effects and the selection of images can all influence NDVI. Before making strong claims, investigate several years, check the available observations and compare the result with independent sources.
 
@@ -310,7 +310,7 @@ Export.image.toDrive({
 
 Click **Run**, open the **Tasks** tab, then start the export task and confirm its settings. When processing finishes, find the resulting TIFF in the **EarthEngine** folder in Google Drive and download it. The export is limited to an area around Tempelhofer Feld to keep the file manageable; the 10 m export scale does not create detail beyond that available in the source observations.
 
-> **Screenshots to add:** Earth Engine Tasks panel; resulting GeoTIFF in Google Drive.
+> **Screenshots to add:** Earth Engine Tasks panel (`images/08-earth-engine-export-task.png`) and the resulting GeoTIFF in Google Drive (`images/09-google-drive-geotiff.png`).
 
 ### Display the result in QGIS
 
@@ -318,7 +318,7 @@ Open QGIS and drag the downloaded GeoTIFF onto the map. You can use **Layer Prop
 
 The raster contains numbers such as −0.18 or +0.12, not red or green colours. QGIS decides how those numbers are displayed. Use the Identify tool to inspect a pixel, and check **Layer Properties → Information** for the layer's CRS, extent and pixel size. QGIS can reproject layers for display, but that does not alter the underlying data.
 
-> **Screenshot to add:** Exported raster styled over a Berlin basemap in QGIS.
+> **Screenshot to add:** Exported raster styled over a Berlin basemap in QGIS. Save as `images/10-berlin-ndvi-change-qgis.png`.
 
 We have moved from a research question to a satellite-derived dataset that can be combined with our existing mapping and design workflows. For more detail about QGIS raster display and coordinate reference systems, see the other [mapping tutorials](../README.md).
 
@@ -343,7 +343,7 @@ ee.Initialize(project='YOUR_CLOUD_PROJECT_ID')
 
 Replace the placeholder with the ID of your own Earth Engine-enabled Google Cloud project. Follow the authentication prompts. To display an interactive map, ask ChatGPT to introduce a notebook mapping library such as **geemap**, including any installation steps required for your Colab session.
 
-> **Screenshot to add (optional):** Colab notebook with code and an interactive map.
+> **Screenshot to add (optional):** Colab notebook with code and an interactive map. Save as `images/11-earth-engine-colab.png`.
 
 For help moving data between Colab, Google Drive and your computer, see [File Access in Google Colab](../../programming-and-data-access/file-access-in-google-colab/README.md).
 
@@ -361,6 +361,27 @@ We have only begun to explore Earth Engine. The most interesting next step is no
 
 The [Earth Engine Data Catalog](https://developers.google.com/earth-engine/datasets/catalog) is a useful place to discover other datasets. You do not have to read it cover to cover. Use it when a particular question makes a dataset relevant, and ask ChatGPT to help you assess its resolution, time coverage and limitations.
 
+### Another way to explore: Microsoft Planetary Computer
+
+[Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/) is another useful gateway to environmental and Earth-observation data. Like Google Earth Engine, it brings together large datasets, including satellite imagery, in the cloud. Its **[Planetary Computer Explorer](https://planetarycomputer.microsoft.com/explore)** offers a visual way to discover datasets, filter images by place and date, inspect different renderings (including colour composites and NDVI), and compare layers on a map. It can also generate Python code snippets so that a search can be continued in a notebook.
+
+Although the two platforms provide access to some of the same sources, such as Landsat and Sentinel-2, their emphasis differs:
+
+| | Google Earth Engine | Microsoft Planetary Computer |
+| --- | --- | --- |
+| **First encounter** | Write a short script in the Code Editor and view the results on its map | Browse and filter imagery in a visual Explorer |
+| **Analysis** | Built-in, cloud-based geospatial processing through JavaScript or Python | Open data catalog and APIs; analysis is typically developed using Python and other tools |
+| **Finding data** | Earth Engine Data Catalog | Planetary Computer data catalog and Explorer |
+| **This tutorial** | Our main working environment for calculating NDVI and exporting the result | An optional way to browse the available imagery and investigate alternative datasets |
+
+Planetary Computer is built around open standards including **STAC** (SpatioTemporal Asset Catalog), which describes where and when datasets are available and how their files can be accessed. Much of the public catalog can be browsed without creating an account. Some services have additional limits or access arrangements.
+
+For now, **we will stay with Earth Engine**: its Code Editor lets us learn about data and analysis in one place. Later, if you are curious, open Planetary Computer Explorer, navigate to Berlin, choose Sentinel-2 and see how the imagery compares. You do not need to complete another exercise.
+
+> **Screenshot to add (optional):** Microsoft Planetary Computer Explorer showing Sentinel-2 imagery over Berlin. Save as `images/12-planetary-computer-explorer.png`.
+
+*Note:* Microsoft's [Planetary Explorer](https://github.com/microsoft/Planetary-Explorer), an AI-powered demonstration application, is a separate project from the general-purpose **Planetary Computer Explorer** described here.
+
 ### Working with ChatGPT
 
 You do not need to memorise every Earth Engine command or read endless documentation before starting. Describe what you want to investigate, run a small example, show ChatGPT the outcome or error, and continue the discussion. Ask for explanations whenever the code introduces an unfamiliar idea.
@@ -373,4 +394,4 @@ But **working code is not the same as reliable evidence**. Check what a dataset 
 
 **Useful links:** [Earth Engine Code Editor](https://code.earthengine.google.com/) · [Earth Engine Data Catalog](https://developers.google.com/earth-engine/datasets/catalog) · [Earth Engine Guides](https://developers.google.com/earth-engine/guides) · [Google Colab](https://colab.research.google.com/)
 
-*This resource is designed as a starting point for experimentation. Screenshots will be added to illustrate the stages of the workflow.*
+*This resource is designed as a starting point for experimentation. For each planned screenshot, the suggested filename is printed beside its placeholder. Save screenshots into this tutorial's `images/` folder; the placeholders can then be replaced with Markdown image links such as `![Berlin NDVI map](images/05-berlin-ndvi.png)`.*
