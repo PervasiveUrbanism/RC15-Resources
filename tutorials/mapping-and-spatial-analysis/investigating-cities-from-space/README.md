@@ -45,6 +45,65 @@ The map moves to Berlin. This is Google's prepared satellite **basemap**: useful
 
 > **Screenshot to add:** Satellite basemap centred on Berlin.
 
+### What is Sentinel-2, and where does satellite data come from?
+
+Google Earth Engine does not operate its own fleet of satellites. Instead, it gives us access to imagery and other datasets collected by different space agencies and research organisations. The word **satellite imagery** covers many kinds of measurements. Some satellites observe reflected sunlight, others measure heat or use radar, and some datasets describe the elevation of the ground.
+
+For our investigation we are using **Sentinel-2**, a European Earth-observation mission developed by the **European Space Agency (ESA)** for **Copernicus**, the Earth observation programme of the **European Union**. Sentinel-2 is a *constellation*: several satellites launched over time to maintain frequent observations. Sentinel-2A was launched in 2015, Sentinel-2B in 2017 and Sentinel-2C in 2024. The satellites carry multispectral instruments that repeatedly observe land and coastal areas. The data is openly available, making it useful for research and teaching.
+
+> **Image to add:** Illustration or photograph of a Sentinel-2 satellite, preferably from [ESA's Sentinel-2 mission page](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2). Add the ESA/Copernicus credit and check the image's reuse terms.
+
+Sentinel-2 is only one example. Different programmes are useful for different questions:
+
+| Data source | Who provides it? | What might we investigate? |
+| --- | --- | --- |
+| **Sentinel-2** | European Union Copernicus programme / ESA | Vegetation, land cover, water and urban landscapes using visible and infrared light |
+| **Landsat** | NASA and the US Geological Survey (USGS), United States | Long-term landscape change using an archive extending back to the 1970s; selected Landsat instruments also measure thermal infrared radiation for land-surface temperature |
+| **Sentinel-1** | European Copernicus programme / ESA | Radar observations, including floods and changes to the ground surface, even at night or through clouds |
+| **SRTM elevation data** | NASA-led international radar mapping mission | Terrain elevations for studying hills, slopes and watersheds |
+| **Copernicus DEM** | European Copernicus programme | Elevation and terrain analysis using a digital elevation model (DEM), rather than a conventional optical photograph |
+
+China, Japan, India and other countries operate Earth-observation programmes too. The important question is not which country has the 'best' satellite, but **which dataset measures what we want to investigate**, at a suitable resolution and over the right years. Not all these datasets have the same access conditions or are available in Earth Engine in the same form.
+
+#### How detailed is a satellite image?
+
+A satellite image consists of **pixels**, just like a photograph on your computer. However, the pixels also represent areas on the Earth's surface. This is called *spatial resolution*.
+
+For Sentinel-2, the most detailed bands we use have a resolution of **10 metres per pixel**. One pixel therefore represents approximately **10 × 10 metres of ground**, or **100 square metres**. Other Sentinel-2 bands have 20 m or 60 m pixels. Landsat's commonly used multispectral bands typically have 30 m pixels, while many public elevation datasets have a grid spacing of about 30 m.
+
+| Pixel size | Approximate ground area per pixel | What it means |
+| --- | --- | --- |
+| **10 m** | 100 m² | Broad patterns in parks, fields, water and neighbourhoods |
+| **20 m** | 400 m² | Larger landscape features and environmental patterns |
+| **30 m** | 900 m² | City-scale land cover, long-term change and terrain patterns |
+
+Imagine a small back garden that is only 5 metres wide. A 10 m Sentinel-2 pixel might contain the garden **and** part of the house, a path or a neighbouring plot. The satellite measures their combined signal; it cannot tell us the precise condition of each object. A large square may be recognisable in the image, but we cannot zoom in to see its paving joints, benches or individual people.
+
+**Zooming in makes the pixels bigger on the screen; it does not reveal new detail.** This is why Sentinel-2 works well for investigating vegetation across Berlin but is not a substitute for high-resolution aerial photography or a site survey.
+
+> **Image to add:** A simple scale comparison showing a 10 × 10 m satellite pixel over a house and garden, beside a 30 × 30 m pixel. The diagram should make clear that zooming does not increase the original resolution.
+
+Spatial resolution is only one consideration. **Temporal resolution** describes how frequently a satellite can observe the same area, while **spectral resolution** describes the kinds of light it can measure. We will encounter both concepts as we develop our analysis.
+
+#### From RGB channels to satellite bands
+
+A normal digital colour photograph is built from three colour **channels**: **red, green and blue (RGB)**. If you open an image in Photoshop, you can inspect each channel separately as a grayscale image. Each channel stores how much of its colour contributes to every pixel. When the three channels are displayed together, we see a full-colour photograph.
+
+A multispectral satellite works on a similar principle, but instead of having only three visible-light channels, it records several separate ranges of wavelengths, called **bands**. You can think of each band as another grayscale measurement layer. Some record visible blue, green or red light; others record light we cannot see, such as **near-infrared** or **shortwave infrared**.
+
+Sentinel-2 measures **13 bands**. They do not all have the same spatial resolution. For our first map, we need only these four:
+
+| Sentinel-2 band | Measures | Pixel size |
+| --- | --- | --- |
+| **B2** | Blue | 10 m |
+| **B3** | Green | 10 m |
+| **B4** | Red | 10 m |
+| **B8** | Near-infrared (invisible to our eyes) | 10 m |
+
+By assigning B4, B3 and B2 to the red, green and blue display channels, we make a **natural-colour composite**. But we could combine other bands to highlight information not visible in an ordinary photograph. B8 will become especially useful when we calculate vegetation greenness (NDVI).
+
+> **Image to add:** Diagram showing an RGB photograph separated into red, green and blue channels, then extending the same idea to Sentinel-2's additional infrared bands.
+
 ### Display a satellite dataset
 
 Now ask ChatGPT:
@@ -72,7 +131,7 @@ Map.addLayer(image, {
 }, 'Berlin – Sentinel-2');
 ~~~
 
-Here, **B4, B3 and B2** are the red, green and blue bands. The display settings convert satellite measurements into screen colours, so the result may look more saturated than a conventional aerial photograph. The median combines observations from the selected period; the scene-level cloud filter alone does not remove every cloudy pixel.
+We have chosen **B4, B3 and B2** as our display's red, green and blue channels, just as we would combine the RGB channels of a regular photograph. The `min` and `max` values control how the measurements are stretched into screen brightness, so the result may look more saturated than a conventional aerial photograph. The `median()` operation combines observations from the selected period; the scene-level cloud filter alone does not remove every cloudy pixel.
 
 The imagery is processed remotely. We do not need to download every original satellite scene.
 
@@ -82,9 +141,11 @@ The imagery is processed remotely. We do not need to download every original sat
 
 ### From a photograph to a measurement
 
-Sentinel-2 records wavelengths beyond visible light. Plants typically absorb red light and reflect near-infrared light. We can use these measurements to calculate the **Normalized Difference Vegetation Index (NDVI)**:
+We have already used three visible-light bands to make a colour image. Now we can use one of Sentinel-2's **invisible** bands to ask a different question: where is vegetation growing? Plants typically absorb red light (B4) and reflect near-infrared light (B8). Their contrasting responses give us the **Normalized Difference Vegetation Index (NDVI)**:
 
 **NDVI = (near-infrared − red) / (near-infrared + red)**
+
+In our JavaScript, `normalizedDifference(['B8', 'B4'])` carries out this calculation for every pixel. We do not need to write the arithmetic ourselves, but it is useful to know what the command is measuring.
 
 NDVI usually ranges between −1 and +1. High positive values often indicate active vegetation; values near zero commonly correspond to bare or built surfaces, while negative values can occur over water. NDVI is a measure of spectral greenness, **not** a direct count of trees or an exact measure of green-space area.
 
@@ -283,6 +344,8 @@ You do not need to memorise every Earth Engine command or read endless documenta
 But **working code is not the same as reliable evidence**. Check what a dataset measures, whether the time periods are comparable, how missing or cloudy observations are handled, and whether the visualisation supports your interpretation. The conversation can help you ask better questions; it cannot replace your judgement about the answers.
 
 ---
+
+**Background reading:** [ESA: Sentinel-2](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2) · [Copernicus: Sentinel-2 bands and resolution](https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2) · [NASA: Landsat 8](https://science.nasa.gov/mission/landsat-8/) · [Copernicus DEM](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Data/DEM.html)
 
 **Useful links:** [Earth Engine Code Editor](https://code.earthengine.google.com/) · [Earth Engine Data Catalog](https://developers.google.com/earth-engine/datasets/catalog) · [Earth Engine Guides](https://developers.google.com/earth-engine/guides) · [Google Colab](https://colab.research.google.com/)
 
