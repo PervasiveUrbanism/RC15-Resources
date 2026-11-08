@@ -43,7 +43,11 @@ Map.setOptions('SATELLITE');
 
 The map moves to Berlin. This is Google's prepared satellite **basemap**: useful for orientation, but not yet an analysis of a dataset from the Earth Engine archive.
 
-> **Screenshot to add:** Satellite basemap centred on Berlin.
+![Actual natural-colour Sentinel-2 satellite image of Berlin, June 2018](https://commons.wikimedia.org/wiki/Special:FilePath/Berlin_by_Senitnel-2.jpg?width=960)
+
+*Real Sentinel-2B image of Berlin (6 June 2018), natural colour from bands B4/B3/B2, 10 m resolution. Copernicus Sentinel data (2018)/ESA, [CC BY-SA 3.0 IGO](https://creativecommons.org/licenses/by-sa/3.0/igo/), [source](https://commons.wikimedia.org/wiki/File:Berlin_by_Senitnel-2.jpg). This is reference imagery, not the 2026 image generated in the exercise.*
+
+> **Screenshot to add later:** Your own Code Editor showing the satellite basemap centred on Berlin.
 
 ### What is Sentinel-2, and where does satellite data come from?
 
@@ -51,9 +55,9 @@ Google Earth Engine does not operate its own fleet of satellites. Instead, it gi
 
 For our investigation we are using **Sentinel-2**, a European Earth-observation mission developed by the **European Space Agency (ESA)** for **Copernicus**, the Earth observation programme of the **European Union**. Sentinel-2 is a *constellation*: several satellites launched over time to maintain frequent observations. Sentinel-2A was launched in 2015, Sentinel-2B in 2017 and Sentinel-2C in 2024. The satellites carry multispectral instruments that repeatedly observe land and coastal areas. The data is openly available, making it useful for research and teaching.
 
-![Editable conceptual illustration of a Sentinel-2 satellite](images/sentinel-2-schematic.svg)
+![Real Sentinel-2A spacecraft fully deployed](https://commons.wikimedia.org/wiki/Special:FilePath/Sentinel-2A_satellite_-_Fully_deployed.jpg?width=960)
 
-*Original simplified RC15 illustration (editable SVG, not to scale). For the spacecraft's actual appearance, see ESA's [Sentinel-2 illustration](https://www.esa.int/ESA_Multimedia/Images/2008/11/Sentinel-2), credited © ESA–P. Carril.*
+*Sentinel-2A spacecraft with its solar wing deployed. Photograph: ESA/M. Pedoussaut, [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/), [original file](https://commons.wikimedia.org/wiki/File:Sentinel-2A_satellite_-_Fully_deployed.jpg). Shown without modification.*
 
 Sentinel-2 is only one example. Different programmes are useful for different questions:
 
@@ -151,7 +155,11 @@ We have chosen **B4, B3 and B2** as our display's red, green and blue channels, 
 
 The imagery is processed remotely. We do not need to download every original satellite scene.
 
-> **Screenshot to add:** Sentinel-2 natural-colour composite of Berlin.
+![Actual false-colour Sentinel-2 image of Berlin](https://commons.wikimedia.org/wiki/Special:FilePath/Berlin%2C_Germany_ESA348055.jpg?width=960)
+
+*Berlin in a real Sentinel-2A false-colour image acquired 9 July 2015. Copernicus Sentinel data (2015)/ESA, [CC BY-SA 3.0 IGO](https://creativecommons.org/licenses/by-sa/3.0/igo/), [source](https://commons.wikimedia.org/wiki/File:Berlin,_Germany_ESA348055.jpg). This example is **false colour**, not the natural-colour composite produced by the script above.*
+
+> **Screenshot to add later:** Your own 2026 Sentinel-2 natural-colour composite from the Code Editor.
 
 ## 2. Investigating vegetation change in Berlin
 
