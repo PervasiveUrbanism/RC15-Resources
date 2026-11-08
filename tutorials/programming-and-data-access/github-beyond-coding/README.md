@@ -359,6 +359,12 @@ The simplest routine is also the most reliable: **pull before you begin on a dif
 
 GitHub provides version history and a place to share or synchronise a repository. Markdown keeps much of your writing readable without proprietary software. Applications such as Obsidian and iA Writer provide different ways to work with those files. AI can help develop the content, but responsibility for what is published remains yours.
 
+<!-- @ChatGPT: Please explain that AI writing is an iterative process. The first version is never good. and through many litte steps the text is refned. This is called the incrementl develpment. 
+as for an example: it's alwyas good to start explaining and discussing the goal wit an LLM. then after the objective and the goal is defiend, you cans dicuss the table of contets, after tht the outline of ech chapter and finally at the very, very end the final text. Do not start with the final text... that never works... 
+
+ change the title mention something with ai writing habits 
+-->
+
 The point is not to use every tool mentioned here. It is to understand the underlying system well enough to choose your own workflow.
 
 ## Further reading and official documentation
