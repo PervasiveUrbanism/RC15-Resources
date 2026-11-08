@@ -16,11 +16,16 @@
 
 Git was developed for software projects, where many people need to work on the same code without losing one another's changes. A project may have several contributors experimenting with alternative solutions, fixing problems or developing new features at the same time. Git records how the files change; GitHub provides a place to share those changes, compare alternatives and discuss which ones should become part of the main project.
 
+<!-- @ChatGPT: Say that Git and Github are two diffetn things. Explain-->
+
 This was originally a tool for programmers, and its strengths still reflect that history. Git works best with **text-based files**, including code, notes, instructions and Markdown documents. It can show precisely which lines someone has changed. It is less suitable for large binary files, such as detailed 3D models, videos or extensive collections of high-resolution images. GitHub also imposes file-size limits: files over 50 MB trigger a warning, and files over 100 MB are blocked in ordinary Git repositories. For larger design assets, shared storage or other specialist systems are usually more appropriate.
 
 For architecture and urban design students, this distinction is useful. Renderings, large models and drawing packages need not be moved into GitHub. But scripts, research notes, tutorial instructions and the text surrounding a design project are good candidates. The [RC15 Resources library](https://github.com/PervasiveUrbanism/RC15-Resources) demonstrates this: its tutorials, code examples and links can be maintained and improved over time.
 
 The rise of large language models (LLMs) and AI-assisted coding makes this approach even more relevant. ChatGPT, Claude and other assistants can help develop and edit text or code, while Git lets you see what has changed, compare versions and keep control of the result. We will start by using the RC15 library, then create our own repository, and finally explore how the same workflow can be used away from a desktop computer.
+
+<!-- @ChatGPT: Yes, for the chapter above. please say that the repo structuure is somehting tht many LLM like working with. there is somewhat a natual fit. 
+say also that github is intetesting for you can not only host code and markdown files but also fully feated htlm websides that somewhat rnder your contne nicer. -->
 
 ### Learning outcomes
 
@@ -30,7 +35,7 @@ By the end, you should be able to explain what Git and GitHub do; clone and upda
 
 1. [GitHub and the RC15 Resources library](#1-github-and-the-rc15-resources-library)
 2. [Your own repository: Markdown, Obsidian and AI](#2-your-own-repository-markdown-obsidian-and-ai)
-3. [Writing and editing on an iPhone](#3-writing-and-editing-on-an-iphone)
+3. [AI Writing and editing on an iPhone](#3-writing-and-editing-on-an-iphone)
 
 ---
 
@@ -296,21 +301,6 @@ After pushing from the iPhone, open the same personal repository in GitHub Deskt
 Try the reverse direction too: edit on desktop, commit and push, then pull the latest changes in Working Copy before editing on your phone.
 
 
----
-
-## Common problems and how to approach them
-
-| Problem | Likely cause and first check |
-| --- | --- |
-| **My file is saved but GitHub has not changed.** | Saving is not committing or pushing. Check GitHub Desktop's Changes view, commit, then push. |
-| **I cannot push changes to RC15 Resources.** | You may not have write permission. Pulling and reading are separate from publishing; discuss contributions with the maintainers. |
-| **GitHub Desktop reports that my branch is behind.** | Fetch and pull remote changes before pushing. Review any messages about local uncommitted work. |
-| **Git reports a merge conflict.** | Two versions changed overlapping parts of a file. Inspect both versions and resolve deliberately; do not delete conflict markers without understanding the content. |
-| **I edited on my phone but see no changes.** | Confirm that iA Writer saved to the Working Copy location, not a duplicate in iCloud or On My iPhone. |
-| **An image does not appear in Markdown.** | Check that the image was included in the repository, the relative path is correct, and the filename's capitalisation matches. |
-| **I accidentally committed the wrong file.** | Review the history before changing anything further. Git often allows recovery, but rewriting shared history can affect collaborators. Ask for help rather than using destructive commands blindly. |
-| **My repository has become huge.** | Inspect imported photos, videos, generated outputs and data files. Git retains historical versions; simply deleting a large file later may not shrink the history. |
-| **The AI says it updated my repository, but I see no changes.** | Check whether the tool had real file access, whether it edited a local or remote copy, and whether a commit and push actually occurred. |
 
 ## Sustainable Git habits and iterative AI writing
 
