@@ -122,7 +122,7 @@ By assigning B4, B3 and B2 to the red, green and blue display channels, we make 
 
 ![Editable diagram explaining the transition from RGB channels to satellite bands](images/rgb-to-bands.svg)
 
-*From familiar colour channels to satellite measurements. Original editable RC15 SVG diagram.*
+*From familiar colour channels to satellite measurements.*
 
 ### Display a satellite dataset
 
@@ -274,6 +274,9 @@ Map.addLayer(change, {
 A pixel changing from NDVI 0.3 to 0.6 produces **+0.3** (green); one changing from 0.6 to 0.3 produces **−0.3** (red). The colour range is a display choice, not a threshold that defines vegetation loss.
 
 > **Screenshot to add:** Red–white–green NDVI difference map, focused on Tempelhofer Feld. Save as `images/07-tempelhofer-feld-ndvi-change.png`.
+
+<!--@ChatGPT: Your comment 
+-->
 
 **Stop and interpret.** A difference map shows a change in the satellite-derived vegetation signal. It does not automatically prove that trees were planted, buildings replaced a park, or green space disappeared. Rainfall, irrigation, mowing, crop or grass cycles, atmospheric effects and the selection of images can all influence NDVI. Before making strong claims, investigate several years, check the available observations and compare the result with independent sources.
 
