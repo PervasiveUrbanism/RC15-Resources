@@ -2,6 +2,7 @@
 
 [Library home](../README.md)
 
+- [Investigating Cities from Space](../tutorials/mapping-and-spatial-analysis/investigating-cities-from-space/README.md) - Earth Engine vegetation analysis exported to QGIS
 - [Mapbox Basemaps in QGIS](../tutorials/mapping-and-spatial-analysis/mapbox-basemaps/README.md) - WMTS and Mapbox DevKit MCP
 
 - [Heatmaps in QGIS](../tutorials/mapping-and-spatial-analysis/heatmaps/README.md)
