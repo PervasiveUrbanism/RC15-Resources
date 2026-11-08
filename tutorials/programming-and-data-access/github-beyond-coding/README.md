@@ -14,6 +14,8 @@
 
 ## Why use GitHub if you are not a programmer?
 
+<!-- @ChatGPT: this starting point is not good. on would never use Github for urben research from the outset. It's more someting thta started for coders and has got trackitn beyond that. The inital idea was to have a enivlent where many people could code and do variations and alternatives and work on large software projects. It's still lrget text and code based, that rremains there is also a restrickin in file size. However with teh advent of LLM and agentic codng HitHub has become more important. So whist the student work is mossly images, grahps and 3d models that woudl stay outside GitHub. However andything else, like code and text Hithub offers intersting features. -->
+
 Imagine you are developing an urban research project. You collect references, make maps, keep notes on site visits, photograph interesting buildings and gradually refine your argument. Some material is written on your laptop, some on your phone and some with the help of an AI assistant. You may return to the same project months or years later.
 
 You could store everything in a series of documents and cloud folders. However, you may eventually want to answer harder questions: What changed since last week? Can I recover an earlier version? How do I keep the research organised without depending on a single writing app? How can another person contribute without overwriting my work?
