@@ -7,7 +7,7 @@
 **Study area:** Berlin, with a closer look at Tempelhofer Feld  
 **Starting point:** No previous knowledge of the Earth Engine API or JavaScript required
 
-> **Screenshot to add:** Finished vegetation-change map of Berlin. Save as `images/01-berlin-vegetation-change.png`.
+![Vegetation change between 2018 and 2025 in Berlin](images/01-berlin-vegetation-change.png)
 
 Satellite imagery allows us to investigate a city beyond what we can see in an ordinary aerial photograph. We can explore vegetation, surface temperature, water and urban growth, and compare observations from different years. [Google Earth Engine](https://earthengine.google.com/) provides access to extensive collections of satellite data and processes them on Google's servers.
 
@@ -23,7 +23,7 @@ Visit [code.earthengine.google.com](https://code.earthengine.google.com/). Sign 
 
 The Code Editor runs JavaScript. That is fine even if you have never written JavaScript: ChatGPT can help us generate and explain each small piece of code.
 
-> **Screenshot to add:** Code Editor overview, showing the script panel, Run button, map, Layers control, Console and Tasks. Save as `images/02-earth-engine-code-editor.png`.
+![Google Earth Engine Code Editor interface](images/02-earth-engine-code-editor.png)
 
 ### Our first map
 
@@ -47,7 +47,7 @@ The map moves to Berlin. This is Google's prepared satellite **basemap**: useful
 
 *Real Sentinel-2B image of Berlin (6 June 2018), natural colour from bands B4/B3/B2, 10 m resolution. Copernicus Sentinel data (2018)/ESA, [CC BY-SA 3.0 IGO](https://creativecommons.org/licenses/by-sa/3.0/igo/), [source](https://commons.wikimedia.org/wiki/File:Berlin_by_Senitnel-2.jpg). This is reference imagery, not the 2026 image generated in the exercise.*
 
-> **Screenshot to add later:** Your Code Editor showing the satellite basemap centred on Berlin. Save as `images/03-berlin-satellite-basemap.png`.
+![Satellite basemap of Berlin in Earth Engine](images/03-berlin-satellite-basemap.png)
 
 ### What is Sentinel-2, and where does satellite data come from?
 
@@ -159,7 +159,7 @@ The imagery is processed remotely. We do not need to download every original sat
 
 *Berlin in a real Sentinel-2A false-colour image acquired 9 July 2015. Copernicus Sentinel data (2015)/ESA, [CC BY-SA 3.0 IGO](https://creativecommons.org/licenses/by-sa/3.0/igo/), [source](https://commons.wikimedia.org/wiki/File:Berlin,_Germany_ESA348055.jpg). This example is **false colour**, not the natural-colour composite produced by the script above.*
 
-> **Screenshot to add later:** Your 2026 Sentinel-2 natural-colour composite in the Code Editor. Save as `images/04-berlin-sentinel2-natural-colour.png`.
+![Sentinel-2 natural-colour composite of Berlin](images/04-berlin-sentinel2-natural-colour.png)
 
 ## 2. Investigating vegetation change in Berlin
 
@@ -191,7 +191,7 @@ Map.addLayer(ndvi, {
 
 Use the **Layers** control to compare NDVI with the satellite image beneath it. Look for Tiergarten, Tempelhofer Feld and the smaller green spaces scattered across the city.
 
-> **Screenshot to add:** NDVI map of Berlin, ideally with the Layers control visible. Save as `images/05-berlin-ndvi.png`.
+![NDVI vegetation map of Berlin](images/05-berlin-ndvi.png)
 
 ### Compare two summers
 
@@ -273,7 +273,7 @@ Map.addLayer(change, {
 
 A pixel changing from NDVI 0.3 to 0.6 produces **+0.3** (green); one changing from 0.6 to 0.3 produces **−0.3** (red). The colour range is a display choice, not a threshold that defines vegetation loss.
 
-> **Screenshot to add:** Red–white–green NDVI difference map, focused on Tempelhofer Feld. Save as `images/07-tempelhofer-feld-ndvi-change.png`.
+![NDVI difference map at Tempelhofer Feld](images/07-tempelhofer-feld-ndvi-change.png)
 
 <!--@ChatGPT: Your comment 
 -->
@@ -313,7 +313,13 @@ Export.image.toDrive({
 
 Click **Run**, open the **Tasks** tab, then start the export task and confirm its settings. When processing finishes, find the resulting TIFF in the **EarthEngine** folder in Google Drive and download it. The export is limited to an area around Tempelhofer Feld to keep the file manageable; the 10 m export scale does not create detail beyond that available in the source observations.
 
-> **Screenshots to add:** Earth Engine Tasks panel (`images/08-earth-engine-export-task.png`) and the resulting GeoTIFF in Google Drive (`images/09-google-drive-geotiff.png`).
+![Earth Engine export task in the Tasks panel](images/08-earth-engine-export-task.png)
+
+*The export task is started from the Tasks panel.*
+
+![Exported GeoTIFF available in Google Drive](images/09-google-drive-geotiff.png)
+
+*The exported raster can be downloaded from Google Drive and opened in QGIS.*
 
 ### Display the result in QGIS
 
@@ -321,7 +327,7 @@ Open QGIS and drag the downloaded GeoTIFF onto the map. You can use **Layer Prop
 
 The raster contains numbers such as −0.18 or +0.12, not red or green colours. QGIS decides how those numbers are displayed. Use the Identify tool to inspect a pixel, and check **Layer Properties → Information** for the layer's CRS, extent and pixel size. QGIS can reproject layers for display, but that does not alter the underlying data.
 
-> **Screenshot to add:** Exported raster styled over a Berlin basemap in QGIS. Save as `images/10-berlin-ndvi-change-qgis.png`.
+![Exported NDVI difference raster displayed in QGIS](images/10-berlin-ndvi-change-qgis.png)
 
 We have moved from a research question to a satellite-derived dataset that can be combined with our existing mapping and design workflows. For more detail about QGIS raster display and coordinate reference systems, see the other [mapping tutorials](../README.md).
 
@@ -381,7 +387,7 @@ Planetary Computer is built around open standards including **STAC** (SpatioTemp
 
 For now, **we will stay with Earth Engine**: its Code Editor lets us learn about data and analysis in one place. Later, if you are curious, open Planetary Computer Explorer, navigate to Berlin, choose Sentinel-2 and see how the imagery compares. You do not need to complete another exercise.
 
-> **Screenshot to add (optional):** Microsoft Planetary Computer Explorer showing Sentinel-2 imagery over Berlin. Save as `images/12-planetary-computer-explorer.png`.
+![Microsoft Planetary Computer Explorer showing Berlin](images/12-planetary-computer-explorer.png)
 
 *Note:* Microsoft's [Planetary Explorer](https://github.com/microsoft/Planetary-Explorer), an AI-powered demonstration application, is a separate project from the general-purpose **Planetary Computer Explorer** described here.
 
@@ -397,4 +403,4 @@ But **working code is not the same as reliable evidence**. Check what a dataset 
 
 **Useful links:** [Earth Engine Code Editor](https://code.earthengine.google.com/) · [Earth Engine Data Catalog](https://developers.google.com/earth-engine/datasets/catalog) · [Earth Engine Guides](https://developers.google.com/earth-engine/guides) · [Google Colab](https://colab.research.google.com/)
 
-*This resource is designed as a starting point for experimentation. For each planned screenshot, the suggested filename is printed beside its placeholder. Save screenshots into this tutorial's `images/` folder; the placeholders can then be replaced with Markdown image links such as `![Berlin NDVI map](images/05-berlin-ndvi.png)`.*
+*Most screenshots are now included. The remaining placeholders identify any images that have not yet been supplied.*
