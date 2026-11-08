@@ -63,7 +63,17 @@ Sentinel-2 is only one example. Different programmes are useful for different qu
 | **SRTM elevation data** | NASA-led international radar mapping mission | Terrain elevations for studying hills, slopes and watersheds |
 | **Copernicus DEM** | European Copernicus programme | Elevation and terrain analysis using a digital elevation model (DEM), rather than a conventional optical photograph |
 
-China, Japan, India and other countries operate Earth-observation programmes too. The important question is not which country has the 'best' satellite, but **which dataset measures what we want to investigate**, at a suitable resolution and over the right years. Not all these datasets have the same access conditions or are available in Earth Engine in the same form.
+#### Who shares satellite data?
+
+**NASA and the US Geological Survey (USGS)** make Landsat imagery freely available to everyone. The **European Union's Copernicus programme**, working with ESA and other partners, similarly provides its Sentinel data on a free, full and open basis. The imagery is released at the sensors' actual resolution: the public Sentinel-2 images, for example, include bands with 10 m pixels. There is no normally withheld, sharper version of those same Sentinel-2 measurements reserved for internal use.
+
+Other space agencies also share data. **Japan's JAXA** makes many Earth-observation products available through its G-Portal, while **India's ISRO** offers both openly accessible and restricted or paid products through Bhoonidhi. **China** has released selected Earth-observation datasets, including some from its Gaofen programme. However, the conditions of access differ by satellite, product and country.
+
+Not all satellite imagery is freely available. **Commercial operators** can produce much more detailed imagery, sometimes fine enough to distinguish individual vehicles or small architectural features, but this often requires payment or a special licence. NASA and European institutions may also acquire such commercial imagery for authorised research or operational use; that does not mean their own open satellite programmes secretly retain higher-resolution versions.
+
+For this tutorial, we use **Sentinel-2 because its data is openly available**, frequently collected and suitable for studying vegetation across an entire city. The important question when choosing a dataset is what it measures, its pixel size, its coverage through time and whether we are permitted to access and reuse it.
+
+**Where to explore the source data:** [Copernicus Data Space](https://dataspace.copernicus.eu/) · [USGS Landsat](https://www.usgs.gov/landsat-missions/landsat-data-access) · [NASA Earthdata](https://www.earthdata.nasa.gov/) · [JAXA G-Portal](https://www.gportal.jaxa.jp/) · [ISRO Bhoonidhi](https://bhoonidhi.nrsc.gov.in/).
 
 #### How detailed is a satellite image?
 
