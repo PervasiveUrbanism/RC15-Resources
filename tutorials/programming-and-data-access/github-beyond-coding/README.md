@@ -73,6 +73,9 @@ You can also download a ZIP from the GitHub website. A ZIP is useful for obtaini
 > **Screenshot placeholder — \`images/03-desktop-clone-dialog.png\`**  
 > Show GitHub Desktop's clone dialog, highlighting URL and local path.
 
+> **Screenshot placeholder — \`images/GithubOnMyPC.png\`**  
+> Show GitHub Desktop's clone dialog, highlighting URL and local path.
+
 ### Save, commit, push and pull are different operations
 
 This distinction is central to using Git confidently.
@@ -178,8 +181,7 @@ Now select **Push origin** to send the commit to GitHub. Open the repository in 
 
 A good commit message describes the change rather than saying \`update\` or \`stuff\`. Several small, understandable commits are often more useful than one enormous commit after weeks of work.
 
-> **Screenshot placeholder — \`images/08-github-commit-history.png\`**  
-> Show the repository's commit history on GitHub, with descriptive commit messages.
+
 
 ### Obsidian: a different way to navigate the same notes
 
@@ -253,8 +255,6 @@ Install [Working Copy](https://workingcopy.app/) and sign in or authorise access
 
 Working Copy integrates with the iOS Files app. If its location is not shown, open Files → Browse, use the options menu to edit locations and enable Working Copy. The exact labels can vary with iOS version.
 
-> **Screenshot placeholder — \`images/11-working-copy-repository.png\`**  
-> Show the personal repository open in Working Copy, with its file list and Changes area.
 
 ### Write in iA Writer
 
@@ -296,8 +296,6 @@ After pushing from the iPhone, open the same personal repository in GitHub Deskt
 
 Try the reverse direction too: edit on desktop, commit and push, then pull the latest changes in Working Copy before editing on your phone.
 
-> **Screenshot placeholder — \`images/12-iphone-to-desktop-sync.png\`**  
-> Create a paired screenshot: the recipe in iA Writer on iPhone and the same Markdown note opened on desktop after pulling.
 
 ### Exercise 3 — Collect something away from your desk
 
