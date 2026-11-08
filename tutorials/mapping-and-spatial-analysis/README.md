@@ -2,6 +2,7 @@
 
 [Library home](../../README.md)
 
+- [Investigating Cities from Space](investigating-cities-from-space/README.md) - Google Earth Engine, ChatGPT, GeoTIFF export, QGIS and optional Python/Colab
 - [Mapbox Basemaps in QGIS](mapbox-basemaps/README.md) - WMTS connection and style editing through ChatGPT's Mapbox DevKit MCP
 
 - [Heatmaps in QGIS](heatmaps/README.md) - QGIS
