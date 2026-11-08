@@ -16,7 +16,7 @@
 
 Git was developed for software projects, where many people need to work on the same code without losing one another's changes. A project may have several contributors experimenting with alternative solutions, fixing problems or developing new features at the same time. Git records how the files change; GitHub provides a place to share those changes, compare alternatives and discuss which ones should become part of the main project.
 
-<!-- @ChatGPT: Say that Git and Github are two diffetn things. Explain-->
+**Git and GitHub are not the same thing.** Git is the version-control software: it works locally, records commits and can be used entirely without GitHub. GitHub is a web-based hosting and collaboration service built around Git repositories. You could use Git with another hosting service or with no online service at all. GitHub Desktop is a separate graphical application that makes common Git operations easier without requiring you to type commands.
 
 This was originally a tool for programmers, and its strengths still reflect that history. Git works best with **text-based files**, including code, notes, instructions and Markdown documents. It can show precisely which lines someone has changed. It is less suitable for large binary files, such as detailed 3D models, videos or extensive collections of high-resolution images. GitHub also imposes file-size limits: files over 50 MB trigger a warning, and files over 100 MB are blocked in ordinary Git repositories. For larger design assets, shared storage or other specialist systems are usually more appropriate.
 
@@ -24,8 +24,9 @@ For architecture and urban design students, this distinction is useful. Renderin
 
 The rise of large language models (LLMs) and AI-assisted coding makes this approach even more relevant. ChatGPT, Claude and other assistants can help develop and edit text or code, while Git lets you see what has changed, compare versions and keep control of the result. We will start by using the RC15 library, then create our own repository, and finally explore how the same workflow can be used away from a desktop computer.
 
-<!-- @ChatGPT: Yes, for the chapter above. please say that the repo structuure is somehting tht many LLM like working with. there is somewhat a natual fit. 
-say also that github is intetesting for you can not only host code and markdown files but also fully feated htlm websides that somewhat rnder your contne nicer. -->
+There is a natural fit between well-organised repositories and many LLM-assisted workflows. When an assistant has authorised access to a project's files, its folder structure, README and individual text documents give it useful context: it can find the relevant material, propose focused edits and compare revisions. The organisation does not guarantee accurate results, and the assistant cannot read a private repository unless access has actually been granted.
+
+GitHub can also do more than display code and Markdown. With [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages), a repository can publish a static website using HTML, CSS and JavaScript, or a site generated from Markdown. This offers more control over layout and presentation than GitHub's standard README view. Pages is designed for static sites rather than hosting a full server-side application, and publishing a site may make its contents public even when the source repository is private. For now, RC15 Resources uses its illustrated README as the library's entry point; a separate website is an option for the future.
 
 ### Learning outcomes
 
@@ -35,7 +36,7 @@ By the end, you should be able to explain what Git and GitHub do; clone and upda
 
 1. [GitHub and the RC15 Resources library](#1-github-and-the-rc15-resources-library)
 2. [Your own repository: Markdown, Obsidian and AI](#2-your-own-repository-markdown-obsidian-and-ai)
-3. [AI Writing and editing on an iPhone](#3-writing-and-editing-on-an-iphone)
+3. [Writing and editing on an iPhone](#3-writing-and-editing-on-an-iphone)
 
 ---
 
