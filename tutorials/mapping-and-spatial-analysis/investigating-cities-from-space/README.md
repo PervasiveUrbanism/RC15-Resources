@@ -1,7 +1,7 @@
 # Investigating Cities from Space
 *Google Earth Engine, Python and AI-assisted coding*
 
-[Mapping tutorials](../README.md) | [RC15 Resources](../../../README.md)
+[Mapping tutorials](../README.md) | [RC15 Resources](../../../README.md) | [Image credits and licences](IMAGE-CREDITS.md)
 
 **Software:** [Google Earth Engine Code Editor](https://code.earthengine.google.com/), ChatGPT; optional QGIS and Google Colab  
 **Study area:** Berlin, with a closer look at Tempelhofer Feld  
@@ -51,7 +51,9 @@ Google Earth Engine does not operate its own fleet of satellites. Instead, it gi
 
 For our investigation we are using **Sentinel-2**, a European Earth-observation mission developed by the **European Space Agency (ESA)** for **Copernicus**, the Earth observation programme of the **European Union**. Sentinel-2 is a *constellation*: several satellites launched over time to maintain frequent observations. Sentinel-2A was launched in 2015, Sentinel-2B in 2017 and Sentinel-2C in 2024. The satellites carry multispectral instruments that repeatedly observe land and coastal areas. The data is openly available, making it useful for research and teaching.
 
-> **Image to add:** Illustration or photograph of a Sentinel-2 satellite, preferably from [ESA's Sentinel-2 mission page](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2). Add the ESA/Copernicus credit and check the image's reuse terms.
+![Editable conceptual illustration of a Sentinel-2 satellite](images/sentinel-2-schematic.svg)
+
+*Original simplified RC15 illustration (editable SVG, not to scale). For the spacecraft's actual appearance, see ESA's [Sentinel-2 illustration](https://www.esa.int/ESA_Multimedia/Images/2008/11/Sentinel-2), credited © ESA–P. Carril.*
 
 Sentinel-2 is only one example. Different programmes are useful for different questions:
 
@@ -91,7 +93,9 @@ Imagine a small back garden that is only 5 metres wide. A 10 m Sentinel-2 pixel 
 
 **Zooming in makes the pixels bigger on the screen; it does not reveal new detail.** This is why Sentinel-2 works well for investigating vegetation across Berlin but is not a substitute for high-resolution aerial photography or a site survey.
 
-> **Image to add:** A simple scale comparison showing a 10 × 10 m satellite pixel over a house and garden, beside a 30 × 30 m pixel. The diagram should make clear that zooming does not increase the original resolution.
+![Editable diagram comparing 10 metre and 30 metre pixels](images/pixel-resolution.svg)
+
+*The same area represented by different pixel sizes. Original editable RC15 diagram; conceptual, not a satellite observation.*
 
 Spatial resolution is only one consideration. **Temporal resolution** describes how frequently a satellite can observe the same area, while **spectral resolution** describes the kinds of light it can measure. We will encounter both concepts as we develop our analysis.
 
@@ -112,7 +116,9 @@ Sentinel-2 measures **13 bands**. They do not all have the same spatial resoluti
 
 By assigning B4, B3 and B2 to the red, green and blue display channels, we make a **natural-colour composite**. But we could combine other bands to highlight information not visible in an ordinary photograph. B8 will become especially useful when we calculate vegetation greenness (NDVI).
 
-> **Image to add:** Diagram showing an RGB photograph separated into red, green and blue channels, then extending the same idea to Sentinel-2's additional infrared bands.
+![Editable diagram explaining the transition from RGB channels to satellite bands](images/rgb-to-bands.svg)
+
+*From familiar colour channels to satellite measurements. Original editable RC15 SVG diagram.*
 
 ### Display a satellite dataset
 
