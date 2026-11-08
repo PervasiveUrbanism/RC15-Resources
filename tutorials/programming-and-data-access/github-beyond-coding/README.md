@@ -48,7 +48,7 @@ Git works particularly well with text: it can show which lines were added, remov
 
 ![RC15 Resources repository on GitHub](images/01-rc15-github-home.png)
 
-*The RC15 Resources homepage, with its files and introductory README.*
+*The RC15 GitHub page, with all repositories*
 
 ### Explore the RC15 repository
 
@@ -76,11 +76,11 @@ You can also download a ZIP from the GitHub website. A ZIP is useful for obtaini
 
 ![Clone a repository in GitHub Desktop](images/03-desktop-clone-dialog.png)
 
-*Select the repository URL and its destination on your computer.*
+
 
 ![Additional GitHub Desktop clone step](images/03.1-desktop-clone-dialog%20Extra.png)
 
-*An additional view of the cloning process.*
+*Select the repository URL and its destination on your computer.*
 
 ![GitHub repository on the local computer](images/GithubOnMyPC.png)
 
@@ -162,6 +162,9 @@ Do not worry about finding the perfect structure. Start small and rearrange it w
 
 Markdown is a lightweight way to structure plain text. A few characters indicate a title, heading, list, link or image. GitHub, VS Code, iA Writer and Obsidian can all work with Markdown, although they may display it differently.
 
+<!-- @ChatGPT: Please put in a link with the formatting rules -->
+<!-- @ChatGPT: I have heard that Google Docs does support mardkdown langnage. please fact check and mention it -->
+
 Create a file called `public-space.md` inside your new repository:
 
 ```markdown
@@ -188,7 +191,7 @@ The special name `README.md` is useful because GitHub automatically shows it whe
 
 ![Markdown writing and preview](images/07.1-markdown-source-preview.png)
 
-*Markdown source and its readable representation.*
+
 
 ### Make your first commit
 
@@ -210,7 +213,7 @@ You do not need a Git synchronisation plugin to start. Continue committing and p
 
 ![Repository opened in Obsidian](images/09-obsidian-repository-vault.png)
 
-*The repository's Markdown notes can also be browsed as an Obsidian vault.*
+*How to open a folder as Obsidian Vault*
 
 ### Working with ChatGPT or Claude
 
@@ -252,7 +255,7 @@ Crucially, an AI-generated revision is a proposal. Read the resulting Markdown a
 
 ![Reviewing AI-assisted Markdown changes](images/10-ai-markdown-diff-review.png)
 
-*Inspect proposed changes rather than accepting AI revisions automatically.*
+*This syntax ensures that it's not visible, but it's another way to leave more specific instructions to the LLM*
 
 ### Exercise 2 — Start a personal knowledge library
 
@@ -267,6 +270,12 @@ The outcome should be a small, readable collection that is yours to develop, rat
 Your repository does not have to live only on a computer. You might notice an interesting entrance detail while walking through a city, photograph a meal you want to remember, or write a paragraph on the train. An iPhone can become another way to contribute to the same library.
 
 The applications have different jobs. **Working Copy** manages Git repositories on iOS; **iA Writer** is a focused editor for Markdown; Apple's **Files** app makes documents and images accessible between apps. GitHub remains the remote location that connects the phone and the computer.
+
+<!-- @ChatGPT: So the idea of a recipe book is not good. it takes too much space. as on possible example it's good, but just keep it as notebook. or as a means to write longer texts. 
+the entire iPhone chapter appreas a bit odd, it's not well frames. At the end of the day, you do not have to sit in front of you coputer, and there are ways to work from a mobile phone. here is the desciropt. 
+you cn say that large parts of the skills reosurecs and the tutors have been ai written. partly on a desktop compter, party (and mostyl) on the phone descibojg the tools below.
+Say that both are paid apps. 
+-->
 
 ### Clone a repository in Working Copy
 
@@ -284,6 +293,9 @@ Write a short addition, then return to Working Copy and examine the changes. If 
 You can now commit the edit on your phone and push it to GitHub, just as you did on desktop. Some Working Copy operations may require a paid feature or an educational entitlement; check the current app terms rather than assuming every action is free.
 
 ### Add a photograph
+
+<!-- @ChatGPT: Remove that chapter
+-->
 
 Suppose you are collecting recipes. Photograph a meal with the iPhone camera. Save or share the image into an `images` folder inside your repository in Working Copy. Use a descriptive filename, such as `roast-chicken-01.jpg`. Create or edit a Markdown recipe:
 
@@ -317,6 +329,9 @@ Try the reverse direction too: edit on desktop, commit and push, then pull the l
 
 
 ### Exercise 3 — Collect something away from your desk
+
+<!-- @ChatGPT: Remove that chapter
+-->
 
 Create a new Markdown note on your iPhone. It could describe a public space, a building detail, a memorable café or something you cooked. Add one photograph, commit and push from Working Copy. Later, pull on your computer and expand the note. Make one further commit on desktop and retrieve it on your phone.
 
@@ -354,5 +369,3 @@ The point is not to use every tool mentioned here. It is to understand the under
 - [Working Copy user guide](https://workingcopy.app/manual.html) — Git on iOS, Files integration and external editors
 - [Obsidian: how notes are stored](https://obsidian.md/help/data-storage) — Markdown vaults and local files
 - [VS Code custom instructions reference](https://code.visualstudio.com/docs/agents/reference/custom-instructions-reference) — examples of tool-specific AI instruction files
-
-**Illustration status:** Available screenshots have been inserted above. The missing screenshot for creating a private repository remains a named placeholder (`images/06-create-private-repository.png`). Additional mobile screenshots can be added later: `images/11-working-copy-repository.png` and `images/12-iphone-to-desktop-sync.png`. Ensure screenshots do not expose personal accounts, private repository names, access tokens or student information.
