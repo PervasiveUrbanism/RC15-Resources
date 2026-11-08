@@ -5,7 +5,7 @@
 [← Programming and data access](../README.md) · [RC15 Resources home](../../../README.md)
 
 **Level:** Beginner, with optional intermediate sections  
-**Time:** Approximately 2–3 hours to follow the core exercises; further exploration is open-ended  
+**Time:** Approximately 2–3 hours to explore the chapters and two exercises; further exploration is open-ended  
 **Software:** A GitHub account, [GitHub Desktop](https://desktop.github.com/) (Windows or macOS); for later chapters, a text editor, optionally [Obsidian](https://obsidian.md/), [Working Copy](https://workingcopy.app/) and [iA Writer](https://ia.net/writer) (iPhone/iPad), and optionally ChatGPT or Claude  
 **Prerequisites:** Basic experience with files and folders; no programming or command-line knowledge required  
 **Teaching context:** RC15 – Pervasive Urbanism, Bartlett School of Architecture, UCL. Permanent resource, not tied to a particular teaching year  
@@ -30,7 +30,7 @@ By the end, you should be able to explain what Git and GitHub do; clone and upda
 
 1. [GitHub and the RC15 Resources library](#1-github-and-the-rc15-resources-library)
 2. [Your own repository: Markdown, Obsidian and AI](#2-your-own-repository-markdown-obsidian-and-ai)
-3. [Writing and collecting on an iPhone](#3-writing-and-collecting-on-an-iphone)
+3. [Writing and editing on an iPhone](#3-writing-and-editing-on-an-iphone)
 
 ---
 
@@ -264,13 +264,9 @@ The outcome should be a small, readable collection that is yours to develop, rat
 
 ---
 
-## 3. Writing and collecting on an iPhone
+## 3. Writing and editing on an iPhone
 
-Your repository does not have to live only on a computer. You might notice an interesting entrance detail while walking through a city, photograph a meal you want to remember, or write a paragraph on the train. An iPhone can become another way to contribute to the same library.
-
-The applications have different jobs. **Working Copy** manages Git repositories on iOS; **iA Writer** is a focused editor for Markdown; Apple's **Files** app makes documents and images accessible between apps. GitHub remains the remote location that connects the phone and the computer.
-
-You do not need to sit in front of a desktop computer to develop a text or code project. A phone is often a convenient place to discuss an idea with an AI assistant, refine a paragraph, or make a small correction while travelling. Much of the written material in RC15 Skills and Resources has been developed with AI assistance through conversations on both desktop and mobile, often on the phone. The important part is not the device, but the ability to return to the same project files and keep a reliable record of changes.
+You do not need to sit in front of a desktop computer to develop a text or code project. A phone can be a convenient place to discuss an idea with an AI assistant, refine a paragraph or correct a tutorial while travelling. Much of the written material in RC15 Skills and Resources has been developed with AI assistance, partly on desktop and often on the phone. The important thing is to keep working on the same files rather than leaving successive drafts scattered between applications and chat conversations.
 
 Two apps make this practical on iPhone. **[Working Copy](https://workingcopy.app/)** gives you a local Git repository and handles synchronisation with GitHub. It is free to download, but pushing and several other features require a paid Pro unlock; eligible students can obtain Pro features through the [GitHub Student Developer Pack](https://workingcopy.app/education/). **[iA Writer](https://ia.net/writer)** is a focused Markdown editor and a paid app on iOS. These are the tools used in this example, not the only possible mobile workflow. They serve different purposes: Working Copy manages versions, while iA Writer provides a comfortable writing environment.
 
@@ -289,7 +285,7 @@ In iA Writer, use its file browser or the Files document picker to open a Markdo
 
 Write a short addition, then return to Working Copy and examine the changes. If they do not appear, confirm that the editor really saved back into Working Copy rather than another location; you may need to use Share or Save to Working Copy depending on the app and version.
 
-You can now commit the edit on your phone and push it to GitHub, just as you did on desktop. Some Working Copy operations may require a paid feature or an educational entitlement; check the current app terms rather than assuming every action is free.
+You can now commit the edit on your phone and push it to GitHub, just as you did on desktop. As explained above, pushing to a remote repository requires Working Copy Pro or an eligible educational entitlement.
 
 A note can include links and small supporting images just as it would on a desktop. Keep photographs and other assets in the repository only when they are relevant and reasonably small; Git is not a substitute for a large media archive.
 
@@ -299,12 +295,6 @@ After pushing from the iPhone, open the same personal repository in GitHub Deskt
 
 Try the reverse direction too: edit on desktop, commit and push, then pull the latest changes in Working Copy before editing on your phone.
 
-
-### A mobile writing exercise
-
-Choose an existing short Markdown note or tutorial draft in your own repository. Pull the latest version in Working Copy, edit one paragraph through iA Writer and commit the change. Push it to GitHub, then pull the update on your computer. Check the Git history to confirm that it is the same document, rather than a second copy. If you used an AI assistant to develop the wording, keep only the changes you have reviewed.
-
-The point is to practise a flexible writing routine, not to build a separate mobile-only collection.
 
 ---
 
