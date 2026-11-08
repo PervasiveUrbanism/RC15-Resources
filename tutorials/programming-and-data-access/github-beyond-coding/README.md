@@ -14,15 +14,13 @@
 
 ## Why use GitHub if you are not a programmer?
 
-<!-- @ChatGPT: this starting point is not good. on would never use Github for urben research from the outset. It's more someting thta started for coders and has got trackitn beyond that. The inital idea was to have a enivlent where many people could code and do variations and alternatives and work on large software projects. It's still lrget text and code based, that rremains there is also a restrickin in file size. However with teh advent of LLM and agentic codng HitHub has become more important. So whist the student work is mossly images, grahps and 3d models that woudl stay outside GitHub. However andything else, like code and text Hithub offers intersting features. -->
+Git was developed for software projects, where many people need to work on the same code without losing one another's changes. A project may have several contributors experimenting with alternative solutions, fixing problems or developing new features at the same time. Git records how the files change; GitHub provides a place to share those changes, compare alternatives and discuss which ones should become part of the main project.
 
-Imagine you are developing an urban research project. You collect references, make maps, keep notes on site visits, photograph interesting buildings and gradually refine your argument. Some material is written on your laptop, some on your phone and some with the help of an AI assistant. You may return to the same project months or years later.
+This was originally a tool for programmers, and its strengths still reflect that history. Git works best with **text-based files**, including code, notes, instructions and Markdown documents. It can show precisely which lines someone has changed. It is less suitable for large binary files, such as detailed 3D models, videos or extensive collections of high-resolution images. GitHub also imposes file-size limits: files over 50 MB trigger a warning, and files over 100 MB are blocked in ordinary Git repositories. For larger design assets, shared storage or other specialist systems are usually more appropriate.
 
-You could store everything in a series of documents and cloud folders. However, you may eventually want to answer harder questions: What changed since last week? Can I recover an earlier version? How do I keep the research organised without depending on a single writing app? How can another person contribute without overwriting my work?
+For architecture and urban design students, this distinction is useful. Renderings, large models and drawing packages need not be moved into GitHub. But scripts, research notes, tutorial instructions and the text surrounding a design project are good candidates. The [RC15 Resources library](https://github.com/PervasiveUrbanism/RC15-Resources) demonstrates this: its tutorials, code examples and links can be maintained and improved over time.
 
-Git is a system for recording the history of files. GitHub is an online service where Git repositories can be stored, shared and developed collaboratively. Although these tools were created around software development, they are also useful for writing, research and small collections of images. A Markdown note is an ordinary text file: it can outlive the application used to edit it.
-
-In this tutorial, we start with the existing **RC15 Resources** library, then create a personal repository, and finally work on the same material from an iPhone.
+The rise of large language models (LLMs) and AI-assisted coding makes this approach even more relevant. ChatGPT, Claude and other assistants can help develop and edit text or code, while Git lets you see what has changed, compare versions and keep control of the result. We will start by using the RC15 library, then create our own repository, and finally explore how the same workflow can be used away from a desktop computer.
 
 ### Learning outcomes
 
@@ -162,8 +160,9 @@ Do not worry about finding the perfect structure. Start small and rearrange it w
 
 Markdown is a lightweight way to structure plain text. A few characters indicate a title, heading, list, link or image. GitHub, VS Code, iA Writer and Obsidian can all work with Markdown, although they may display it differently.
 
-<!-- @ChatGPT: Please put in a link with the formatting rules -->
-<!-- @ChatGPT: I have heard that Google Docs does support mardkdown langnage. please fact check and mention it -->
+The [GitHub Markdown formatting guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) is a useful reference for headings, emphasis, links, lists, tables and images.
+
+Markdown is no longer limited to specialist writing applications. [Google Docs also supports Markdown](https://support.google.com/docs/answer/12014036): it can recognise selected Markdown syntax, paste or copy content as Markdown, and import and export `.md` files. Google also documents [opening and editing Markdown files in Docs without converting their file type](https://support.google.com/docs/answer/18289341). Not every Google Docs feature has a Markdown equivalent, however, so check formatting when moving a document between applications.
 
 Create a file called `public-space.md` inside your new repository:
 
@@ -271,11 +270,11 @@ Your repository does not have to live only on a computer. You might notice an in
 
 The applications have different jobs. **Working Copy** manages Git repositories on iOS; **iA Writer** is a focused editor for Markdown; Apple's **Files** app makes documents and images accessible between apps. GitHub remains the remote location that connects the phone and the computer.
 
-<!-- @ChatGPT: So the idea of a recipe book is not good. it takes too much space. as on possible example it's good, but just keep it as notebook. or as a means to write longer texts. 
-the entire iPhone chapter appreas a bit odd, it's not well frames. At the end of the day, you do not have to sit in front of you coputer, and there are ways to work from a mobile phone. here is the desciropt. 
-you cn say that large parts of the skills reosurecs and the tutors have been ai written. partly on a desktop compter, party (and mostyl) on the phone descibojg the tools below.
-Say that both are paid apps. 
--->
+You do not need to sit in front of a desktop computer to develop a text or code project. A phone is often a convenient place to discuss an idea with an AI assistant, refine a paragraph, or make a small correction while travelling. Much of the written material in RC15 Skills and Resources has been developed with AI assistance through conversations on both desktop and mobile, often on the phone. The important part is not the device, but the ability to return to the same project files and keep a reliable record of changes.
+
+Two apps make this practical on iPhone. **[Working Copy](https://workingcopy.app/)** gives you a local Git repository and handles synchronisation with GitHub. It is free to download, but pushing and several other features require a paid Pro unlock; eligible students can obtain Pro features through the [GitHub Student Developer Pack](https://workingcopy.app/education/). **[iA Writer](https://ia.net/writer)** is a focused Markdown editor and a paid app on iOS. These are the tools used in this example, not the only possible mobile workflow. They serve different purposes: Working Copy manages versions, while iA Writer provides a comfortable writing environment.
+
+A useful pattern is to discuss the structure of a tutorial with ChatGPT or Claude on your phone, open its Markdown file in iA Writer for careful editing, and use Working Copy to commit and push the result. You can continue the work later on a computer without having to reconstruct it from chat messages.
 
 ### Clone a repository in Working Copy
 
@@ -292,50 +291,20 @@ Write a short addition, then return to Working Copy and examine the changes. If 
 
 You can now commit the edit on your phone and push it to GitHub, just as you did on desktop. Some Working Copy operations may require a paid feature or an educational entitlement; check the current app terms rather than assuming every action is free.
 
-### Add a photograph
-
-<!-- @ChatGPT: Remove that chapter
--->
-
-Suppose you are collecting recipes. Photograph a meal with the iPhone camera. Save or share the image into an `images` folder inside your repository in Working Copy. Use a descriptive filename, such as `roast-chicken-01.jpg`. Create or edit a Markdown recipe:
-
-```markdown
-# Roast Chicken with White Wine
-
-![Roast chicken after cooking](images/roast-chicken-01.jpg)
-
-## Ingredients
-
-- Chicken
-- White wine
-- Potatoes
-- Herbs
-
-## Notes
-
-The chicken stayed juicy. Next time, reduce the salt
-in the sauce and roast the potatoes separately.
-```
-
-Check that the image path matches the real folder and filename, including capital letters. Both the Markdown file and photograph must be committed and pushed: adding the image to a note does not upload the underlying photo automatically.
-
-Keep images reasonably sized. Large collections of high-resolution photographs or videos are better managed outside a normal Git repository, with carefully maintained links where appropriate.
+A note can include links and small supporting images just as it would on a desktop. Keep photographs and other assets in the repository only when they are relevant and reasonably small; Git is not a substitute for a large media archive.
 
 ### Return to your computer
 
-After pushing from the iPhone, open the same personal repository in GitHub Desktop on your computer and **Fetch origin**, then **Pull origin**. The note and image should appear locally. Open the document in Obsidian or another editor and confirm that the photograph renders.
+After pushing from the iPhone, open the same personal repository in GitHub Desktop on your computer and **Fetch origin**, then **Pull origin**. The updated Markdown file should appear locally. Open it in Obsidian or another editor and confirm that the changes are present.
 
 Try the reverse direction too: edit on desktop, commit and push, then pull the latest changes in Working Copy before editing on your phone.
 
 
-### Exercise 3 — Collect something away from your desk
+### A mobile writing exercise
 
-<!-- @ChatGPT: Remove that chapter
--->
+Choose an existing short Markdown note or tutorial draft in your own repository. Pull the latest version in Working Copy, edit one paragraph through iA Writer and commit the change. Push it to GitHub, then pull the update on your computer. Check the Git history to confirm that it is the same document, rather than a second copy. If you used an AI assistant to develop the wording, keep only the changes you have reviewed.
 
-Create a new Markdown note on your iPhone. It could describe a public space, a building detail, a memorable café or something you cooked. Add one photograph, commit and push from Working Copy. Later, pull on your computer and expand the note. Make one further commit on desktop and retrieve it on your phone.
-
-The goal is not to build a complicated personal productivity system. It is to experience how the *same ordinary files* can be developed across different devices and applications.
+The point is to practise a flexible writing routine, not to build a separate mobile-only collection.
 
 ---
 
@@ -353,19 +322,19 @@ The goal is not to build a complicated personal productivity system. It is to ex
 | **My repository has become huge.** | Inspect imported photos, videos, generated outputs and data files. Git retains historical versions; simply deleting a large file later may not shrink the history. |
 | **The AI says it updated my repository, but I see no changes.** | Check whether the tool had real file access, whether it edited a local or remote copy, and whether a commit and push actually occurred. |
 
-## A sustainable working habit
+## Sustainable Git habits and iterative AI writing
 
-The simplest routine is also the most reliable: **pull before you begin on a different device; work in your preferred editor; review changes; commit with a useful message; push when you want the updated work available elsewhere.** When collaborating, communicate before making structural changes that may affect other contributors.
+A reliable Git routine is straightforward: **pull before beginning on another device; work in your preferred editor; review changes; commit with a meaningful message; and push when you want the updated work available elsewhere.** For shared repositories, discuss substantial restructuring before making changes that affect other contributors.
 
-GitHub provides version history and a place to share or synchronise a repository. Markdown keeps much of your writing readable without proprietary software. Applications such as Obsidian and iA Writer provide different ways to work with those files. AI can help develop the content, but responsibility for what is published remains yours.
+Writing with an LLM is similarly incremental. The first generated version is rarely the best one. A more effective method is to work through many small decisions and revisions, checking the result at each stage rather than asking an assistant to produce a polished final text immediately.
 
-<!-- @ChatGPT: Please explain that AI writing is an iterative process. The first version is never good. and through many litte steps the text is refned. This is called the incrementl develpment. 
-as for an example: it's alwyas good to start explaining and discussing the goal wit an LLM. then after the objective and the goal is defiend, you cans dicuss the table of contets, after tht the outline of ech chapter and finally at the very, very end the final text. Do not start with the final text... that never works... 
+For example, begin by **discussing the purpose and audience** of a tutorial. What should the reader understand or be able to do? Once that is clear, agree on the **table of contents** and the sequence of ideas. Then develop an **outline for each chapter**, deciding where explanations, exercises and screenshots belong. Only after this structure has been tested should you begin writing the full text. Read it critically, improve examples, remove repetition and correct technical mistakes over several iterations.
 
- change the title mention something with ai writing habits 
--->
+Git helps make that process visible. You can commit a first outline, then a developed chapter, then a set of editorial corrections. The history shows how the document evolved, and it offers a way to recover earlier wording if an AI-assisted rewrite moves in the wrong direction. An HTML comment inside a Markdown file can also leave a precise instruction for the next revision, provided the AI is actually given access to that comment.
 
-The point is not to use every tool mentioned here. It is to understand the underlying system well enough to choose your own workflow.
+The aim is not to delegate authorship to a machine. It is to use conversation, drafting and version control to develop an argument while retaining editorial judgement. The same principle applies to coding: establish what the project is meant to achieve, divide the problem into manageable pieces, and test each change before moving on.
+
+The wider value of GitHub lies in that combination of **portable files, recorded revisions and deliberate collaboration**. You can use different editors and different devices without losing sight of the development of your work.
 
 ## Further reading and official documentation
 
