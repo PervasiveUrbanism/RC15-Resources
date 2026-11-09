@@ -6,7 +6,7 @@
 
 **Level:** Beginner, with optional intermediate sections  
 **Time:** Approximately 2–3 hours to explore the chapters and two exercises; further exploration is open-ended  
-**Software:** A GitHub account, [GitHub Desktop](https://desktop.github.com/) (Windows or macOS); for later chapters, a text editor, optionally [Obsidian](https://obsidian.md/), [Working Copy](https://workingcopy.app/) and [iA Writer](https://ia.net/writer) (iPhone/iPad), and optionally ChatGPT or Claude  
+**Software:** A GitHub account and [GitHub Desktop](https://desktop.github.com/) (Windows or macOS); later chapters use [Obsidian](https://obsidian.md/) for Markdown editing and [Working Copy](https://workingcopy.app/) for Git on iPhone/iPad. [iA Writer](https://ia.net/writer) is an optional paid alternative. ChatGPT or Claude can assist with writing.  
 **Prerequisites:** Basic experience with files and folders; no programming or command-line knowledge required  
 **Teaching context:** RC15 – Pervasive Urbanism, Bartlett School of Architecture, UCL. Permanent resource, not tied to a particular teaching year  
 **Author:** RC15 Resources teaching team  
@@ -273,34 +273,33 @@ The outcome should be a small, readable collection that is yours to develop, rat
 
 You do not need to sit in front of a desktop computer to develop a text or code project. A phone can be a convenient place to discuss an idea with an AI assistant, refine a paragraph or correct a tutorial while travelling. Much of the written material in RC15 Skills and Resources has been developed with AI assistance, partly on desktop and often on the phone. The important thing is to keep working on the same files rather than leaving successive drafts scattered between applications and chat conversations.
 
-Two apps make this practical on iPhone. **[Working Copy](https://workingcopy.app/)** gives you a local Git repository and handles synchronisation with GitHub. It is free to download, but pushing and several other features require a paid Pro unlock; eligible students can obtain Pro features through the [GitHub Student Developer Pack](https://workingcopy.app/education/). **[iA Writer](https://ia.net/writer)** is a focused Markdown editor and a paid app on iOS. These are the tools used in this example, not the only possible mobile workflow. They serve different purposes: Working Copy manages versions, while iA Writer provides a comfortable writing environment.
+Two apps make this possible. **[Obsidian](https://obsidian.md/)** is a free Markdown editor for personal use on iPhone as well as desktop. Its *Live Preview* lets you edit text with much of the formatting visible, avoiding repeated switches between separate source and preview screens. **[Working Copy](https://workingcopy.app/)** is the Git client: it connects your local files to GitHub and handles commits, pulls and pushes. Working Copy is free to download, but pushing and certain other functions require a paid Pro unlock; eligible students may obtain Pro access through the [GitHub Student Developer Pack](https://workingcopy.app/education/).
 
-<!—@ChatGPT:  so I now have obsidian and working copy on my phone. It works. My first impression is that the editing is better than IA writer. So change the tutorial in description working copy and obsidian. Only as paid alternative ia writer.—> 
+These apps complement one another. Obsidian handles the writing and navigation; Working Copy manages versions and synchronisation. **[iA Writer](https://ia.net/writer)** is another Markdown editor available as a paid alternative, but it is not required for this tutorial.
 
-A useful pattern is to discuss the structure of a tutorial with ChatGPT or Claude on your phone, open its Markdown file in iA Writer for careful editing, and use Working Copy to commit and push the result. You can continue the work later on a computer without having to reconstruct it from chat messages.
+A useful routine is to discuss the structure of a tutorial with ChatGPT or Claude on your phone, develop the Markdown in Obsidian, then review and commit the changes in Working Copy. The same repository can be continued later on your computer without reconstructing earlier drafts from chat messages.
 
-### Clone a repository in Working Copy
+### Connect Working Copy and Obsidian
 
-Install [Working Copy](https://workingcopy.app/) and sign in or authorise access to GitHub. Clone your *own* private repository using its URL or the repository picker. Make sure you can see its folders and README.
+Install both applications and authorise Working Copy to access your GitHub account. In Obsidian, create an **empty local vault** on your iPhone rather than placing it in iCloud Drive. A *vault* is simply the folder in which Obsidian keeps your Markdown files.
 
-Working Copy integrates with the iOS Files app. If its location is not shown, open Files → Browse, use the options menu to edit locations and enable Working Copy. The exact labels can vary with iOS version.
+In Working Copy, clone your own repository from GitHub, then link the repository with the local Obsidian vault folder. Working Copy's **external directory** linking can connect a Git repository to a folder managed by another application; the precise menu names can vary between versions. Follow the [Working Copy user guide](https://workingcopy.app/manual.html) and [Obsidian's Working Copy guidance](https://obsidian.md/help/sync-notes) for the current setup. Check that an existing Markdown note from the repository appears in Obsidian before proceeding.
 
+It is important to work with **one linked set of files**, not separate copies of the repository in each application. If edits appear in Obsidian but not in Working Copy, check that you linked the correct vault folder. Avoid enabling several independent synchronisation services for the same vault, as that can create conflicting versions.
 
-### Write in iA Writer
+### Write in Obsidian
 
-In iA Writer, use its file browser or the Files document picker to open a Markdown file from the Working Copy location, **editing the original file in place** where supported. This avoids maintaining a separate copy that never reaches the Git repository.
+Open a Markdown document in the linked vault and enable **Live Preview** if necessary. Edit a paragraph, follow links between notes or add a heading. You can continue working on the phone even when a long document would be inconvenient to handle in a chat window.
 
-Write a short addition, then return to Working Copy and examine the changes. If they do not appear, confirm that the editor really saved back into Working Copy rather than another location; you may need to use Share or Save to Working Copy depending on the app and version.
+Return to Working Copy and inspect its changes. Commit with a descriptive message and **Push** to GitHub. Before starting a new editing session on the phone, **Pull** any changes made on another device. Obsidian does not itself push Git commits: Working Copy is responsible for that part of the workflow.
 
-You can now commit the edit on your phone and push it to GitHub, just as you did on desktop. As explained above, pushing to a remote repository requires Working Copy Pro or an eligible educational entitlement.
-
-A note can include links and small supporting images just as it would on a desktop. Keep photographs and other assets in the repository only when they are relevant and reasonably small; Git is not a substitute for a large media archive.
+Small supporting images can live alongside your Markdown where useful, but Git repositories are not intended to become large photograph archives.
 
 ### Return to your computer
 
-After pushing from the iPhone, open the same personal repository in GitHub Desktop on your computer and **Fetch origin**, then **Pull origin**. The updated Markdown file should appear locally. Open it in Obsidian or another editor and confirm that the changes are present.
+After pushing from the iPhone, open the same repository in GitHub Desktop on your computer and select **Fetch origin**, then **Pull origin**. The updated Markdown file should appear locally. Open it in Obsidian or another editor to confirm the changes are present.
 
-Try the reverse direction too: edit on desktop, commit and push, then pull the latest changes in Working Copy before editing on your phone.
+Try the reverse direction too: edit in Obsidian on your desktop, commit and push with GitHub Desktop, then pull the latest changes in Working Copy before reopening the note on your phone.
 
 
 
