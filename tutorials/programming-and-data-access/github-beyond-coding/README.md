@@ -26,6 +26,8 @@ The rise of large language models (LLMs) and AI-assisted coding makes this appro
 
 There is a natural fit between well-organised repositories and many LLM-assisted workflows. When an assistant has authorised access to a project's files, its folder structure, README and individual text documents give it useful context: it can find the relevant material, propose focused edits and compare revisions. The organisation does not guarantee accurate results, and the assistant cannot read a private repository unless access has actually been granted.
 
+<!-- @ChatGPT:  that last phrase i have not understood. what is the meaning of all this? i tend to delete the last phrase--> 
+
 GitHub can also do more than display code and Markdown. With [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages), a repository can publish a static website using HTML, CSS and JavaScript, or a site generated from Markdown. This offers more control over layout and presentation than GitHub's standard README view. Pages is designed for static sites rather than hosting a full server-side application, and publishing a site may make its contents public even when the source repository is private. For now, RC15 Resources uses its illustrated README as the library's entry point; a separate website is an option for the future.
 
 ### Learning outcomes
@@ -128,13 +130,15 @@ A **fork** is your own GitHub-hosted copy of another repository. A **branch** is
 
 Clone RC15 Resources using GitHub Desktop. Open the folder in your file manager, locate a tutorial's `README.md` and open it in a text editor. Return to GitHub Desktop and locate the repository history. Try **Fetch origin** to check whether there are updates; use **Pull origin** if updates are available. You do not need to change or commit anything in the shared library.
 
+<!-- @ChatGPT:  please mention also the skills repo that contains the example files too--> 
+
 To practise making a commit safely, wait until Chapter 2 and use a repository you own. The outcome of this first exercise is understanding how a public or shared teaching resource becomes a usable local library.
 
 ---
 
 ## 2. Your own repository: Markdown, Obsidian and AI
 
-GitHub becomes much more interesting when the collection belongs to you. A private repository might hold research notebooks, architectural precedents, travel observations, reading notes, recipes, photographs of memorable meals, or sketches for future projects. It can grow gradually without requiring you to choose one specialised app for all your material.
+GitHub becomes much more interesting when the collection belongs to you. A private repository might hold research notebooks, architectural precedents, travel observations, reading notes, recipes or sketches for future projects. It can grow gradually without requiring you to choose one specialised app for all your material.
 
 ### Create a personal private repository
 
@@ -158,9 +162,6 @@ personal-library/
 ```
 
 Do not worry about finding the perfect structure. Start small and rearrange it when you understand how you use the collection. Keep filenames descriptive and use consistent naming. Photos and other binary files can make a repository grow quickly, so avoid importing an entire camera library.
-
-> **Screenshot placeholder — `images/06-create-private-repository.png`**  
-> Show GitHub's new repository form, with name, Private visibility and README initialisation.
 
 ### Markdown: writing without committing to one application
 
