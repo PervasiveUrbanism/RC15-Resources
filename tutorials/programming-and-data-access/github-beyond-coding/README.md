@@ -275,6 +275,8 @@ You do not need to sit in front of a desktop computer to develop a text or code 
 
 Two apps make this practical on iPhone. **[Working Copy](https://workingcopy.app/)** gives you a local Git repository and handles synchronisation with GitHub. It is free to download, but pushing and several other features require a paid Pro unlock; eligible students can obtain Pro features through the [GitHub Student Developer Pack](https://workingcopy.app/education/). **[iA Writer](https://ia.net/writer)** is a focused Markdown editor and a paid app on iOS. These are the tools used in this example, not the only possible mobile workflow. They serve different purposes: Working Copy manages versions, while iA Writer provides a comfortable writing environment.
 
+<!—@ChatGPT:  so I now have obsidian and working copy on my phone. It works. My first impression is that the editing is better than IA writer. So change the tutorial in description working copy and obsidian. Only as paid alternative ia writer.—> 
+
 A useful pattern is to discuss the structure of a tutorial with ChatGPT or Claude on your phone, open its Markdown file in iA Writer for careful editing, and use Working Copy to commit and push the result. You can continue the work later on a computer without having to reconstruct it from chat messages.
 
 ### Clone a repository in Working Copy
