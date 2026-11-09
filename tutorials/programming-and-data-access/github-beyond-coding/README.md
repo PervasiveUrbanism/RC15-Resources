@@ -24,9 +24,7 @@ For architecture and urban design students, this distinction is useful. Renderin
 
 The rise of large language models (LLMs) and AI-assisted coding makes this approach even more relevant. ChatGPT, Claude and other assistants can help develop and edit text or code, while Git lets you see what has changed, compare versions and keep control of the result. We will start by using the RC15 library, then create our own repository, and finally explore how the same workflow can be used away from a desktop computer.
 
-There is a natural fit between well-organised repositories and many LLM-assisted workflows. When an assistant has authorised access to a project's files, its folder structure, README and individual text documents give it useful context: it can find the relevant material, propose focused edits and compare revisions. The organisation does not guarantee accurate results, and the assistant cannot read a private repository unless access has actually been granted.
-
-<!-- @ChatGPT:  that last phrase i have not understood. what is the meaning of all this? i tend to delete the last phrase--> 
+There is a natural fit between well-organised repositories and many LLM-assisted workflows. When an assistant has authorised access to a project's files, its folder structure, README and individual text documents give it useful context: it can find the relevant material, propose focused edits and compare revisions.
 
 GitHub can also do more than display code and Markdown. With [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages), a repository can publish a static website using HTML, CSS and JavaScript, or a site generated from Markdown. This offers more control over layout and presentation than GitHub's standard README view. Pages is designed for static sites rather than hosting a full server-side application, and publishing a site may make its contents public even when the source repository is private. For now, RC15 Resources uses its illustrated README as the library's entry point; a separate website is an option for the future.
 
@@ -130,7 +128,7 @@ A **fork** is your own GitHub-hosted copy of another repository. A **branch** is
 
 Clone RC15 Resources using GitHub Desktop. Open the folder in your file manager, locate a tutorial's `README.md` and open it in a text editor. Return to GitHub Desktop and locate the repository history. Try **Fetch origin** to check whether there are updates; use **Pull origin** if updates are available. You do not need to change or commit anything in the shared library.
 
-<!-- @ChatGPT:  please mention also the skills repo that contains the example files too--> 
+Also explore the [RC15 Skills repository for the current academic year](https://github.com/PervasiveUrbanism/PervasiveUrbanism_26-27). This contains teaching exercises and example files used during the course, whereas RC15 Resources collects tutorials and references intended to remain useful in future years. You can clone the Skills repository in exactly the same way to work with its examples.
 
 To practise making a commit safely, wait until Chapter 2 and use a repository you own. The outcome of this first exercise is understanding how a public or shared teaching resource becomes a usable local library.
 
