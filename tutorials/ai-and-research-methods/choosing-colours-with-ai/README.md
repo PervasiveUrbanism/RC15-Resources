@@ -14,6 +14,8 @@ Choosing one colour is easy. Choosing six that work together is not. A building 
 
 Designers have always relied on colour references, samples and repeated tests. AI makes the exploration quicker. We can ask for several alternatives, preserve colours we already like and adjust individual shades without having to start again. But the assistant cannot know whether a palette communicates our intention until we test it in the actual drawing.
 
+<!— @ChatGPT:  I do Not Like the last paragraph. It’s empty, doesn’t say much. It’s just sufficient to describe how difficult it is to find color combinations and how time intensive it is to get the right color. Last but not least, the effect of color can seriously ruin a good piece of work. It has really something to do with experience too. So the time intensive search for the right color combinations and the relative risk of getting it all wrong, has let to a very restraied color palette over the years. Somewhat it seems that AI can change that! —> 
+
 <!-- Illustration pending: One colour seen against contrasting backgrounds. Expected file: images/01-colour-in-context.png -->
 
 *Illustration to add: the same swatch against two different backgrounds.*
@@ -34,6 +36,21 @@ Different purposes call for different approaches.
 A little vocabulary helps. **RGB** records red, green and blue values for screen colour. **HEX** is a compact way of writing an RGB colour, such as `#A9B2A7`. **HSL** describes hue, saturation and lightness, making it useful when we want to ask for something warmer, lighter or less saturated. These are ways to describe colours; they do not tell us which combinations work best.
 
 <!-- Illustration pending: Analogous, complementary and triadic colour examples. Expected file: images/02-colour-relationships.png -->
+
+<!— @ChatGPT:  the sequencing is odd. Please explain the different strategies of choosing a color. It is correct to start with the question of the purpose or the story. This already defines a lot: not context and purpose define your strateg. There are instances where highly unusual color combinations just don’t work and there are instances where tried and tested combinations are incredibly boring 
+
+Please explain each row of the table, expand with examples.
+
+Offer links: https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3
+That is good for maps that are very visible, colourblind can read it. You can print them in greyscale on a bad printer and still recongnise the color differences
+
+Talk about: [https://color.adobe.com](https://color.adobe.com/)
+
+And maybe research and introduce a few more. 
+
+Only after that we can talk about wada
+
+—> 
 
 ## 2. An alternative to colour wheels: Sanzo Wada
 
@@ -63,6 +80,7 @@ You can use the same idea in your own work:
 
 This is more helpful than simply asking AI to “make my map look better”.
 
+<!— @ChatGPT:  this chapter is too long. Can you please pull in the images we did?  Just as a rundown of options before comitting —> 
 ## 3. Make your own ChatGPT colour assistant
 
 We often repeat the same kind of conversation: choose a palette, request HEX values, compare alternatives, then ask for a warmer or quieter version. A small specialised assistant can make this process more convenient.
@@ -95,7 +113,11 @@ Compare the results at the same scale. What do you notice first? Do streets comp
 
 Choose the strongest option and refine **one colour at a time**. Record the final values before applying them to the original drawing.
 
+<!— @ChatGPT:  remove that chapter we already did something similar in the wada chapter —> 
+
 ## 5. Exercise: abstract material colours in Rhino
+
+<!— @ChatGPT: this is good. But I don’t like the word abstract. The example of green concrete is not very successful. Just talk as an example, you want to get a reeasonabel color for a slate roof material. —> 
 
 Colour is also useful when nothing is being measured or classified. For a diagrammatic Rhino view, you may want concrete to feel like concrete without making every surface neutral grey. A little green, sand, blue or rose in the material colour can give a model a more deliberate visual identity.
 
@@ -113,7 +135,11 @@ AI is good at suggesting options, but it may forget constraints, change colours 
 
 Keep a record of the values you accept. Tell the assistant explicitly which colours are locked. Compare alternatives in context before making changes. For printed work, check a proof: RGB colours on screen do not necessarily match the printed result.
 
+<!— @ChatGPT: much words about nothing. A silimar excercise can also be done with fonts…—> 
+
 The same method also works for typography. A **font assistant** could help compare Adobe Fonts for headings, body text and captions, then show them in the same sample layout. The point is not to let AI make the final choice. It is to make comparison and iteration easier, so we can spend more time deciding what communicates well.
+
+<!— @ChatGPT:  explain a bit better sfel font assists….—> 
 
 ## References
 
