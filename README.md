@@ -52,6 +52,7 @@ Choose a topic below, then open a tutorial or example collection. Click a thumbn
 
 | Preview | Tutorial / collection | What you will find |
 | --- | --- | --- |
+| Text preview pending | [Choosing Colours with AI](tutorials/ai-and-research-methods/choosing-colours-with-ai/README.md) | Explore colour systems and Sanzo Wada, develop a ChatGPT colour assistant, and test palettes for urban maps and abstract Rhino materials. Draft; illustrations pending. |
 
 ### Geometry and modelling
 
