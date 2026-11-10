@@ -12,45 +12,41 @@
 
 Choosing one colour is easy. Choosing six that work together is not. A building might look clear against a white background but disappear once the streets and landscape are coloured. A promising set of swatches can turn into a confusing map.
 
-Designers have always relied on colour references, samples and repeated tests. AI makes the exploration quicker. We can ask for several alternatives, preserve colours we already like and adjust individual shades without having to start again. But the assistant cannot know whether a palette communicates our intention until we test it in the actual drawing.
-
-<!— @ChatGPT:  I do Not Like the last paragraph. It’s empty, doesn’t say much. It’s just sufficient to describe how difficult it is to find color combinations and how time intensive it is to get the right color. Last but not least, the effect of color can seriously ruin a good piece of work. It has really something to do with experience too. So the time intensive search for the right color combinations and the relative risk of getting it all wrong, has let to a very restraied color palette over the years. Somewhat it seems that AI can change that! —> 
+Finding the right combination can take hours of trial and error. It takes experience, too: a poor colour decision can undermine an otherwise convincing drawing. That risk often encourages us to stay with safe, restrained palettes. AI offers a way to explore more adventurous alternatives quickly, without committing to them before we have seen how they work.
 
 <!-- Illustration pending: One colour seen against contrasting backgrounds. Expected file: images/01-colour-in-context.png -->
 
 *Illustration to add: the same swatch against two different backgrounds.*
 
-## 1. Start with the purpose
+## 1. Different ways of choosing colours
 
-Before asking for colours, decide what they need to do. An urban map might need to distinguish different land uses. An architectural diagram might need to emphasise the proposed building while keeping the context quiet. A Rhino model might use deliberately abstract material colours to establish a coherent atmosphere.
+Start with the story. What should the viewer notice first? Is colour describing data, distinguishing the proposal from its surroundings, or creating an atmosphere? The answer helps determine the strategy. An unusual combination can be expressive in an illustration but confusing in a land-use map. Conversely, a perfectly safe palette may make an architectural presentation rather dull.
 
-Different purposes call for different approaches.
+### Colour harmony: building a coherent family
 
-| Approach | What it does | Try it for |
-| --- | --- | --- |
-| **Colour relationships** | Uses related or contrasting hues, such as analogous and complementary colours | Diagrams and graphic identities |
-| **Curated combinations** | Starts with a palette someone has carefully composed | Illustrations, publications and conceptual work |
-| **Data palettes** | Uses categorical, sequential or diverging scales to represent information | Land use, density and environmental maps |
-| **Contextual palettes** | Builds around colours or materials already present in a project | Existing/proposed drawings and Rhino materials |
+A colour wheel offers familiar starting points. **Analogous** colours sit near one another and can give a composition a calm, unified character. **Complementary** colours sit opposite each other and create strong contrast; a small complementary accent might help distinguish an intervention from its context. **Triadic** combinations use three separated hues, offering variety but requiring care so that everything does not compete for attention.
 
-A little vocabulary helps. **RGB** records red, green and blue values for screen colour. **HEX** is a compact way of writing an RGB colour, such as `#A9B2A7`. **HSL** describes hue, saturation and lightness, making it useful when we want to ask for something warmer, lighter or less saturated. These are ways to describe colours; they do not tell us which combinations work best.
+Try [Adobe Color](https://color.adobe.com/), where you can explore harmony rules, adjust individual colours and extract a theme from an image. For example, sample a photograph of weathered brick and greenery, then test whether those colours make a convincing graphic language for your drawings. An extracted palette is a starting point, not a design decision.
 
 <!-- Illustration pending: Analogous, complementary and triadic colour examples. Expected file: images/02-colour-relationships.png -->
 
-<!— @ChatGPT:  the sequencing is odd. Please explain the different strategies of choosing a color. It is correct to start with the question of the purpose or the story. This already defines a lot: not context and purpose define your strateg. There are instances where highly unusual color combinations just don’t work and there are instances where tried and tested combinations are incredibly boring 
+### Colour for information: helping people read maps
 
-Please explain each row of the table, expand with examples.
+When colour represents data, it has to communicate a precise relationship. A **categorical** palette distinguishes things without suggesting an order, such as residential, industrial and civic land uses. A **sequential** palette moves from light to dark for quantities such as density or building height. A **diverging** palette separates values on either side of a meaningful midpoint, such as temperature differences above and below an average.
 
-Offer links: https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3
-That is good for maps that are very visible, colourblind can read it. You can print them in greyscale on a bad printer and still recongnise the color differences
+[ColorBrewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3) is particularly helpful here. Select the number of classes, then try its **colourblind safe**, **print friendly** and **photocopy safe** filters. The three-class blue-green scheme is a useful demonstration of ordered differences, but do not assume every palette passes every filter: verify the specific scheme. Test it in greyscale and on an ordinary printer. Different hues alone may disappear; differences in lightness often survive.
 
-Talk about: [https://color.adobe.com](https://color.adobe.com/)
+For an additional check, [Viz Palette](https://projects.susielu.com/viz-palette) previews colour sets under simulations of colour-vision deficiencies. It is useful when you need several categories to remain distinguishable.
 
-And maybe research and introduce a few more. 
+### Contextual colour: working with what is already there
 
-Only after that we can talk about wada
+Sometimes you are not free to start from scratch. A project may already have a pale drawing background, a dominant building material or a colour that identifies an intervention. Treat those as fixed anchors and search for compatible supporting colours. The result may deliberately be restrained, with a single accent carrying the most important information.
 
-—> 
+### Curated combinations: looking beyond the expected
+
+Not every palette has to be derived from a wheel or a data scale. Historical colour collections offer combinations that have already been carefully considered. They can be especially useful for architectural illustrations, publications and drawings where visual character matters. Sanzo Wada's collection, which we explore next, is a good example.
+
+Whatever the approach, keep a record of your final values. **HEX** is a compact way to specify screen colours, such as `#A9B2A7`; **RGB** lists their red, green and blue components. **HSL** describes hue, saturation and lightness, useful when asking for a colour to be slightly warmer, quieter or lighter. These describe colours; they do not judge whether a combination is suitable.
 
 ## 2. An alternative to colour wheels: Sanzo Wada
 
@@ -62,25 +58,20 @@ Explore the free [Dictionary of Color Combinations](https://colorcombinations.or
 
 *Illustration to add: a few accurately sourced combinations, redrawn with attribution.*
 
-### A real colour test: keep the pink sea
+### A colour test before committing
 
-In an earlier colour experiment, we used Wada's combinations to reconsider the colours in an architectural map. **The sea was already pink, and that colour needed to stay.** The problem was the colours of the buildings and other elements around it.
-
-We explored further combinations, but some suggestions introduced colours that were not part of the selected reference. At one point, blue appeared even though the instruction was to stay strictly within the chosen palette. This is a revealing AI failure: the new colours might be attractive, but the assistant has ignored the design brief.
-
-The better workflow was to fix the sea colour first, find compatible Wada combinations and change only the remaining categories. More options were useful, but only when they respected the constraint.
+In an earlier experiment, we tested Wada combinations on an architectural map while preserving its **pink sea**. Several alternatives were explored for the buildings and ground. Some looked promising, but others introduced colours outside the chosen palette, including blue. This made the exercise useful: AI can show options quickly, yet still fail to respect a simple constraint.
 
 <!-- Illustration pending: Original map and Wada colour variations with the pink sea preserved. Expected file: images/04-wada-pink-sea-test.png -->
 
-*Image needed: recover the original September 2026 map tests. Do not reconstruct the palette or invent its exact HEX values. Show the initial scheme, an unsuitable alternative and a corrected one if those images are available.*
+*Add the original September 2026 comparison images here when recovered. The images and exact HEX values are not currently available; do not invent them.*
 
-You can use the same idea in your own work:
+Try the same approach with a map of your own. Keep the geometry and legend unchanged, specify any fixed colours, and ask for three distinct palettes. Compare them side by side **before** applying one. Which option gives the intended hierarchy? Does the background compete with the subject? Can you still understand it in greyscale?
 
-> I already have a pink sea and want to keep its exact colour. Find Wada combinations that work with it. Suggest alternatives for buildings, ground and connections, but don't introduce colours outside the chosen combination. Show me the options before I change the drawing.
+> Keep the sea exactly as it is. Using the selected Wada combination, suggest three variations for the buildings and ground. Do not add colours outside that combination. Show the colours and their HEX values first; do not edit the drawing.
 
-This is more helpful than simply asking AI to “make my map look better”.
+The goal is not to get AI to approve a palette, but to use it to broaden the possibilities and then make a considered choice.
 
-<!— @ChatGPT:  this chapter is too long. Can you please pull in the images we did?  Just as a rundown of options before comitting —> 
 ## 3. Make your own ChatGPT colour assistant
 
 We often repeat the same kind of conversation: choose a palette, request HEX values, compare alternatives, then ask for a warmer or quieter version. A small specialised assistant can make this process more convenient.
@@ -97,49 +88,21 @@ Even in a normal ChatGPT conversation, this gives you a useful starting point. T
 
 *Screenshot needed: use the actual plugin interface and verify its construction steps before publishing instructions.*
 
-## 4. Exercise: compare three versions of an urban map
+## 4. Choosing material colours in Rhino
 
-Choose a map with buildings, streets, landscape and one important feature you want to emphasise. Keep the geometry, line weights and legend fixed. We want to see what changing **only the colours** achieves.
+Colour also matters when choosing materials in Rhino. Suppose you need a convincing colour for a **slate roof** in a diagrammatic model. Pure black makes the roof look flat; a neutral mid-grey can feel lifeless. Real slate varies, with cool blue-grey, warmer charcoal and sometimes subtle green or violet undertones. We can compare these directions without trying to reproduce every physical detail.
 
-<!-- Illustration pending: Reference urban map before colour testing. Expected file: images/06-urban-map-original.png -->
+> I need a colour for a slate roof in Rhino. Give me four plausible, restrained alternatives, from blue-grey to warm charcoal, with HEX and RGB values. Keep them suitable for a diagrammatic architectural view and suggest which works best with pale stone façades.
 
-Ask the assistant for three directions: a restrained analytical palette, a Wada-based combination and a contextual architectural palette. Give it the precise categories and tell it which existing colours must remain unchanged.
+<!-- Illustration pending: Slate roof material colour comparisons in Rhino. Expected file: images/08-rhino-slate-variations.png -->
 
-> Here is my urban map. Existing buildings should be quiet; the proposal should stand out. Suggest three different palettes, with HEX values for every category. Keep the geometry and colour assignments consistent so I can compare them fairly. Don't apply changes yet.
+Apply the colours to the **same model**, keeping camera, lighting and display mode fixed. The best swatch may not be the best-looking roof. Lighting, reflectivity and roughness affect how the colour appears, so refine it in context.
 
-<!-- Illustration pending: Three colour variations of the same urban map. Expected file: images/07-urban-map-three-tests.png -->
+## 5. Beyond colour: choosing fonts
 
-Compare the results at the same scale. What do you notice first? Do streets compete with the proposal? Do neighbouring categories remain distinct? Try looking at the maps in greyscale, and check important differences for colour-vision accessibility. A pleasing palette is not necessarily a legible one.
+The same workflow can help with typography. Instead of asking for a “nice font”, tell ChatGPT what the publication is for, what tone you want and which fonts are available to you. For example, ask it to compare three **Adobe Fonts** combinations for an architectural submission: one font for page titles, one for chapter headings and one for body text and captions.
 
-Choose the strongest option and refine **one colour at a time**. Record the final values before applying them to the original drawing.
-
-<!— @ChatGPT:  remove that chapter we already did something similar in the wada chapter —> 
-
-## 5. Exercise: abstract material colours in Rhino
-
-<!— @ChatGPT: this is good. But I don’t like the word abstract. The example of green concrete is not very successful. Just talk as an example, you want to get a reeasonabel color for a slate roof material. —> 
-
-Colour is also useful when nothing is being measured or classified. For a diagrammatic Rhino view, you may want concrete to feel like concrete without making every surface neutral grey. A little green, sand, blue or rose in the material colour can give a model a more deliberate visual identity.
-
-Try asking:
-
-> Suggest four muted concrete colours for a diagrammatic Rhino model: warm, green-grey, blue-grey and rose-grey. Keep them fairly close in lightness. Add compatible colours for paving and painted metal, and give me HEX and RGB values.
-
-<!-- Illustration pending: One Rhino model with four abstract concrete palettes. Expected file: images/08-rhino-concrete-variations.png -->
-
-Test the alternatives using the **same camera, lighting and display mode**. Material appearance depends on reflections, roughness and illumination as well as the colour value. Adjust the palette while looking at the actual model, not only the swatches.
-
-## 6. What can go wrong?
-
-AI is good at suggesting options, but it may forget constraints, change colours you wanted to preserve, introduce too many strong accents or recommend a palette that only looks good as swatches. A Wada combination may have a beautiful mood and still be unsuitable for a data map.
-
-Keep a record of the values you accept. Tell the assistant explicitly which colours are locked. Compare alternatives in context before making changes. For printed work, check a proof: RGB colours on screen do not necessarily match the printed result.
-
-<!— @ChatGPT: much words about nothing. A silimar excercise can also be done with fonts…—> 
-
-The same method also works for typography. A **font assistant** could help compare Adobe Fonts for headings, body text and captions, then show them in the same sample layout. The point is not to let AI make the final choice. It is to make comparison and iteration easier, so we can spend more time deciding what communicates well.
-
-<!— @ChatGPT:  explain a bit better sfel font assists….—> 
+Ask for a sample hierarchy with actual text, rather than just a list of font names. Compare the combinations on the same page. Do the headings establish a clear order? Is the body text comfortable to read? Are the captions still legible at print size? As with colour, the assistant helps narrow the search, but the decision is made by looking at the result.
 
 ## References
 
@@ -155,6 +118,6 @@ The same method also works for typography. A **font assistant** could help compa
 
 - [ ] Recover the original **27 September 2026** pink-sea Wada tests, including original images and exact palette/HEX values where available. The conversation establishes the constraints, but not the full source image or colour table.
 - [ ] Inspect the actual Colour Palette Assistant and explain its real creation process.
-- [ ] Capture illustrations using the eight filenames given above.
-- [ ] Test the map and Rhino exercises on real source material.
+- [ ] Capture the remaining illustrations; update the slate material image filename to `images/08-rhino-slate-variations.png`.
+- [ ] Test the Wada comparison and slate material exercise on real source material.
 - [ ] Create a round tutorial icon to replace the text-only navigation entry.
