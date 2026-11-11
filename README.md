@@ -4,6 +4,8 @@ An evolving library of tutorials, example projects and workflows for **RC15 - Pe
 
 Resources are organised by topic. Software indexes offer another way to find the same material.
 
+Contributing a tutorial? Follow the [Editorial Guidelines](EDITORIAL_GUIDELINES.md) for writing, structure and review.
+
 ## Browse by topic
 
 Choose a topic below, then open a tutorial or example collection. Click a thumbnail or title to start. Project images and notebook plots provide visual references; labelled workflow diagrams identify resources that do not yet have a suitable preview image.
