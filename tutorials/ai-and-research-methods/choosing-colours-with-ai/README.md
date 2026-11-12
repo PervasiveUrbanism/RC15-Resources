@@ -32,6 +32,12 @@ Start with the purpose of your drawing. A land-use map needs clear distinctions.
 
 [ColorBrewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3) is a useful reference. It offers palettes for each purpose, with filters for colour-vision accessibility, printing and photocopying. Compare a few schemes in greyscale: colours that look distinct on screen may become indistinguishable on a poor printer. [Viz Palette](https://projects.susielu.com/viz-palette) can help you check how categorical colours appear under different colour-vision simulations.
 
+**Colour can also represent time.** For diagrams of the sun's path or changing daylight conditions, a blue–white–orange gradient offers a simple way to read the progression of a day: cool blue for morning, near-white for midday and warm orange for afternoon. Rather than distinguishing separate categories, the gradual change suggests a continuous sequence.
+
+This is a graphic convention, **not a literal scale of sunlight's colour temperature**. Low sunlight near sunrise is often warmer, not bluer, than midday daylight. The gradient is useful as a diagrammatic language, provided its meaning is made clear with labels.
+
+<!-- Add supplied illustration after uploading images/06-colour-and-time.png to this folder. -->
+
 Sometimes a project already has colours that must stay. A proposed building might have a distinctive accent, or a landscape drawing might use an established background colour. In that case, **start with those colours** and find supporting shades rather than replacing everything.
 
 Finally, there are **curated collections**: combinations developed through artistic judgement rather than a formula. They are especially useful when you want a drawing to have a particular character. One of our favourites comes from Japan.
