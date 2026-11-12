@@ -13,7 +13,7 @@ Imagine photographing a public square and asking a computer to distinguish the s
 
 The aim here is not to copy a finished application or train an AI model. You will use **Codex**, an AI coding agent, to help you build a small Python tool of your own. You decide what the tool should do, test it with photographs and refine the results.
 
-<!-- Screenshot to add: a copyright-cleared photograph of a public space beside its colour-coded segmentation; use the same image in both panels. File: images/01-photo-and-segmentation.png -->
+![A public-space photograph beside its semantic segmentation map](images/01-photo-and-segmentation.png)
 
 ## 1. What does image segmentation do?
 
@@ -37,7 +37,7 @@ Read Codex's plan before accepting it. You should be able to answer three questi
 
 A model hosted on Hugging Face may download to your computer on its first run. The model card also tells you about intended uses, limitations and licence conditions. **Being downloadable does not automatically mean unrestricted use.**
 
-<!-- Screenshot to add: Codex with the opening prompt and the proposed project files visible; use a new, generic example project. File: images/02-codex-building-the-tool.png -->
+![Codex developing an image segmentation application](images/02-codex-building-the-tool.png)
 
 ## 3. Run your first segmentation
 
@@ -45,7 +45,7 @@ Ask Codex to show you how to run the application. It may set up a **virtual envi
 
 When the local interface opens in your browser, upload a photograph that you have permission to use. A landscape, park or street with clearly distinguishable elements is a useful starting point. Run the segmentation and compare the two images side by side.
 
-<!-- Screenshot to add: local application showing photograph, segmentation preview and download control. Use a generic interface and an independently sourced image. File: images/03-segmentation-interface.png -->
+![A local interface showing the original photograph and segmentation output](images/03-segmentation-interface.png)
 
 Look closely at the boundaries. Are trees distinct from the sky? What happens to a person partly hidden by a bicycle? Does the model recognise a narrow path? The display may look convincing from a distance, but small details are often where problems become visible.
 
@@ -61,7 +61,7 @@ For the next iteration, ask Codex to export **binary masks**: one black-and-whit
 
 > Add an option to download a black-and-white mask for each category, as individual PNGs or one ZIP. Use white for pixels in that category and black for all other pixels. Explain how I can check that the masks align exactly with the original image.
 
-<!-- Screenshot to add: segmentation preview with three of its separate black-and-white category masks; use a generic photograph. File: images/04-category-masks.png -->
+![Category masks extracted from a segmented image](images/04-category-masks.png)
 
 Try three images with different conditions: a clear daytime landscape, a crowded street and an image with shadows or unusual lighting. Compare the results rather than treating the first successful run as proof that the tool works. Ask Codex how to verify image dimensions and exact mask values, but **inspect the output yourself**. A working interface is not the same as a reliable classification.
 
@@ -82,7 +82,7 @@ Image segmentation is one example of a wider approach: find a suitable **pretrai
 | [Speech recognition](https://huggingface.co/models?pipeline_tag=automatic-speech-recognition) | A text transcription of recorded speech | How can interviews be searched and compared? |
 | [Text classification and sentiment analysis](https://huggingface.co/models?pipeline_tag=text-classification) | Labels or scores assigned to text | How do written descriptions of a place differ across sources? |
 
-<!-- Illustration to add: small comparative panel showing pose keypoints, a depth map, an audio classification and text sentiment output; examples must be independently sourced or generated with permission. File: images/05-beyond-segmentation.png -->
+![Examples of other pretrained AI analysis techniques](images/05-beyond-segmentation.png)
 
 These are **different analysis tasks**, not additional features of the same segmentation algorithm. A pose model can estimate body joints, but a 2D skeleton is not automatically an accurate 3D reconstruction. A depth map is not a measured survey. Likewise, sentiment labels depend on the model, language and context; they are not direct measurements of how someone feels. For recording people or analysing their speech, consider consent, privacy and data protection before collecting material.
 
@@ -102,4 +102,4 @@ You do not need to understand every line of generated Python on day one. You do 
 
 ---
 
-<!-- Editorial checklist: Add and check five independently cleared screenshots/illustrations using the filenames above; verify all links and software instructions in a fresh environment; create a round icon for the main table of contents. No application source is distributed with this tutorial. -->
+<!-- Editorial checklist: Check image rights and illustration accuracy; verify software steps in a fresh environment. No application source is distributed with this tutorial. -->
