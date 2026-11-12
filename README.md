@@ -55,6 +55,7 @@ Choose a topic below, then open a tutorial or example collection. Click a thumbn
 | Preview | Tutorial / collection | What you will find |
 | --- | --- | --- |
 | Text preview pending | [Choosing Colours with AI](tutorials/ai-and-research-methods/choosing-colours-with-ai/README.md) | Explore colour systems and Sanzo Wada, develop a ChatGPT colour assistant, and test palettes for urban maps and abstract Rhino materials. Draft; illustrations pending. |
+| Screenshots pending | [Image Segmentation with AI: Build Your Own Tool with Codex](tutorials/ai-and-research-methods/image-segmentation-with-codex/README.md) | Create and refine an image-segmentation tool through Codex prompts, then explore pretrained pose, depth, audio and text models. Tutorial; screenshots pending. |
 
 ### Geometry and modelling
 
