@@ -8,3 +8,4 @@
 
 - [File Access in Google Colab](../tutorials/programming-and-data-access/file-access-in-google-colab/README.md)
 - [Python Functions and Modules](../tutorials/programming-and-data-access/modularise-the-code/README.md) — revision pending
+- [Image Segmentation with AI: Build Your Own Tool with Codex](../tutorials/ai-and-research-methods/image-segmentation-with-codex/README.md) — Build and assess a simple Python application with an AI coding agent.
