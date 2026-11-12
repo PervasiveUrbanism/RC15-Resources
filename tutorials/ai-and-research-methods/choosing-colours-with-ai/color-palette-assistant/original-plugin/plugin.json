@@ -1,0 +1,30 @@
+{
+  "author": {
+    "name": "Vincent Nowak"
+  },
+  "description": "Generates precise HEX palettes from fills, lines, and materials.",
+  "name": "gpt-498e7fcde3b960ff599837532c1c3c06",
+  "version": "0.6.4",
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "skills"
+        ],
+        "category": "Creativity",
+        "composerIcon": "./assets/gpt-icon.png",
+        "defaultPrompt": [
+          "Create fill and line colors from this hex #A47C48",
+          "Give me 5 oak shades for diagrams",
+          "Make a lighter and brighter palette from this color"
+        ],
+        "developerName": "Vincent Nowak",
+        "displayName": "Color Palette Assistant",
+        "logo": "./assets/gpt-icon.png",
+        "longDescription": "Generates precise HEX palettes from fills, lines, and materials.",
+        "shortDescription": "Four moods for color design"
+      }
+    }
+  }
+}

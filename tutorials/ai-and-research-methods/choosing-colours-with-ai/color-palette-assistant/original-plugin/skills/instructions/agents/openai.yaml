@@ -1,0 +1,4 @@
+interface:
+  default_prompt: 'Create fill and line colors from this hex #A47C48'
+  display_name: Color Palette Assistant
+  short_description: Generates precise HEX palettes from fills, lines, and materials.

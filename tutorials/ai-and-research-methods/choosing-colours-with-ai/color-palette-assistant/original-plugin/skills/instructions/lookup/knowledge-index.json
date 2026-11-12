@@ -1,0 +1,24 @@
+{
+  "files": [
+    {
+      "name": "architectural_color_palette.json",
+      "path": "references/architectural_color_palette.json"
+    },
+    {
+      "name": "architectural-palette-reconstructed.json",
+      "path": "references/architectural-palette-reconstructed.json"
+    },
+    {
+      "name": "sanzo-wada-348-color-dictionary.json",
+      "path": "references/sanzo-wada-348-color-dictionary.json"
+    },
+    {
+      "name": "warm-earth-color-palette.json",
+      "path": "references/warm-earth-color-palette.json"
+    },
+    {
+      "name": "color-moods.md",
+      "path": "references/color-moods.md"
+    }
+  ]
+}

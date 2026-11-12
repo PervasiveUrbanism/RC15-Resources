@@ -70,6 +70,13 @@ When designing an assistant of your own, start with a short specification rather
 
 You can test this instruction in ChatGPT first. Building a dedicated plugin adds a more convenient interface, but it also requires deciding what the tool should display and how it should handle revisions.
 
+<!-- @ChatGPT: RC15-Resources\tutorials\ai-and-research-methods\choosing-colours-with-ai\color-palette-assistant
+
+here is the export of the plug in as well as the colors as json files. Obovoly free ti use, but more importantky to adapt and adjust forn your case!
+
+Please explain a bit better how to make usefo these files ... 
+-->
+
 <!-- Illustration pending: screenshot of the actual Colour Palette Assistant. File: images/05-colour-plugin-interface.png -->
 
 <!-- Editorial note: add verified steps from the actual plugin project before presenting a build walkthrough. Its source has not yet been inspected. -->
@@ -107,4 +114,4 @@ The wider lesson is simple: AI helps us try more possibilities without committin
 
 ---
 
-<!-- Editorial checklist: recover the original September 2026 Wada comparisons and exact values; inspect and document the actual Colour Palette Assistant; add illustrations using the filenames above; test the Rhino slate example; create a round icon for the main table of contents. Do not publish invented screenshots or colour values. -->
+

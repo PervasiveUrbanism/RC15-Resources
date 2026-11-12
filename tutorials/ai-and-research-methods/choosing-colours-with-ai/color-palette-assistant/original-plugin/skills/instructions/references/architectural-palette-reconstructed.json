@@ -1,0 +1,800 @@
+{
+  "schema_version": "1.0.0",
+  "name": "Architectural Palette - Screenshot Reconstruction",
+  "source": {
+    "type": "user_supplied_screenshot",
+    "filename": "codex-clipboard-423d1147-1fd2-48dc-a055-2313d59ecd48.png",
+    "method": "Transcribed visible HEX labels; RGB calculated directly from HEX.",
+    "coverage": "Transcribed 50 visible solid fills and 19 visible lines, then removed repeated HEX values within each group. Retained 43 distinct fills and 16 distinct lines (58 unique HEX values across both groups). Content outside the screenshot is unknown."
+  },
+  "reference_rules": [
+    "HEX and RGB are authoritative; do not substitute sampled swatch colors.",
+    "Deduplicate by written HEX value within each role, retaining the first occurrence in source order. A color may belong to both fills and lines. Row and column retain the original one-based screenshot positions.",
+    "The screenshot provides no color names, material labels, collection identity, or explicit fill-to-line pairings. Do not infer these as source facts.",
+    "Do not identify this library as Core Architectural Palette or Al Ula Colors without user confirmation.",
+    "Generated variants, names, accents, and fill-to-line matches must be distinguished from these reference entries."
+  ],
+  "palettes": [
+    {
+      "id": "solid-fills",
+      "name": "Solid Fills",
+      "role": "fill",
+      "colors": [
+        {
+          "id": "fill-r01-c01",
+          "role": "fill",
+          "row": 1,
+          "column": 1,
+          "hex": "#BDCC76",
+          "rgb": [
+            189,
+            204,
+            118
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r01-c02",
+          "role": "fill",
+          "row": 1,
+          "column": 2,
+          "hex": "#EEECE0",
+          "rgb": [
+            238,
+            236,
+            224
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r01-c03",
+          "role": "fill",
+          "row": 1,
+          "column": 3,
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r01-c04",
+          "role": "fill",
+          "row": 1,
+          "column": 4,
+          "hex": "#FEE4CD",
+          "rgb": [
+            254,
+            228,
+            205
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r01-c05",
+          "role": "fill",
+          "row": 1,
+          "column": 5,
+          "hex": "#FFF7E1",
+          "rgb": [
+            255,
+            247,
+            225
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r01-c06",
+          "role": "fill",
+          "row": 1,
+          "column": 6,
+          "hex": "#FEE5DB",
+          "rgb": [
+            254,
+            229,
+            219
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r01-c07",
+          "role": "fill",
+          "row": 1,
+          "column": 7,
+          "hex": "#DEF0E7",
+          "rgb": [
+            222,
+            240,
+            231
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r01-c08",
+          "role": "fill",
+          "row": 1,
+          "column": 8,
+          "hex": "#C8EAF5",
+          "rgb": [
+            200,
+            234,
+            245
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r01-c09",
+          "role": "fill",
+          "row": 1,
+          "column": 9,
+          "hex": "#D8D6EC",
+          "rgb": [
+            216,
+            214,
+            236
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r01-c10",
+          "role": "fill",
+          "row": 1,
+          "column": 10,
+          "hex": "#FFFBD3",
+          "rgb": [
+            255,
+            251,
+            211
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r02-c01",
+          "role": "fill",
+          "row": 2,
+          "column": 1,
+          "hex": "#E2EDC1",
+          "rgb": [
+            226,
+            237,
+            193
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r02-c02",
+          "role": "fill",
+          "row": 2,
+          "column": 2,
+          "hex": "#FFEAD0",
+          "rgb": [
+            255,
+            234,
+            208
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r02-c03",
+          "role": "fill",
+          "row": 2,
+          "column": 3,
+          "hex": "#CBC8C5",
+          "rgb": [
+            203,
+            200,
+            197
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r02-c04",
+          "role": "fill",
+          "row": 2,
+          "column": 4,
+          "hex": "#EAE1D2",
+          "rgb": [
+            234,
+            225,
+            210
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r02-c05",
+          "role": "fill",
+          "row": 2,
+          "column": 5,
+          "hex": "#D4D8D3",
+          "rgb": [
+            212,
+            216,
+            211
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r02-c06",
+          "role": "fill",
+          "row": 2,
+          "column": 6,
+          "hex": "#E4EFC7",
+          "rgb": [
+            228,
+            239,
+            199
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r02-c07",
+          "role": "fill",
+          "row": 2,
+          "column": 7,
+          "hex": "#FEE7DC",
+          "rgb": [
+            254,
+            231,
+            220
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r02-c08",
+          "role": "fill",
+          "row": 2,
+          "column": 8,
+          "hex": "#FEF1F6",
+          "rgb": [
+            254,
+            241,
+            246
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r02-c09",
+          "role": "fill",
+          "row": 2,
+          "column": 9,
+          "hex": "#DBE0DC",
+          "rgb": [
+            219,
+            224,
+            220
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r02-c10",
+          "role": "fill",
+          "row": 2,
+          "column": 10,
+          "hex": "#E4EAD3",
+          "rgb": [
+            228,
+            234,
+            211
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r03-c01",
+          "role": "fill",
+          "row": 3,
+          "column": 1,
+          "hex": "#EFEAE0",
+          "rgb": [
+            239,
+            234,
+            224
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r03-c02",
+          "role": "fill",
+          "row": 3,
+          "column": 2,
+          "hex": "#FFFDE7",
+          "rgb": [
+            255,
+            253,
+            231
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r03-c04",
+          "role": "fill",
+          "row": 3,
+          "column": 4,
+          "hex": "#AEE0E8",
+          "rgb": [
+            174,
+            224,
+            232
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r03-c05",
+          "role": "fill",
+          "row": 3,
+          "column": 5,
+          "hex": "#C4D6E5",
+          "rgb": [
+            196,
+            214,
+            229
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r03-c06",
+          "role": "fill",
+          "row": 3,
+          "column": 6,
+          "hex": "#FDE9F1",
+          "rgb": [
+            253,
+            233,
+            241
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r03-c07",
+          "role": "fill",
+          "row": 3,
+          "column": 7,
+          "hex": "#E7DAEB",
+          "rgb": [
+            231,
+            218,
+            235
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r03-c09",
+          "role": "fill",
+          "row": 3,
+          "column": 9,
+          "hex": "#FFFAC0",
+          "rgb": [
+            255,
+            250,
+            192
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r04-c01",
+          "role": "fill",
+          "row": 4,
+          "column": 1,
+          "hex": "#DBDACB",
+          "rgb": [
+            219,
+            218,
+            203
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r04-c02",
+          "role": "fill",
+          "row": 4,
+          "column": 2,
+          "hex": "#B5CBD6",
+          "rgb": [
+            181,
+            203,
+            214
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r04-c03",
+          "role": "fill",
+          "row": 4,
+          "column": 3,
+          "hex": "#CDCFD0",
+          "rgb": [
+            205,
+            207,
+            208
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r04-c04",
+          "role": "fill",
+          "row": 4,
+          "column": 4,
+          "hex": "#D7EDE6",
+          "rgb": [
+            215,
+            237,
+            230
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r04-c05",
+          "role": "fill",
+          "row": 4,
+          "column": 5,
+          "hex": "#DFF3FD",
+          "rgb": [
+            223,
+            243,
+            253
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r04-c06",
+          "role": "fill",
+          "row": 4,
+          "column": 6,
+          "hex": "#F9EEDE",
+          "rgb": [
+            249,
+            238,
+            222
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r04-c07",
+          "role": "fill",
+          "row": 4,
+          "column": 7,
+          "hex": "#EAE9DF",
+          "rgb": [
+            234,
+            233,
+            223
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r04-c09",
+          "role": "fill",
+          "row": 4,
+          "column": 9,
+          "hex": "#EFEFF0",
+          "rgb": [
+            239,
+            239,
+            240
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r04-c10",
+          "role": "fill",
+          "row": 4,
+          "column": 10,
+          "hex": "#EEF5E0",
+          "rgb": [
+            238,
+            245,
+            224
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r05-c02",
+          "role": "fill",
+          "row": 5,
+          "column": 2,
+          "hex": "#D0D9CB",
+          "rgb": [
+            208,
+            217,
+            203
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r05-c03",
+          "role": "fill",
+          "row": 5,
+          "column": 3,
+          "hex": "#DEE4BF",
+          "rgb": [
+            222,
+            228,
+            191
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r05-c04",
+          "role": "fill",
+          "row": 5,
+          "column": 4,
+          "hex": "#D0D8A3",
+          "rgb": [
+            208,
+            216,
+            163
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r05-c05",
+          "role": "fill",
+          "row": 5,
+          "column": 5,
+          "hex": "#FFF8D7",
+          "rgb": [
+            255,
+            248,
+            215
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r05-c06",
+          "role": "fill",
+          "row": 5,
+          "column": 6,
+          "hex": "#EBFCFF",
+          "rgb": [
+            235,
+            252,
+            255
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r05-c07",
+          "role": "fill",
+          "row": 5,
+          "column": 7,
+          "hex": "#E6D4B8",
+          "rgb": [
+            230,
+            212,
+            184
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "fill-r05-c08",
+          "role": "fill",
+          "row": 5,
+          "column": 8,
+          "hex": "#E6E6E6",
+          "rgb": [
+            230,
+            230,
+            230
+          ],
+          "value_source": "printed_hex_label"
+        }
+      ]
+    },
+    {
+      "id": "lines",
+      "name": "Lines",
+      "role": "line",
+      "colors": [
+        {
+          "id": "line-r01-c01",
+          "role": "line",
+          "row": 1,
+          "column": 1,
+          "hex": "#F15A22",
+          "rgb": [
+            241,
+            90,
+            34
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "line-r01-c02",
+          "role": "line",
+          "row": 1,
+          "column": 2,
+          "hex": "#FFF200",
+          "rgb": [
+            255,
+            242,
+            0
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "line-r01-c03",
+          "role": "line",
+          "row": 1,
+          "column": 3,
+          "hex": "#B2D235",
+          "rgb": [
+            178,
+            210,
+            53
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "line-r01-c04",
+          "role": "line",
+          "row": 1,
+          "column": 4,
+          "hex": "#AB4A9C",
+          "rgb": [
+            171,
+            74,
+            156
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "line-r01-c05",
+          "role": "line",
+          "row": 1,
+          "column": 5,
+          "hex": "#ED1164",
+          "rgb": [
+            237,
+            17,
+            100
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "line-r01-c06",
+          "role": "line",
+          "row": 1,
+          "column": 6,
+          "hex": "#BDCC76",
+          "rgb": [
+            189,
+            204,
+            118
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "line-r01-c07",
+          "role": "line",
+          "row": 1,
+          "column": 7,
+          "hex": "#EC008C",
+          "rgb": [
+            236,
+            0,
+            140
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "line-r01-c08",
+          "role": "line",
+          "row": 1,
+          "column": 8,
+          "hex": "#602D91",
+          "rgb": [
+            96,
+            45,
+            145
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "line-r01-c09",
+          "role": "line",
+          "row": 1,
+          "column": 9,
+          "hex": "#ED1C24",
+          "rgb": [
+            237,
+            28,
+            36
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "line-r02-c01",
+          "role": "line",
+          "row": 2,
+          "column": 1,
+          "hex": "#39B54A",
+          "rgb": [
+            57,
+            181,
+            74
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "line-r02-c02",
+          "role": "line",
+          "row": 2,
+          "column": 2,
+          "hex": "#00AEEF",
+          "rgb": [
+            0,
+            174,
+            239
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "line-r02-c04",
+          "role": "line",
+          "row": 2,
+          "column": 4,
+          "hex": "#25B34B",
+          "rgb": [
+            37,
+            179,
+            75
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "line-r02-c05",
+          "role": "line",
+          "row": 2,
+          "column": 5,
+          "hex": "#00AAAD",
+          "rgb": [
+            0,
+            170,
+            173
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "line-r02-c06",
+          "role": "line",
+          "row": 2,
+          "column": 6,
+          "hex": "#86328C",
+          "rgb": [
+            134,
+            50,
+            140
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "line-r02-c08",
+          "role": "line",
+          "row": 2,
+          "column": 8,
+          "hex": "#F9A01B",
+          "rgb": [
+            249,
+            160,
+            27
+          ],
+          "value_source": "printed_hex_label"
+        },
+        {
+          "id": "line-r02-c09",
+          "role": "line",
+          "row": 2,
+          "column": 9,
+          "hex": "#0083CA",
+          "rgb": [
+            0,
+            131,
+            202
+          ],
+          "value_source": "printed_hex_label"
+        }
+      ]
+    }
+  ]
+}

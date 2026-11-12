@@ -1,0 +1,21 @@
+{
+  "ORIGINAL-INSTRUCTIONS.txt": "84f0e283d20b0286edba5c377b384e45b6d708578be5ee29cecdc985a3f2b343",
+  "original-plugin/.codex-plugin/plugin.json": "721cbb5b7f5240597ec1c872ee3595d37f0ca8886c2ab6cead53e587ed21c230",
+  "original-plugin/assets/gpt-icon.png": "c8499ec09caece33918fffa26092310eda841aa464cbe142908bb0f7c3050e92",
+  "original-plugin/plugin.json": "d20de3474e0056b5724a7afd449de4f565ab5f9b39e455400a0e032c11404562",
+  "original-plugin/skills/instructions/agents/openai.yaml": "f0bf9beef6226a7c133c66a346ba304c20c3274921d1a6e5d22c98e778922172",
+  "original-plugin/skills/instructions/lookup/knowledge-index.json": "3e4e90ddd46b7e83292260c028eda1b4e502feaa5c71a11163d6a4fccf42e98e",
+  "original-plugin/skills/instructions/references/architectural-palette-reconstructed.json": "21e43f868ce6fbe52a0b3911e4cb81e78ab261bf1cd52a96f5419b2cf77a4b99",
+  "original-plugin/skills/instructions/references/architectural_color_palette.json": "daef06e5d1344fd29565a77eaf8d7396f845f0269e1892e3e983ad5063a7cb92",
+  "original-plugin/skills/instructions/references/color-moods.md": "0604872cc975663ac9b96bed155540834325e924d6af613da0aa4445c0828f17",
+  "original-plugin/skills/instructions/references/sanzo-wada-348-color-dictionary.json": "42c63750c5b18860d6b1a0d7d0d040d4aefb43af59f38787f488d77fc937262b",
+  "original-plugin/skills/instructions/references/warm-earth-color-palette.json": "47f1810efcade92acd5513fa0f99bb42a0096d03bab435bc82f0bafc82250728",
+  "original-plugin/skills/instructions/SKILL.md": "dc7d778cc5367d1c02bac24a247e9e946ff7f0792da8e0788964c9e2ffcad4b0",
+  "portable/architectural-palette-reconstructed.json": "21e43f868ce6fbe52a0b3911e4cb81e78ab261bf1cd52a96f5419b2cf77a4b99",
+  "portable/architectural_color_palette.json": "daef06e5d1344fd29565a77eaf8d7396f845f0269e1892e3e983ad5063a7cb92",
+  "portable/color-moods.md": "0604872cc975663ac9b96bed155540834325e924d6af613da0aa4445c0828f17",
+  "portable/COLOR-PALETTE-INSTRUCTIONS.txt": "e45472b7763c21204246690c04fbb0673fac972e91348d4cfc624b2b0a18c6c8",
+  "portable/sanzo-wada-348-color-dictionary.json": "42c63750c5b18860d6b1a0d7d0d040d4aefb43af59f38787f488d77fc937262b",
+  "portable/warm-earth-color-palette.json": "47f1810efcade92acd5513fa0f99bb42a0096d03bab435bc82f0bafc82250728",
+  "README.md": "02f97863614801839ed975da145a18437ebd29c4682916f5036a79e84be2bc91"
+}

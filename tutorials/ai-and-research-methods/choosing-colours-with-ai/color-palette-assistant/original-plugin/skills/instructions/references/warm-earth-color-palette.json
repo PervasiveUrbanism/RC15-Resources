@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.0.0",
+  "name": "Warm Earth Palette",
+  "name_source": "Descriptive title assigned during transcription; no palette title is visible in the source.",
+  "color_count": 10,
+  "source": {
+    "type": "user_supplied_image",
+    "filename": "codex-clipboard-7604ea81-e75e-4ed0-a6f2-c667b96c3673.png",
+    "method": "Transcribed printed RGB and HEX labels in left-to-right order; no pixel sampling."
+  },
+  "reference_notes": [
+    "RGB channels are integers from 0 to 255. HEX values are normalized to uppercase.",
+    "Preserve source order. No fill, line, accent, or material roles were specified.",
+    "Swatch 6 has conflicting printed labels; the original labels and the resolution are retained in its entry."
+  ],
+  "colors": [
+    {
+      "id": "color-01",
+      "position": 1,
+      "hex": "#120A13",
+      "rgb": [
+        18,
+        10,
+        19
+      ],
+      "source_rgb": [
+        18,
+        10,
+        19
+      ],
+      "source_hex_label": "#120A13",
+      "value_source": "printed_rgb_values"
+    },
+    {
+      "id": "color-02",
+      "position": 2,
+      "hex": "#6D2D23",
+      "rgb": [
+        109,
+        45,
+        35
+      ],
+      "source_rgb": [
+        109,
+        45,
+        35
+      ],
+      "source_hex_label": "#6D2D23",
+      "value_source": "printed_rgb_values"
+    },
+    {
+      "id": "color-03",
+      "position": 3,
+      "hex": "#AB6A53",
+      "rgb": [
+        171,
+        106,
+        83
+      ],
+      "source_rgb": [
+        171,
+        106,
+        83
+      ],
+      "source_hex_label": "#AB6A53",
+      "value_source": "printed_rgb_values"
+    },
+    {
+      "id": "color-04",
+      "position": 4,
+      "hex": "#B95F2D",
+      "rgb": [
+        185,
+        95,
+        45
+      ],
+      "source_rgb": [
+        185,
+        95,
+        45
+      ],
+      "source_hex_label": "#B95F2D",
+      "value_source": "printed_rgb_values"
+    },
+    {
+      "id": "color-05",
+      "position": 5,
+      "hex": "#CA8E5F",
+      "rgb": [
+        202,
+        142,
+        95
+      ],
+      "source_rgb": [
+        202,
+        142,
+        95
+      ],
+      "source_hex_label": "#CA8E5F",
+      "value_source": "printed_rgb_values"
+    },
+    {
+      "id": "color-06",
+      "position": 6,
+      "hex": "#ECAC7E",
+      "rgb": [
+        236,
+        172,
+        126
+      ],
+      "source_rgb": [
+        236,
+        172,
+        126
+      ],
+      "source_hex_label": "#CA8E5F",
+      "value_source": "printed_rgb_values",
+      "source_discrepancy": {
+        "type": "printed_hex_rgb_mismatch",
+        "resolution": "Used printed RGB (236, 172, 126), yielding #ECAC7E. The printed HEX #CA8E5F duplicates the preceding swatch and does not match this RGB triplet."
+      }
+    },
+    {
+      "id": "color-07",
+      "position": 7,
+      "hex": "#F3C7A4",
+      "rgb": [
+        243,
+        199,
+        164
+      ],
+      "source_rgb": [
+        243,
+        199,
+        164
+      ],
+      "source_hex_label": "#F3C7A4",
+      "value_source": "printed_rgb_values"
+    },
+    {
+      "id": "color-08",
+      "position": 8,
+      "hex": "#E6A346",
+      "rgb": [
+        230,
+        163,
+        70
+      ],
+      "source_rgb": [
+        230,
+        163,
+        70
+      ],
+      "source_hex_label": "#E6A346",
+      "value_source": "printed_rgb_values"
+    },
+    {
+      "id": "color-09",
+      "position": 9,
+      "hex": "#D4C585",
+      "rgb": [
+        212,
+        197,
+        133
+      ],
+      "source_rgb": [
+        212,
+        197,
+        133
+      ],
+      "source_hex_label": "#D4C585",
+      "value_source": "printed_rgb_values"
+    },
+    {
+      "id": "color-10",
+      "position": 10,
+      "hex": "#9E8E6A",
+      "rgb": [
+        158,
+        142,
+        106
+      ],
+      "source_rgb": [
+        158,
+        142,
+        106
+      ],
+      "source_hex_label": "#9E8E6A",
+      "value_source": "printed_rgb_values"
+    }
+  ]
+}

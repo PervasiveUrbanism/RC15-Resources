@@ -1,0 +1,782 @@
+{
+  "name": "Architectural Color System",
+  "version": "1.0",
+  "description": "Combined reference palette for architectural plans, diagrams, maps, CAD drawings, and visualization workflows.",
+  "collections": [
+    {
+      "name": "Core Architectural Palette",
+      "type": "general_architectural_palette",
+      "description": "Soft fills and stronger line colors for architectural plans and diagrams.",
+      "fills": [
+        {
+          "family": "Yellow / Cream",
+          "hex": "#FFFDE7",
+          "rgb": [
+            255,
+            253,
+            231
+          ],
+          "name": "Ivory",
+          "usage": "Highlight background"
+        },
+        {
+          "family": "Yellow / Cream",
+          "hex": "#FFFBD3",
+          "rgb": [
+            255,
+            251,
+            211
+          ],
+          "name": "Pale Yellow",
+          "usage": "Highlight zones, sunlight, emphasis"
+        },
+        {
+          "family": "Yellow / Cream",
+          "hex": "#FFFAC0",
+          "rgb": [
+            255,
+            250,
+            192
+          ],
+          "name": "Light Lemon",
+          "usage": "Attention zones, annotations"
+        },
+        {
+          "family": "Yellow / Cream",
+          "hex": "#FFF8D7",
+          "rgb": [
+            255,
+            248,
+            215
+          ],
+          "name": "Soft Cream",
+          "usage": "Light emphasis"
+        },
+        {
+          "family": "Yellow / Cream",
+          "hex": "#FFF7E1",
+          "rgb": [
+            255,
+            247,
+            225
+          ],
+          "name": "Cream Sand",
+          "usage": "Public realm, circulation"
+        },
+        {
+          "family": "Beige / Sand",
+          "hex": "#FFEAD0",
+          "rgb": [
+            255,
+            234,
+            208
+          ],
+          "name": "Warm Beige",
+          "usage": "Interior zones, mixed-use"
+        },
+        {
+          "family": "Beige / Sand",
+          "hex": "#FEE4CD",
+          "rgb": [
+            254,
+            228,
+            205
+          ],
+          "name": "Pale Peach",
+          "usage": "Residential areas"
+        },
+        {
+          "family": "Beige / Sand",
+          "hex": "#FEE5DB",
+          "rgb": [
+            254,
+            229,
+            219
+          ],
+          "name": "Dusty Rose",
+          "usage": "Soft overlays"
+        },
+        {
+          "family": "Beige / Sand",
+          "hex": "#FEE7DC",
+          "rgb": [
+            254,
+            231,
+            220
+          ],
+          "name": "Blush Sand",
+          "usage": "Hospitality, social spaces"
+        },
+        {
+          "family": "Beige / Sand",
+          "hex": "#F9EEDE",
+          "rgb": [
+            249,
+            238,
+            222
+          ],
+          "name": "Soft Sand",
+          "usage": "Interior diagrams"
+        },
+        {
+          "family": "Beige / Sand",
+          "hex": "#EAE1D2",
+          "rgb": [
+            234,
+            225,
+            210
+          ],
+          "name": "Stone Beige",
+          "usage": "Masonry, heritage"
+        },
+        {
+          "family": "Beige / Sand",
+          "hex": "#E6D4BB",
+          "rgb": [
+            230,
+            212,
+            187
+          ],
+          "name": "Warm Clay",
+          "usage": "Timber, earth materials"
+        },
+        {
+          "family": "White / Neutral",
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "name": "Pure White",
+          "usage": "Voids, empty space"
+        },
+        {
+          "family": "White / Neutral",
+          "hex": "#EEECE0",
+          "rgb": [
+            238,
+            236,
+            224
+          ],
+          "name": "Warm Off-White",
+          "usage": "Background fill"
+        },
+        {
+          "family": "White / Neutral",
+          "hex": "#EFEAE0",
+          "rgb": [
+            239,
+            234,
+            224
+          ],
+          "name": "Linen",
+          "usage": "Page background"
+        },
+        {
+          "family": "White / Neutral",
+          "hex": "#EAE9DF",
+          "rgb": [
+            234,
+            233,
+            223
+          ],
+          "name": "Warm Light Grey",
+          "usage": "Background massing"
+        },
+        {
+          "family": "White / Neutral",
+          "hex": "#EFEFF0",
+          "rgb": [
+            239,
+            239,
+            240
+          ],
+          "name": "Cool Light Grey",
+          "usage": "Neutral overlays"
+        },
+        {
+          "family": "White / Neutral",
+          "hex": "#E6E6E6",
+          "rgb": [
+            230,
+            230,
+            230
+          ],
+          "name": "Neutral Grey 10%",
+          "usage": "Secondary background"
+        },
+        {
+          "family": "Grey / Concrete",
+          "hex": "#CBC8C5",
+          "rgb": [
+            203,
+            200,
+            197
+          ],
+          "name": "Concrete Grey",
+          "usage": "Existing structures"
+        },
+        {
+          "family": "Grey / Concrete",
+          "hex": "#CDCFD0",
+          "rgb": [
+            205,
+            207,
+            208
+          ],
+          "name": "Neutral Grey",
+          "usage": "Generic context"
+        },
+        {
+          "family": "Grey / Concrete",
+          "hex": "#D4D8D3",
+          "rgb": [
+            212,
+            216,
+            211
+          ],
+          "name": "Mist Grey",
+          "usage": "Diagram background"
+        },
+        {
+          "family": "Grey / Concrete",
+          "hex": "#DBDACB",
+          "rgb": [
+            219,
+            218,
+            203
+          ],
+          "name": "Warm Grey",
+          "usage": "Existing urban fabric"
+        },
+        {
+          "family": "Grey / Concrete",
+          "hex": "#DBE0DC",
+          "rgb": [
+            219,
+            224,
+            220
+          ],
+          "name": "Cool Grey Green",
+          "usage": "Existing fabric"
+        },
+        {
+          "family": "Green",
+          "hex": "#BDCC76",
+          "rgb": [
+            189,
+            204,
+            118
+          ],
+          "name": "Soft Olive",
+          "usage": "Landscape"
+        },
+        {
+          "family": "Green",
+          "hex": "#E2EDC1",
+          "rgb": [
+            226,
+            237,
+            193
+          ],
+          "name": "Sage Light",
+          "usage": "Green systems"
+        },
+        {
+          "family": "Green",
+          "hex": "#E4EFC7",
+          "rgb": [
+            228,
+            239,
+            199
+          ],
+          "name": "Pale Moss",
+          "usage": "Open green space"
+        },
+        {
+          "family": "Green",
+          "hex": "#E4EAD3",
+          "rgb": [
+            228,
+            234,
+            211
+          ],
+          "name": "Pale Olive Grey",
+          "usage": "Vegetation"
+        },
+        {
+          "family": "Green",
+          "hex": "#EEF5E0",
+          "rgb": [
+            238,
+            245,
+            224
+          ],
+          "name": "Green Tint",
+          "usage": "Parks, biodiversity"
+        },
+        {
+          "family": "Green",
+          "hex": "#D0D9CB",
+          "rgb": [
+            208,
+            217,
+            203
+          ],
+          "name": "Muted Sage",
+          "usage": "Existing landscape"
+        },
+        {
+          "family": "Green",
+          "hex": "#DEE4BF",
+          "rgb": [
+            222,
+            228,
+            191
+          ],
+          "name": "Dry Grass",
+          "usage": "Semi-natural terrain"
+        },
+        {
+          "family": "Green",
+          "hex": "#D0D8A3",
+          "rgb": [
+            208,
+            216,
+            163
+          ],
+          "name": "Olive Sand",
+          "usage": "Productive landscape"
+        },
+        {
+          "family": "Green / Teal",
+          "hex": "#DEF0E7",
+          "rgb": [
+            222,
+            240,
+            231
+          ],
+          "name": "Mint Mist",
+          "usage": "Environmental diagrams"
+        },
+        {
+          "family": "Green / Teal",
+          "hex": "#D7EDE6",
+          "rgb": [
+            215,
+            237,
+            230
+          ],
+          "name": "Pale Teal",
+          "usage": "Ecological systems"
+        },
+        {
+          "family": "Blue",
+          "hex": "#C8EAF5",
+          "rgb": [
+            200,
+            234,
+            245
+          ],
+          "name": "Sky Blue",
+          "usage": "Water systems"
+        },
+        {
+          "family": "Blue",
+          "hex": "#AEE0E8",
+          "rgb": [
+            174,
+            224,
+            232
+          ],
+          "name": "Aqua",
+          "usage": "Environmental flows"
+        },
+        {
+          "family": "Blue",
+          "hex": "#C4D6E5",
+          "rgb": [
+            196,
+            214,
+            229
+          ],
+          "name": "Soft Steel Blue",
+          "usage": "Infrastructure"
+        },
+        {
+          "family": "Blue",
+          "hex": "#B5CBD6",
+          "rgb": [
+            181,
+            203,
+            214
+          ],
+          "name": "Muted Blue",
+          "usage": "Transit, water adjacency"
+        },
+        {
+          "family": "Blue",
+          "hex": "#DFF3FD",
+          "rgb": [
+            223,
+            243,
+            253
+          ],
+          "name": "Ice Blue",
+          "usage": "Air, environmental analysis"
+        },
+        {
+          "family": "Blue",
+          "hex": "#EBFCFF",
+          "rgb": [
+            235,
+            252,
+            255
+          ],
+          "name": "Near White Cyan",
+          "usage": "Atmosphere, transparency"
+        },
+        {
+          "family": "Purple / Pink",
+          "hex": "#D8D6EC",
+          "rgb": [
+            216,
+            214,
+            236
+          ],
+          "name": "Lavender Grey",
+          "usage": "Secondary program"
+        },
+        {
+          "family": "Purple / Pink",
+          "hex": "#FEF1F6",
+          "rgb": [
+            254,
+            241,
+            246
+          ],
+          "name": "Light Pink",
+          "usage": "Concept overlays"
+        },
+        {
+          "family": "Purple / Pink",
+          "hex": "#FDE9F1",
+          "rgb": [
+            253,
+            233,
+            241
+          ],
+          "name": "Powder Pink",
+          "usage": "Public activity"
+        },
+        {
+          "family": "Purple / Pink",
+          "hex": "#E7DAEB",
+          "rgb": [
+            231,
+            218,
+            235
+          ],
+          "name": "Pale Lilac",
+          "usage": "Cultural spaces"
+        }
+      ],
+      "lines": [
+        {
+          "family": "Red / Orange",
+          "hex": "#ED1C24",
+          "rgb": [
+            237,
+            28,
+            36
+          ],
+          "name": "Bright Red",
+          "usage": "Critical elements"
+        },
+        {
+          "family": "Red / Orange",
+          "hex": "#F15A22",
+          "rgb": [
+            241,
+            90,
+            34
+          ],
+          "name": "Orange Red",
+          "usage": "Primary annotation"
+        },
+        {
+          "family": "Red / Orange",
+          "hex": "#F9A01B",
+          "rgb": [
+            249,
+            160,
+            27
+          ],
+          "name": "Amber",
+          "usage": "Routes, transitions"
+        },
+        {
+          "family": "Yellow",
+          "hex": "#FFF200",
+          "rgb": [
+            255,
+            242,
+            0
+          ],
+          "name": "Signal Yellow",
+          "usage": "Highlight, warning"
+        },
+        {
+          "family": "Green",
+          "hex": "#B2D235",
+          "rgb": [
+            178,
+            210,
+            53
+          ],
+          "name": "Lime Green",
+          "usage": "Ecological routes"
+        },
+        {
+          "family": "Green",
+          "hex": "#BDCC76",
+          "rgb": [
+            189,
+            204,
+            118
+          ],
+          "name": "Olive Green",
+          "usage": "Landscape outlines"
+        },
+        {
+          "family": "Green",
+          "hex": "#39B54A",
+          "rgb": [
+            57,
+            181,
+            74
+          ],
+          "name": "Medium Green",
+          "usage": "Planting"
+        },
+        {
+          "family": "Green",
+          "hex": "#25B34B",
+          "rgb": [
+            37,
+            179,
+            75
+          ],
+          "name": "Green Accent",
+          "usage": "Environmental systems"
+        },
+        {
+          "family": "Cyan / Blue",
+          "hex": "#00AEEF",
+          "rgb": [
+            0,
+            174,
+            239
+          ],
+          "name": "Cyan Blue",
+          "usage": "Water, infrastructure"
+        },
+        {
+          "family": "Cyan / Blue",
+          "hex": "#0083CA",
+          "rgb": [
+            0,
+            131,
+            202
+          ],
+          "name": "Deep Sky Blue",
+          "usage": "Transport, utilities"
+        },
+        {
+          "family": "Cyan / Blue",
+          "hex": "#00AAAD",
+          "rgb": [
+            0,
+            170,
+            173
+          ],
+          "name": "Teal",
+          "usage": "Public realm"
+        },
+        {
+          "family": "Purple / Pink",
+          "hex": "#AB4A9C",
+          "rgb": [
+            171,
+            74,
+            156
+          ],
+          "name": "Magenta Purple",
+          "usage": "Concept overlays"
+        },
+        {
+          "family": "Purple / Pink",
+          "hex": "#EC008C",
+          "rgb": [
+            236,
+            0,
+            140
+          ],
+          "name": "Vivid Magenta",
+          "usage": "Diagram accents"
+        },
+        {
+          "family": "Purple / Pink",
+          "hex": "#ED1164",
+          "rgb": [
+            237,
+            17,
+            100
+          ],
+          "name": "Strong Pink",
+          "usage": "Human activity"
+        },
+        {
+          "family": "Purple / Pink",
+          "hex": "#86328C",
+          "rgb": [
+            134,
+            50,
+            140
+          ],
+          "name": "Purple",
+          "usage": "Cultural layers"
+        },
+        {
+          "family": "Purple / Pink",
+          "hex": "#602D91",
+          "rgb": [
+            96,
+            45,
+            145
+          ],
+          "name": "Deep Violet",
+          "usage": "Hierarchy, circulation"
+        }
+      ]
+    },
+    {
+      "name": "Al Ula Colors",
+      "type": "regional_material_palette",
+      "description": "Desert, sandstone, clay, ochre, and muted landscape tones inspired by Al Ula.",
+      "colors": [
+        {
+          "family": "Al Ula / Desert",
+          "hex": "#120A13",
+          "rgb": [
+            18,
+            10,
+            19
+          ],
+          "name": "Desert Night",
+          "usage": "Backgrounds, high contrast diagrams"
+        },
+        {
+          "family": "Al Ula / Desert",
+          "hex": "#6D2D23",
+          "rgb": [
+            109,
+            45,
+            35
+          ],
+          "name": "Deep Terracotta",
+          "usage": "Accents, circulation, emphasis"
+        },
+        {
+          "family": "Al Ula / Desert",
+          "hex": "#AB6A53",
+          "rgb": [
+            171,
+            106,
+            83
+          ],
+          "name": "Clay Earth",
+          "usage": "Earth materials, contextual fills"
+        },
+        {
+          "family": "Al Ula / Desert",
+          "hex": "#B95F2D",
+          "rgb": [
+            185,
+            95,
+            45
+          ],
+          "name": "Burnt Ochre",
+          "usage": "Landscape, terrain, highlights"
+        },
+        {
+          "family": "Al Ula / Desert",
+          "hex": "#CA8E5F",
+          "rgb": [
+            202,
+            142,
+            95
+          ],
+          "name": "Warm Sandstone",
+          "usage": "Stone, architectural surfaces"
+        },
+        {
+          "family": "Al Ula / Desert",
+          "hex": "#ECAE7E",
+          "rgb": [
+            236,
+            174,
+            126
+          ],
+          "name": "Soft Desert Sand",
+          "usage": "Soft fills, atmospheric backgrounds"
+        },
+        {
+          "family": "Al Ula / Desert",
+          "hex": "#F3C7A4",
+          "rgb": [
+            243,
+            199,
+            164
+          ],
+          "name": "Pale Sand",
+          "usage": "Light fills, neutral backgrounds"
+        },
+        {
+          "family": "Al Ula / Desert",
+          "hex": "#E6A346",
+          "rgb": [
+            230,
+            163,
+            70
+          ],
+          "name": "Golden Ochre",
+          "usage": "Accent color, highlights"
+        },
+        {
+          "family": "Al Ula / Desert",
+          "hex": "#D4C585",
+          "rgb": [
+            212,
+            197,
+            133
+          ],
+          "name": "Desert Sage",
+          "usage": "Landscape, environmental diagrams"
+        },
+        {
+          "family": "Al Ula / Desert",
+          "hex": "#9E8E6A",
+          "rgb": [
+            158,
+            142,
+            106
+          ],
+          "name": "Weathered Stone",
+          "usage": "Context, muted materials"
+        }
+      ]
+    }
+  ]
+}
