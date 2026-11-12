@@ -36,7 +36,7 @@ Start with the purpose of your drawing. A land-use map needs clear distinctions.
 
 This is a graphic convention, **not a literal scale of sunlight's colour temperature**. Low sunlight near sunrise is often warmer, not bluer, than midday daylight. The gradient is useful as a diagrammatic language, provided its meaning is made clear with labels.
 
-<!-- Add supplied illustration after uploading images/06-colour-and-time.png to this folder. -->
+![Blue-to-white-to-orange gradient representing morning, midday and afternoon](images/06-colour-and-time.png)
 
 Sometimes a project already has colours that must stay. A proposed building might have a distinctive accent, or a landscape drawing might use an established background colour. In that case, **start with those colours** and find supporting shades rather than replacing everything.
 
