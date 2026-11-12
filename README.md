@@ -54,8 +54,8 @@ Choose a topic below, then open a tutorial or example collection. Click a thumbn
 
 | Preview | Tutorial / collection | What you will find |
 | --- | --- | --- |
-| Text preview pending | [Choosing Colours with AI](tutorials/ai-and-research-methods/choosing-colours-with-ai/README.md) | Explore colour systems and Sanzo Wada, develop a ChatGPT colour assistant, and test palettes for urban maps and abstract Rhino materials. Draft; illustrations pending. |
-| Screenshots pending | [Image Segmentation with AI: Build Your Own Tool with Codex](tutorials/ai-and-research-methods/image-segmentation-with-codex/README.md) | Create and refine an image-segmentation tool through Codex prompts, then explore pretrained pose, depth, audio and text models. Tutorial; screenshots pending. |
+| <a href="tutorials/ai-and-research-methods/choosing-colours-with-ai/README.md"><img src="tutorials/ai-and-research-methods/choosing-colours-with-ai/images/Round%20Icon.png" width="120" alt="Choosing Colours with AI tutorial icon"></a> | [Choosing Colours with AI](tutorials/ai-and-research-methods/choosing-colours-with-ai/README.md) | Explore colour systems and Sanzo Wada, adapt a colour assistant using shared reference files, and test palettes for maps and Rhino materials. |
+| <a href="tutorials/ai-and-research-methods/image-segmentation-with-codex/README.md"><img src="tutorials/ai-and-research-methods/image-segmentation-with-codex/images/Round%20Icon.png" width="120" alt="Image Segmentation with AI tutorial icon"></a> | [Image Segmentation with AI: Build Your Own Tool with Codex](tutorials/ai-and-research-methods/image-segmentation-with-codex/README.md) | Create and refine an image-segmentation tool through Codex prompts, then explore pretrained pose, depth, audio and text models. |
 
 ### Geometry and modelling
 
