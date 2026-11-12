@@ -16,7 +16,7 @@ Perhaps that is why architectural drawings often rely on familiar, restrained pa
 
 AI offers an alternative. We can explore combinations quickly, draw on colour theory or historical collections, and compare different approaches before making a decision.
 
-<!-- Illustration pending: same colour against contrasting backgrounds. File: images/01-colour-in-context.png -->
+![The same colour shown against contrasting backgrounds](images/01-colour-in-context.png)
 
 ## 1. Where do we find colours?
 
@@ -26,7 +26,7 @@ Start with the purpose of your drawing. A land-use map needs clear distinctions.
 
 [Adobe Color](https://color.adobe.com/) lets you experiment with these relationships and extract colours from an image. Try sampling an architectural photograph, then adjusting the result into a palette for a drawing.
 
-<!-- Illustration pending: analogous, complementary and triadic colour examples. File: images/02-colour-relationships.png -->
+![Analogous, complementary and triadic relationships on the colour wheel](images/02-colour-relationships.png)
 
 **Mapping data** calls for a different approach. Use categorical colours to distinguish types of things, such as residential and industrial areas. Use a sequential scale, usually progressing from light to dark, for quantities such as density. Use a diverging scale when values sit on either side of a meaningful reference point.
 
@@ -42,13 +42,13 @@ The Japanese artist **Sanzo Wada** developed hundreds of colour combinations in 
 
 You can explore them at the free [Dictionary of Color Combinations](https://colorcombinations.org/), which also provides downloadable colour data. Digital HEX values are approximations of the historical printed colours.
 
-<!-- Illustration pending: selected, accurately attributed Wada combinations. File: images/03-wada-combinations.png -->
+![Examples of colour combinations drawn from the Sanzo Wada collection](images/03-wada-combinations.png)
 
 We have already used Wada's collection to test alternatives for an architectural map. The sea was **pink**, and we wanted to keep it. We tried different colours for buildings and ground, comparing the options before making changes to the drawing.
 
 Some AI suggestions introduced colours outside the selected combination. That included blue, despite our instruction not to use it. The mistake was useful: AI can generate options quickly, but it does not always respect the brief.
 
-<!-- Illustration pending: original Wada map comparisons from September 2026. File: images/04-wada-pink-sea-test.png -->
+![Urban map colour variations retaining a pink sea](images/04-wada-pink-sea-test.png)
 
 Try this with your own map. Keep the geometry unchanged, choose one colour to preserve and ask for three palettes using Wada's collection. Compare them at the same scale. Which one brings out the information you care about? Which elements become too prominent?
 
@@ -70,16 +70,24 @@ When designing an assistant of your own, start with a short specification rather
 
 You can test this instruction in ChatGPT first. Building a dedicated plugin adds a more convenient interface, but it also requires deciding what the tool should display and how it should handle revisions.
 
-<!-- @ChatGPT: RC15-Resources\tutorials\ai-and-research-methods\choosing-colours-with-ai\color-palette-assistant
+### Reuse and adapt the Colour Palette Assistant
 
-here is the export of the plug in as well as the colors as json files. Obovoly free ti use, but more importantky to adapt and adjust forn your case!
+You can explore the files behind this example rather than starting from scratch. The [Colour Palette Assistant export](color-palette-assistant/README.md) contains the original plugin files and a **portable** version of its instructions and colour libraries. These are reference materials: downloading them does not install a working assistant automatically.
 
-Please explain a bit better how to make usefo these files ... 
--->
+For the easiest experiment, open the [portable folder](color-palette-assistant/portable/) and use the files in a ChatGPT conversation or another assistant that supports file uploads. Start with [COLOR-PALETTE-INSTRUCTIONS.txt](color-palette-assistant/portable/COLOR-PALETTE-INSTRUCTIONS.txt), which describes how the assistant should choose and present colours. Upload the palette JSON files you want it to consult, and optionally `color-moods.md` for the four approaches: Wada, Al Ula, Muted and Future Systems-inspired. Tell the assistant to use those uploaded files as its reference rather than inventing palette entries.
 
-<!-- Illustration pending: screenshot of the actual Colour Palette Assistant. File: images/05-colour-plugin-interface.png -->
+The JSON files are simply structured collections of colour values and metadata. You can open them in a text editor to inspect individual entries, change a HEX value, remove a palette or add a new one. If you adapt the data, update the instructions to match your changes, and ask the assistant to distinguish **reference colours** from newly proposed or derived alternatives. Keep any source attribution and licence information when reusing third-party colour datasets.
 
-<!-- Editorial note: add verified steps from the actual plugin project before presenting a build walkthrough. Its source has not yet been inspected. -->
+Try this with a copy of the files:
+
+> Use the uploaded colour instructions and JSON references to suggest three palettes for a neighbourhood map. Keep the water colour fixed, identify the source of each reference colour and label any new colours as proposed. Explain how I could adapt the palette for another project.
+
+The export also contains the [original plugin structure](color-palette-assistant/original-plugin/), useful if you want to investigate manifests, instructions and bundled data in more detail. That is a more advanced route: the portable files are sufficient for experimenting with the underlying method. The portable setup has not been independently tested across different AI assistants.
+
+
+
+![Colour Palette Assistant interface](images/05-colour-plugin-interface.png)
+
 
 ## 4. Colour for materials in Rhino
 
@@ -89,7 +97,7 @@ Ask ChatGPT for several plausible shades, then compare them in the actual Rhino 
 
 > Suggest four restrained colours for a slate roof, from blue-grey to warm charcoal. Give me HEX and RGB values. The roof sits above pale stone façades, and the model should look diagrammatic rather than photorealistic.
 
-<!-- Illustration pending: the same Rhino slate roof with four colour variations. File: images/08-rhino-slate-variations.png -->
+![Slate roof colour variations in a Rhino model](images/08-rhino-slate-variations.png%20.png)
 
 Keep the camera, lighting and display mode unchanged while testing. A swatch that looks right on a white page may look different on a shaded roof. Colour is only part of a material's appearance; lighting, roughness and reflections matter too.
 
@@ -113,5 +121,3 @@ The wider lesson is simple: AI helps us try more possibilities without committin
 - Johannes Itten, *The Art of Color*
 
 ---
-
-
