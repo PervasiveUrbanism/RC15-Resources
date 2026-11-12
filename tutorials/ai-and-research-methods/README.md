@@ -7,4 +7,4 @@ The earlier Agentic Search exercise has been removed from RC15 Resources to avoi
 ## Tutorials
 
 - [Choosing Colours with AI](choosing-colours-with-ai/README.md) — Colour theory, Sanzo Wada, a custom ChatGPT colour assistant, urban-map comparisons and abstract Rhino materials. Includes example images and a reusable colour-assistant export.
-- [Image Segmentation with AI: Build Your Own Tool with Codex](image-segmentation-with-codex/README.md) — Guide a coding agent from a first segmentation to colour-coded maps and masks; explore other Hugging Face tasks..
+- [Image Segmentation with AI: Build Your Own Tool with Codex](image-segmentation-with-codex/README.md) — Guide a coding agent from a first segmentation to colour-coded maps and masks; explore other Hugging Face tasks.
