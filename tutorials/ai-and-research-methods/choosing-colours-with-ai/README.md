@@ -32,11 +32,21 @@ Start with the purpose of your drawing. A land-use map needs clear distinctions.
 
 [ColorBrewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3) is a useful reference. It offers palettes for each purpose, with filters for colour-vision accessibility, printing and photocopying. Compare a few schemes in greyscale: colours that look distinct on screen may become indistinguishable on a poor printer. [Viz Palette](https://projects.susielu.com/viz-palette) can help you check how categorical colours appear under different colour-vision simulations.
 
-**Colour can also represent time.** For diagrams of the sun's path or changing daylight conditions, a blue–white–orange gradient offers a simple way to read the progression of a day: cool blue for morning, near-white for midday and warm orange for afternoon. Rather than distinguishing separate categories, the gradual change suggests a continuous sequence.
+**Colour can also represent time.** In diagrams showing the movement of the sun or changing daylight conditions, a gradient can communicate the progression of a day. For example, we often use cool blue for morning, white for midday and warm orange for afternoon and evening. The gradual transition makes temporal relationships easier to read without relying entirely on labels.
 
-This is a graphic convention, **not a literal scale of sunlight's colour temperature**. Low sunlight near sunrise is often warmer, not bluer, than midday daylight. The gradient is useful as a diagrammatic language, provided its meaning is made clear with labels.
+The appearance of daylight changes throughout the day. Its **colour temperature**, measured in Kelvin (K), describes whether light appears warm, neutral or cool. Counterintuitively, warm orange light has a lower colour temperature (around 2,000–3,000 K), while cool blue daylight has a higher colour temperature (often above 7,000 K). Direct sunlight becomes warmer when the sun is low because its light travels through more of the atmosphere, scattering shorter blue wavelengths. The blue tones of the morning sky, the relatively neutral light around midday and the golden hues of the afternoon provide a rich palette for visualising the passage of time.
 
 ![Blue-to-white-to-orange gradient representing morning, midday and afternoon](images/06-colour-and-time.png)
+
+**Further exploration — Perceptual colour gradients**
+
+The way colours are blended influences the appearance of a gradient. Conventional RGB interpolation can produce dull or muddy intermediate colours, particularly between contrasting hues. Perceptual colour models such as **OKLab and OKLCH** offer alternative ways of interpolating colours, often producing smoother, more colourful transitions.
+
+You can experiment directly in **Adobe Illustrator**. Draw a rectangle, apply a gradient and open **Window → Gradient**. In the Gradient panel, change the interpolation method from *Classic* to *Perceptual* and compare the results. Photoshop offers similar options. For computational workflows, **Grasshopper 2** supports Oklab gradients, while Python libraries such as [ColorAide](https://facelessuser.github.io/coloraide/) allow you to generate gradients in OKLCH.
+
+These methods do not necessarily improve every gradient. In our sun-path example, the transition deliberately passes through white at midday. The objective is not always to preserve saturation, but to choose a transition that communicates the intended information.
+
+For more information, see [Adobe's guide to perceptual gradients in Illustrator](https://helpx.adobe.com/illustrator/desktop/paint-and-fill/create-and-edit-gradients/control-perceptual-interpolation-in-gradients.html).
 
 Sometimes a project already has colours that must stay. A proposed building might have a distinctive accent, or a landscape drawing might use an established background colour. In that case, **start with those colours** and find supporting shades rather than replacing everything.
 
