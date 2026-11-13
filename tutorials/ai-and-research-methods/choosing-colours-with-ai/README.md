@@ -18,6 +18,14 @@ AI offers an alternative. We can explore combinations quickly, draw on colour th
 
 ![The same colour shown against contrasting backgrounds](images/01-colour-in-context.png)
 
+**Colour as architecture — Sauerbruch Hutton**
+
+The work of [Sauerbruch Hutton](https://www.sauerbruchhutton.de/) shows how carefully composed colour can give a building a distinctive identity. Rather than relying on elaborate shapes, the practice often uses colour across relatively simple façade elements to create rhythm, depth and a recognisable architectural character. This does not necessarily make construction cheaper, but it demonstrates how much can be achieved through the design of surfaces.
+
+Their [GSW Headquarters in Berlin](https://www.sauerbruchhutton.de/en/project/gsw) (1999) is a compelling example. Shades of red, orange and pink are distributed across movable sunshades, producing a façade whose appearance changes as the blinds move. At the [Museum Brandhorst in Munich](https://www.sauerbruchhutton.de/en/project/sab) (2009), coloured ceramic rods create an intricate composition that reads differently from near and far. In both cases, colour is integral to the architecture rather than a finishing touch.
+
+<!-- Image pending: photograph of Sauerbruch Hutton's GSW Headquarters, Berlin, showing the coloured sunshades. File: images/00-sauerbruch-hutton-gsw.png. Suggested source: https://commons.wikimedia.org/wiki/File:GSW-Hochhaus-Maerz-2020.jpg . Check the image licence and include photographer, attribution and a link to the licence before adding it. -->
+
 ## 1. Where do we find colours?
 
 Start with the purpose of your drawing. A land-use map needs clear distinctions. An architectural illustration might benefit from unexpected colours. A presentation needs a consistent visual identity. The right approach depends on what you want to communicate.
