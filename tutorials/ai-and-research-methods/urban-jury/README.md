@@ -179,9 +179,11 @@ The initial jury is **constructed by the researcher**, not a model of actual pub
 
 ## 3. Let the Agents Debate
 
-Independent assessments are not yet a discussion. To make agents respond to one another, our Python coordinator must explicitly pass previous messages into the next request.
+Independent assessments are not yet a discussion. Our Python **coordinator** must explicitly pass completed messages into new model requests. The agents do not have a hidden channel for communicating.
 
-We will use **fixed rounds with shared snapshots**. Round 0 contains independent assessments. Each agent in Round 1 sees the same completed Round 0 record; none sees another's current-round answer. After collecting Round 1, the same process produces Round 2. This makes the information flow inspectable and limits the advantage of speaking later.
+**The result of this chapter:** a transcript organised by rounds, with a record of exactly what each agent was shown.
+
+We use **fixed rounds with shared snapshots**. In **Round 0**, each of the four agents responds independently. Python collects their four completed answers into a *snapshot*. In **Round 1**, all agents receive the same Round 0 snapshot, but none sees another's unfinished Round 1 answer. Only after every response has arrived does Python create a new snapshot for **Round 2**. This prevents later speakers from secretly gaining access to new material within the same round.
 
 ![Discussion rounds workflow — diagram pending](images/06-debate-workflow.png)
 
@@ -197,7 +199,7 @@ We will use **fixed rounds with shared snapshots**. Round 0 contains independent
 
 > Implement Round 0 independent assessments followed by two discussion rounds. Give each agent its role instructions, original question/background, relevant own history and an identical snapshot of the completed preceding round. Do not share current-round contributions until the next round. Run sequentially, record model/agent/round/message IDs, exact inputs and outputs, tokens and errors. Cap rounds, keep independent mode, and calculate expected paid-call count before running.
 
-Four agents across three total rounds can mean **twelve model calls**, excluding the moderator. Input tokens may rise with growing history; monitor both calls and usage.
+Before paying for real calls, ask Codex to test the round logic with **saved dummy responses**. Then make a short real run. Four agents across Round 0 and two further rounds need **twelve model calls**, excluding the moderator. Later calls can also cost more because they contain previous messages.
 
 ![Debate transcript — screenshot pending](images/07-jury-discussion.png)
 
@@ -225,6 +227,8 @@ An agent's challenge is only useful if we can also examine the basis for it.
 
 A polished debate may merely perform disagreement. Look for specific objections, new questions and revisions grounded in reasons, not courteous repetition.
 
+**Before continuing:** Open a saved Round 2 response and locate the exact preceding-round snapshot supplied to that agent. If you cannot do so, ask Codex to repair the logging before adding the interface.
+
 **Prompt 19 — Document Stage 3**
 
 > Record the actual round structure, instructions, exact messages each agent saw, transcript, moderator references, settings, request order, usage, failures and synthetic false-claim test in the experiment log. Keep tests and original research records separate.
@@ -233,7 +237,9 @@ A polished debate may merely perform disagreement. Look for specific objections,
 
 ## 4. Build the Research Laboratory
 
-We now have an interesting Python experiment, but it is cumbersome to operate. Gradio will make it accessible in a browser while preserving direct access to its method. Keep the **interface** separate from the Python functions that organise agents and store evidence.
+Our Python experiment now works but is cumbersome to operate. [Gradio](https://www.gradio.app/docs) can create a local browser interface using Python, without requiring students to build a website in HTML and JavaScript. The **interface** should remain separate from the code that coordinates agents and stores research records.
+
+**The result of this chapter:** a browser page where you can choose agents and models, run a discussion, intervene between rounds and inspect the underlying transcript.
 
 ![Urban Jury Gradio layout — screenshot pending](images/08-urban-jury-interface.png)
 
@@ -249,7 +255,7 @@ We now have an interesting Python experiment, but it is cumbersome to operate. G
 
 > Create the local Gradio interface with editable Tempelhofer Feld inputs, agent selection, model and round configuration, Start button and labelled transcript. Reuse jury logic without rewriting it. Do not enable public sharing. Explain Windows setup and handle failed model connections clearly. Show the expected request count before any paid calls.
 
-The local page will commonly appear at an address such as http://127.0.0.1:7860, although ports can vary.
+Ask Codex for the exact command to start the app. Run it from your project folder and open the local URL printed in the terminal. This often resembles `http://127.0.0.1:7860`, though the port may vary. Test the text fields and controls **without paid model requests** first. Then run one short approved discussion and compare its on-screen transcript with the saved file.
 
 **Prompt 22 — Display the unfolding debate**
 
@@ -261,7 +267,7 @@ The local page will commonly appear at an address such as http://127.0.0.1:7860,
 
 > Pause after each complete round. Add Continue, Intervene and End Discussion controls. Save researcher interventions verbatim and mark them as human input supplied to all agents in the next round. Preserve previous messages and implement session state explicitly. Test controls without paid calls first.
 
-An End Discussion control at a round boundary is **not** a guarantee that an in-progress paid API request can be cancelled or refunded.
+Test the controls with dummy model responses first. Continue should advance one round, Intervene should save the researcher's exact words for the next round, and End Discussion should stop before additional requests are launched. This does **not** guarantee that an already running API request can be cancelled or refunded.
 
 ![Researcher intervention controls — screenshot pending](images/09-researcher-intervention.png)
 
@@ -283,6 +289,8 @@ After a round, ask: **“What alternative ways of addressing Berlin's housing de
 
 *Screenshot placeholder: images/10-experiment-export.png — export and generated files.*
 
+**Before continuing:** Select one completed response in Gradio. Can you locate its actual saved input, model and instructions? An interface that makes the discussion look convincing but hides those details does not meet our research objective.
+
 **Prompt 26 — Document Stage 4**
 
 > Extend the experiment log with interface layout, connections to Python functions, state management, intervention and export tests, errors and reflection on how interface design may increase confidence without increasing factual accuracy.
@@ -291,11 +299,13 @@ After a round, ask: **“What alternative ways of addressing Berlin's housing de
 
 ## 5. Introduce the Evidence Library
 
-So far, the jury produces arguments from its training and the background we provide. We need to move from **plausible debate** towards **traceable research**. Begin with a small **closed-source collection** so agents can access the same documents and we can examine exactly what they used.
+Until now, the agents have discussed the question using their trained knowledge and our brief. We now move from **plausible debate** towards **traceable research** by providing a small, controlled evidence collection. Every agent can access the same material, and we can examine what was retrieved.
 
-For this tutorial, everyone can begin with the same [shared Tempelhofer Feld evidence pack](sources/README.md): a source register and twelve fixed, attributed research notes supplied in Markdown and JSON. **These notes are paraphrases, not verbatim source passages or a substitute for checking original documents.** The pack links to three official resources; use the originals to verify factual claims and record any permitted extracts used during the evidence audit.
+**The result of this chapter:** a searchable library, source IDs visible beside responses and a procedure for checking whether cited material really supports a claim.
 
-Start with three official resources, saving stable copies or permissible extracts and recording their provenance:
+For this tutorial, everyone can start with the same [Tempelhofer Feld evidence pack](sources/README.md) in this repository. It contains a register and twelve fixed notes in Markdown and JSON. **These notes are authored paraphrases, not verbatim source passages or independently verified original documents.** They are shared background material; source-level verification requires checking the linked original pages and, where allowed, recording precisely located source passages.
+
+The pack links to three official resources:
 
 - [Tempelhofer Feld official site](https://www.tempelhoferfeld.de/en/) — history and use.
 - [Tempelhofer Feld participation model](https://www.tempelhoferfeld.de/en/participate-get-involved/participation-model/) — 2014 preservation law and subsequent participation.
@@ -306,6 +316,22 @@ The institutional perspective of this initial collection is a limitation, not a 
 ![Evidence library architecture — diagram pending](images/11-evidence-library.png)
 
 *Diagram placeholder: images/11-evidence-library.png — registered sources, shared retrieval, agents and traceable outputs.*
+
+### How can an agent search documents? RAG, keywords and embeddings
+
+**Retrieval-Augmented Generation (RAG)** means searching an external collection and giving the language model relevant text alongside the original question. RAG does **not** require a particular search method.
+
+**Keyword search** finds passages containing specific words, such as *referendum*, *2014* or *preservation law*. It is simple to inspect: you can see which words matched and where. However, it can miss useful text that uses different terminology.
+
+**Semantic search** uses another kind of model to turn text into numerical representations called **embeddings**. Passages with related meanings may have nearby embeddings even when their wording differs. A search for *protecting public space* might therefore retrieve a passage about *restrictions on development*. A **vector database** stores and searches large collections of embeddings efficiently; for a small collection, Python can compare embeddings without one.
+
+Semantic search becomes attractive as a collection grows, terminology varies or several languages are used. It also adds computation, another model and possibly cost. Similar meaning does not guarantee that a passage supports a factual claim. **We will begin with keyword search** because the collection is small and students can inspect every result. Both approaches can be used within RAG.
+
+### Start with the shared research notes
+
+Open the [evidence pack](sources/README.md) and put its `source-register.json`, `evidence-notes.md` and `evidence-notes.json` into a `sources` folder inside your own `urban-jury` project. Check that the files open correctly before asking Codex to process them. Keep the repository version in your experiment log so you can compare the same material with other students.
+
+These notes are a convenient first dataset for testing retrieval. **Do not call them original-source extracts.** For a proper citation-support test, follow the registered URL to its original document and save a permitted extract together with its exact page or section location.
 
 ### Build — Register and retrieve passages
 
@@ -321,13 +347,13 @@ The institutional perspective of this initial collection is a limitation, not a 
 
 > Split extracted text into passages with stable IDs and original page/section locations. Implement simple keyword or full-text search. Return verbatim excerpts and log the query/results. Test a distinctive phrase against the original source and explain where keyword retrieval can fail.
 
-A small collection does not require embeddings and a vector database. Begin with methods students can inspect.
+Before letting agents use the results, search the notes for *referendum* and then *housing*. Compare the returned IDs with the Markdown source notes yourself. If retrieval fails, check the file path and search function before adding more AI.
 
 **Prompt 30 — Ground agent responses**
 
 > Add a separate evidence-grounded mode that retrieves passages from our fixed collection and includes them in each agent request. Keep exact queries, retrieved passages, model inputs and cited passage IDs. Instruct agents to distinguish evidence, interpretation and speculation, and say when no supporting passage is available. Do not enable internet searching.
 
-This is a basic form of **retrieval-augmented generation (RAG)**. It supplies relevant text to a model; it does not guarantee correct interpretation.
+The model is now receiving retrieved text alongside the question: this is RAG. Inspect the actual request to see the passages and their IDs. If a response cites only an **authored evidence note**, that proves the note was used, not that its content has been independently checked against the original source.
 
 ![Cited passage inspection — screenshot pending](images/12-traceable-evidence.png)
 
@@ -346,6 +372,8 @@ This is a basic form of **retrieval-augmented generation (RAG)**. It supplies re
 > In a clearly marked test, retrieve and audit evidence for the false statement “The 2014 Tempelhofer Feld referendum authorised construction across the entire site.” First test the evidence functions without a debate; then, with approval, run a short evidence-grounded discussion. Compare with Chapter 3, preserving exact passages and any manual corrections. Do not assume retrieval improves reliability without observing the result.
 
 Also ask a question the library cannot answer, such as a precise current percentage of visitors supporting particular housing plans. Without a suitable survey the system should say **the evidence is insufficient**, not produce a plausible number.
+
+**Before continuing:** Trace at least one agent claim to a retrieved note or source passage, then to the registered original document. Record whether the original actually supports the claim or the check remains incomplete.
 
 ### Explain — Who selects the evidence?
 
