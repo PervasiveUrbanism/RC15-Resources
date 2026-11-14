@@ -12,6 +12,8 @@ These resources are distributed across several subjects in RC15 Resources becaus
 
 Many entries are **example collections**, not step-by-step tutorials. Begin with a small patch, change one parameter, observe the result and trace the connections that produced it. Several patches were created with earlier versions of vvvv gamma and have not been verified in a current installation. Preserve accompanying assets and check package dependencies and file paths.
 
+**Want to see what the patches produce?** Browse the [vvvv Visual Catalogue](vvvv-visual-catalogue.md), with existing project previews and named screenshot slots to fill in as the collection is reviewed.
+
 ## Start here — Understand a patch
 
 1. **[vvvv Graphics Fundamentals](../tutorials/visualisation-and-rendering/vvvv-graphics-fundamentals/README.md)** — *Beginner · Eight example patches.* Begin with **01 Bare Bones** to understand nodes and connections. Then compare Skia and Stride image export. The other examples introduce imported geometry, animated materials and fog.
