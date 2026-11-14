@@ -1,6 +1,6 @@
 # 3. Analysing Spatial Density in QGIS
 
-[← Chapter 2: Collecting Flickr Data](02-collecting-flickr-data.md) · [Sentiment Landscapes overview](README.md)
+[← Chapter 2: Collecting Flickr Data](02-collecting-flickr-data.md) · [Density Landscapes overview](README.md)
 
 In the previous chapter, we collected geolocated Flickr photographs. Each photograph appears as a point on the map. That is useful for showing *where* a photograph was taken, but when many points overlap it becomes difficult to judge *how many* photographs are associated with a particular area.
 
