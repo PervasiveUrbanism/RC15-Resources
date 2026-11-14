@@ -5,7 +5,8 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Software:** vvvv gamma (Skia)  
 **Format:** Example patch, supplied data and PDF guide  
 **Software version:** The patch references vvvv 2024.6; compatibility with newer releases has not been verified.  
-**Original collection:** 240229_Circular Graph and 2d Export
+**Original collection:** 240229_Circular Graph and 2d Export  
+**Verification status (14 November 2026):** Partially verified in practice, as confirmed by the resource maintainer. The precise scope of practical verification and software versions has not yet been documented; outstanding checks are described below.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
@@ -25,4 +26,4 @@ Finally, inspect the patch's **PDFWriter**, **ImageWriter** and off-screen rende
 
 The folder also includes an [example image](Image.png) to examine alongside your own result.
 
-**Desktop and document verification pending:** The existing PDF guide has not yet been reviewed in full, and the example has not been run in vvvv during this editorial pass. Check data paths, Skia rendering, the graph's interpretation and PDF/image export in a current installation. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
+**Further verification:** The PDF guide has not yet been reviewed in full, and the example was not run in vvvv during that editorial pass. The maintainer subsequently confirmed partial practical verification. Check data paths, Skia rendering, the graph's interpretation and PDF/image export in a current installation. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
