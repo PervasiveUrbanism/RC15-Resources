@@ -1,0 +1,51 @@
+{
+  "collection": "Tempelhofer Feld — initial official sources",
+  "prepared_on": "2026-11-14",
+  "format_note": "Original source webpages are not redistributed. Evidence notes are original paraphrases, not verbatim source extracts.",
+  "sources": [
+    {
+      "id": "S001",
+      "title": "About Tempelhofer Feld",
+      "publisher": "Grün Berlin GmbH / Tempelhofer Feld",
+      "url": "https://www.tempelhoferfeld.de/en/pflege-entwicklung/about-tempelhofer-feld/",
+      "source_language": "English",
+      "accessed": "2026-11-14",
+      "source_type": "Official site overview",
+      "sections": [
+        "About Tempelhofer Feld",
+        "An urban open space with a multi-layered history"
+      ],
+      "local_original_included": false,
+      "rights_note": "Original website content not reproduced; consult linked page and its imprint."
+    },
+    {
+      "id": "S002",
+      "title": "Participation Model",
+      "publisher": "Grün Berlin GmbH / Tempelhofer Feld",
+      "url": "https://www.tempelhoferfeld.de/en/participate-get-involved/participation-model/",
+      "source_language": "English",
+      "accessed": "2026-11-14",
+      "source_type": "Official participation framework",
+      "sections": [
+        "Participation Model"
+      ],
+      "local_original_included": false,
+      "rights_note": "Original website content not reproduced; consult linked page and its imprint."
+    },
+    {
+      "id": "S003",
+      "title": "Dialogprozess Tempelhofer Feld",
+      "publisher": "Senatsverwaltung für Stadtentwicklung, Bauen und Wohnen / Berlin.de",
+      "url": "https://www.berlin.de/sen/stadtentwicklung/staedtebau/einzelprojekte/tempelhofer-feld/",
+      "source_language": "German",
+      "accessed": "2026-11-14",
+      "source_type": "Official Senate dialogue and planning-process page",
+      "sections": [
+        "Dialogprozess Tempelhofer Feld",
+        "Fragen und Antworten"
+      ],
+      "local_original_included": false,
+      "rights_note": "The original page is linked but not reproduced; verify applicable conditions before storing or sharing original material."
+    }
+  ]
+}
