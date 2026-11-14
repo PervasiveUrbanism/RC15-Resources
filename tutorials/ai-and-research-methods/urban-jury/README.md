@@ -8,7 +8,7 @@
 **Software:** [Codex](https://openai.com/codex/), Python, [LiteLLM](https://docs.litellm.ai/docs/python_sdk), [Gradio](https://www.gradio.app/docs)  
 **Case study:** Tempelhofer Feld, Berlin  
 **Objective:** Design an **AI-driven autonomous multi-agent research system**, learn how it works and critically evaluate its arguments and evidence.
-**Verification status (14 November 2026):** Verified in practice, as confirmed by the resource maintainer. This records practical use, not a new independent end-to-end test; software versions and verification scope have not been documented.
+**Verification status (14 November 2026):** Untested. The maintainer corrected the previous status: the Urban Jury / Multi-Agent Research Laboratory has not yet been run end to end. The workflow and generated application require a practical test before they can be described as verified.
 
 > **Build a computational tool, then learn how to question what that tool produces.** The Urban Jury is a research and ideas machine, not an automated architectural designer, a planning authority or a substitute for public participation.
 
@@ -572,4 +572,4 @@ This opens possibilities far beyond the Urban Jury: systems combining spatial an
 
 ---
 
-<!-- Editorial notes: Images are named placeholders; add suitable originals/licensed material and attribution before publication. The maintainer confirms practical verification; a separate clean-environment reproduction and documentation of tested configurations remain useful. Check current API/model versions and prices. The false referendum statement is a synthetic test fixture. The shared evidence pack contains authored paraphrases, not original source texts. No application source or credentials are distributed. -->
+<!-- Editorial notes: Images are named placeholders; add suitable originals/licensed material and attribution before publication. Codex prompts and the end-to-end application have not yet been tested in a clean environment; revise after a computer-based dry run. Check current API/model versions and prices. The false referendum statement is a synthetic test fixture. The shared evidence pack contains authored paraphrases, not original source texts. No application source or credentials are distributed. -->
