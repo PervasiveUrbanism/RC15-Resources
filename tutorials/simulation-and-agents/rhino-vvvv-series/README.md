@@ -5,7 +5,8 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Software:** Rhino, Grasshopper, vvvv gamma  
 **Format:** Four example folders  
 **Software version:** The vvvv patches reference 2025.7.1; compatibility with newer versions has not been verified.  
-**Original collection:** Extra 09 - VL Rhino
+**Original collection:** Extra 09 - VL Rhino  
+**Verification status (14 November 2026):** Partially verified in practice, as confirmed by the resource maintainer. The precise components tested and compatibility with current vvvv and associated dependencies have not been documented.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
@@ -27,4 +28,4 @@ Open each vvvv patch alongside the accompanying Rhino or Grasshopper files. Keep
 
 The vvvv patches are the main learning material. Try changing source geometry or inputs, then observe what changes downstream. For a separate set of interoperability examples, see [Rhino and Grasshopper Import into vvvv](../../geometry-and-modelling/rhino-grasshopper-import/README.md).
 
-**Desktop verification pending:** The patches, geometry links and outputs have not been run during this editorial review. Check `RhinoReader`, `GrasshopperReceive`, dependencies, file paths, movement behaviour and compatibility with current vvvv versions before using the series in teaching. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
+**Further verification:** The patches, geometry links and outputs were not run during the editorial review; the maintainer has since confirmed partial practical verification. Check `RhinoReader`, `GrasshopperReceive`, dependencies, file paths, movement behaviour and compatibility with current vvvv versions before using the series in teaching. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
