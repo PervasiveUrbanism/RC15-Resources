@@ -5,7 +5,8 @@
 
 **Software:** [Google Earth Engine Code Editor](https://code.earthengine.google.com/), ChatGPT; optional QGIS and Google Colab  
 **Study area:** Berlin, with a closer look at Tempelhofer Feld  
-**Starting point:** No previous knowledge of the Earth Engine API or JavaScript required
+**Starting point:** No previous knowledge of the Earth Engine API or JavaScript required  
+**Verification status (14 November 2026):** Workflow verified in practice, as confirmed by the resource maintainer. This records practical use rather than a new independent test; exact software versions have not yet been documented.
 
 ![Vegetation change between 2018 and 2025 in Berlin](images/01-berlin-vegetation-change.png)
 
