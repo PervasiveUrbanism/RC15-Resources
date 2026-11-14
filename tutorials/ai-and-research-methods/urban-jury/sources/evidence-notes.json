@@ -1,0 +1,103 @@
+{
+  "title": "Tempelhofer Feld fixed research notes",
+  "prepared_on": "2026-11-14",
+  "disclaimer": "Original authored paraphrases, not original source passages or mechanically verified quotations.",
+  "claims": [
+    {
+      "id": "E001",
+      "source_id": "S001",
+      "source_section": "About Tempelhofer Feld",
+      "note": "Tempelhofer Feld has been open for public recreation since 2010, with more than 300 hectares available for leisure activities and nature.",
+      "kind": "authored_paraphrase",
+      "verification_status": "source-linked_not_independently_audited"
+    },
+    {
+      "id": "E002",
+      "source_id": "S001",
+      "source_section": "About Tempelhofer Feld",
+      "note": "The site supports protected plants and rare animal species, as well as recreation and civic initiatives.",
+      "kind": "authored_paraphrase",
+      "verification_status": "source-linked_not_independently_audited"
+    },
+    {
+      "id": "E003",
+      "source_id": "S001",
+      "source_section": "An urban open space with a multi-layered history",
+      "note": "The site's recorded history includes aviation, Nazi-era persecution and forced labour, and the Berlin Airlift of 1948–49.",
+      "kind": "authored_paraphrase",
+      "verification_status": "source-linked_not_independently_audited"
+    },
+    {
+      "id": "E004",
+      "source_id": "S001",
+      "source_section": "An urban open space with a multi-layered history",
+      "note": "Airport operations ceased in 2008; the former airfield opened to the public in 2010.",
+      "kind": "authored_paraphrase",
+      "verification_status": "source-linked_not_independently_audited"
+    },
+    {
+      "id": "E005",
+      "source_id": "S001",
+      "source_section": "An urban open space with a multi-layered history",
+      "note": "The official overview describes the 2014 vote as rejecting development at the edges and supporting preservation of the field, followed by a preservation law in June 2014.",
+      "kind": "authored_paraphrase",
+      "verification_status": "source-linked_not_independently_audited"
+    },
+    {
+      "id": "E006",
+      "source_id": "S002",
+      "source_section": "Participation Model",
+      "note": "The Law for the Preservation of Tempelhofer Feld (ThFG) came into force in June 2014 following the referendum.",
+      "kind": "authored_paraphrase",
+      "verification_status": "source-linked_not_independently_audited"
+    },
+    {
+      "id": "E007",
+      "source_id": "S002",
+      "source_section": "Participation Model",
+      "note": "Citizens, the relevant Senate administration and Grün Berlin jointly developed the development and maintenance plan (EPP) during 2014–2016.",
+      "kind": "authored_paraphrase",
+      "verification_status": "source-linked_not_independently_audited"
+    },
+    {
+      "id": "E008",
+      "source_id": "S002",
+      "source_section": "Participation Model",
+      "note": "The EPP took effect in May 2016 and addresses nature, history, recreation and civic engagement.",
+      "kind": "authored_paraphrase",
+      "verification_status": "source-linked_not_independently_audited"
+    },
+    {
+      "id": "E009",
+      "source_id": "S002",
+      "source_section": "Participation Model",
+      "note": "A continuing participation model involves administration, Grün Berlin and elected citizens in implementing measures for the field.",
+      "kind": "authored_paraphrase",
+      "verification_status": "source-linked_not_independently_audited"
+    },
+    {
+      "id": "E010",
+      "source_id": "S003",
+      "source_section": "Dialogprozess Tempelhofer Feld",
+      "note": "The Senate describes an international ideas competition and public dialogue aimed at informing debate, explicitly distinguishing this process from a decision to build on the field's perimeter.",
+      "kind": "authored_paraphrase",
+      "verification_status": "source-linked_not_independently_audited"
+    },
+    {
+      "id": "E011",
+      "source_id": "S003",
+      "source_section": "Dialogprozess Tempelhofer Feld",
+      "note": "The Senate frames the dialogue in relation to housing demand, social infrastructure, climate change and transport transition.",
+      "kind": "authored_paraphrase",
+      "verification_status": "source-linked_not_independently_audited"
+    },
+    {
+      "id": "E012",
+      "source_id": "S003",
+      "source_section": "Dialogprozess Tempelhofer Feld; Fragen und Antworten",
+      "note": "The process includes dialogue workshops involving Berlin residents selected by random sampling and an international ideas competition, and is presented as a contribution to broader public debate.",
+      "kind": "authored_paraphrase",
+      "verification_status": "source-linked_not_independently_audited"
+    }
+  ]
+}
