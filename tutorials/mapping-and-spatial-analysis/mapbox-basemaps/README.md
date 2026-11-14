@@ -8,6 +8,8 @@ When preparing a map in QGIS, you often need a good-looking background quickly. 
 
 We'll first bring a Mapbox map into QGIS. Once it is working, we'll use ChatGPT and Mapbox DevKit to adjust the style's appearance and compare the result with the original.
 
+**Verification status (14 November 2026):** Workflow verified in practice, as confirmed by the resource maintainer. This records practical use rather than a new independent test; exact software versions have not yet been documented.
+
 **You need:** QGIS, a [Mapbox account](https://www.mapbox.com/), and an internet connection. The second part uses ChatGPT with access to the **Mapbox DevKit** plugin. Mapbox services have usage limits and may incur charges.
 
 ## 1. Bring a Mapbox map into QGIS
@@ -128,4 +130,4 @@ Before distributing a final map, retain the required Mapbox and data-source attr
 
 **Further reference:** [Mapbox: using a map in ArcGIS and QGIS](https://docs.mapbox.com/help/ja/tutorials/mapbox-arcgis-qgis/?step=3) · [Mapbox Styles API and WMTS endpoint](https://docs.mapbox.com/api/maps/styles/#retrieve-a-maps-wmts-document) · [Mapbox DevKit MCP](https://docs.mapbox.com/location-ai/mcp-servers/devkit-mcp-server/)
 
-**Editorial status:** Revised tutorial draft. The sequence is based on documented Mapbox and QGIS functionality, but the full workflow and interface screenshots still need desktop verification. No live account changes were made while preparing this tutorial.
+**Editorial review:** The original writing pass used Mapbox and QGIS documentation without independently executing the complete workflow. Practical verification was subsequently confirmed by the maintainer on 14 November 2026. No live account changes were made during the original writing pass.
