@@ -5,7 +5,8 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Software:** Arduino, vvvv gamma  
 **Format:** Arduino sketch and vvvv example patch  
 **Software version:** The vvvv patch references 2024.6; compatibility with newer versions has not been verified.  
-**Original collection:** 240208_Arduino to vvvv
+**Original collection:** 240208_Arduino to vvvv  
+**Verification status (14 November 2026):** Core Arduino–vvvv workflow verified in practice, as confirmed by the resource maintainer. This records practical use rather than a new independent test; the precise hardware/software versions have not been documented.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
@@ -28,4 +29,4 @@ The intent is to understand how physical measurements become data that can be st
 
 If no values arrive, confirm the USB connection, correct serial port, **9600 baud** setting and whether another application is using the port. If values are fixed or implausible, inspect the analogue wiring, common ground, sensor voltage and the values shown in Serial Monitor before troubleshooting vvvv. If a file is not created, check the output path and write permissions.
 
-**Desktop and hardware verification pending:** The original sensor wiring, the vvvv serial parsing, graph and file export have not been tested during this editorial review. The patch's compatibility with current vvvv versions also needs checking; see the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
+**Further verification:** The original sensor wiring, serial parsing, graph and file export were not retested as part of the editorial review. The maintainer has since confirmed the core workflow works in practice. Compatibility with current vvvv versions and the precise tested configuration remain to be documented; see the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
