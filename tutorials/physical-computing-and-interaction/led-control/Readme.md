@@ -5,7 +5,8 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Software:** Arduino, vvvv; optional Python / Grasshopper  
 **Format:** Written tutorial  
 **Software versions:** Original board and vvvv version not confirmed; serial protocol is general. Python example requires compatible Python 3 and pySerial.  
-**Original collection:** Extra 12 - LED Control
+**Original collection:** Extra 12 - LED Control  
+**Verification status (14 November 2026):** Core Arduino–vvvv workflow verified in practice, as confirmed by the resource maintainer. This records practical use rather than a new independent test; the precise hardware/software versions have not been documented.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
@@ -270,4 +271,4 @@ This is an optional starting point, not a tested Grasshopper definition. The Pyt
 | Python stops with `ModuleNotFoundError: serial` | Install `pyserial` in the same Python interpreter running the script |
 | LEDs behave differently from expected | Confirm the D2–D9 pin order and match `0`/`1` positions to the wiring |
 
-**Editorial note (27 October 2026):** Wiring guidance, message validation and language were revised, and a reusable Python example was added. The existing vvvv patches and hardware have not been retested during this review.
+**Editorial note (27 October 2026):** Wiring guidance, message validation and language were revised, and a reusable Python example was added. The existing vvvv patches and hardware were not retested during that editorial review; the maintainer subsequently confirmed the core workflow works in practice. The optional Grasshopper definition remains untested.
