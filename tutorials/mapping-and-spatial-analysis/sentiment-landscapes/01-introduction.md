@@ -18,7 +18,7 @@ There are different ways of addressing this challenge.
 
 One approach is to change how individual points are represented. For example, proportional symbols can use the size of a dot to communicate a value. Heatmaps offer another approach, transforming concentrations of points into continuous fields of colour.
 
-In this tutorial, we will explore a different method: **translating geographical data into a three-dimensional landscape**.
+In this tutorial, we will explore a transferable method: **translating geographical data into a three-dimensional landscape**.
 
 Rather than displaying every observation individually, we divide our study area into a regular grid. Each grid cell collects information from the points falling within its boundaries. We can then calculate a value for each cell, such as the number of observations or their average price.
 
@@ -28,7 +28,7 @@ The resulting landscape is not a representation of the physical terrain. It is a
 
 ## Our example: Photographing London
 
-To explore this method, we will work with geolocated photographs from Flickr, an online photography platform.
+To explore this method, we will work with geolocated photographs from Flickr, an online photography platform. The London project provides an example of the result, not a fixed image or dataset that you need to reproduce.
 
 Photographs uploaded to Flickr can contain geographical coordinates indicating where they were taken. By collecting these locations within a defined area of London, we can investigate how photographic activity is distributed across the city.
 
@@ -44,7 +44,7 @@ This does not necessarily tell us which places are most popular or most apprecia
 
 ![Example landscape created using geographical photograph data](Images/ViewCapture20250712_174129.png)
 
-*An example of the three-dimensional landscape developed from geographical data.*
+*An example from the archived London project. Your own data, grid and height mapping will produce a different landscape.*
 
 The tutorial follows a continuous workflow across three applications.
 
