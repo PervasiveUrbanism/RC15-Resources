@@ -269,6 +269,8 @@ After a round, ask: **“What alternative ways of addressing Berlin's housing de
 
 So far, the jury produces arguments from its training and the background we provide. We need to move from **plausible debate** towards **traceable research**. Begin with a small **closed-source collection** so agents can access the same documents and we can examine exactly what they used.
 
+For this tutorial, everyone can begin with the same [shared Tempelhofer Feld evidence pack](sources/README.md): a source register and twelve fixed, attributed research notes supplied in Markdown and JSON. **These notes are paraphrases, not verbatim source passages or a substitute for checking original documents.** The pack links to three official resources; use the originals to verify factual claims and record any permitted extracts used during the evidence audit.
+
 Start with three official resources, saving stable copies or permissible extracts and recording their provenance:
 
 - [Tempelhofer Feld official site](https://www.tempelhoferfeld.de/en/) — history and use.
