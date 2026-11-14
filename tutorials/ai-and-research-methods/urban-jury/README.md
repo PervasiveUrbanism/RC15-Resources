@@ -389,9 +389,13 @@ The closed-source jury is now a meaningful, complete exercise. External research
 
 ## 6. Optional extension — Further Research
 
-What if an agent identifies a research question the closed-source library cannot answer? We could allow it to **propose** further research while keeping the human researcher responsible for approving searches and admitting sources into the evidence library.
+What if the evidence library cannot answer an important question? In this **optional** stage, an agent can propose a web search and a separate Python tool can retrieve results. The researcher approves the query and decides whether any resulting documents enter the library. This is a controlled form of agentic tool use, not unrestricted browsing.
 
-The model and search tool are different components. Possible search services include [Brave Search API](https://brave.com/search/api/) and [Tavily](https://www.tavily.com/); these may require additional credentials and payment. Model-native web searching is another possibility but varies across providers.
+**The result of this chapter, if you choose it:** one documented, approved search, an inspected additional source and a discussion that records when the new material was introduced.
+
+The **language model and the search tool are different components**. A service such as [Brave Search API](https://brave.com/search/api/) or [Tavily](https://www.tavily.com/) can supply search results to Python, but may require a separate developer account and payment. Some model providers offer built-in web search, although it varies between providers and can reduce portability.
+
+*Why not DuckDuckGo?* Unofficial Python libraries can search DuckDuckGo without a paid API, but access may become unreliable or restricted as the service changes. It is worth knowing about this alternative; **we will not implement it here**.
 
 ![External research control workflow — diagram pending](images/13-research-tool-workflow.png)
 
@@ -411,7 +415,7 @@ The model and search tool are different components. Possible search services inc
 
 > Connect our selected search service securely. Run only researcher-approved queries, with a small per-query result cap and a maximum number of searches. Record exact query, provider, parameters, timestamp, titles, URLs, snippets, dates, failures and available usage or cost. Show results in Gradio before importing anything. Test the tool separately from the jury.
 
-A search result's snippet is not the original document and should not be accepted as verified evidence.
+For the first experiment, approve **one** query and return only a handful of results. Check that the query, result URLs and search time are recorded before accepting any new material. A search snippet is not the original document and should not be treated as verified evidence.
 
 **Prompt 37 — Register reviewed sources**
 
@@ -433,7 +437,9 @@ Compare the same jury with and without approved additional sources. New informat
 
 > Record proposed and approved/rejected queries, search provider and settings, returned results, chosen sources, retrieval dates, failures, newly registered passages, resumed discussion rounds, changed arguments, costs and selection biases. Preserve the original closed-source experiment and acknowledge that online search results may change.
 
-Stop here or skip this stage and proceed using the controlled evidence collection.
+**Before continuing:** Can you identify who approved the query, what the search returned, which source was accepted and the exact round in which its text reached the jury? If not, stay with the closed-source experiment.
+
+You can skip this entire extension and proceed using the controlled evidence collection.
 
 ---
 
@@ -441,7 +447,7 @@ Stop here or skip this stage and proceed using the controlled evidence collectio
 
 The Urban Jury is working. It can produce arguments, record conversations and inspect sources. But a working application is not yet a successful piece of research. The final stage asks **what the system actually contributed, what it failed to establish and whether another researcher could examine its method**.
 
-We will produce a **research dossier**, not a winning urban design or a definitive planning recommendation.
+We will produce a concise **research dossier**, not a winning urban design or a definitive planning recommendation. The essential tasks are to compare two juries, challenge one conclusion and make the method understandable to another student.
 
 ### Step 1 — Decide what constitutes a finding
 
@@ -491,17 +497,11 @@ An effective researcher tests their own method rather than assuming it works bec
 
 A failed or inconclusive test can be valuable when its causes are understood.
 
-### Step 4 — Package the method for inspection
+### Step 4 — Share the project and research notes
 
-**Prompt 45 — Export the research archive**
+Students do not need to implement a special export or archiving system. Share the Python project through **Dropbox, GitHub or another shared folder**. Include a short README explaining how to run it, the research dossier, experiment log, agent instructions and source register. Keep the original discussion transcripts and tests available for inspection. Never share API keys, private material or copyrighted documents without permission.
 
-> Produce a ZIP containing the dossier, original transcripts, JSON request/response records, every agent instruction, model IDs and supported settings, versions/dependencies, question/background, interventions, evidence register, source file hashes, passage identifiers, retrieval logs, audit decisions, human corrections, critical tests and a README explaining how to reproduce the experiment. Add the Git commit identifier where available. Exclude API keys, private information and copyrighted files we cannot redistribute. Explain missing records instead of inventing them.
-
-![Comparison and final archive — screenshot pending](images/16-experiment-comparison.png)
-
-*Screenshot placeholder: images/16-experiment-comparison.png — two jury configurations, question comparison and downloadable research archive.*
-
-**Repeatability** means another researcher can follow the method. It does not promise word-for-word identical AI responses. **Transparency** allows others to inspect the actual procedure. **Accuracy** still depends on careful source and claim verification. These are related but different qualities.
+**Repeatability** means another researcher can follow the method, not that the model must return identical words. **Transparency** makes the method inspectable, while **accuracy** still depends on checking evidence and reasoning.
 
 ### Explain — What did the tool contribute?
 
@@ -511,9 +511,11 @@ No number of simulated participants can manufacture democratic legitimacy. An AI
 
 Write a short reflection **in your own words**: what you built; how information moved between agents; how you tested it; which result surprised or disappointed you; and what you still cannot trust.
 
-**Prompt 46 — Audit the documentation**
+**Final Codex prompt — Audit the documentation**
 
 > Read my completed dossier and logs. Identify factual claims without source support, broken message references, undocumented settings, missing inputs, conclusions stronger than their evidence and descriptions of unperformed tests. Give me a checklist to correct myself. Do not silently rewrite findings or invent missing data.
+
+**Final checkpoint:** Can another student open your folder, run the project, find the source behind one claim and understand a test that failed or remained unresolved? If not, improve the explanation instead of adding new features.
 
 The measure of success is not “look what my AI can do”, but:
 
@@ -553,4 +555,4 @@ The experiment can be adapted to other contested sites, evidence collections or 
 
 ---
 
-<!-- Editorial notes: Image paths are placeholders; add suitable originals/licensed images, credits and permissions before publication. Codex prompts and the end-to-end application have not been tested in a fresh environment. Check current software versions, model identifiers, access and prices while implementing. The false referendum statement is a synthetic testing example. No application source or credentials are distributed. -->
+<!-- Editorial notes: Images are named placeholders; add suitable originals/licensed material and attribution before publication. Codex prompts and the end-to-end application are not yet tested in a clean environment; revise after a computer-based dry run. Check current API/model versions and prices. The false referendum statement is a synthetic test fixture. The shared evidence pack contains authored paraphrases, not original source texts. No application source or credentials are distributed. -->
