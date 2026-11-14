@@ -2,6 +2,8 @@
 
 [RC15 Resources](../../../README.md) · [Visualisation and rendering](../README.md)
 
+**Verification status (14 November 2026):** Partially verified in practice, as confirmed by the resource maintainer. The precise scope of practical verification and software versions has not yet been documented; outstanding checks are described below.
+
 Rhino and Adobe Illustrator are both excellent tools for working with vector geometry, but they have different strengths. Rhino offers precise control over drawing and manipulating curves, including the ability to generate two-dimensional drawings from 3D models using Make2D. Surprisingly, if you come from a CAD background, even relatively simple operations with lines and curves can feel cumbersome in Illustrator. However, Illustrator offers much greater flexibility when it comes to graphic appearance, colours, line weights and visual composition.
 
 Combining the two allows us to take advantage of both applications. Moving geometry from Rhino to Illustrator is straightforward: select the objects and export them as an Adobe Illustrator (`.ai`) file. The challenge begins when we want to continue working on the drawing.
@@ -139,4 +141,4 @@ The floating viewport and `Make2D` boundary help align vector linework with a `V
 
 ---
 
-**Editorial status:** Revised tutorial draft. The A3 frame and scale calculations for orthographic drawings follow the existing RC15 2D Rhino Template. The precise Rhino export dialogue settings, Illustrator coordinate conventions, repeated-import behaviour and Illustrator-to-Rhino round trip still require desktop verification.
+**Editorial status:** Revised tutorial draft, partially verified in practice. The A3 frame and scale calculations for orthographic drawings follow the existing RC15 2D Rhino Template. The precise Rhino export dialogue settings, Illustrator coordinate conventions, repeated-import behaviour and Illustrator-to-Rhino round trip still require desktop verification.
