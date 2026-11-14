@@ -5,7 +5,8 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Software:** vvvv gamma; example assets include Rhino geometry  
 **Format:** Eight example patches  
 **Software versions:** The patches reference vvvv versions from 2023.5.3 to 2025.7; current compatibility has not been verified.  
-**Original collection:** Extra 03 - vvvv
+**Original collection:** Extra 03 - vvvv  
+**Verification status (14 November 2026):** Partially verified in practice, as confirmed by the resource maintainer. The precise scope of practical verification and software versions has not yet been documented; outstanding checks are described below.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
@@ -33,4 +34,4 @@ Keep the [Assets folder](Assets) together with the patches when downloading them
 
 Open the patches and examine their node groups before modifying parameters. Compare the results: what changes when a graphic is treated as a 2D drawing, a texture in a 3D scene or a material on geometry?
 
-**Desktop check pending:** These patches were authored across different vvvv versions and may have different dependencies. Image exports, asset paths, 3D rendering and compatibility need verification in a current installation; see the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
+**Further verification:** The maintainer confirms partial practical verification. These patches were authored across different vvvv versions and may have different dependencies. Image exports, asset paths, 3D rendering and compatibility need verification in a current installation; see the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
