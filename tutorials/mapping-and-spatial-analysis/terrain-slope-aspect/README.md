@@ -7,7 +7,8 @@ Understanding the slope of a terrain helps us identify where we might build, whi
 In this tutorial, we will calculate slope from a digital elevation model (DEM) in QGIS, sample the result on a regular grid of points, and distinguish four terrain conditions: gentle ground, potential ramps, steep ground that may require stairs, and very steep areas. The final map will show these conditions over an OpenStreetMap background, so that the terrain remains legible in its geographical context.
 
 **Software:** QGIS, including the GDAL processing tools  
-**Starting point:** A georeferenced elevation raster (GeoTIFF)
+**Starting point:** A georeferenced elevation raster (GeoTIFF)  
+**Verification status (14 November 2026):** Workflow verified in practice, as confirmed by the resource maintainer. This records practical use rather than a new independent test; exact software versions have not yet been documented.
 
 [Mapping tutorials](../README.md) | [RC15 Resources](../../../README.md)
 
