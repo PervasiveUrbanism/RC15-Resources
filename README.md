@@ -56,6 +56,7 @@ Choose a topic below, then open a tutorial or example collection. Click a thumbn
 | --- | --- | --- |
 | <a href="tutorials/ai-and-research-methods/choosing-colours-with-ai/README.md"><img src="tutorials/ai-and-research-methods/choosing-colours-with-ai/images/Round%20Icon.png" width="120" alt="Choosing Colours with AI tutorial icon"></a> | [Choosing Colours with AI](tutorials/ai-and-research-methods/choosing-colours-with-ai/README.md) | Explore colour systems and Sanzo Wada, adapt a colour assistant using shared reference files, and test palettes for maps and Rhino materials. |
 | <a href="tutorials/ai-and-research-methods/image-segmentation-with-codex/README.md"><img src="tutorials/ai-and-research-methods/image-segmentation-with-codex/images/Round%20Icon.png" width="120" alt="Image Segmentation with AI tutorial icon"></a> | [Image Segmentation with AI: Build Your Own Tool with Codex](tutorials/ai-and-research-methods/image-segmentation-with-codex/README.md) | Create and refine an image-segmentation tool through Codex prompts, then explore pretrained pose, depth, audio and text models. |
+| — | [The Contested Public Space: Building a Multi-Agent Urban Research Laboratory](tutorials/ai-and-research-methods/urban-jury/README.md) | Use Codex, LiteLLM and Gradio to develop a transparent AI jury for Tempelhofer Feld; test debate structures, evidence, source verification and reproducibility. |
 
 ### Geometry and modelling
 
