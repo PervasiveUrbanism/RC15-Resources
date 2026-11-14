@@ -11,6 +11,7 @@
 **Teaching context:** RC15 – Pervasive Urbanism, Bartlett School of Architecture, UCL. Permanent resource, not tied to a particular teaching year  
 **Author:** RC15 Resources teaching team  
 **Last reviewed against documentation:** November 2026. Screenshots and app-specific steps should be checked in class; the complete cross-device workflow has not been independently tested as a single sequence.
+**Verification status (14 November 2026):** Verified in practice, as confirmed by the resource maintainer. This status records prior practical use, not a new independent execution test; exact software versions and the scope of any remaining checks have not been supplied.
 
 ## Why use GitHub if you are not a programmer?
 
