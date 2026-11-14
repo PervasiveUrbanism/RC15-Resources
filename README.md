@@ -1,12 +1,35 @@
-# RC15 Extended Knowledge
+# RC15 Resources
 
-An evolving library of tutorials, example projects and workflows for **RC15 - Pervasive Urbanism**. It brings together knowledge shared across teaching years, including material beyond the current curriculum.
+A growing library of tutorials, examples and computational workflows for **RC15 — Pervasive Urbanism** at the Bartlett School of Architecture. These resources are intended to remain useful across academic years: you can follow a suggested route, investigate a particular method or return to a reference when a project demands it.
 
-Resources are organised by topic. Software indexes offer another way to find the same material.
+## Where should I start?
 
-Contributing a tutorial? Follow the [Editorial Guidelines](EDITORIAL_GUIDELINES.md) for writing, structure and review.
+You do **not** need to learn everything here. Choose what you would like to investigate or make. The routes below suggest an accessible first step and possible next experiments; they are not mandatory courses.
+
+| I want to… | Start here | Where next? |
+| --- | --- | --- |
+| **Explore and map a city** | [Investigating Cities from Space](tutorials/mapping-and-spatial-analysis/investigating-cities-from-space/README.md) — work with satellite imagery and compare environmental conditions | Try [Mapbox Basemaps in QGIS](tutorials/mapping-and-spatial-analysis/mapbox-basemaps/README.md), then [terrain analysis](tutorials/mapping-and-spatial-analysis/terrain-slope-aspect/README.md) |
+| **Learn coding and work with data** | [GitHub Beyond Coding](tutorials/programming-and-data-access/github-beyond-coding/README.md) — understand repositories and work with shared resources | Explore [File Access in Google Colab](tutorials/programming-and-data-access/file-access-in-google-colab/README.md), then a data exercise such as [Introduction to UMAP](tutorials/data-analysis-and-machine-learning/umap/README.md) |
+| **Build and question AI tools** | [Image Segmentation with AI](tutorials/ai-and-research-methods/image-segmentation-with-codex/README.md) — guide a coding agent to create a visual tool | Explore [Choosing Colours with AI](tutorials/ai-and-research-methods/choosing-colours-with-ai/README.md), then the more demanding [Urban Jury](tutorials/ai-and-research-methods/urban-jury/README.md) |
+| **Create interactive and generative systems** | [vvvv Graphics Fundamentals](tutorials/visualisation-and-rendering/vvvv-graphics-fundamentals/README.md) — experiment with visual programming and graphics | Follow the [vvvv learning pathway](software/vvvv.md) into drawing, geometry, simulation, Rhino and physical interaction |
+
+Not sure yet? **Start with a topic that interests you**, even if it uses software you have never opened. Each resource should tell you what it involves; more advanced examples can serve as inspiration before you are ready to build them.
+
+### What kind of resource am I opening?
+
+| Type | What to expect |
+| --- | --- |
+| **Guided tutorial** | Explanations and a practical sequence you can follow and adapt |
+| **Notebook** | Explanations and executable code, usually with data or visual outputs |
+| **Example project or patch** | Existing files to inspect and experiment with; may not include step-by-step teaching |
+| **Collection** | Several related examples; choose the one relevant to your question |
+| **Draft or testing pending** | Useful material still undergoing editorial review or technical verification |
+
+These descriptions indicate the **format**, not a guarantee of compatibility. Some older examples need particular software versions, dependencies or file paths. Check each resource's README before starting.
 
 ## Browse by topic
+
+The illustrated catalogue below remains the complete reference. Browse by subject if you already know what you need, or use the [software indexes](#browse-by-software) to find examples that use a particular application. Click a thumbnail or title to open a resource.
 
 Choose a topic below, then open a tutorial or example collection. Click a thumbnail or title to start. Project images and notebook plots provide visual references; labelled workflow diagrams identify resources that do not yet have a suitable preview image.
 
@@ -103,7 +126,7 @@ Choose a topic below, then open a tutorial or example collection. Click a thumbn
 
 ## Browse by software
 
-- [vvvv](software/vvvv.md)
+- [vvvv — Creative Coding and Interactive Systems: guided pathway](software/vvvv.md)
 - [QGIS](software/qgis.md)
 - [Rhino and Grasshopper](software/rhino-grasshopper.md)
 - [Python](software/python.md)
@@ -112,7 +135,7 @@ Choose a topic below, then open a tutorial or example collection. Click a thumbn
 
 ## Using the library
 
-Open a tutorial's README for its instructions, guide or example-file list. Resources include written tutorials, notebooks, PDF guides and example collections. Example collections are labelled where a written guide is still needed.
+Open a resource's README for its instructions, files and known limitations. A guided tutorial offers a teaching sequence; an example collection offers material to investigate independently. Use the starting routes above when you want a suggested order, or browse directly by topic and software when you know what you need.
 
 Use GitHub's **Code > Download ZIP**, or clone this repository, to obtain example projects. Preserve each folder's internal structure so projects can find their assets. Software versions and compatibility still need checking unless explicitly documented in a guide.
 
@@ -124,4 +147,4 @@ See the [editorial backlog and tutorial wishlist](EDITORIAL_BACKLOG.md) for the 
 
 ## Adding a resource
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the folder convention and tutorial checklist.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the folder convention and tutorial checklist, and the [Editorial Guidelines](EDITORIAL_GUIDELINES.md) for writing, structure and review.
