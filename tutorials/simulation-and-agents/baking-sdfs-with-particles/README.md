@@ -5,7 +5,8 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Software:** vvvv gamma, VL.Fuse, Rhino  
 **Format:** Example patch with exported data  
 **Software version:** The patch references vvvv 2024.6; compatibility with current versions has not been verified.  
-**Original collection:** 240217_BakeSDF with Particles
+**Original collection:** 240217_BakeSDF with Particles  
+**Verification status (14 November 2026):** Partially verified in practice, as confirmed by the resource maintainer. The precise components tested and compatibility with current vvvv and associated dependencies have not been documented.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
@@ -30,4 +31,4 @@ The folder also contains outputs and references to inspect:
 
 Compare the saved positions with the geometry visible in the patch or in Rhino. Consider what is gained by keeping a result as editable model data, and what is lost when a particular state of a dynamic system is fixed.
 
-**Desktop verification pending:** The patch and its export sequence have not been run during this editorial review. Before teaching from it, check the VL.Fuse dependencies, buffer readback, output paths and formats, and the relationship between the saved files and the Rhino geometry. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
+**Further verification:** The patch and its export sequence were not run as part of the editorial review; the maintainer has since confirmed partial practical verification. Before teaching from it, check the VL.Fuse dependencies, buffer readback, output paths and formats, and the relationship between the saved files and the Rhino geometry. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
