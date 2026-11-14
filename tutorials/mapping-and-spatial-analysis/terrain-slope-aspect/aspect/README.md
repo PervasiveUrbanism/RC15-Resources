@@ -7,7 +7,8 @@ Slope tells us how steep the ground is. **Aspect** tells us which compass direct
 In this companion tutorial, we calculate aspect from the same digital elevation model (DEM) used in [Slope and Accessibility](../README.md). We then sample the raster on a 25 m point grid, translate the angles into compass directions, and use [Andrew Marsh's 2D Sun-Path tool](https://andrewmarsh.com/software/sunpath2d-web/) to explore how orientation relates to the sun's changing position.
 
 **Software:** QGIS (including GDAL processing tools); web browser  
-**Starting point:** [Aspect QGIS project](../Aspect.qgz), [projected DEM](../links/DEM_projected.tif), and [25 m point grid](../links/Point%20Grid.gpkg)
+**Starting point:** [Aspect QGIS project](../Aspect.qgz), [projected DEM](../links/DEM_projected.tif), and [25 m point grid](../links/Point%20Grid.gpkg)  
+**Verification status (14 November 2026):** Workflow verified in practice, as confirmed by the resource maintainer. This records practical use rather than a new independent test; exact software versions have not yet been documented.
 
 [Mapping tutorials](../../README.md) | [RC15 Resources](../../../../README.md)
 
