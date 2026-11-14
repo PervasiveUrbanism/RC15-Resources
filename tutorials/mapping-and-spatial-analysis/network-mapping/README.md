@@ -5,7 +5,8 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Software:** QGIS  
 **Format:** Written tutorial  
 **Software versions:** QGIS 3.x; exact release used for the original screenshots unconfirmed.  
-**Original collection:** Extra 08 - Network Qgis
+**Original collection:** Extra 08 - Network Qgis  
+**Verification status (14 November 2026):** Workflow verified in practice, as confirmed by the resource maintainer. This records practical use rather than a new independent test; exact software versions have not yet been documented.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
@@ -228,6 +229,6 @@ Try moving the focal point across the river or to a nearby station, while keepin
 
 
 
-**Editorial review:** 26 October 2026. The written tutorial, images, source-data link and routing caveats were reviewed; the workflow has **not** been rerun in QGIS in this review. The supplied parameters are suggested starting values, not measured values from the source screenshots.
+**Editorial review:** 26 October 2026. The written tutorial, images, source-data link and routing caveats were reviewed; the workflow was **not** rerun in QGIS as part of that particular editorial review. Practical verification was subsequently confirmed by the maintainer on 14 November 2026. The supplied parameters are suggested starting values, not measured values from the source screenshots.
 
 Further reference: [QGIS Create grid documentation](https://doc.qgis.org/3.44/en/docs/user_manual/processing_algs/qgis/vectorcreation.html#create-grid).
