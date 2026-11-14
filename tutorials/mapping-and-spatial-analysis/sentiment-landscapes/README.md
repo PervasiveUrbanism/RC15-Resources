@@ -4,6 +4,8 @@
 
 Initial transfer from the [source Google Drive folder](https://drive.google.com/drive/folders/1Vne2oIm3IZLKmHETGs8oMA8x86V2IqWA). Original filenames and internal structure are preserved.
 
+**Verification status (14 November 2026):** Partially verified in practice, as confirmed by the resource maintainer. The complete multi-application workflow, archived data provenance and omitted source dependencies are not yet confirmed as reproducible from the published files.
+
 **Start here:** [Chapter 1 — From Points to Landscapes](01-introduction.md). The [earlier technical draft](TUTORIAL.md) remains available as reference while the practical chapters are developed.
 
 **Continue:** [Chapter 2 — Collecting Flickr Data in QGIS](02-collecting-flickr-data.md) — install the plugin, obtain an API key and collect geolocated photographs.
@@ -24,7 +26,7 @@ Initial transfer from the [source Google Drive folder](https://drive.google.com/
 - `Images/`: illustrations, screenshots and image working files.
 - `assets/`, `Background.png` and `london_photos.csv`: supporting data, maps and imagery.
 
-This example collection explores photo locations, spatial aggregation and landscape visualisation with QGIS, Rhino/Grasshopper and Illustrator. Familiarity with these applications is assumed. A first step-by-step tutorial draft now records intermediate-level exercises and the package versions found in the source definition. Application testing and tutorial polishing remain to be completed. Author and teaching year are unconfirmed; source files date from 2025. Transfer integrity checked on 25 October 2026; application compatibility has not been tested.
+This example collection explores photo locations, spatial aggregation and landscape visualisation with QGIS, Rhino/Grasshopper and Illustrator. Familiarity with these applications is assumed. A first step-by-step tutorial draft now records intermediate-level exercises and the package versions found in the source definition. Additional verification and tutorial polishing remain to be completed; the maintainer has confirmed that the resource is partially verified in practice. Author and teaching year are unconfirmed; source files date from 2025. Transfer integrity checked on 25 October 2026; complete application compatibility and reproducibility from the published files have not been established.
 
 ## Existing Rhino output image
 
