@@ -4,8 +4,9 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 
 **Software:** Python and Jupyter Notebook; optional visualisation in vvvv or Grasshopper  
 **Format:** Two linked notebooks and a vvvv example  
-**Software versions:** Not yet verified through an end-to-end run  
+**Software versions:** Exact version used in practice not yet recorded; the 2026 editorial review did not repeat an end-to-end run  
 **Original collection:** Extra 04 - GSR to UMAP
+**Verification status (14 November 2026):** Verified in practice, as confirmed by the resource maintainer. This status records prior practical use, not a new independent execution test; exact software versions and the scope of any remaining checks have not been supplied.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
