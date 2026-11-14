@@ -1,4 +1,4 @@
-# Sentiment Landscapes: from photo locations to a drawn landscape
+# Density Landscapes: from photo locations to a drawn landscape
 
 **First tutorial draft — 25 October 2026.** Based on inspection of the supplied project, data and Grasshopper definition. The full workflow has not yet been run in the applications.
 
@@ -17,7 +17,7 @@ By the end, you should be able to:
 - Pass ordered grid centres and values to Grasshopper.
 - Generate a heightfield and contours, then compose a labelled illustration.
 
-The project title is **Sentiment Landscapes**. The inspected fields contain photo locations and counts; they do not contain a sentiment score or a documented sentiment-analysis method. In this draft, height represents photographic activity. Any later interpretation of emotion needs its own method and evidence.
+The archived project was originally titled **Sentiment Landscapes**. This resource is now titled **Density Landscapes**, because the inspected fields contain photo locations and counts, not a sentiment score or a documented sentiment-analysis method. In this draft, height represents photographic activity. Any later interpretation of emotion needs its own method and evidence.
 
 **Level:** intermediate. You should be comfortable opening QGIS layers and following a Grasshopper definition.
 
