@@ -1,6 +1,6 @@
 # 5. Representing the Landscape — From Rhino to Illustrator
 
-[← Chapter 4: Building a 3D Landscape](04-grasshopper-landscape.md) · [Sentiment Landscapes overview](README.md)
+[← Chapter 4: Building a 3D Landscape](04-grasshopper-landscape.md) · [Density Landscapes overview](README.md)
 
 We now have a three-dimensional surface whose elevation represents the number of geolocated Flickr photographs in each grid cell. The model makes concentrations of photographic activity visible as peaks, but it does not yet show enough of the city to help viewers recognise *where* those peaks are.
 
