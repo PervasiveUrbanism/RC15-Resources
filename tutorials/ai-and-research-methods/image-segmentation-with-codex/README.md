@@ -8,6 +8,7 @@
 **Software:** [Codex](https://openai.com/codex/), Python and a web browser  
 **Time:** Approximately 30–60 minutes for a first experiment; installing packages and downloading a model may take longer  
 **You will learn:** How to brief an AI coding agent, use a pretrained model, test an application and assess the reliability of its output.
+**Verification status (14 November 2026):** Verified in practice, as confirmed by the resource maintainer. This records practical use, not a new independent end-to-end test; software versions and verification scope have not been documented.
 
 Imagine photographing a public square and asking a computer to distinguish the sky, trees, buildings and ground. Rather than describing the whole photograph with a sentence, we want a new image in which each pixel is assigned to a category. This is **semantic image segmentation**.
 
@@ -102,4 +103,4 @@ You do not need to understand every line of generated Python on day one. You do 
 
 ---
 
-<!-- Editorial checklist: Check image rights and illustration accuracy; verify software steps in a fresh environment. No application source is distributed with this tutorial. -->
+<!-- Editorial checklist: Check image rights and illustration accuracy; a separate fresh-environment reproduction may still be useful. No application source is distributed with this tutorial. -->
