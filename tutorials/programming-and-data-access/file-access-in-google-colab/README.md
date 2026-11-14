@@ -6,6 +6,7 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Format:** Short practical Jupyter notebook  
 **Prerequisites:** Basic familiarity with running a Python code cell; a Google account to use Colab  
 **Software versions:** Colab is a hosted service and may change; the notebook has not been rerun during this editorial review.
+**Verification status (14 November 2026):** Verified in practice, as confirmed by the resource maintainer. This status records prior practical use, not a new independent execution test; exact software versions and the scope of any remaining checks have not been supplied.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
