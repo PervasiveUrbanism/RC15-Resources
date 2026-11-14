@@ -6,6 +6,7 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Format:** Example patch  
 **Software version:** The patch references vvvv 2023.5.3; compatibility with newer versions has not been verified.  
 **Original collection:** 240203_vvvv Sound Analysis
+**Verification status (14 November 2026):** Partially verified in practice, as confirmed by the resource maintainer. This status records prior practical use, not a new independent execution test; exact software versions and the scope of any remaining checks have not been supplied.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
@@ -21,4 +22,4 @@ Open **[240203_Sound Analysis.vl](240203_Sound%20Analysis.vl)** in vvvv and expl
 
 Try comparing the response to quiet and loud sounds, or to sustained tones and short, rhythmic sounds. Consider which characteristics of sound are useful to represent, and what kinds of visual relationships they might produce in an interactive environment.
 
-The example uses an audio input and audio-reactive components. It has not yet been checked in a current vvvv installation; microphone access, dependencies and the behaviour of the visual output require a desktop review. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
+The example uses an audio input and audio-reactive components. The maintainer confirms partial practical verification; compatibility in a current vvvv installation, microphone access, dependencies and output behaviour still require further review. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
