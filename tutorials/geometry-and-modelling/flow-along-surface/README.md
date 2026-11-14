@@ -4,8 +4,9 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 
 **Software:** Rhino  
 **Format:** Written tutorial  
-**Software versions:** Rhino 8 documentation used for this review; original example version and live application testing unconfirmed.  
-**Original collection:** Extra 11 - Rhino Flow along surface
+**Software versions:** Rhino 8 documentation used for the editorial review; exact version used in the maintainer's practical verification not recorded.  
+**Original collection:** Extra 11 - Rhino Flow along surface  
+**Verification status (14 November 2026):** Verified in practice, as confirmed by the resource maintainer. The specific Rhino version used for this verification has not been recorded; this is not a new independent test.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
@@ -161,4 +162,4 @@ This is particularly useful for refining a pattern over a few iterations without
 - [CreateUVCrv — Rhino 8 documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/createuvcrv.htm)
 - [ApplyCrv — Rhino 8 documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/applycrv.htm)
 
-**Editorial status (26 October 2026):** Introduction and technical descriptions reviewed against Rhino 8 documentation. The supplied model and deformation workflow have not been rerun in Rhino during this review.
+**Editorial status (26 October 2026):** Introduction and technical descriptions reviewed against Rhino 8 documentation. The supplied model and deformation workflow were not rerun as part of that particular editorial review; the maintainer subsequently confirmed practical verification on 14 November 2026.
