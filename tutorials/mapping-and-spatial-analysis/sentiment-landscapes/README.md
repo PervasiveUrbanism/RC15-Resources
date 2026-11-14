@@ -1,40 +1,43 @@
 # Density Landscapes
 
-[Browse this topic](../README.md) | [Library home](../../../README.md)
+[Mapping and spatial analysis](../README.md) · [RC15 Resources](../../../README.md)
 
-Initial transfer from the [source Google Drive folder](https://drive.google.com/drive/folders/1Vne2oIm3IZLKmHETGs8oMA8x86V2IqWA). Original filenames and internal structure are preserved.
+Turn geographical observations into an artificial landscape. This tutorial explains a **transferable method**: collect or import point data, count observations within a grid, use the values to construct a three-dimensional surface, and develop a drawing that makes the spatial pattern legible.
 
-**Verification status (14 November 2026):** Partially verified in practice, as confirmed by the resource maintainer. The complete multi-application workflow, archived data provenance and omitted source dependencies are not yet confirmed as reproducible from the published files.
+![Example data landscape from the original London project](Images/ViewCapture20250712_174129.png)
 
-**Start here:** [Chapter 1 — From Points to Landscapes](01-introduction.md). The [earlier technical draft](TUTORIAL.md) remains available as reference while the practical chapters are developed.
+*An example from the archived project. Your landscape will differ according to your data, study area, grid and height mapping.*
 
-**Continue:** [Chapter 2 — Collecting Flickr Data in QGIS](02-collecting-flickr-data.md) — install the plugin, obtain an API key and collect geolocated photographs.
+We use geolocated Flickr photographs in London as an example, but the method can be adapted to other datasets with suitable locations and numerical values. The aim is **not to reproduce this particular image or dataset**, but to learn how data can become a spatial representation.
 
-**Next:** [Chapter 3 — Analysing Spatial Density in QGIS](03-spatial-density-qgis.md) — create a grid, count photographs and export centroids for Grasshopper.
+**Software:** QGIS, Rhino/Grasshopper with Heron, Adobe Illustrator  
+**Prerequisites:** Familiarity with QGIS layers and basic Grasshopper definitions  
+**Format:** Five connected chapters, with example project files and an earlier technical reference  
+**Verification:** Partially verified in practice (confirmed by the maintainer on 14 November 2026). Complete reproducibility of the archived multi-application project and its external dependencies has not been established.
 
-**Chapter 4:** [Building a 3D Landscape in Grasshopper](04-grasshopper-landscape.md) — import centroids with Heron, map counts to height and construct a surface.
+## Follow the method
 
-**Chapter 5:** [Representing the Landscape — From Rhino to Illustrator](05-representing-the-landscape.md) — geographical backgrounds, contours, baking, Make2D and final illustration.
+1. **[From Points to Landscapes](01-introduction.md)** — Understand how spatial aggregation can create an artificial topography.
+2. **[Collecting Flickr Data in QGIS](02-collecting-flickr-data.md)** — Obtain geolocated photo records; use the supplied data if live collection is unavailable.
+3. **[Analysing Spatial Density in QGIS](03-spatial-density-qgis.md)** — Count observations in grid cells and export their centres and values.
+4. **[Building a 3D Landscape in Grasshopper](04-grasshopper-landscape.md)** — Position the points geographically, map counts to heights and construct a surface.
+5. **[Representing the Landscape — From Rhino to Illustrator](05-representing-the-landscape.md)** — Add geographic context, generate contours and compose a drawing.
 
-**Looking for a missing file?** [Files not transferred — locations and Drive download links](FILES-NOT-TRANSFERRED.md).
+A different location, date of collection or grid size will produce different results. Even the included `london_photos.csv` is not the dataset behind all the original project outputs: it contains 61,250 photograph records, while the archived centroid counts sum to 517,804. **These figures have not been reconciled**, so do not expect the smaller CSV to reproduce the original heightfield. This does not prevent you from using it to learn the method.
 
-## Contents
+## Archived project and supporting files
 
-- `Qgis/SenitmentLandscapes.qgz`: QGIS project (original spelling), smaller GeoPackages, CSV data, metadata and PDF exports.
-- `Rhino/`: Grasshopper definitions and smaller assets.
-- `Illustrator/`: Illustrator and Photoshop working files.
-- `Images/`: illustrations, screenshots and image working files.
-- `assets/`, `Background.png` and `london_photos.csv`: supporting data, maps and imagery.
+The source project was originally called *Sentiment Landscapes*, but the exercises analyse **photograph density**, not sentiment. Original directory and project filenames are retained to preserve links and dependencies. The [earlier technical draft](TUTORIAL.md) documents the archived source and its recorded software versions; it is a reference, not a separate required tutorial.
 
-This example collection explores photo locations, spatial aggregation and landscape visualisation with QGIS, Rhino/Grasshopper and Illustrator. Familiarity with these applications is assumed. A first step-by-step tutorial draft now records intermediate-level exercises and the package versions found in the source definition. Additional verification and tutorial polishing remain to be completed; the maintainer has confirmed that the resource is partially verified in practice. Author and teaching year are unconfirmed; source files date from 2025. Transfer integrity checked on 25 October 2026; complete application compatibility and reproducibility from the published files have not been established.
+The original material was transferred from [Google Drive](https://drive.google.com/drive/folders/1Vne2oIm3IZLKmHETGs8oMA8x86V2IqWA). Included files are arranged as follows:
 
-## Existing Rhino output image
+- `Qgis/` — the original `SenitmentLandscapes.qgz` (historical filename), smaller GeoPackages, CSV data, metadata and PDF exports.
+- `Rhino/` — Grasshopper definitions and smaller associated assets.
+- `Illustrator/` — Illustrator and Photoshop project files.
+- `Images/` — screenshots and reference images.
+- `assets/`, `Background.png` and `london_photos.csv` — other supporting material.
 
-Use the existing [landscape view capture](Images/ViewCapture20250712_174129.png) instead of the omitted Rhino model.
-
-![Existing landscape view capture](Images/ViewCapture20250712_174129.png)
-
-QGIS screenshots are also retained in `Images/`.
+Some large files were deliberately not committed to GitHub. **You do not need to restore the entire archive to work through the method**, particularly if you create your own QGIS point data and Grasshopper definition. If you want to open the original project, consult the [missing-file list](FILES-NOT-TRANSFERRED.md), [transfer notes](TRANSFER.md) and [file manifest](TRANSFER-MANIFEST.csv).
 
 ## Omitted dependencies
 
