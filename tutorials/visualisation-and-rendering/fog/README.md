@@ -5,7 +5,8 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Software:** vvvv gamma  
 **Format:** Four example patches  
 **Software version:** The patches reference vvvv 2025.7.1; compatibility with other versions has not been verified.  
-**Original collection:** Extra 13 - How to draw fog
+**Original collection:** Extra 13 - How to draw fog  
+**Verification status (14 November 2026):** Partially verified in practice, as confirmed by the resource maintainer. The precise scope of practical verification and software versions has not yet been documented; outstanding checks are described below.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
@@ -22,4 +23,4 @@ Work through them in numerical order:
 
 The series builds on texture-processing techniques and introduces additional operations across the examples. Experiment by changing parameters and comparing the resulting images and movement. Consider how similar effects might be used to suggest atmosphere, visibility or environmental conditions in architectural visualisations.
 
-The patches contain internal node groups and labels, but have not yet been checked for clarity and correct execution in a current vvvv installation. A desktop review is recorded in the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
+The patches contain internal node groups and labels. The maintainer confirms partial practical verification, but clarity and correct execution in a current vvvv installation still require review. A desktop review is recorded in the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
