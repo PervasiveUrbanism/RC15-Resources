@@ -5,7 +5,8 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Software:** vvvv gamma, VL.Fuse  
 **Format:** Example patch with sample data  
 **Software version:** The patch references vvvv 2024.6; compatibility with newer versions has not been verified.  
-**Original collection:** 240305_Read Point Clouds
+**Original collection:** 240305_Read Point Clouds  
+**Verification status (14 November 2026):** Partially verified in practice, as confirmed by the resource maintainer. Full compatibility of the patch, supplied point-cloud data and dependencies in current vvvv versions is not yet established.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
@@ -23,4 +24,4 @@ Open the patch in vvvv and check the **file path** supplied to its PLY reader. I
 
 The supplied dataset is relatively large (the ZIP alone is approximately 42 MB), so loading and rendering performance may depend on your hardware.
 
-**Desktop check pending:** The patch, the contents of the archive and the required VL.Fuse dependencies have not yet been tested together in a current vvvv installation. This is recorded in the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
+**Further desktop check:** The maintainer confirms partial practical verification. The patch, supplied data and required VL.Fuse dependencies still need to be checked together in a current vvvv installation. This is recorded in the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
