@@ -525,6 +525,22 @@ The experiment can be adapted to other contested sites, evidence collections or 
 
 ---
 
+## Outlook — Beyond the Urban Jury
+
+We have built a multi-agent system in which specialised AI agents investigate a question, exchange arguments and draw on external information. So far, their tools are deliberately limited to document retrieval and, optionally, web search. But the same architecture can be extended much further.
+
+Each agent can be given its own responsibilities, tools and capabilities. Through interfaces such as the **Model Context Protocol (MCP)**, suitable integrations can let agents interact with applications beyond the language model. Imagine one agent investigating urban data, another working with geometry in **Rhino** or **Blender**, and a third exploring visual scenarios through an image-generation system such as **Stable Diffusion**. Their outputs could return to the jury for discussion, criticism and further development. MCP does not automatically provide access to these applications: each needs an appropriate integration exposing the functions the agent is allowed to use.
+
+The interesting possibility is not simply that AI can generate drawings, models or images. It is that **specialised agents can collaborate across different tools**, each contributing to a larger computational process. The researcher decides what each agent can do, how they exchange information and which results deserve further investigation.
+
+The agents need not use the same language model either. Some complex research or reasoning tasks might benefit from **OpenAI** or **Claude**, while others could use **DeepSeek**. Simpler, repetitive tasks might run on a local model through **Ollama**. Assigning models according to the requirements of each task can help control API costs, although local hardware, processing time and external tool charges also matter.
+
+This opens possibilities far beyond the Urban Jury: systems combining spatial analysis, environmental simulation, generative geometry, visualisation and critical evaluation. We have deliberately concentrated on transparent research methods rather than automated design production. The underlying architecture, however, can support much more ambitious experiments.
+
+**The challenge is not simply to give AI agents increasingly powerful tools. It is to orchestrate their capabilities while retaining the ability to understand, evaluate and take responsibility for what they produce.**
+
+---
+
 ## Troubleshooting
 
 **API requests fail:** Verify provider model ID, secure credentials, credit/billing and rate limits. For Ollama, confirm the local server and installed model. Do not print credentials.
