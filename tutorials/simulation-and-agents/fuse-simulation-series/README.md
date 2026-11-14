@@ -5,7 +5,8 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Software:** vvvv gamma, VL.Fuse  
 **Format:** Five example patches  
 **Software version:** The patches reference vvvv 2025.7.1; compatibility with newer versions has not been verified.  
-**Original collection:** Extra 10 - VL Fuse
+**Original collection:** Extra 10 - VL Fuse  
+**Verification status (14 November 2026):** Partially verified in practice, as confirmed by the resource maintainer. The precise components tested and compatibility with current vvvv and associated dependencies have not been documented.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
@@ -31,4 +32,4 @@ Open the patches in vvvv and inspect their node groups. Try changing a primitive
 
 For a separate introduction to the underlying geometry, see [Signed Distance Fields in vvvv](../../geometry-and-modelling/signed-distance-fields/README.md).
 
-**Desktop verification pending:** The patches and their VL.Fuse dependencies have not been tested in a current vvvv installation during this editorial review. Check the rendering, simulation and interaction with SDF obstacles before using them in teaching. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
+**Further verification:** The patches and their VL.Fuse dependencies were not tested in a current installation during the editorial review; the maintainer has since confirmed partial practical verification. Check the rendering, simulation and interaction with SDF obstacles before using them in teaching. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
