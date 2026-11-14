@@ -7,6 +7,7 @@
 **Level:** Beginner  
 **Software:** ChatGPT and a drawing application such as Rhino, Illustrator or QGIS  
 **You will learn:** How to compare colour strategies, test palettes before applying them and develop a brief for your own colour assistant.
+**Verification status (14 November 2026):** Verified in practice, as confirmed by the resource maintainer. This records practical use, not a new independent end-to-end test; software versions and verification scope have not been documented.
 
 ## Why is choosing colour so difficult?
 
