@@ -1,6 +1,6 @@
 # 4. Building a 3D Landscape in Grasshopper
 
-[← Chapter 3: Analysing Spatial Density](03-spatial-density-qgis.md) · [Sentiment Landscapes overview](README.md)
+[← Chapter 3: Analysing Spatial Density](03-spatial-density-qgis.md) · [Density Landscapes overview](README.md)
 
 In QGIS, we replaced thousands of overlapping Flickr photographs with a regular grid. Each cell now has a number: the count of photographs found inside it. We also exported a CSV containing the centre of every cell and its count.
 
