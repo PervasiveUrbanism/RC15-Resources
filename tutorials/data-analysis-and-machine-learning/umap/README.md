@@ -6,6 +6,7 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Format:** Worked notebook tutorial  
 **Software versions:** The notebook recommends Python 3.10–3.12; the full environment has not been retested during this editorial review.  
 **Original collection:** Extra 02 - UMAP
+**Verification status (14 November 2026):** Verified in practice, as confirmed by the resource maintainer. This status records prior practical use, not a new independent execution test; exact software versions and the scope of any remaining checks have not been supplied.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
