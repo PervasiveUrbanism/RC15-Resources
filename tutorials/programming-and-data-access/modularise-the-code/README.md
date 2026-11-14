@@ -5,8 +5,9 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Software:** Python 3 and Jupyter Notebook  
 **Format:** Short notebook with supporting Python files  
 **Prerequisites:** Basic Python syntax; no additional Python packages required for the current notebook  
-**Status:** Editorial revision completed; execution in a clean Jupyter environment remains to be verified.  
+**Editorial status:** Revision completed; clean-environment execution was not part of the editorial review.  
 **Original collection:** Xtra 01 - Modularise the code
+**Verification status (14 November 2026):** Verified in practice, as confirmed by the resource maintainer. This status records prior practical use, not a new independent execution test; exact software versions and the scope of any remaining checks have not been supplied.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
@@ -23,4 +24,4 @@ The accompanying [`.gitignore`](.gitignore) demonstrates how to exclude **new, u
 
 **Important:** All included credential values are placeholders. Never substitute actual passwords or API keys into these tracked example files, or save real credentials in a shared notebook's output. The notebook uses only Python's standard library and the supplied helper files.
 
-**Desktop check pending:** Open the notebook in a fresh Python/Jupyter environment, confirm imports from the same folder, edit and reload the helper module, and test the optional environment-variable demonstration. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
+**Optional fresh-environment check:** The maintainer has confirmed practical verification. A separate clean-install check could still confirm imports, module reloading and the environment-variable demonstration for future students. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
