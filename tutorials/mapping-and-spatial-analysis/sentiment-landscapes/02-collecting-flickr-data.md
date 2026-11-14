@@ -1,6 +1,6 @@
 # 2. Collecting Flickr Data in QGIS
 
-[← Chapter 1: From Points to Landscapes](01-introduction.md) · [Sentiment Landscapes overview](README.md)
+[← Chapter 1: From Points to Landscapes](01-introduction.md) · [Density Landscapes overview](README.md)
 
 In the introduction, we discussed how thousands of overlapping geographical points can be transformed into a landscape. Our first practical task is to obtain those points.
 
@@ -15,15 +15,15 @@ At the end of this chapter you should have a QGIS project and a **SpatiaLite dat
 Create a folder on your computer for this exercise. For example:
 
 ```text
-Sentiment-Landscapes/
-├── Sentiment-Landscapes.qgz
+Density-Landscapes/
+├── Density-Landscapes.qgz
 └── data/
     └── flickr_photos.sqlite
 ```
 
 The `.qgz` project and the `.sqlite` database will be created in the following steps. Keeping them together makes it easier to move the project to another computer and reduces broken file paths.
 
-Open **QGIS 3**, create a new project and save it as `Sentiment-Landscapes.qgz` in your working folder. The accompanying archive in this repository contains an older example project, but we will build our own rather than simply opening the finished result.
+Open **QGIS 3**, create a new project and save it as `Density-Landscapes.qgz` in your working folder. The accompanying archive in this repository contains an older example project, but we will build our own rather than simply opening the finished result.
 
 ## 2.2 Install Flickr Metadata Downloader
 
