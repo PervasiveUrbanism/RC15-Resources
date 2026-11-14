@@ -5,7 +5,8 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Software:** vvvv gamma, VL.Fuse  
 **Format:** Five example patches  
 **Software version:** The patches reference vvvv 2024.6; compatibility with newer versions has not been verified.  
-**Original collection:** 240208_SDF's
+**Original collection:** 240208_SDF's  
+**Verification status (14 November 2026):** Partially verified in practice, as confirmed by the resource maintainer. The extent of verification across the five patches and compatibility with current vvvv/VL.Fuse versions are not yet documented.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
@@ -31,4 +32,4 @@ Work through the patches directly and experiment with the parameters. Try compar
 
 Keep the supplied image assets with the examples when downloading the folder: [colour reference 1](3E95CC_65D9F1_A2E2F6_679BD4-512px.png), [colour reference 2](C7C7D7_4C4E5A_818393_6C6C74.png) and [MatCapSample01.png](MatCapSample01.png).
 
-**Desktop verification pending:** The five patches, VL.Fuse dependencies and resulting renders have not yet been tested in a current vvvv installation. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
+**Further desktop verification:** The maintainer confirms partial practical verification. Which of the five patches, VL.Fuse dependencies and resulting renders work in a current vvvv installation still needs documenting. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
