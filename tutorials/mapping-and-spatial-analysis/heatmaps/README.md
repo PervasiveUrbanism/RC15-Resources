@@ -1,10 +1,11 @@
 # Heatmaps in QGIS
 
-Part of **RC15 Extended Knowledge**, a collection of tutorials and examples beyond the current curriculum.
+Part of **RC15 Resources**, the permanent teaching library for Pervasive Urbanism.
 
 **Software:** QGIS  
 **Format:** Written tutorial  
-**Software versions:** To be confirmed  
+**Software versions:** Exact version used in practice not yet recorded  
+**Verification status (14 November 2026):** Workflow verified in practice, as confirmed by the resource maintainer. This records practical use rather than a new independent test; exact software versions have not yet been documented.  
 **Original collection:** Extra 07 - Heatmaps
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
