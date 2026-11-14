@@ -1,6 +1,6 @@
 # 1. Introduction — From Points to Landscapes
 
-[Sentiment Landscapes overview](README.md) · [Existing technical draft](TUTORIAL.md)
+[Density Landscapes overview](README.md) · [Existing technical draft](TUTORIAL.md)
 
 ## Making sense of dense geographical data
 
