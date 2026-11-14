@@ -5,7 +5,8 @@ Part of **RC15 Resources**, the permanent tutorial library for Pervasive Urbanis
 **Software:** vvvv gamma; some examples use Arduino or Rhino  
 **Format:** Collection of 20 example patches  
 **Software version:** The sampled patches reference vvvv 2024.6.7; current compatibility has not been verified.  
-**Original collection:** Extra 2 - VVVV
+**Original collection:** Extra 2 - VVVV  
+**Verification status (14 November 2026):** Partially verified in practice, as confirmed by the resource maintainer. The precise scope of practical verification and software versions has not yet been documented; outstanding checks are described below.
 
 [Browse this topic](../README.md) | [Library home](../../../README.md)
 
@@ -57,4 +58,4 @@ The eight patches below form the most substantial sequence in this collection. T
 
 These patches use VL.Fuse particle and compute functionality. They could eventually form a separate learning sequence, but are kept here in their original collection for now.
 
-**Desktop verification pending:** The patches have not been run during this editorial review. Check compatibility, VL.Fuse and other dependencies, external asset paths, data/serial inputs, image exports and simulation behaviour before using them in teaching. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
+**Further verification:** The patches were not run as part of this editorial review; the maintainer has since confirmed partial practical verification of the collection. Check compatibility, VL.Fuse and other dependencies, external asset paths, data/serial inputs, image exports and simulation behaviour before using them in teaching. See the [editorial backlog](../../../EDITORIAL_BACKLOG.md).
