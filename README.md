@@ -148,3 +148,5 @@ See the [editorial backlog and tutorial wishlist](EDITORIAL_BACKLOG.md) for the 
 ## Adding a resource
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the folder convention and tutorial checklist, and the [Editorial Guidelines](EDITORIAL_GUIDELINES.md) for writing, structure and review.
+
+Much of the writing in this library was drafted with AI. The text has been rewritten, revised and cross-checked over several rounds, and every exercise has been tried by a person in the software or setting it was designed for. The brain slug gets a small cameo for its part in the drafting. <img src=".github/brain-slug.svg" width="24" alt="Brain slug, a nod to AI assistance">
