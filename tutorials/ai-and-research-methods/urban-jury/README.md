@@ -43,6 +43,7 @@ We will design an **AI-driven, autonomous multi-agent system** called the **Urba
 ![Tempelhofer Feld aerial view — image pending](images/01-tempelhofer-feld-aerial.jpg)
 
 *Image placeholder: images/01-tempelhofer-feld-aerial.jpg — a suitably licensed aerial view with photographer and licence attribution.*
+<!-- @ChatGPT - this is the source to the image, please check the website: https://commons.wikimedia.org/wiki/File:Aerial,_Berlin_%28_1090064%29.jpg and add the correct credits -->
 
 Tempelhof Airport closed in 2008, and the former airfield became a public open space in 2010. Berliners voted to protect the field in a 2014 referendum; the resulting preservation law took effect that June. Its grasslands, runways and recreational uses have become part of Berlin's urban life. Housing pressures have nevertheless kept the question of its future in public debate, including a dialogue process and an international ideas competition.
 
@@ -66,6 +67,8 @@ Before coordinating agents, we need one working model request. An **API** lets o
 
 **1.** Create an empty folder named `urban-jury`. **2.** Open Codex and select this folder as a local project. **3.** Check the active working folder. **4.** Start a new conversation. The desktop app can work with local project files; the command-line interface is not required for this workflow.
 
+<!-- @ChatGPT: maybe create a project folder within Codex? -->
+
 Follow Prompt 1 and then Prompt 2 as a **planning conversation**. Only Prompt 3 authorises writing files. Do not paste all three prompts together.
 
 ![Codex project setup — screenshot pending](images/02-codex-project.png)
@@ -88,6 +91,12 @@ Review the plan. Ask Codex which files it intends to create and why. For Stage 1
 
 After Prompt 3, locate the files Codex created and ask for the **exact run command**. If Codex created a virtual environment, ask why: it keeps the project's Python packages separate from others on the computer. Check that the application starts or reports a missing credential clearly before attempting a paid call.
 
+<!--@ChatGPT: Here it is getting rocky for new students. I am supposed to manually install python. This is not good. please have codex doing all this. Also explain how to start the powershell and how to navigate to the folder. assume that they don't know that. 
+
+Also explain that the key is only valid to running session. if powershell is closed, so does the key goes out of memory. Check if that is correct
+
+-->
+
 **Prompt 4 — Connect a model**
 
 > I choose [INSERT PROVIDER AND MODEL]. Check the current LiteLLM model identifier and guide me through secure setup. Explain where to obtain an API key or how to run Ollama locally. Never ask me to paste a key into chat or print secrets.
@@ -105,6 +114,39 @@ Configure **one model provider first**. A cloud API key is a secret credential a
 ### Test — What does it know?
 
 First confirm that the terminal shows a response and the model identifier. If cost information is unavailable, label it **unknown**, not zero. Choose one factual claim and check it against an original source linked from the [Tempelhofer Feld evidence pack](sources/README.md). Record the source and whether it supports, contradicts or fails to establish the claim. The model has not searched or verified that claim itself.
+
+<!--@ChatGPT: "If cost information is unavailable, label it **unknown**, not zero." this phrase looks like an odd. so don't do it. Remove the "test" - simply say that in this case, the model's answer is straight from the model training. it has not done any research - it's just a probability  answer.  Remove prompt 6. and renumber the remaining ones
+
+Have this nice example. it shows that the online LLM is differnnt from the one that is installed as app. From example it doesn't have any memory, it bare. you see that it doesn't keep memory between calls, each call is independed: 
+
+PS C:\Us> .\.venv\Scripts\python.exe urban_jury.py --model openai/gpt-4o-mini "My name is Vincent"
+Nice to meet you, Vincent! How can I assist you today?
+
+Run metadata:
+{
+  "requested_model": "openai/gpt-4o-mini",
+  "returned_model": "gpt-4o-mini-2024-07-18",
+  "input_tokens": 11,
+  "output_tokens": 14,
+  "estimated_cost_usd": 1.0049999999999999e-05,
+  "cost_note": "Estimate from LiteLLM's model price map and reported usage; not an invoice. Rates may lag provider prices; discounts and taxes may differ."
+}
+PS C:\Users\VincentNowak\Dropbox\UCL RC15 Skill Resources\RC15-Resources\tutorials\ai-and-research-methods\urban-jury\urban-jury> .\.venv\Scripts\python.exe urban_jury.py --model openai/gpt-4o-mini "what is my name?"
+I don’t have access to personal data about individuals unless it has been shared with me in the course of our conversation. Therefore, I don't know your name. If you’d like to share it or have a specific question, feel free to let me know!
+
+Run metadata:
+{
+  "requested_model": "openai/gpt-4o-mini",
+  "returned_model": "gpt-4o-mini-2024-07-18",
+  "input_tokens": 12,
+  "output_tokens": 52,
+  "estimated_cost_usd": 3.3e-05,
+  "cost_note": "Estimate from LiteLLM's model price map and reported usage; not an invoice. Rates may lag provider prices; discounts and taxes may differ."
+}
+PS C:\Users\VincentNowak\Dropbox\UCL RC15 Skill Resources\RC15-Resources\tutorials\ai-and-research-methods\urban-jury\urban-jury>
+
+ 
+-->
 
 **Prompt 6 — Challenge the output**
 
@@ -131,6 +173,7 @@ An agent is not necessarily a separate model. Here it is a model conversation wi
 ![Independent jury architecture — diagram pending](images/04-jury-architecture.png)
 
 *Diagram placeholder: images/04-jury-architecture.png — the same input going to four agents, with no connections between them.*
+<!-- @Chatgpt: please create the diagram. place it into the right folder and ensure that is is linked itno this tutorial.-->
 
 ### Build — Plan and define roles
 
@@ -151,14 +194,20 @@ Do not make the ecologist automatically anti-development or the housing research
 ![Four separate assessments — screenshot pending](images/05-independent-assessments.png)
 
 *Screenshot placeholder: images/05-independent-assessments.png — labelled assessments.*
+<!-- @Chatgpt: please create the diagram. place it into the right folder and ensure that is is linked itno this tutorial.-->
+
 
 After Prompt 10, run only the independent assessment mode. Open the saved output and confirm you see **four labelled responses**, not one blended answer. Ask Codex to show how histories remain separate.
+<!-- @Chatgpt: please have example questions-->
+
 
 ### Test — What changes with the role?
 
 **Prompt 11 — Compare assessments**
 
 > Create a Markdown comparison of each agent's main arguments, questions, unsupported claims and assumptions. Identify overlap and apparent disagreement but preserve the original responses and distinguish direct quotations from the comparison's interpretations.
+
+![Markdown comparison](images/05.1-MarkdownComparison.png)
 
 **Prompt 12 — Change one instruction**
 
@@ -189,6 +238,7 @@ We use **fixed rounds with shared snapshots**. In **Round 0**, each of the four 
 ![Discussion rounds workflow — diagram pending](images/06-debate-workflow.png)
 
 *Diagram placeholder: images/06-debate-workflow.png — Round 0, shared snapshots, two subsequent rounds, moderator.*
+<!-- @Chatgpt: please create the diagram. place it into the right folder and ensure that is is linked itno this tutorial.-->
 
 ### Build — Plan the message flow
 
@@ -255,6 +305,8 @@ Our Python experiment now works but is cumbersome to operate. [Gradio](https://w
 **Prompt 21 — Implement the first interface**
 
 > Create the local Gradio interface with editable Tempelhofer Feld inputs, agent selection, model and round configuration, Start button and labelled transcript. Reuse jury logic without rewriting it. Do not enable public sharing. Explain Windows setup and handle failed model connections clearly. Show the expected request count before any paid calls.
+
+<!-- @ChatGPT: I came with my review till here, i will do the rest later -->
 
 Ask Codex for the exact command to start the app. Run it from your project folder and open the local URL printed in the terminal. This often resembles `http://127.0.0.1:7860`, though the port may vary. Test the text fields and controls **without paid model requests** first. Then run one short approved discussion and compare its on-screen transcript with the saved file.
 
