@@ -64,15 +64,15 @@ Before coordinating agents, we need one working model request. An **API** lets o
 
 ### Build — Create the project and agree a strategy
 
-**1.** Create an empty folder named \`urban-jury\` in Documents or another accessible location. **2.** Open Codex and choose to open an existing folder or add a project (the wording may vary by version). **3.** Select \`urban-jury\` and confirm it is the active working folder. **4.** Start a new conversation in that project. You do not need the Codex command-line tool to follow this exercise.
+**1.** Create an empty folder named `urban-jury` in Documents or another accessible location. **2.** Open Codex and choose to open an existing folder or add a project (the wording may vary by version). **3.** Select `urban-jury` and confirm it is the active working folder. **4.** Start a new conversation in that project. You do not need the Codex command-line tool to follow this exercise.
 
-If Codex asks you to use a terminal, open **PowerShell** from the Windows Start menu by searching for its name. Alternatively, open your project folder in File Explorer, type \`powershell\` in the address bar and press Enter. In PowerShell, \`pwd\` shows your current folder, \`ls\` lists its files, and \`cd "C:\path\to\urban-jury"\` changes to a folder. Use quotation marks when the path has spaces. Codex may also offer an integrated terminal.
+If Codex asks you to use a terminal, open **PowerShell** from the Windows Start menu by searching for its name. Alternatively, open your project folder in File Explorer, type `powershell` in the address bar and press Enter. In PowerShell, `pwd` shows your current folder, `ls` lists its files, and `cd "C:\path\to\urban-jury"` changes to a folder. Use quotation marks when the path has spaces. Codex may also offer an integrated terminal.
 
 Follow Prompt 1 and then Prompt 2 as a **planning conversation**. Only Prompt 3 authorises writing files. Do not paste all three prompts together.
 
-![Codex project setup — screenshot pending](images/02-codex-project.png)
+![Codex project folder](images/02-codex-project.png)
 
-*Screenshot placeholder: images/02-codex-project.png — Codex and the newly created project folder.*
+*Existing screenshot of the Codex project setup; interface details may vary between versions.*
 
 **Prompt 1 — Discuss the project**
 
@@ -90,15 +90,15 @@ Review the plan. Ask Codex which files it intends to create and why. For Stage 1
 
 After Prompt 3, inspect what Codex created and ask for the **exact run command**. Codex can execute setup commands when its permissions and environment allow; operating-system installation may still require your action. A virtual environment keeps Python dependencies separate from other projects. On Windows you can run its Python executable directly, without activation or an execution-policy change:
 
-\`\`\`powershell
+```powershell
 .\.venv\Scripts\python.exe urban_jury.py --help
-\`\`\`
+```
 
 If you choose OpenAI, you can set the key in the PowerShell session that launches the script:
 
-\`\`\`powershell
+```powershell
 $env:OPENAI_API_KEY = "YOUR_KEY"
-\`\`\`
+```
 
 This assignment exists in the **current terminal process and the programs it launches**. It is not automatically saved for new terminals. Closing PowerShell ends that session, but does **not** revoke the API key or guarantee that no traces exist in command history. Never paste a real key into Codex chat or commit it to GitHub.
 
@@ -112,9 +112,9 @@ Configure **one model provider first**. A cloud API key is a secret credential a
 
 > Make exactly one request with this question: “How might Berlin reconcile demands for new housing with the ecological, cultural and democratic value of Tempelhofer Feld?” Confirm the provider and any paid cost before running. Show the response, available usage information and where the request and response occur in our code. Do not interpret the findings for me yet.
 
-![First model call — screenshot pending](images/03-first-model-call.png)
+![First model request in the terminal](images/03-first-model-call.png)
 
-*Screenshot placeholder: images/03-first-model-call.png — model response in the terminal and available token usage.*
+*Existing screenshot of a single API model call.*
 
 ### Understand — An API request does not remember previous calls
 
@@ -122,13 +122,13 @@ The first response is generated from the model's learned patterns and the input 
 
 An API call is different from using the ChatGPT application with a continuing conversation. Each time we launch this simple script, it sends a **new request**. Nothing from an earlier command is automatically remembered. The following two separate calls were recorded during development (unrelated metadata omitted):
 
-\`\`\`powershell
+```powershell
 .\.venv\Scripts\python.exe urban_jury.py --model openai/gpt-4o-mini "My name is Vincent"
 # Response: Nice to meet you, Vincent! How can I assist you today?
 
 .\.venv\Scripts\python.exe urban_jury.py --model openai/gpt-4o-mini "what is my name?"
 # Response: I don't know your name.
-\`\`\`
+```
 
 The second request does not contain the first message. To create a continuing conversation, **our Python programme must save relevant messages and explicitly send them back with each new API call**. This becomes essential when we give different agents separate histories. The example illustrates request isolation; a model's exact wording may differ.
 
@@ -230,9 +230,9 @@ We use **fixed rounds with shared snapshots**. In **Round 0**, each of the four 
 
 Before paying for real calls, ask Codex to test the round logic with **saved dummy responses**. Then make a short real run. Four agents across Round 0 and two further rounds need **twelve model calls**, excluding the moderator. Later calls can also cost more because they contain previous messages.
 
-![Debate transcript — screenshot pending](images/07-jury-discussion.png)
+![Saved transcript of a jury discussion](images/07-jury-discussion.png)
 
-*Screenshot placeholder: images/07-jury-discussion.png — messages grouped by agent and round.*
+*Existing screenshot of a discussion transcript; compare it with the saved record.*
 
 **Prompt 15 — Add the moderator**
 
