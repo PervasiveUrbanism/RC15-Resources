@@ -7,7 +7,7 @@
 **Level:** Beginner to intermediate  
 **Software:** [Codex](https://openai.com/codex/), Python, [LiteLLM](https://docs.litellm.ai/docs/python_sdk), [Gradio](https://www.gradio.app/docs)  
 **Case study:** Tempelhofer Feld, Berlin  
-**Objective:** Design an **AI-driven autonomous multi-agent research system**, learn how it works and critically evaluate its arguments and evidence.
+**Objective:** Design an **AI-driven autonomous multi-agent research system**, learn how it works and critically evaluate its arguments and evidence.  
 **Verification status (14 November 2026):** Untested. The maintainer corrected the previous status: the Urban Jury / Multi-Agent Research Laboratory has not yet been run end to end. The workflow and generated application require a practical test before they can be described as verified.
 
 > **Build a computational tool, then learn how to question what that tool produces.** The Urban Jury is a research and ideas machine, not an automated architectural designer, a planning authority or a substitute for public participation.
@@ -40,10 +40,9 @@ We will design an **AI-driven, autonomous multi-agent system** called the **Urba
 
 ### Tempelhofer Feld: a real question
 
-![Tempelhofer Feld aerial view — image pending](images/01-tempelhofer-feld-aerial.jpg)
+![Aerial view of Berlin and the Tempelhofer Feld area](images/01-tempelhofer-feld-aerial.jpg)
 
-*Image placeholder: images/01-tempelhofer-feld-aerial.jpg — a suitably licensed aerial view with photographer and licence attribution.*
-<!-- @ChatGPT - this is the source to the image, please check the website: https://commons.wikimedia.org/wiki/File:Aerial,_Berlin_%28_1090064%29.jpg and add the correct credits -->
+*Suggested photograph credit: Matti Blume, 8 June 2019, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aerial,_Berlin_(_1090064).jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The original image in the archive still needs to be checked against the linked Commons file before publication.*
 
 Tempelhof Airport closed in 2008, and the former airfield became a public open space in 2010. Berliners voted to protect the field in a 2014 referendum; the resulting preservation law took effect that June. Its grasslands, runways and recreational uses have become part of Berlin's urban life. Housing pressures have nevertheless kept the question of its future in public debate, including a dialogue process and an international ideas competition.
 
@@ -65,9 +64,9 @@ Before coordinating agents, we need one working model request. An **API** lets o
 
 ### Build — Create the project and agree a strategy
 
-**1.** Create an empty folder named `urban-jury`. **2.** Open Codex and select this folder as a local project. **3.** Check the active working folder. **4.** Start a new conversation. The desktop app can work with local project files; the command-line interface is not required for this workflow.
+**1.** Create an empty folder named \`urban-jury\` in Documents or another accessible location. **2.** Open Codex and choose to open an existing folder or add a project (the wording may vary by version). **3.** Select \`urban-jury\` and confirm it is the active working folder. **4.** Start a new conversation in that project. You do not need the Codex command-line tool to follow this exercise.
 
-<!-- @ChatGPT: maybe create a project folder within Codex? -->
+If Codex asks you to use a terminal, open **PowerShell** from the Windows Start menu by searching for its name. Alternatively, open your project folder in File Explorer, type \`powershell\` in the address bar and press Enter. In PowerShell, \`pwd\` shows your current folder, \`ls\` lists its files, and \`cd "C:\path\to\urban-jury"\` changes to a folder. Use quotation marks when the path has spaces. Codex may also offer an integrated terminal.
 
 Follow Prompt 1 and then Prompt 2 as a **planning conversation**. Only Prompt 3 authorises writing files. Do not paste all three prompts together.
 
@@ -87,19 +86,25 @@ Review the plan. Ask Codex which files it intends to create and why. For Stage 1
 
 **Prompt 3 — Build Stage 1**
 
-> Create a small command-line Python application that sends one question through LiteLLM and prints the response. Make model selection configurable for OpenAI, Claude, DeepSeek and local Ollama; do not require keys for providers we are not using. Use environment variables for API credentials, never put secrets in code, and include a suitable .gitignore and Windows setup README. Record model ID, available input/output token usage and only reliable cost estimates. Handle missing credentials and errors clearly. Do not add agents or Gradio. Explain planned package installations and any paid request before running it.
+> Create a small command-line Python application that sends one question through LiteLLM and prints the response. First check whether compatible Python is already installed. If it is missing, propose a Windows installation method and obtain my approval before installing or making system changes; explain where administrative permission or a restart might be needed. Set up a project-local virtual environment and install the dependencies through your terminal when permitted. Make model selection configurable for OpenAI, Claude, DeepSeek and local Ollama; do not require credentials for providers we are not using. Keep credentials in environment variables, never in code, and create a suitable .gitignore and Windows setup README. Record the model ID, available token usage and supported cost estimates. Handle missing credentials and errors clearly. Do not add agents or Gradio. Explain installations and potential paid requests before running them.
 
-After Prompt 3, locate the files Codex created and ask for the **exact run command**. If Codex created a virtual environment, ask why: it keeps the project's Python packages separate from others on the computer. Check that the application starts or reports a missing credential clearly before attempting a paid call.
+After Prompt 3, inspect what Codex created and ask for the **exact run command**. Codex can execute setup commands when its permissions and environment allow; operating-system installation may still require your action. A virtual environment keeps Python dependencies separate from other projects. On Windows you can run its Python executable directly, without activation or an execution-policy change:
 
-<!--@ChatGPT: Here it is getting rocky for new students. I am supposed to manually install python. This is not good. please have codex doing all this. Also explain how to start the powershell and how to navigate to the folder. assume that they don't know that. 
+\`\`\`powershell
+.\.venv\Scripts\python.exe urban_jury.py --help
+\`\`\`
 
-Also explain that the key is only valid to running session. if powershell is closed, so does the key goes out of memory. Check if that is correct
+If you choose OpenAI, you can set the key in the PowerShell session that launches the script:
 
--->
+\`\`\`powershell
+$env:OPENAI_API_KEY = "YOUR_KEY"
+\`\`\`
+
+This assignment exists in the **current terminal process and the programs it launches**. It is not automatically saved for new terminals. Closing PowerShell ends that session, but does **not** revoke the API key or guarantee that no traces exist in command history. Never paste a real key into Codex chat or commit it to GitHub.
 
 **Prompt 4 — Connect a model**
 
-> I choose [INSERT PROVIDER AND MODEL]. Check the current LiteLLM model identifier and guide me through secure setup. Explain where to obtain an API key or how to run Ollama locally. Never ask me to paste a key into chat or print secrets.
+> I choose [INSERT PROVIDER AND MODEL]. Check the current LiteLLM model identifier and guide me through secure setup. Explain where to obtain an API key or how to run Ollama locally. Let me enter any key directly in my local terminal, never in this conversation. Verify configuration without printing secrets.
 
 Configure **one model provider first**. A cloud API key is a secret credential and must not appear in Python files or screenshots; for Ollama, check that the local model and service are running. Ask Codex to verify configuration without printing the key.
 
@@ -111,52 +116,27 @@ Configure **one model provider first**. A cloud API key is a secret credential a
 
 *Screenshot placeholder: images/03-first-model-call.png — model response in the terminal and available token usage.*
 
-### Test — What does it know?
+### Understand — An API request does not remember previous calls
 
-First confirm that the terminal shows a response and the model identifier. If cost information is unavailable, label it **unknown**, not zero. Choose one factual claim and check it against an original source linked from the [Tempelhofer Feld evidence pack](sources/README.md). Record the source and whether it supports, contradicts or fails to establish the claim. The model has not searched or verified that claim itself.
+The first response is generated from the model's learned patterns and the input we supplied. **Our script has not searched the web, consulted documents or verified factual claims.** Fluency is not the same as evidence.
 
-<!--@ChatGPT: "If cost information is unavailable, label it **unknown**, not zero." this phrase looks like an odd. so don't do it. Remove the "test" - simply say that in this case, the model's answer is straight from the model training. it has not done any research - it's just a probability  answer.  Remove prompt 6. and renumber the remaining ones
+An API call is different from using the ChatGPT application with a continuing conversation. Each time we launch this simple script, it sends a **new request**. Nothing from an earlier command is automatically remembered. The following two separate calls were recorded during development (unrelated metadata omitted):
 
-Have this nice example. it shows that the online LLM is differnnt from the one that is installed as app. From example it doesn't have any memory, it bare. you see that it doesn't keep memory between calls, each call is independed: 
+\`\`\`powershell
+.\.venv\Scripts\python.exe urban_jury.py --model openai/gpt-4o-mini "My name is Vincent"
+# Response: Nice to meet you, Vincent! How can I assist you today?
 
-PS C:\Us> .\.venv\Scripts\python.exe urban_jury.py --model openai/gpt-4o-mini "My name is Vincent"
-Nice to meet you, Vincent! How can I assist you today?
+.\.venv\Scripts\python.exe urban_jury.py --model openai/gpt-4o-mini "what is my name?"
+# Response: I don't know your name.
+\`\`\`
 
-Run metadata:
-{
-  "requested_model": "openai/gpt-4o-mini",
-  "returned_model": "gpt-4o-mini-2024-07-18",
-  "input_tokens": 11,
-  "output_tokens": 14,
-  "estimated_cost_usd": 1.0049999999999999e-05,
-  "cost_note": "Estimate from LiteLLM's model price map and reported usage; not an invoice. Rates may lag provider prices; discounts and taxes may differ."
-}
-PS C:\Users\VincentNowak\Dropbox\UCL RC15 Skill Resources\RC15-Resources\tutorials\ai-and-research-methods\urban-jury\urban-jury> .\.venv\Scripts\python.exe urban_jury.py --model openai/gpt-4o-mini "what is my name?"
-I don’t have access to personal data about individuals unless it has been shared with me in the course of our conversation. Therefore, I don't know your name. If you’d like to share it or have a specific question, feel free to let me know!
-
-Run metadata:
-{
-  "requested_model": "openai/gpt-4o-mini",
-  "returned_model": "gpt-4o-mini-2024-07-18",
-  "input_tokens": 12,
-  "output_tokens": 52,
-  "estimated_cost_usd": 3.3e-05,
-  "cost_note": "Estimate from LiteLLM's model price map and reported usage; not an invoice. Rates may lag provider prices; discounts and taxes may differ."
-}
-PS C:\Users\VincentNowak\Dropbox\UCL RC15 Skill Resources\RC15-Resources\tutorials\ai-and-research-methods\urban-jury\urban-jury>
-
- 
--->
-
-**Prompt 6 — Challenge the output**
-
-> Add an optional instruction separating (1) factual claims requiring verification, (2) interpretations and (3) speculative ideas or research questions. Preserve the original mode so I can compare responses. Do not add web research or imply facts have been verified. Explain exactly what changed in the model request.
+The second request does not contain the first message. To create a continuing conversation, **our Python programme must save relevant messages and explicitly send them back with each new API call**. This becomes essential when we give different agents separate histories. The example illustrates request isolation; a model's exact wording may differ.
 
 ### Explain — Start an experiment log
 
-**Prompt 7 — Document Stage 1**
+**Prompt 6 — Document Stage 1**
 
-> Create experiment-log.md containing the actual question, model, settings, costs where known, source-check exercise, observed results and limits. Add empty fields for information I have not supplied. Do not invent tests, sources or outcomes.
+> Inspect the existing experiment-log.md and append the actual question, model, available usage, the two separate request examples, observed behaviour and limitations. Preserve earlier records. Explain why the second request did not receive the first message. Do not invent tests, sources or outcomes.
 
 **Before continuing:** Can you run the script again, locate its model request and open the experiment log? If not, resolve that problem before adding agents. One model call is not yet a multi-agent system.
 
@@ -170,46 +150,45 @@ An agent is not necessarily a separate model. Here it is a model conversation wi
 
 **The result of this chapter:** four separately saved assessments with instructions and a comparison.
 
-![Independent jury architecture — diagram pending](images/04-jury-architecture.png)
+![Four independent AI research agents](images/04-jury-architecture.svg)
 
-*Diagram placeholder: images/04-jury-architecture.png — the same input going to four agents, with no connections between them.*
-<!-- @Chatgpt: please create the diagram. place it into the right folder and ensure that is is linked itno this tutorial.-->
+*Four analytical roles receive the same research question but keep separate instructions and histories.*
 
 ### Build — Plan and define roles
 
-**Prompt 8 — Plan the jury**
+**Prompt 7 — Plan the jury**
 
 > Inspect our Stage 1 project. Propose the simplest way to add four independent agents with separate instructions and conversation histories. They must receive identical question and background text, and must not see one another's replies. Explain the data structure and wait for approval before editing files.
 
-**Prompt 9 — Write agent instructions**
+**Prompt 8 — Write agent instructions**
 
 > Draft concise instructions for an urban planner, urban ecologist, housing researcher and urban historian. Each should investigate relevant questions without a predetermined conclusion, distinguish facts from interpretations and speculation, identify missing evidence, avoid invented citations and never claim to represent actual residents or professionals. Show me the instructions before implementing them.
 
 Do not make the ecologist automatically anti-development or the housing researcher automatically pro-construction. Such caricatures determine the outcome in advance.
 
-**Prompt 10 — Implement independent assessments**
+**Prompt 9 — Implement independent assessments**
 
 > Implement four independent sequential agent calls. Keep their histories separate, use the same original question and shared background, and save complete instructions, exact requests and responses, model ID, available usage and errors. Keep the existing single-model mode. Before making requests, show the count and possible cost.
 
-![Four separate assessments — screenshot pending](images/05-independent-assessments.png)
+![Example structure of four independent assessments](images/05-independent-assessments.svg)
 
-*Screenshot placeholder: images/05-independent-assessments.png — labelled assessments.*
-<!-- @Chatgpt: please create the diagram. place it into the right folder and ensure that is is linked itno this tutorial.-->
+*Illustrative comparison of roles and output categories; this is not an application screenshot.*
 
 
 After Prompt 10, run only the independent assessment mode. Open the saved output and confirm you see **four labelled responses**, not one blended answer. Ask Codex to show how histories remain separate.
-<!-- @Chatgpt: please have example questions-->
+
+**Try an alternative question:** “How would a shopping centre affect Tempelhofer Feld?” The planner might investigate transport and zoning, the ecologist habitats and microclimate, the housing researcher whether the proposal addresses housing needs, and the historian the site's legal protection and public memory. These are **questions to investigate**, not positions the agents must adopt.
 
 
 ### Test — What changes with the role?
 
-**Prompt 11 — Compare assessments**
+**Prompt 10 — Compare assessments**
 
 > Create a Markdown comparison of each agent's main arguments, questions, unsupported claims and assumptions. Identify overlap and apparent disagreement but preserve the original responses and distinguish direct quotations from the comparison's interpretations.
 
 ![Markdown comparison](images/05.1-MarkdownComparison.png)
 
-**Prompt 12 — Change one instruction**
+**Prompt 11 — Change one instruction**
 
 > Add a controlled comparison between two versions of one agent's instructions. Keep question, background, model and available generation settings fixed. Save both prompts, outputs and usage. Explain that differences may also arise from ordinary model variability, not only the instruction change.
 
@@ -221,7 +200,7 @@ The initial jury is **constructed by the researcher**, not a model of actual pub
 
 **Before continuing:** Identify the exact instructions and original response for each agent. What changed when you changed a role, and what remained surprisingly similar?
 
-**Prompt 13 — Document Stage 2**
+**Prompt 12 — Document Stage 2**
 
 > Add the agent instructions, shared inputs, model settings, call order, full assessments, comparisons, prompt-variation tests and usage to experiment-log.md. Explain the researcher's selection decisions and absent perspectives. Do not invent observations or overwrite previous records.
 
@@ -235,18 +214,17 @@ Independent assessments are not yet a discussion. Our Python **coordinator** mus
 
 We use **fixed rounds with shared snapshots**. In **Round 0**, each of the four agents responds independently. Python collects their four completed answers into a *snapshot*. In **Round 1**, all agents receive the same Round 0 snapshot, but none sees another's unfinished Round 1 answer. Only after every response has arrived does Python create a new snapshot for **Round 2**. This prevents later speakers from secretly gaining access to new material within the same round.
 
-![Discussion rounds workflow — diagram pending](images/06-debate-workflow.png)
+![Fixed-round discussion sequence](images/06-debate-workflow.svg)
 
-*Diagram placeholder: images/06-debate-workflow.png — Round 0, shared snapshots, two subsequent rounds, moderator.*
-<!-- @Chatgpt: please create the diagram. place it into the right folder and ensure that is is linked itno this tutorial.-->
+*Each agent receives only the completed snapshot of the preceding round; the moderator follows the discussion.*
 
 ### Build — Plan the message flow
 
-**Prompt 14 — Plan the debate**
+**Prompt 13 — Plan the debate**
 
 > Propose two discussion rounds following the independent assessments. Explain exactly what each agent receives, how histories and fixed preceding-round snapshots are stored, how message order affects arguments, and how to cap rounds and costs. Preserve all requests and responses. Use ordinary Python and wait for approval before coding.
 
-**Prompt 15 — Implement structured rounds**
+**Prompt 14 — Implement structured rounds**
 
 > Implement Round 0 independent assessments followed by two discussion rounds. Give each agent its role instructions, original question/background, relevant own history and an identical snapshot of the completed preceding round. Do not share current-round contributions until the next round. Run sequentially, record model/agent/round/message IDs, exact inputs and outputs, tokens and errors. Cap rounds, keep independent mode, and calculate expected paid-call count before running.
 
@@ -256,7 +234,7 @@ Before paying for real calls, ask Codex to test the round logic with **saved dum
 
 *Screenshot placeholder: images/07-jury-discussion.png — messages grouped by agent and round.*
 
-**Prompt 16 — Add the moderator**
+**Prompt 15 — Add the moderator**
 
 > Add a moderator that reads the completed transcript and identifies major arguments, agreements, unresolved disagreements, challenged or revised positions, factual claims requiring verification and questions to investigate. It must not declare a winning position or force consensus. Give all messages stable identifiers such as R2-A3, and make the summary reference original messages. Preserve the transcript in full.
 
@@ -264,13 +242,13 @@ References to transcript messages reveal **where an argument originated in the d
 
 ### Test — Can an error spread?
 
-**Prompt 17 — False-claim experiment**
+**Prompt 16 — False-claim experiment**
 
 > In a separate, clearly labelled synthetic test, make one initial agent contribution contain this deliberately false statement: “The 2014 Tempelhofer Feld referendum authorised construction across the entire site.” Do not contaminate our original research data. Run the subsequent discussion without automatically correcting the agents. Record whether others repeat, question or reject the claim, and how the moderator describes it. Show the paid-call count first.
 
 An agent's challenge is only useful if we can also examine the basis for it.
 
-**Prompt 18 — Compare discussion structures**
+**Prompt 17 — Compare discussion structures**
 
 > Without changing the code, explain fixed rounds with shared snapshots, fully sequential conversation and moderator-led choice of speakers. Compare transparency, information asymmetry, conformity, flexibility, cost and repeatability.
 
@@ -280,7 +258,7 @@ A polished debate may merely perform disagreement. Look for specific objections,
 
 **Before continuing:** Open a saved Round 2 response and locate the exact preceding-round snapshot supplied to that agent. If you cannot do so, ask Codex to repair the logging before adding the interface.
 
-**Prompt 19 — Document Stage 3**
+**Prompt 18 — Document Stage 3**
 
 > Record the actual round structure, instructions, exact messages each agent saw, transcript, moderator references, settings, request order, usage, failures and synthetic false-claim test in the experiment log. Keep tests and original research records separate.
 
@@ -292,31 +270,31 @@ Our Python experiment now works but is cumbersome to operate. [Gradio](https://w
 
 **The result of this chapter:** a browser page where you can choose agents and models, run a discussion, intervene between rounds and inspect the underlying transcript.
 
-![Urban Jury Gradio layout — screenshot pending](images/08-urban-jury-interface.png)
+![Urban Jury Gradio interface captured locally](images/FireShot%20Capture%20009%20-%20Urban%20Jury%20-%20%5B127.0.0.1%5D.png)
 
-*Screenshot placeholder: images/08-urban-jury-interface.png — question, background, selected agents, model, rounds, transcript and inspection area.*
+*Existing screenshot of the local prototype; the interface may evolve.*
 
 ### Build — Create a simple interface
 
-**Prompt 20 — Plan Gradio**
+**Prompt 19 — Plan Gradio**
 
 > Inspect the existing project. Propose a restrained Gradio Blocks interface with question and background, jury selection, model, round count, transcript, usage, intervention controls, methodological inspection and export. Show how it will reuse our Python functions. Do not modify code until I approve.
 
-**Prompt 21 — Implement the first interface**
+**Prompt 20 — Implement the first interface**
 
 > Create the local Gradio interface with editable Tempelhofer Feld inputs, agent selection, model and round configuration, Start button and labelled transcript. Reuse jury logic without rewriting it. Do not enable public sharing. Explain Windows setup and handle failed model connections clearly. Show the expected request count before any paid calls.
 
-<!-- @ChatGPT: I came with my review till here, i will do the rest later -->
+<!-- Maintainer has not yet reviewed the following stages in detail. Retain as experimental until end-to-end testing. -->
 
 Ask Codex for the exact command to start the app. Run it from your project folder and open the local URL printed in the terminal. This often resembles `http://127.0.0.1:7860`, though the port may vary. Test the text fields and controls **without paid model requests** first. Then run one short approved discussion and compare its on-screen transcript with the saved file.
 
-**Prompt 22 — Display the unfolding debate**
+**Prompt 21 — Display the unfolding debate**
 
 > Show each completed response progressively, grouped by round and agent with stable message ID and model. Do not change the fixed-round information-flow rules: displaying a current response must not expose it to other agents until the next round. Save all complete responses independently of the interface.
 
 ### Build — Keep the researcher in control
 
-**Prompt 23 — Add interventions**
+**Prompt 22 — Add interventions**
 
 > Pause after each complete round. Add Continue, Intervene and End Discussion controls. Save researcher interventions verbatim and mark them as human input supplied to all agents in the next round. Preserve previous messages and implement session state explicitly. Test controls without paid calls first.
 
@@ -326,7 +304,7 @@ Test the controls with dummy model responses first. Continue should advance one 
 
 *Screenshot placeholder: images/09-researcher-intervention.png — intervention field and Continue / End controls.*
 
-**Prompt 24 — Show the actual method**
+**Prompt 23 — Show the actual method**
 
 > Add an inspection panel for every message: full agent instructions, question/background, preceding-round snapshot, human intervention, exact request messages, model and settings, response, usage and errors. Use the stored records, not an AI-generated reconstruction of what might have happened. Never display secrets.
 
@@ -334,7 +312,7 @@ Test the controls with dummy model responses first. Continue should advance one 
 
 After a round, ask: **“What alternative ways of addressing Berlin's housing demand have not yet been considered, and what evidence would be needed to evaluate them?”** Compare the result with a run that omitted this intervention. Has it broadened the inquiry or imposed your own framing? The researcher's choices are part of the methodology.
 
-**Prompt 25 — Export an experiment**
+**Prompt 24 — Export an experiment**
 
 > Add a downloadable archive containing the full transcript, request/response JSON, model settings, complete instructions, inputs, interventions, moderator output, usage, recorded errors and experiment log. Include dependency versions and a Git commit identifier if known. Exclude credentials and unnecessary personal information. Never reconstruct missing data as if recorded.
 
@@ -344,7 +322,7 @@ After a round, ask: **“What alternative ways of addressing Berlin's housing de
 
 **Before continuing:** Select one completed response in Gradio. Can you locate its actual saved input, model and instructions? An interface that makes the discussion look convincing but hides those details does not meet our research objective.
 
-**Prompt 26 — Document Stage 4**
+**Prompt 25 — Document Stage 4**
 
 > Extend the experiment log with interface layout, connections to Python functions, state management, intervention and export tests, errors and reflection on how interface design may increase confidence without increasing factual accuracy.
 
@@ -388,21 +366,21 @@ These notes are a convenient first dataset for testing retrieval. **Do not call 
 
 ### Build — Register and retrieve passages
 
-**Prompt 27 — Plan the evidence library**
+**Prompt 26 — Plan the evidence library**
 
 > Propose a minimal evidence library using a few approved Tempelhofer Feld documents. Record source URLs, titles, publishers, access dates and file hashes. Extract text with page or section context, assign stable passage identifiers, and retrieve readable excerpts. Explain how to distinguish citation validation from actual factual verification. Avoid a vector database unless required. Do not modify files yet.
 
-**Prompt 28 — Save and register sources**
+**Prompt 27 — Save and register sources**
 
 > Guide me through saving original documents or permitted copies, checking successful downloads and recording stable source IDs, publisher, title, URL, date, filename, language and checksum. Preserve the original language and document. Report missing material or extraction errors rather than silently replacing it with summaries.
 
-**Prompt 29 — Search local documents**
+**Prompt 28 — Search local documents**
 
 > Split extracted text into passages with stable IDs and original page/section locations. Implement simple keyword or full-text search. Return verbatim excerpts and log the query/results. Test a distinctive phrase against the original source and explain where keyword retrieval can fail.
 
 Before letting agents use the results, search the notes for *referendum* and then *housing*. Compare the returned IDs with the Markdown source notes yourself. If retrieval fails, check the file path and search function before adding more AI.
 
-**Prompt 30 — Ground agent responses**
+**Prompt 29 — Ground agent responses**
 
 > Add a separate evidence-grounded mode that retrieves passages from our fixed collection and includes them in each agent request. Keep exact queries, retrieved passages, model inputs and cited passage IDs. Instruct agents to distinguish evidence, interpretation and speculation, and say when no supporting passage is available. Do not enable internet searching.
 
@@ -414,13 +392,13 @@ The model is now receiving retrieved text alongside the question: this is RAG. I
 
 ### Build — Audit the claims
 
-**Prompt 31 — Create an evidence audit**
+**Prompt 30 — Create an evidence audit**
 
 > For each factual claim, mechanically check whether cited passage IDs exist and display the verbatim passage. Separately make a **provisional** assessment: supported, contradicted or unresolved. If an LLM judges support, preserve its model, instruction and response. Allow human review and corrections. Never equate a valid source ID with a verified claim.
 
 ### Test — False and unsupported claims
 
-**Prompt 32 — Verify the synthetic referendum claim**
+**Prompt 31 — Verify the synthetic referendum claim**
 
 > In a clearly marked test, retrieve and audit evidence for the false statement “The 2014 Tempelhofer Feld referendum authorised construction across the entire site.” First test the evidence functions without a debate; then, with approval, run a short evidence-grounded discussion. Compare with Chapter 3, preserving exact passages and any manual corrections. Do not assume retrieval improves reliability without observing the result.
 
@@ -432,7 +410,7 @@ Also ask a question the library cannot answer, such as a precise current percent
 
 Official publications do not contain every relevant lived experience. Campaign material, local discussions, academic studies and interviews may broaden the investigation, but require attention to provenance, representativeness, privacy and rights. Source selection is part of the researcher's responsibility.
 
-**Prompt 33 — Document Stage 5**
+**Prompt 32 — Document Stage 5**
 
 > Log the source-selection rationale, original files and hashes, extraction, passage IDs, queries, retrieved excerpts, agent requests, citation checks, provisional assessments, human corrections and missing-evidence tests. Record absent perspectives and any failures without overwriting earlier experiments.
 
@@ -456,25 +434,25 @@ The **language model and the search tool are different components**. A service s
 
 ### Build — Add searches cautiously
 
-**Prompt 34 — Compare approaches**
+**Prompt 33 — Compare approaches**
 
 > Explain (1) a separate search API, (2) fetching researcher-approved URLs and (3) model-native search. Compare cost, model independence, reproducibility, source permissions and complexity. Recommend a small beginner-friendly option. Do not write code yet.
 
-**Prompt 35 — Identify research gaps**
+**Prompt 34 — Identify research gaps**
 
 > Extract unresolved questions from the existing evidence audit. For each, suggest a search query, source type, reason it matters and what is currently unknown. Allow the researcher to edit, approve or reject proposals. Do not search automatically or confuse a proposal with a finding.
 
-**Prompt 36 — Build approved search**
+**Prompt 35 — Build approved search**
 
 > Connect our selected search service securely. Run only researcher-approved queries, with a small per-query result cap and a maximum number of searches. Record exact query, provider, parameters, timestamp, titles, URLs, snippets, dates, failures and available usage or cost. Show results in Gradio before importing anything. Test the tool separately from the jury.
 
 For the first experiment, approve **one** query and return only a handful of results. Check that the query, result URLs and search time are recorded before accepting any new material. A search snippet is not the original document and should not be treated as verified evidence.
 
-**Prompt 37 — Register reviewed sources**
+**Prompt 36 — Register reviewed sources**
 
 > Let me select returned sources. Only with approval, retrieve accessible material in compliance with access and copyright restrictions, record provenance and timestamps, save original or permitted extracts, check extraction, create stable IDs and checksums, and add the material to a separately labelled evidence update. Log failed retrievals; never invent unavailable content.
 
-**Prompt 38 — Continue the debate with new evidence**
+**Prompt 37 — Continue the debate with new evidence**
 
 > Resume from a saved round with newly approved source passages. Record exactly when they enter the discussion. Ask agents whether the evidence supports, challenges or leaves unchanged their earlier positions, with passage references. Preserve original messages and create a before/after comparison.
 
@@ -486,7 +464,7 @@ For the first experiment, approve **one** query and return only a handful of res
 
 Compare the same jury with and without approved additional sources. New information may clarify disagreements, but it may also amplify the researcher's selection bias or receive too much attention because it arrived recently. Examine both the source's reliability and why you chose it.
 
-**Prompt 39 — Document external research**
+**Prompt 38 — Document external research**
 
 > Record proposed and approved/rejected queries, search provider and settings, returned results, chosen sources, retrieval dates, failures, newly registered passages, resumed discussion rounds, changed arguments, costs and selection biases. Preserve the original closed-source experiment and acknowledge that online search results may change.
 
@@ -514,11 +492,11 @@ Distinguish three types of statements:
 
 A disagreement can remain unresolved. Do not force consensus merely to make the dossier feel complete.
 
-**Prompt 40 — Plan the dossier**
+**Prompt 39 — Plan the dossier**
 
 > Inspect the actual transcript, experiment logs, sources, claims and audits. Propose a concise research dossier structure separating evidence-based findings, interpretations, speculative ideas and unresolved questions. Include methods, agent selection, interventions and limitations. Do not invent verification or conclusions.
 
-**Prompt 41 — Assemble the dossier**
+**Prompt 40 — Assemble the dossier**
 
 > Create a Markdown dossier from the stored experiment records, covering: (1) urban question; (2) why each agent was selected and who was omitted; (3) models, instructions and discussion structure; (4) source collection and provenance; (5) major arguments linked to original message IDs; (6) factual claims with cited passages and audit status; (7) disagreements and new questions; (8) speculative possibilities; (9) failures and methodological limitations; and (10) instructions to inspect the full archive. Preserve raw records and leave missing information explicitly marked rather than filling it with plausible text.
 
@@ -530,11 +508,11 @@ A disagreement can remain unresolved. Do not force consensus merely to make the 
 
 Run two jury configurations against the **same question, background, evidence library, models where practical, settings and discussion structure**. Change only the agent composition. For example, Jury A contains the planner, ecologist, housing researcher and historian; Jury B substitutes a mobility researcher and cultural organiser for two of them.
 
-**Prompt 42 — Prepare comparable configurations**
+**Prompt 41 — Prepare comparable configurations**
 
 > Save the full configurations for Jury A and Jury B. Keep the research question, evidence, model and supported settings, round structure and interventions as similar as possible. Only change the specified agent roles. Confirm expected API calls and budget before running. Do not claim either jury represents real people.
 
-**Prompt 43 — Compare research questions, not eloquence**
+**Prompt 42 — Compare research questions, not eloquence**
 
 > Compare which topics and questions each jury highlighted, what appeared only in one, which claims had evidence and what remained unresolved. Verify your summary against original message IDs. Distinguish observed differences from causal explanations, and acknowledge that repeated calls can differ even with fixed settings. Do not rank the juries by confidence or writing quality.
 
@@ -544,7 +522,7 @@ One run per condition can suggest questions for future study, but does not estab
 
 An effective researcher tests their own method rather than assuming it works because it produced a polished report. Try withholding a key document, asking an unanswerable quantitative question or providing contradictory information. Specify the expected behaviour *before* running the test.
 
-**Prompt 44 — Design a falsification test**
+**Prompt 43 — Design a falsification test**
 
 > Design one reproducible test of the jury's reliability with a clear target behaviour, controlled input, expected acceptable response, observable failure conditions and records to preserve. Explain what the test cannot establish. Run only after my approval. Do not silently repair or discard unsuccessful outputs.
 
