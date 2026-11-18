@@ -181,6 +181,8 @@ Zooming in changes what you can observe. Try a neighbourhood around Alexanderpla
 >
 > Report how many tree features are visible in the selected area and identify the three most common recorded species there.
 
+![Closer view of the Berlin tree inventory after the neighbourhood investigation](assets/images/Screenshot%202026-11-18%20225122.png)
+
 Ask Codex to explain **how it determined which trees were inside the area**. A count of features in the current map extent is not the same as a count inside a precisely defined 1 km boundary. If you need a defensible comparison, create a defined study-area polygon and use a spatial selection or filter.
 
 A colourful map is a starting point, not yet an explanation. Are certain species concentrated on particular streets? Does the inventory cover all streets equally? Could planting policies, maintenance or recording practices help explain what you see?
