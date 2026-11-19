@@ -10,24 +10,19 @@
 **Prerequisites:** Basic experience with files and folders; no programming or command-line knowledge required  
 **Teaching context:** RC15 – Pervasive Urbanism, Bartlett School of Architecture, UCL. Permanent resource, not tied to a particular teaching year  
 **Author:** RC15 Resources teaching team  
-**Last reviewed against documentation:** November 2026. Screenshots and app-specific steps should be checked in class; the complete cross-device workflow has not been independently tested as a single sequence.
-**Verification status (14 November 2026):** Verified in practice, as confirmed by the resource maintainer. This status records prior practical use, not a new independent execution test; exact software versions and the scope of any remaining checks have not been supplied.
+**Verification:** Reviewed November 2026. The resource maintainer has used the desktop workflow in practice; the full cross-device sequence and version-specific app steps have not been independently retested.
 
 ## Why use GitHub if you are not a programmer?
 
-Git was developed for software projects, where many people need to work on the same code without losing one another's changes. A project may have several contributors experimenting with alternative solutions, fixing problems or developing new features at the same time. Git records how the files change; GitHub provides a place to share those changes, compare alternatives and discuss which ones should become part of the main project.
+GitHub is an online platform for storing, organising and collaboratively developing projects. Although originally designed for software development, it is equally useful for maintaining research, written documents, tutorials and collections of knowledge.
 
-**Git and GitHub are not the same thing.** Git is the version-control software: it works locally, records commits and can be used entirely without GitHub. GitHub is a web-based hosting and collaboration service built around Git repositories. You could use Git with another hosting service or with no online service at all. GitHub Desktop is a separate graphical application that makes common Git operations easier without requiring you to type commands.
+A project on GitHub is called a **repository**. Think of it as a folder containing files and subfolders, but with an important additional feature: the history of changes can be recorded. You can see what has been modified, return to earlier versions and collaborate without constantly exchanging new copies of documents.
 
-This was originally a tool for programmers, and its strengths still reflect that history. Git works best with **text-based files**, including code, notes, instructions and Markdown documents. It can show precisely which lines someone has changed. It is less suitable for large binary files, such as detailed 3D models, videos or extensive collections of high-resolution images. GitHub also imposes file-size limits: files over 50 MB trigger a warning, and files over 100 MB are blocked in ordinary Git repositories. For larger design assets, shared storage or other specialist systems are usually more appropriate.
+Behind GitHub is **Git**, the version-control system that records those changes. Git can work independently on your computer; GitHub provides the online platform for sharing and collaborating on repositories. **GitHub Desktop** offers a graphical interface for Git without requiring command-line instructions.
 
-For architecture and urban design students, this distinction is useful. Renderings, large models and drawing packages need not be moved into GitHub. But scripts, research notes, tutorial instructions and the text surrounding a design project are good candidates. The [RC15 Resources library](https://github.com/PervasiveUrbanism/RC15-Resources) demonstrates this: its tutorials, code examples and links can be maintained and improved over time.
+Git works particularly well with text-based files such as code, research notes and Markdown, because changes can be compared line by line. It is less suitable for large 3D models, videos or extensive collections of high-resolution images. Files over 50 MB trigger a warning on GitHub and ordinary Git repositories block files over 100 MB. Larger design assets may be better kept in shared storage and linked from a repository.
 
-The rise of large language models (LLMs) and AI-assisted coding makes this approach even more relevant. ChatGPT, Claude and other assistants can help develop and edit text or code, while Git lets you see what has changed, compare versions and keep control of the result. We will start by using the RC15 library, then create our own repository, and finally explore how the same workflow can be used away from a desktop computer.
-
-There is a natural fit between well-organised repositories and many LLM-assisted workflows. When an assistant has authorised access to a project's files, its folder structure, README and individual text documents give it useful context: it can find the relevant material, propose focused edits and compare revisions.
-
-GitHub can also do more than display code and Markdown. With [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages), a repository can publish a static website using HTML, CSS and JavaScript, or a site generated from Markdown. This offers more control over layout and presentation than GitHub's standard README view. Pages is designed for static sites rather than hosting a full server-side application, and publishing a site may make its contents public even when the source repository is private. For now, RC15 Resources uses its illustrated README as the library's entry point; a separate website is an option for the future.
+The [RC15 Resources library](https://github.com/PervasiveUrbanism/RC15-Resources) demonstrates how tutorials, images, code and supporting files can become a navigable collection. We will explore it, create a repository of our own, develop writing with AI and continue the same work on an iPhone.
 
 ### Learning outcomes
 
@@ -36,32 +31,46 @@ By the end, you should be able to explain what Git and GitHub do; clone and upda
 ### The three chapters
 
 1. [GitHub and the RC15 Resources library](#1-github-and-the-rc15-resources-library)
-2. [Your own repository: Markdown, Obsidian and AI](#2-your-own-repository-markdown-obsidian-and-ai)
+2. [Building your own knowledge library](#2-building-your-own-knowledge-library)
 3. [Writing and editing on an iPhone](#3-writing-and-editing-on-an-iphone)
 
 ---
 
 ## 1. GitHub and the RC15 Resources library
 
-### Git, GitHub and repositories
+### Explore the RC15 Resources repository
 
-**Git** runs on your computer and tracks versions of files. A **repository**, often shortened to *repo*, is a project folder whose history Git manages. **GitHub** can host a copy of that repository online, called the *remote*. Your computer holds a *local* copy. You do not need to be connected to the internet to write or make local commits.
+Open the [RC15 Resources repository](https://github.com/PervasiveUrbanism/RC15-Resources). You will find tutorials, code examples, images and supporting files, organised into folders. At the centre is a file called `README.md`, which GitHub automatically displays as a formatted page.
 
-A **commit** is a recorded snapshot of selected changes, accompanied by a short explanation. Unlike repeatedly saving files named `final-v2-revised.docx`, commits build a traceable history. A **branch** is an independent line of development; beginners can remain on the default branch, usually called `main`. A **pull request** proposes changes from one branch or fork for review before they are merged. You will not need to create one in the first exercise.
-
-Git works particularly well with text: it can show which lines were added, removed or rewritten. Images can be stored too, but Git cannot compare their contents line by line as it does with text.
+In RC15 Resources, this file acts as an illustrated table of contents. It introduces different subjects and links to individual tutorials. Each tutorial usually has its own `README.md`, together with images and other resources. A collection of ordinary files can therefore become a navigable library without needing to build a website.
 
 ![RC15 Resources repository on GitHub](images/01-rc15-github-home.png)
 
-*The RC15 GitHub page, with all repositories*
+*Explore the repository and its README, then open a tutorial folder.*
 
-### Explore the RC15 repository
+### What is Markdown?
 
-Open [RC15 Resources](https://github.com/PervasiveUrbanism/RC15-Resources). Its main `README.md` is the illustrated table of contents. Tutorials live inside topic folders, usually with their own `README.md`, images and example files.
+The `.md` extension stands for **Markdown**, a lightweight formatting language. Like HTML, it uses simple symbols to describe a document's structure, but it is much easier to read and write. For example:
 
-Explore one of the mapping tutorials. Notice how links between Markdown files form a navigable library without needing a separate website. GitHub renders Markdown into readable pages, but the underlying files are still ordinary text.
+```markdown
+# Urban Research
 
-A useful distinction: the annual RC15 Skills repository contains teaching work for a specific academic year, while **RC15 Resources** aims to remain useful across years.
+## Observations
+
+This is **important**.
+
+- Trees
+- Public spaces
+- Pedestrian routes
+
+[Visit RC15](https://github.com/PervasiveUrbanism/RC15-Resources)
+```
+
+GitHub renders that source as a document with headings, bold text, a list and a link. The `#` creates a heading, `**` makes text bold, and square brackets followed by a URL make a link. An image can be embedded with `![Description](images/example.jpg)`, where the path points to the image relative to the Markdown file.
+
+Unlike a Word document, a Markdown file remains ordinary text. You can open it in almost any text editor, and it does not depend on one application. The special name `README.md` is useful because GitHub automatically displays the file when someone visits its repository or folder.
+
+This simplicity makes Markdown useful with **large language models (LLMs)** such as ChatGPT or Claude. They can read headings, links and paragraphs, help rewrite sections and suggest changes without manipulating a complex document format. Markdown is not required by LLMs, which can use other formats too. Its particular advantage is that both humans and AI can work directly with the same readable source files.
 
 ### Install GitHub Desktop and clone the library
 
@@ -121,23 +130,25 @@ GitHub Desktop normally shows **Fetch origin**, **Pull origin** or **Push origin
 
 ### Read-only access, contributions and branches
 
-Cloning a repository does **not** give you permission to publish changes to it. You can read RC15 Resources and pull updates, but pushing changes to its shared remote requires write access. If you would like to suggest a change, discuss it with the teaching team. Depending on the contribution workflow, you may use a fork and pull request, or be invited to contribute on a separate branch. Do not experiment by committing directly to the shared `main` branch.
+Cloning a repository does **not** grant permission to publish changes to its original online copy. You can read RC15 Resources and pull updates, but pushing to the shared remote requires write access. A **branch** is an independent line of development; a **fork** is your own GitHub-hosted copy of another repository; and a **pull request** proposes changes for review. You do not need these for the first exercise.
 
-A **fork** is your own GitHub-hosted copy of another repository. A **branch** is a parallel line of work within a repository. A pull request presents proposed changes for comparison and review.
+### Exercise 1 — Explore RC15 Resources on your computer
 
-### Exercise 1 — Obtain and explore RC15 Resources
+Clone RC15 Resources using GitHub Desktop. Open a tutorial's `README.md` in a text editor and compare its raw Markdown with the formatted version on GitHub. Find a heading, a link and an image reference. Return to GitHub Desktop and select **Fetch origin**; use **Pull origin** if updates are available. There is no need to edit or commit anything.
 
-Clone RC15 Resources using GitHub Desktop. Open the folder in your file manager, locate a tutorial's `README.md` and open it in a text editor. Return to GitHub Desktop and locate the repository history. Try **Fetch origin** to check whether there are updates; use **Pull origin** if updates are available. You do not need to change or commit anything in the shared library.
+RC15 Skills repositories contain year-specific teaching material, whereas RC15 Resources is intended to remain useful across academic years.
 
-Also explore the [RC15 Skills repository for the current academic year](https://github.com/PervasiveUrbanism/PervasiveUrbanism_26-27). This contains teaching exercises and example files used during the course, whereas RC15 Resources collects tutorials and references intended to remain useful in future years. You can clone the Skills repository in exactly the same way to work with its examples.
-
-To practise making a commit safely, wait until Chapter 2 and use a repository you own. The outcome of this first exercise is understanding how a public or shared teaching resource becomes a usable local library.
+**Optional video resource:** [Git and GitHub video playlist](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV) — an additional explanation and demonstration; the written exercise is self-contained.
 
 ---
 
-## 2. Your own repository: Markdown, Obsidian and AI
 
-GitHub becomes much more interesting when the collection belongs to you. A private repository might hold research notebooks, architectural precedents, travel observations, reading notes, recipes or sketches for future projects. It can grow gradually without requiring you to choose one specialised app for all your material.
+
+## 2. Building your own knowledge library
+
+So far, we have used GitHub to explore and download an existing repository. But GitHub becomes more interesting when you create your own. A repository need not contain software: it could collect architectural precedents, research notes, design ideas, reading lists or travel observations. Over time these documents can develop into a personal knowledge library.
+
+Unlike a conventional folder of documents, a GitHub repository allows you to record how the work develops, compare earlier versions and collaborate with others. This is particularly useful when writing with AI.
 
 ### Create a personal private repository
 
@@ -220,17 +231,53 @@ You do not need a Git synchronisation plugin to start. Continue committing and p
 
 *How to open a folder as Obsidian Vault*
 
-### Working with ChatGPT or Claude
+### Writing with AI: from a short note to a book
 
-An AI assistant can help you research, outline a note, improve its clarity, reorganise sections or examine inconsistencies. There are **two distinct workflows** worth understanding.
+ChatGPT, Claude and other large language models can help develop ideas, organise research, draft paragraphs, review arguments and improve clarity. How you work with them should depend on the length and complexity of the document.
 
-**A. Conversational co-writing.** You paste a section into ChatGPT or Claude, explain the intended audience and ask for a revision. You review the response, then copy the text back into your Markdown file. This is simple and gives you direct control over each change. It can be used without granting the assistant access to your repository.
+For a short email or a few paragraphs, a conversation may be enough. A tutorial like this one benefits from planning. A research paper, dissertation or book requires a more structured approach.
 
-**B. Editing with access to repository files.** Some AI environments can access a repository through a connector or by working in a local project folder. You can then request changes across multiple Markdown files. The exact capabilities depend on the application, permissions and account configuration; ordinary chat by itself does not automatically have access to files on your computer. An AI may also need explicit permission before committing or pushing. Never assume an instruction to “update GitHub” has been carried out until you inspect the repository.
+One reason is that **LLMs have a limited context window**: the amount of information they can consider at once. As a conversation grows, earlier decisions may eventually fall outside that window or be summarised. The AI might then overlook a decision, repeat an argument or introduce inconsistencies. Even a long context window does not guarantee equal attention to every detail.
 
-For example, a useful request is:
+Markdown and GitHub offer a practical response. Instead of relying on a conversation to remember everything, record the structure, editorial decisions and text in files the AI can revisit.
 
-> Read `research/public-space.md`. Improve the structure for an architecture student, preserve my observations, distinguish evidence from interpretation, and propose changes rather than inventing new facts. Tell me exactly which files you changed.
+#### Establish editorial guidelines
+
+Before writing a substantial document, agree on its audience, writing style, terminology, technical depth and use of illustrations. An `EDITORIAL_GUIDELINES.md` file can record these decisions, along with principles such as avoiding repetition, distinguishing evidence from interpretation and explaining unfamiliar concepts.
+
+An authorised AI assistant can be asked to read these guidelines before drafting or revising. The file provides continuity, but does not replace editorial judgement.
+
+#### Develop the text in stages
+
+Consider writing an illustrated book about computational methods in architecture. Rather than asking an AI to write the entire book, develop it in five phases:
+
+| Phase | What happens | Example file |
+| --- | --- | --- |
+| **1. Concept and direction** | Define the purpose, audience, central argument and what belongs in the book. | `01_CONCEPT.md` |
+| **2. Content development** | Establish the table of contents and short key points for each chapter; identify gaps and overlaps. | `02_CONTENT.md` |
+| **3. Visual development** | Plan diagrams, screenshots and examples in a visual storyboard. | `03_VISUAL_STORYBOARD.md` |
+| **4. Detailed chapter planning** | Outline the purpose and supporting examples of each paragraph before drafting. | `04_CHAPTER_PLANS.md` |
+| **5. Writing and refinement** | Draft individual chapters in Markdown, verify examples and revise repeatedly. | `chapters/01-introduction.md` |
+
+The process is not entirely linear. Writing may reveal a gap in the concept or suggest a better illustration. You can return to an earlier phase, revise the corresponding file and continue.
+
+#### Revision is part of writing
+
+The first draft is rarely the final one. Review the argument, structure, clarity, examples, technical accuracy, illustrations and writing style. Some passages will need many iterations; others may need to be removed. There is no fixed number of revisions that guarantees a good result.
+
+Git lets you record substantial stages, compare versions and recover earlier material if an AI-assisted rewrite is unsuccessful. **Treat the files in the repository as the authoritative record of the project**, not the AI conversation history. Conversations help develop ideas; documents preserve the decisions and resulting work. AI can propose, question and revise, but you retain editorial responsibility.
+
+#### Conversational and repository-based editing
+
+There are two ways to use AI on these documents. With **conversational editing**, copy a section into ChatGPT or Claude, discuss improvements and paste the result back into your Markdown file. This works without giving the assistant access to your repository.
+
+With **repository-based editing**, an authorised AI environment can read and sometimes modify files through a connector or a local project folder. It can consult guidelines, inspect several chapters and propose coordinated changes. The precise capabilities and permissions vary; ordinary chat does not automatically have access to your local files.
+
+For example:
+
+> Read `EDITORIAL_GUIDELINES.md` and `research/public-space.md`. Improve the structure, preserve my observations, distinguish evidence from interpretation and tell me which files you changed. Do not commit or publish until I have reviewed the result.
+
+After any substantial revision, read the Markdown and inspect the Git diff. Check claims, links and citations; do not rely solely on the AI's summary of what it did.
 
 ### Instructions *inside* Markdown files
 
@@ -304,19 +351,11 @@ Try the reverse direction too: edit in Obsidian on your desktop, commit and push
 
 
 
-## Sustainable Git habits and iterative AI writing
+## Sustainable Git habits
 
-A reliable Git routine is straightforward: **pull before beginning on another device; work in your preferred editor; review changes; commit with a meaningful message; and push when you want the updated work available elsewhere.** For shared repositories, discuss substantial restructuring before making changes that affect other contributors.
+A reliable routine is to **pull before working on another device; edit; review changes; commit with a meaningful message; and push when you want the updated work available elsewhere**. Discuss substantial restructuring in shared repositories before changing files others rely on.
 
-Writing with an LLM is similarly incremental. The first generated version is rarely the best one. A more effective method is to work through many small decisions and revisions, checking the result at each stage rather than asking an assistant to produce a polished final text immediately.
-
-For example, begin by **discussing the purpose and audience** of a tutorial. What should the reader understand or be able to do? Once that is clear, agree on the **table of contents** and the sequence of ideas. Then develop an **outline for each chapter**, deciding where explanations, exercises and screenshots belong. Only after this structure has been tested should you begin writing the full text. Read it critically, improve examples, remove repetition and correct technical mistakes over several iterations.
-
-Git helps make that process visible. You can commit a first outline, then a developed chapter, then a set of editorial corrections. The history shows how the document evolved, and it offers a way to recover earlier wording if an AI-assisted rewrite moves in the wrong direction. An HTML comment inside a Markdown file can also leave a precise instruction for the next revision, provided the AI is actually given access to that comment.
-
-The aim is not to delegate authorship to a machine. It is to use conversation, drafting and version control to develop an argument while retaining editorial judgement. The same principle applies to coding: establish what the project is meant to achieve, divide the problem into manageable pieces, and test each change before moving on.
-
-The wider value of GitHub lies in that combination of **portable files, recorded revisions and deliberate collaboration**. You can use different editors and different devices without losing sight of the development of your work.
+Keep project decisions, Markdown documents and editorial guidelines in the repository, where they can be revisited over time. Git records how the work changes, while the files themselves preserve the argument and its supporting material.
 
 ## Further reading and official documentation
 
