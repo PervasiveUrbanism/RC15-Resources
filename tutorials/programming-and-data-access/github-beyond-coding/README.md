@@ -339,7 +339,11 @@ Small supporting images can live alongside your Markdown where useful, but Git r
 
 ### Two useful iPhone tips for AI-assisted writing
 
-**Apple Shortcuts.** The built-in [Shortcuts app](https://support.apple.com/guide/shortcuts/welcome/ios) can combine several actions into a reusable workflow. For example, you can make a shortcut that takes selected text from the Share menu, adds a standard prompt and copies the result to the clipboard for use in ChatGPT. Start with a simple text-handling shortcut before attempting to automate a more complicated writing process. Shortcuts does not replace Git or automatically synchronise your repository.
+**Apple Shortcuts for Working Copy.** The built-in [Shortcuts app](https://support.apple.com/guide/shortcuts/welcome/ios) can make synchronising a GitHub repository much quicker. Working Copy provides actions such as **Pull Repository** and **Push Repository**, which you can add to shortcuts and launch from your Home Screen without navigating through Working Copy each time.
+
+For example, create a shortcut called *Pull Research Notes*: open Shortcuts, tap **+**, search for Working Copy's **Pull Repository** action and select your repository. Create a second shortcut with **Push Repository** for uploading commits after editing. Push only sends commits that already exist; it does not automatically commit unsaved changes. For a combined workflow, Working Copy also offers synchronisation actions that can commit, pull and push, but review the changes before using automatic commits.
+
+See [Working Copy's Shortcuts documentation](https://workingcopy.app/manual/shortcuts/) for available actions and current options. Shortcuts make familiar Git operations faster; they do not eliminate merge conflicts or replace reviewing changes.
 
 **Keyboard Text Replacement.** When reviewing Markdown on a phone, repeatedly typing an editorial comment is awkward. iOS can expand a short abbreviation into a longer piece of text. Go to **Settings → General → Keyboard → Text Replacement**, tap **+**, and enter a phrase such as:
 
