@@ -140,10 +140,8 @@ The library is developed incrementally. The [editorial backlog and tutorial wish
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the folder conventions and tutorial checklist, and the [Editorial Guidelines](EDITORIAL_GUIDELINES.md) for writing, structure and review.
 
-## AI disclosure
+### AI disclosure
 
 AI tools have helped research, plan, draft and revise parts of this library, including its tutorials and code examples. The material is developed through discussion, repeated editorial revision and practical investigation rather than simply publishing generated output.
-
-AI assistance does not guarantee that information or code is correct. Examples and workflows should be checked in the relevant software, and individual tutorials indicate known limitations or verification status where relevant. Responsibility for the published material remains with the RC15 teaching team.
 
 The brain slug gets a small cameo for its part in the drafting. <img src=".github/brain-slug.svg" width="24" alt="Brain slug, a nod to AI assistance">
