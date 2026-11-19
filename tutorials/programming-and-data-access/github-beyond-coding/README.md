@@ -173,15 +173,9 @@ personal-library/
 
 Do not worry about finding the perfect structure. Start small and rearrange it when you understand how you use the collection. Keep filenames descriptive and use consistent naming. Photos and other binary files can make a repository grow quickly, so avoid importing an entire camera library.
 
-### Markdown: writing without committing to one application
+### Write your first Markdown note
 
-Markdown is a lightweight way to structure plain text. A few characters indicate a title, heading, list, link or image. GitHub, VS Code, iA Writer and Obsidian can all work with Markdown, although they may display it differently.
-
-The [GitHub Markdown formatting guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) is a useful reference for headings, emphasis, links, lists, tables and images.
-
-Markdown is no longer limited to specialist writing applications. [Google Docs also supports Markdown](https://support.google.com/docs/answer/12014036): it can recognise selected Markdown syntax, paste or copy content as Markdown, and import and export `.md` files. Google also documents [opening and editing Markdown files in Docs without converting their file type](https://support.google.com/docs/answer/18289341). Not every Google Docs feature has a Markdown equivalent, however, so check formatting when moving a document between applications.
-
-Create a file called `public-space.md` inside your new repository:
+Now put the formatting from Chapter 1 into practice. Create a file called `public-space.md` inside your own repository:
 
 ```markdown
 # Public Space Observations
@@ -201,13 +195,13 @@ A square near the station.
 ![Sketch of the square](images/square-sketch.jpg)
 ```
 
-The first line is a title, the second-level headings divide the text, dashes create a list, square brackets with a URL create a link, and an exclamation mark before a link displays an image. The image path is **relative to the Markdown file**: the example expects `images/square-sketch.jpg` next to `public-space.md` in an `images` subfolder.
+The example expects an image at `images/square-sketch.jpg`, relative to this Markdown file. You can leave out the image line until you have a suitable sketch.
 
-The special name `README.md` is useful because GitHub automatically shows it when you open the corresponding folder. You can create a small table of contents in your repository's main README and link to individual notes.
+The [GitHub Markdown guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) is a useful reference when you need other formatting. Markdown also works in editors beyond GitHub: for example, [Google Docs supports importing and exporting Markdown](https://support.google.com/docs/answer/12014036), although not every feature translates between formats.
 
 ![Markdown writing and preview](images/07.1-markdown-source-preview.png)
 
-
+*Compare the source of a short Markdown note with its formatted preview.*
 
 ### Make your first commit
 
@@ -342,6 +336,20 @@ Open a Markdown document in the linked vault and enable **Live Preview** if nece
 Return to Working Copy and inspect its changes. Commit with a descriptive message and **Push** to GitHub. Before starting a new editing session on the phone, **Pull** any changes made on another device. Obsidian does not itself push Git commits: Working Copy is responsible for that part of the workflow.
 
 Small supporting images can live alongside your Markdown where useful, but Git repositories are not intended to become large photograph archives.
+
+### Two useful iPhone tips for AI-assisted writing
+
+**Apple Shortcuts.** The built-in [Shortcuts app](https://support.apple.com/guide/shortcuts/welcome/ios) can combine several actions into a reusable workflow. For example, you can make a shortcut that takes selected text from the Share menu, adds a standard prompt and copies the result to the clipboard for use in ChatGPT. Start with a simple text-handling shortcut before attempting to automate a more complicated writing process. Shortcuts does not replace Git or automatically synchronise your repository.
+
+**Keyboard Text Replacement.** When reviewing Markdown on a phone, repeatedly typing an editorial comment is awkward. iOS can expand a short abbreviation into a longer piece of text. Go to **Settings → General → Keyboard → Text Replacement**, tap **+**, and enter a phrase such as:
+
+```text
+<!-- @ChatGPT: Review this paragraph for clarity. -->
+```
+
+Give it a short abbreviation, such as `;;ai`. When you type that abbreviation in a compatible text editor, the iPhone can offer to replace it with the complete comment. You can then edit the instruction to suit the passage.
+
+The `@ChatGPT:` label is only a convention for making editorial notes easy to recognise: it does not automatically contact ChatGPT. As with the HTML comments introduced in Chapter 2, an AI needs access to the Markdown source and an explicit request to act on the note. Text replacement behaviour may differ across editors, so try it first in your preferred app.
 
 ### Return to your computer
 
