@@ -10,7 +10,7 @@
 **Prerequisites:** Basic experience with files and folders; no programming or command-line knowledge required  
 **Teaching context:** RC15 – Pervasive Urbanism, Bartlett School of Architecture, UCL. Permanent resource, not tied to a particular teaching year  
 **Author:** RC15 Resources teaching team  
-**Verification:** Reviewed November 2026. The resource maintainer has used the desktop workflow in practice; the full cross-device sequence and version-specific app steps have not been independently retested.
+**Verification:** Reviewed November 2026. The desktop and Working Copy–Obsidian iPhone workflows have been tested in practice by the resource maintainer; app-specific menus may vary between versions.
 
 ## Introduction
 
@@ -20,33 +20,19 @@ Research and design projects involve collecting references, developing ideas, wr
 
 The tutorial is organised into three chapters:
 
-1. **GitHub and the RC15 Resources library** introduces Git, GitHub and repositories. We will explore how the RC15 library is organised, learn about Markdown files and use GitHub Desktop to download and update resources.
-2. **Building your own knowledge library** shows how to create a personal repository, write and organise Markdown documents, and use AI to develop longer texts through planning, drafting and repeated revision.
-3. **Writing and editing on an iPhone** extends the workflow to mobile devices using Obsidian, Working Copy and Apple Shortcuts, allowing us to develop ideas, edit documents and synchronise changes while away from our computers.
+1. **[GitHub and the RC15 Resources library](#1-github-and-the-rc15-resources-library)** introduces Git, GitHub and repositories. We will explore how the RC15 library is organised, learn about Markdown files and use GitHub Desktop to download and update resources.
+2. **[Building your own knowledge library](#2-building-your-own-knowledge-library)** shows how to create a personal repository, write and organise Markdown documents, and use AI to develop longer texts through planning, drafting and repeated revision.
+3. **[Writing and editing on an iPhone](#3-writing-and-editing-on-an-iphone)** extends the workflow to mobile devices using Obsidian, Working Copy and Apple Shortcuts, allowing us to develop ideas, edit documents and synchronise changes while away from our computers.
 
 No programming experience is required. The aim is to establish a flexible way of working in which our files remain accessible, our ideas can evolve and we retain control over the process, regardless of which applications or AI tools we use.
 
 ## Why use GitHub if you are not a programmer?
 
-GitHub is an online platform for storing, organising and collaboratively developing projects. Although originally designed for software development, it is equally useful for maintaining research, written documents, tutorials and collections of knowledge.
+A project on GitHub is called a **repository**. Think of it as a folder containing files and subfolders, but with an important additional feature: the history of changes can be recorded. You can see what has been modified, return to earlier versions and collaborate without constantly exchanging copies of documents.
 
-A project on GitHub is called a **repository**. Think of it as a folder containing files and subfolders, but with an important additional feature: the history of changes can be recorded. You can see what has been modified, return to earlier versions and collaborate without constantly exchanging new copies of documents.
+Behind GitHub is **Git**, the version-control system that records those changes. Git works locally on your computer, while GitHub provides the online platform for sharing and collaboration. **GitHub Desktop** is a graphical application for using Git without command-line instructions.
 
-Behind GitHub is **Git**, the version-control system that records those changes. Git can work independently on your computer; GitHub provides the online platform for sharing and collaborating on repositories. **GitHub Desktop** offers a graphical interface for Git without requiring command-line instructions.
-
-Git works particularly well with text-based files such as code, research notes and Markdown, because changes can be compared line by line. It is less suitable for large 3D models, videos or extensive collections of high-resolution images. Files over 50 MB trigger a warning on GitHub and ordinary Git repositories block files over 100 MB. Larger design assets may be better kept in shared storage and linked from a repository.
-
-The [RC15 Resources library](https://github.com/PervasiveUrbanism/RC15-Resources) demonstrates how tutorials, images, code and supporting files can become a navigable collection. We will explore it, create a repository of our own, develop writing with AI and continue the same work on an iPhone.
-
-### Learning outcomes
-
-By the end, you should be able to explain what Git and GitHub do; clone and update RC15 Resources with GitHub Desktop; recognise the difference between saving, committing, pushing and pulling; create Markdown notes and include images; establish your own private repository; explore Obsidian and AI-supported editing; and work with the same files on an iPhone.
-
-### The three chapters
-
-1. [GitHub and the RC15 Resources library](#1-github-and-the-rc15-resources-library)
-2. [Building your own knowledge library](#2-building-your-own-knowledge-library)
-3. [Writing and editing on an iPhone](#3-writing-and-editing-on-an-iphone)
+Git is particularly effective with text-based files such as code, research notes and Markdown, because it can compare changes line by line. It is less suitable for large 3D models, videos or extensive collections of high-resolution images. GitHub warns about files over 50 MB and blocks files over 100 MB in ordinary repositories. Larger design assets are often better kept in external storage and linked from a repository.
 
 ---
 
@@ -79,6 +65,10 @@ This is **important**.
 
 [Visit RC15](https://github.com/PervasiveUrbanism/RC15-Resources)
 ```
+
+![Markdown writing and preview](images/07.1-markdown-source-preview.png)
+
+*Compare the source of a short Markdown note with its formatted preview.*
 
 GitHub renders that source as a document with headings, bold text, a list and a link. The `#` creates a heading, `**` makes text bold, and square brackets followed by a URL make a link. An image can be embedded with `![Description](images/example.jpg)`, where the path points to the image relative to the Markdown file.
 
@@ -213,10 +203,6 @@ The example expects an image at `images/square-sketch.jpg`, relative to this Mar
 
 The [GitHub Markdown guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) is a useful reference when you need other formatting. Markdown also works in editors beyond GitHub: for example, [Google Docs supports importing and exporting Markdown](https://support.google.com/docs/answer/12014036), although not every feature translates between formats.
 
-![Markdown writing and preview](images/07.1-markdown-source-preview.png)
-
-*Compare the source of a short Markdown note with its formatted preview.*
-
 ### Make your first commit
 
 Edit your note, then return to GitHub Desktop. The **Changes** tab shows the files that changed; for text files, it highlights added and removed lines. Read the difference carefully. Enter a meaningful commit message, for example `Add initial public space observation`, then select **Commit to main**. This records the changes locally.
@@ -315,7 +301,7 @@ Crucially, an AI-generated revision is a proposal. Read the resulting Markdown a
 
 ![Reviewing AI-assisted Markdown changes](images/10-ai-markdown-diff-review.png)
 
-*This syntax ensures that it's not visible, but it's another way to leave more specific instructions to the LLM*
+*HTML comments remain visible in the Markdown source but are hidden in GitHub's rendered document.*
 
 ### Exercise 2 — Start a personal knowledge library
 
@@ -379,9 +365,7 @@ Try the reverse direction too: edit in Obsidian on your desktop, commit and push
 
 ## Sustainable Git habits
 
-A reliable routine is to **pull before working on another device; edit; review changes; commit with a meaningful message; and push when you want the updated work available elsewhere**. Discuss substantial restructuring in shared repositories before changing files others rely on.
-
-Keep project decisions, Markdown documents and editorial guidelines in the repository, where they can be revisited over time. Git records how the work changes, while the files themselves preserve the argument and its supporting material.
+When moving between devices, **pull, edit, review changes, commit and push**. Keep your documents and editorial decisions in the repository so they remain accessible for future revisions, including those made with AI.
 
 ## Further reading and official documentation
 
