@@ -15,18 +15,6 @@ You do **not** need to learn everything here. Choose what you would like to inve
 
 Not sure yet? **Start with a topic that interests you**, even if it uses software you have never opened. Each resource should tell you what it involves; more advanced examples can serve as inspiration before you are ready to build them.
 
-### What kind of resource am I opening?
-
-| Type | What to expect |
-| --- | --- |
-| **Guided tutorial** | Explanations and a practical sequence you can follow and adapt |
-| **Notebook** | Explanations and executable code, usually with data or visual outputs |
-| **Example project or patch** | Existing files to inspect and experiment with; may not include step-by-step teaching |
-| **Collection** | Several related examples; choose the one relevant to your question |
-| **Draft or testing pending** | Useful material still undergoing editorial review or technical verification |
-
-These descriptions indicate the **format**, not a guarantee of compatibility. Some older examples need particular software versions, dependencies or file paths. Check each resource's README before starting.
-
 ## Browse by topic
 
 The illustrated catalogue below remains the complete reference. Browse by subject if you already know what you need, or use the [software indexes](#browse-by-software) to find examples that use a particular application. Click a thumbnail or title to open a resource.
@@ -142,12 +130,20 @@ Use GitHub's **Code > Download ZIP**, or clone this repository, to obtain exampl
 
 Some series span multiple topics and tools; related topic pages link to them without duplicating files.
 
-## Maintaining the library
+## Small print
 
-See the [editorial backlog and tutorial wishlist](EDITORIAL_BACKLOG.md) for the review checklist, provisional effort assessments and planned improvements. This is a working document for developing the library one tutorial at a time.
+### Maintaining the library
 
-## Adding a resource
+The library is developed incrementally. The [editorial backlog and tutorial wishlist](EDITORIAL_BACKLOG.md) records planned improvements, review priorities and resources still awaiting verification.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the folder convention and tutorial checklist, and the [Editorial Guidelines](EDITORIAL_GUIDELINES.md) for writing, structure and review.
+### Adding a resource
 
-Much of the writing in this library was drafted with AI. The text has been rewritten, revised and cross-checked over several rounds, and every exercise has been tried by a person in the software or setting it was designed for. The brain slug gets a small cameo for its part in the drafting. <img src=".github/brain-slug.svg" width="24" alt="Brain slug, a nod to AI assistance">
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the folder conventions and tutorial checklist, and the [Editorial Guidelines](EDITORIAL_GUIDELINES.md) for writing, structure and review.
+
+## AI disclosure
+
+AI tools have helped research, plan, draft and revise parts of this library, including its tutorials and code examples. The material is developed through discussion, repeated editorial revision and practical investigation rather than simply publishing generated output.
+
+AI assistance does not guarantee that information or code is correct. Examples and workflows should be checked in the relevant software, and individual tutorials indicate known limitations or verification status where relevant. Responsibility for the published material remains with the RC15 teaching team.
+
+The brain slug gets a small cameo for its part in the drafting. <img src=".github/brain-slug.svg" width="24" alt="Brain slug, a nod to AI assistance">
