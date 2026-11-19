@@ -12,6 +12,20 @@
 **Author:** RC15 Resources teaching team  
 **Verification:** Reviewed November 2026. The resource maintainer has used the desktop workflow in practice; the full cross-device sequence and version-specific app steps have not been independently retested.
 
+## Introduction
+
+GitHub is the central repository for RC15 teaching resources, tutorials and code examples. This tutorial introduces the platform and provides the basic familiarity needed to access and use these materials. But GitHub can be useful for much more than programming.
+
+Research and design projects involve collecting references, developing ideas, writing documents and repeatedly revising our work. GitHub offers a way to organise these materials, record their development and collaborate with others. Combined with AI tools, it can also become a useful environment for developing written work, from short research notes to entire books.
+
+The tutorial is organised into three chapters:
+
+1. **GitHub and the RC15 Resources library** introduces Git, GitHub and repositories. We will explore how the RC15 library is organised, learn about Markdown files and use GitHub Desktop to download and update resources.
+2. **Building your own knowledge library** shows how to create a personal repository, write and organise Markdown documents, and use AI to develop longer texts through planning, drafting and repeated revision.
+3. **Writing and editing on an iPhone** extends the workflow to mobile devices using Obsidian, Working Copy and Apple Shortcuts, allowing us to develop ideas, edit documents and synchronise changes while away from our computers.
+
+No programming experience is required. The aim is to establish a flexible way of working in which our files remain accessible, our ideas can evolve and we retain control over the process, regardless of which applications or AI tools we use.
+
 ## Why use GitHub if you are not a programmer?
 
 GitHub is an online platform for storing, organising and collaboratively developing projects. Although originally designed for software development, it is equally useful for maintaining research, written documents, tutorials and collections of knowledge.
